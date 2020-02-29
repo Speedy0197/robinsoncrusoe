@@ -21,6 +21,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         }
 
         public override event EventHandler HealthLoss;
+        public override event EventHandler PreRaiseMoral;
+        public override event EventHandler RaiseMoral;
+        public override event EventHandler PreLowerMoral;
+        public override event EventHandler LowerMoral;
+        public override event EventHandler NoMoralChange;
 
         public override void AddNewWound(int x, int y)
         {
@@ -37,9 +42,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             return actualHealthPoints;
         }
 
-        public override void TakePointsOfDamage(int damage)
+        public override void TakePointsOfDamage(int damage, DamageType damageType)
         {
-            actualHealthPoints -= damage;
+            damage = Math.Abs(damage);
+            if (damageType == DamageType.Damage) actualHealthPoints -= damage;
+            else actualHealthPoints += damage;
+
             if(actualHealthPoints <= 0)
             {
                 throw new NotImplementedException();
@@ -48,7 +56,58 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             {
                 actualHealthPoints = maxHealthPoints;
             }
+
+            CheckForMoralChange(damageType);
+
             HealthLoss?.Invoke(this, new EventArgs());
+        }
+
+        private void CheckForMoralChange(DamageType type)
+        {
+            if(type == DamageType.Damage)
+            {
+                if (actualHealthPoints == 10 ||
+                    actualHealthPoints == 7 ||
+                    actualHealthPoints == 5 ||
+                    actualHealthPoints == 3)
+                {
+                    PreLowerMoral?.Invoke(null, new EventArgs());
+                    return;
+                }
+    
+                if (actualHealthPoints == 9 ||
+                    actualHealthPoints == 6 ||
+                    actualHealthPoints == 4 ||
+                    actualHealthPoints == 2)
+                {
+                    LowerMoral?.Invoke(null, new EventArgs());
+                    PreRaiseMoral?.Invoke(null, new EventArgs());
+                    return;
+                }
+                NoMoralChange?.Invoke(null, new EventArgs());
+            }
+            else
+            {
+                if (actualHealthPoints == 9 ||
+                    actualHealthPoints == 6 ||
+                    actualHealthPoints == 4 ||
+                    actualHealthPoints == 2)
+                {
+                    PreRaiseMoral?.Invoke(null, new EventArgs());
+                    return;
+                }
+
+                if (actualHealthPoints == 10 ||
+                    actualHealthPoints == 7 ||
+                    actualHealthPoints == 5 ||
+                    actualHealthPoints == 3)
+                {
+                    RaiseMoral?.Invoke(null, new EventArgs());
+                    PreLowerMoral?.Invoke(null, new EventArgs());
+                    return;
+                }
+                NoMoralChange?.Invoke(null, new EventArgs());
+            }
         }
 
         public override void UseAbility_1()

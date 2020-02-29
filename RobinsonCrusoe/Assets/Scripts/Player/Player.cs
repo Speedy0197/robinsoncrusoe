@@ -16,6 +16,8 @@ namespace Assets.Scripts.Player
         {
             playerNumber = 1;
             gameCharacter = new Cook();
+
+            RobinsonCrusoe_Game.GameAttributes.Moral.AddToMoralSystem(this);
         }
 
         public Character GetCharacter()

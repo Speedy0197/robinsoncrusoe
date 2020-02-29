@@ -16,7 +16,11 @@ public class DoDamage : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            PlayerHelper.Instance().GetCharacter().TakePointsOfDamage(1);
+            PlayerHelper.Instance().GetCharacter().TakePointsOfDamage(1, Assets.Scripts.RobinsonCrusoe_Game.Characters.DamageType.Damage);
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            PlayerHelper.Instance().GetCharacter().TakePointsOfDamage(-1, Assets.Scripts.RobinsonCrusoe_Game.Characters.DamageType.Heal);
         }
     }
 }
