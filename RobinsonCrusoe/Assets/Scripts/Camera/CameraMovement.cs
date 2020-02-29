@@ -5,14 +5,13 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    private float speed = 40;
+    private float speed = 70;
 
     // Update is called once per frame
     void Update()
     {
-        float verticalMovement = Input.GetAxis("Mouse ScrollWheel") * speed * Time.deltaTime;
-        if (transform.position.y < 10 || transform.position.y > 200) verticalMovement = 0;
+        float verticalMovement = Input.GetAxis("Vertical") * speed * Time.deltaTime;
 
-        transform.Translate(0, verticalMovement, 0);
+        transform.Translate(0, 0, verticalMovement);
     }
 }
