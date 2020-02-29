@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Generic;
 using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

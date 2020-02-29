@@ -16,12 +16,19 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             Character character = player.GetCharacter();
             character.LowerMoral += Character_LowerMoral;
             character.RaiseMoral += Character_RaiseMoral;
+
+            MoralStateChanged?.Invoke(currentMorale, new EventArgs());
         }
         public static MoralState GetStartState()
         {
             return MoralState.Neutral;
         }
         private static void Character_RaiseMoral(object sender, EventArgs e)
+        {
+            RaiseMoral();
+        }
+
+        public static void RaiseMoral()
         {
             MoralState newMoralState = MoralState.Neutral;
             if (currentMorale == MoralState.Demoralized) newMoralState = MoralState.Worse;
@@ -37,6 +44,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
         }
 
         private static void Character_LowerMoral(object sender, EventArgs e)
+        {
+            LowerMoral();
+        }
+
+        public static void LowerMoral()
         {
             MoralState newMoralState = MoralState.Neutral;
             if (currentMorale == MoralState.Best) newMoralState = MoralState.Better;

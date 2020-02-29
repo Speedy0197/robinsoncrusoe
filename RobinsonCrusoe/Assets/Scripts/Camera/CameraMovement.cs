@@ -11,7 +11,9 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         float verticalMovement = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float horizontalMovement = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float heightMovement = Input.GetAxis("Height") * speed * Time.deltaTime;
 
-        transform.Translate(0, 0, verticalMovement);
+        transform.Translate(horizontalMovement, verticalMovement, heightMovement);
     }
 }
