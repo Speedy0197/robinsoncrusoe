@@ -10,6 +10,7 @@ public class Debug_Buttons : MonoBehaviour
     private bool TestMoralMarkers;
     private bool TestRoofMarkers;
     private bool TestWallMarkers;
+    private bool TestWeaponMarkers;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class Debug_Buttons : MonoBehaviour
         TestMoralMarkers = true;
         TestRoofMarkers = true;
         TestWallMarkers = true;
+        TestWeaponMarkers = true;
     }
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class Debug_Buttons : MonoBehaviour
             if (TestMoralMarkers) Moral.RaiseMoral();
             if (TestRoofMarkers) Roof.UpgradeRoof();
             if (TestWallMarkers) Wall.UpgradeWall();
+            if (TestWeaponMarkers) WeaponPower.RaiseWeaponPower();
         }
 
         //Right
@@ -39,6 +42,7 @@ public class Debug_Buttons : MonoBehaviour
             if (TestMoralMarkers) Moral.LowerMoral();
             if (TestRoofMarkers) Roof.DowngradeRoof();
             if (TestWallMarkers) Wall.DowngradeWall();
+            if (TestWeaponMarkers) WeaponPower.LowerWeaponPower();
         }
     }
 }

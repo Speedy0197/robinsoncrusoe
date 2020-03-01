@@ -121,6 +121,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &9695179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9695180}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_6
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9695180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9695179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.654, y: 0, z: 1.361}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &10130276
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,9 +250,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 81859371}
-  - component: {fileID: 81859372}
   m_Layer: 0
-  m_Name: WallMarker_Position_Four
+  m_Name: WallMarker_Position_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,22 +269,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900573304}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &81859372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 81859370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2a475094b296aa4d8aeee5d41427108, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMarker: {fileID: 6620634667967721511, guid: 6c7f5dceae403674495aa24a7a662259,
-    type: 3}
 --- !u!1 &123711404
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +280,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 123711405}
-  - component: {fileID: 123711406}
   m_Layer: 0
   m_Name: MoveMaker_Position_minus3
   m_TagString: Untagged
@@ -287,20 +301,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &123711406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 123711404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6134377436b1de44b80edf7177998113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarker: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
 --- !u!1 &214321745
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,7 +310,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 214321746}
-  - component: {fileID: 214321747}
   m_Layer: 0
   m_Name: MoveMaker_Position_minus1
   m_TagString: Untagged
@@ -332,20 +331,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &214321747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214321745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17d46c7b0d1c2a44b927629bc8de5568, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarker: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
 --- !u!1 &271374253
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,9 +340,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 271374254}
-  - component: {fileID: 271374255}
   m_Layer: 0
-  m_Name: WallMarker_Position_Three
+  m_Name: WallMarker_Position_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -375,22 +359,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900573304}
-  m_RootOrder: 25
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &271374255
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 271374253}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a00705dc4e6236143ad54c535c68c06d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMarker: {fileID: 6620634667967721511, guid: 6c7f5dceae403674495aa24a7a662259,
-    type: 3}
 --- !u!1 &275690819
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,9 +447,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 283127071}
-  - component: {fileID: 283127072}
   m_Layer: 0
-  m_Name: RoofMarker_Position_Three
+  m_Name: RoofMarker_Position_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,20 +468,36 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &283127072
-MonoBehaviour:
+--- !u!1 &345398209
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 283127070}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3829bb4c282d23f44bb4092d931ef10b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roofMarker: {fileID: 4677510575552511589, guid: a484a7cabc343024ab76047a90aa9289,
-    type: 3}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 345398210}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &345398210
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 345398209}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.654, y: 0, z: 1.243}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &355294123
 GameObject:
   m_ObjectHideFlags: 0
@@ -690,6 +675,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &436169904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 436169905}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &436169905
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436169904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.663, y: 0, z: 1.021}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 37
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &463686198
 GameObject:
   m_ObjectHideFlags: 0
@@ -699,7 +714,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 463686199}
-  - component: {fileID: 463686200}
   m_Layer: 0
   m_Name: MoveMaker_Position_Neutral
   m_TagString: Untagged
@@ -721,20 +735,36 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &463686200
-MonoBehaviour:
+--- !u!1 &554574788
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463686198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fe879eb0bd44e34a94c773fbbf966a5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarker: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 554574789}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &554574789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 554574788}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.285, y: 0, z: 0.908}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &560986893
 GameObject:
   m_ObjectHideFlags: 0
@@ -744,7 +774,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 560986894}
-  - component: {fileID: 560986895}
   m_Layer: 0
   m_Name: MoveMaker_Position_plus2Heart
   m_TagString: Untagged
@@ -766,20 +795,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &560986895
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 560986893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2619ef2d494cde64eb2074f4f55cb4a6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarker: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
 --- !u!1 &572785438
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +804,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 572785439}
-  - component: {fileID: 572785440}
   m_Layer: 0
   m_Name: MoveMaker_Position_minus2
   m_TagString: Untagged
@@ -811,20 +825,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &572785440
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 572785438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc5333b6b249f7c409318009fc7dd530, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarker: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
 --- !u!1 &674578952
 GameObject:
   m_ObjectHideFlags: 0
@@ -911,9 +911,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 677687839}
-  - component: {fileID: 677687840}
   m_Layer: 0
-  m_Name: RoofMarker_Position_Two
+  m_Name: RoofMarker_Position_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -933,20 +932,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &677687840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 677687838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09775c455bb68d94bb6ebede76395912, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roofMarker: {fileID: 4677510575552511589, guid: a484a7cabc343024ab76047a90aa9289,
-    type: 3}
 --- !u!1 &678294751
 GameObject:
   m_ObjectHideFlags: 0
@@ -1114,6 +1099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallMarker: {fileID: 0}
+  instatiatedMarker: {fileID: 0}
+  isOccupied: 0
 --- !u!1 &694484215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1608,6 +1595,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &824190101
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 824190102}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &824190102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 824190101}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.679, y: 0, z: 0.889}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 38
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842716979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1685,6 +1702,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 842716979}
   m_CullTransparentMesh: 0
+--- !u!1 &885328920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885328921}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &885328921
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885328920}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.279, y: 0, z: 1.011}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 32
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &900573300
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,6 +1744,10 @@ GameObject:
   - component: {fileID: 900573303}
   - component: {fileID: 900573302}
   - component: {fileID: 900573301}
+  - component: {fileID: 900573308}
+  - component: {fileID: 900573307}
+  - component: {fileID: 900573306}
+  - component: {fileID: 900573305}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -1800,13 +1851,108 @@ Transform:
   - {fileID: 283127071}
   - {fileID: 1536998769}
   - {fileID: 1500847859}
+  - {fileID: 1655646735}
   - {fileID: 1643805915}
   - {fileID: 271374254}
   - {fileID: 81859371}
-  - {fileID: 1655646735}
+  - {fileID: 1758374282}
+  - {fileID: 1067312311}
+  - {fileID: 1872872812}
+  - {fileID: 1646678618}
+  - {fileID: 885328921}
+  - {fileID: 554574789}
+  - {fileID: 9695180}
+  - {fileID: 345398210}
+  - {fileID: 1431413257}
+  - {fileID: 436169905}
+  - {fileID: 824190102}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900573305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900573300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d718648fcb5dc854c94adacc9a83bd11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPowerMarkerObject: {fileID: 7783439088408286967, guid: 6d6099cdc279fe942be94b514f9aee80,
+    type: 3}
+  weaponPowerPosition_0: {fileID: 1758374281}
+  weaponPowerPosition_1: {fileID: 1067312310}
+  weaponPowerPosition_2: {fileID: 1872872811}
+  weaponPowerPosition_3: {fileID: 1646678617}
+  weaponPowerPosition_4: {fileID: 885328920}
+  weaponPowerPosition_5: {fileID: 554574788}
+  weaponPowerPosition_6: {fileID: 9695179}
+  weaponPowerPosition_7: {fileID: 345398209}
+  weaponPowerPosition_8: {fileID: 1431413256}
+  weaponPowerPosition_9: {fileID: 436169904}
+  weaponPowerPosition_10: {fileID: 824190101}
+--- !u!114 &900573306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900573300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 728ad7492ce03ad408ab150571be7cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallMarkerObject: {fileID: 6620634667967721511, guid: 6c7f5dceae403674495aa24a7a662259,
+    type: 3}
+  wallPosition_0: {fileID: 1500847858}
+  wallPosition_1: {fileID: 1655646734}
+  wallPosition_2: {fileID: 1643805914}
+  wallPosition_3: {fileID: 271374253}
+  wallPosition_4: {fileID: 81859370}
+--- !u!114 &900573307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900573300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1fda70298032fa4fa5aac9e11fe258e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roofMarkerObject: {fileID: 4677510575552511589, guid: a484a7cabc343024ab76047a90aa9289,
+    type: 3}
+  roofPosition_0: {fileID: 984593209}
+  roofPosition_1: {fileID: 1322695049}
+  roofPosition_2: {fileID: 677687838}
+  roofPosition_3: {fileID: 283127070}
+  roofPosition_4: {fileID: 1536998768}
+--- !u!114 &900573308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900573300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83467d0e8c22e96488257f2b9055de24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moralMarkerObject: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
+    type: 3}
+  markerPosition_m3: {fileID: 123711404}
+  markerPosition_m2: {fileID: 572785438}
+  markerPosition_m1: {fileID: 214321745}
+  markerPosition_0: {fileID: 463686198}
+  markerPosition_p1: {fileID: 1632614531}
+  markerPosition_p2: {fileID: 1374820311}
+  markerPosition_p2h: {fileID: 560986893}
 --- !u!1 &954077214
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,9 +2131,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 984593210}
-  - component: {fileID: 984593211}
   m_Layer: 0
-  m_Name: RoofMarker_Position_Zero
+  m_Name: RoofMarker_Position_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2007,20 +2152,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &984593211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 984593209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d2f27a51d80d7574880a2544f4f71503, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roofMarker: {fileID: 4677510575552511589, guid: a484a7cabc343024ab76047a90aa9289,
-    type: 3}
 --- !u!1 &1024271901
 GameObject:
   m_ObjectHideFlags: 0
@@ -2080,6 +2211,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 1, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1067312310
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1067312311}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1067312311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067312310}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.26, y: 0, z: 1.329}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1214823127
 GameObject:
   m_ObjectHideFlags: 0
@@ -2406,9 +2567,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1322695050}
-  - component: {fileID: 1322695051}
   m_Layer: 0
-  m_Name: RoofMarker_Position_One
+  m_Name: RoofMarker_Position_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2428,20 +2588,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1322695051
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322695049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59ed7a34847323343846ad428c69389c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roofMarker: {fileID: 4677510575552511589, guid: a484a7cabc343024ab76047a90aa9289,
-    type: 3}
 --- !u!1 &1374820311
 GameObject:
   m_ObjectHideFlags: 0
@@ -2451,7 +2597,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374820312}
-  - component: {fileID: 1374820313}
   m_Layer: 0
   m_Name: MoveMaker_Position_plus2
   m_TagString: Untagged
@@ -2473,20 +2618,36 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1374820313
-MonoBehaviour:
+--- !u!1 &1431413256
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374820311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20db51baa2090f04bafe8c70e701f0e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarker: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1431413257}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1431413257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1431413256}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.663, y: 0, z: 1.133}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1500847858
 GameObject:
   m_ObjectHideFlags: 0
@@ -2496,9 +2657,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1500847859}
-  - component: {fileID: 1500847860}
   m_Layer: 0
-  m_Name: WallMarker_Position_Zero
+  m_Name: WallMarker_Position_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2518,20 +2678,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1500847860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500847858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c8d8efea93797f4d837a06e160d3a93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMarker: {fileID: 6620634667967721511, guid: 6c7f5dceae403674495aa24a7a662259,
-    type: 3}
 --- !u!1 &1536998768
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,9 +2687,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1536998769}
-  - component: {fileID: 1536998770}
   m_Layer: 0
-  m_Name: RoofMarker_Position_Four
+  m_Name: RoofMarker_Position_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2563,20 +2708,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1536998770
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536998768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cc649a021f8d724ba4ec37fe16957f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roofMarker: {fileID: 4677510575552511589, guid: a484a7cabc343024ab76047a90aa9289,
-    type: 3}
 --- !u!1 &1615380227
 GameObject:
   m_ObjectHideFlags: 0
@@ -2704,7 +2835,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1632614532}
-  - component: {fileID: 1632614533}
   m_Layer: 0
   m_Name: MoveMaker_Position_plus1
   m_TagString: Untagged
@@ -2726,20 +2856,6 @@ Transform:
   m_Father: {fileID: 900573304}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1632614533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1632614531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60d9a013945118d41b4fb6eb1f7cf6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarker: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
 --- !u!1 &1643805914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2749,9 +2865,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1643805915}
-  - component: {fileID: 1643805916}
   m_Layer: 0
-  m_Name: WallMarker_Position_Two
+  m_Name: WallMarker_Position_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2769,22 +2884,38 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900573304}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1643805916
-MonoBehaviour:
+--- !u!1 &1646678617
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1643805914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 482f62aaf0e7b404a8196d6c143e090f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMarker: {fileID: 6620634667967721511, guid: 6c7f5dceae403674495aa24a7a662259,
-    type: 3}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1646678618}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1646678618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646678617}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.276, y: 0, z: 1.131}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1655646734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2794,9 +2925,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1655646735}
-  - component: {fileID: 1655646736}
   m_Layer: 0
-  m_Name: WallMarker_Position_One
+  m_Name: WallMarker_Position_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2814,22 +2944,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 900573304}
-  m_RootOrder: 27
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1655646736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655646734}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c52d6aeeec1ddc94996fe3aed9c5dc87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMarker: {fileID: 6620634667967721511, guid: 6c7f5dceae403674495aa24a7a662259,
-    type: 3}
 --- !u!1 &1671185686
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,6 +2976,36 @@ Transform:
   m_Father: {fileID: 1780138401}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1758374281
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1758374282}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1758374282
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1758374281}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.447, y: 0, z: 1.557}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780138397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,8 +3019,8 @@ GameObject:
   - component: {fileID: 1780138399}
   - component: {fileID: 1780138398}
   - component: {fileID: 1780138402}
-  - component: {fileID: 1780138403}
   - component: {fileID: 1780138404}
+  - component: {fileID: 1780138403}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3121,6 +3267,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803344943}
   m_CullTransparentMesh: 0
+--- !u!1 &1872872811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1872872812}
+  m_Layer: 0
+  m_Name: WeaponPowerMarker_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1872872812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872872811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.26, y: 0, z: 1.22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 900573304}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1969329346
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,8 @@ namespace Assets.Scripts.Player
 
             RobinsonCrusoe_Game.GameAttributes.Moral.AddToMoralSystem(this);
             RobinsonCrusoe_Game.GameAttributes.Roof.SetStartValue(0);
-            RobinsonCrusoe_Game.GameAttributes.Wall.SetStartState(1);
+            RobinsonCrusoe_Game.GameAttributes.Wall.SetStartState(0);
+            RobinsonCrusoe_Game.GameAttributes.WeaponPower.SetStartValue(0);
         }
 
         public Character GetCharacter()
