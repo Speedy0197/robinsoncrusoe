@@ -21,17 +21,17 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             WeaponPowerChanged(currentWeaponPower, new EventArgs());
         }
 
-        public static void RaiseWeaponPower()
+        public static void RaiseWeaponPowerBy(int value)
         {
-            currentWeaponPower += 1;
+            currentWeaponPower += value;
             if (currentWeaponPower > 10) currentWeaponPower = 10;
 
             WeaponPowerChanged?.Invoke(currentWeaponPower, new EventArgs());
         }
 
-        public static void LowerWeaponPower()
+        public static void LowerWeaponPowerBy(int value)
         {
-            currentWeaponPower -= 1;
+            currentWeaponPower -= value;
             if (currentWeaponPower < 0) currentWeaponPower = 0;
 
             WeaponPowerChanged?.Invoke(currentWeaponPower, new EventArgs());

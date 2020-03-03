@@ -20,16 +20,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             WallStateChanged?.Invoke(WallState, new EventArgs());
         }
 
-        public static void UpgradeWall()
+        public static void UpgradeWallBy(int value)
         {
-            WallState += 1;
+            WallState += value;
             if (WallState > 4) WallState = 4;
             WallStateChanged?.Invoke(WallState, new EventArgs());
         }
 
-        public static void DowngradeWall()
+        public static void DowngradeWallBy(int value)
         {
-            WallState -= 1;
+            WallState -= value;
             if (WallState < 0) WallState = 0;
             WallStateChanged?.Invoke(WallState, new EventArgs());
         }

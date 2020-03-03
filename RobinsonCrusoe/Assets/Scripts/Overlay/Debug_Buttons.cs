@@ -30,9 +30,9 @@ public class Debug_Buttons : MonoBehaviour
         {
             if (TestPlayerDmg) PlayerHelper.Instance().GetCharacter().TakePointsOfDamage(1, Assets.Scripts.RobinsonCrusoe_Game.Characters.DamageType.Damage);
             if (TestMoralMarkers) Moral.RaiseMoral();
-            if (TestRoofMarkers) Roof.UpgradeRoof();
-            if (TestWallMarkers) Wall.UpgradeWall();
-            if (TestWeaponMarkers) WeaponPower.RaiseWeaponPower();
+            if (TestRoofMarkers) Roof.UpgradeRoofBy(1);
+            if (TestWallMarkers) Wall.UpgradeWallBy(1);
+            if (TestWeaponMarkers) WeaponPower.RaiseWeaponPowerBy(1);
         }
 
         //Right
@@ -40,9 +40,9 @@ public class Debug_Buttons : MonoBehaviour
         {
             if (TestPlayerDmg) PlayerHelper.Instance().GetCharacter().TakePointsOfDamage(1, Assets.Scripts.RobinsonCrusoe_Game.Characters.DamageType.Heal);
             if (TestMoralMarkers) Moral.LowerMoral();
-            if (TestRoofMarkers) Roof.DowngradeRoof();
-            if (TestWallMarkers) Wall.DowngradeWall();
-            if (TestWeaponMarkers) WeaponPower.LowerWeaponPower();
+            if (TestRoofMarkers) Roof.DowngradeRoofBy(1);
+            if (TestWallMarkers) Wall.DowngradeWallBy(1);
+            if (TestWeaponMarkers) WeaponPower.LowerWeaponPowerBy(1);
         }
     }
 }

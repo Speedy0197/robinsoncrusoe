@@ -19,15 +19,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             RoofChanged?.Invoke(RoofState, new EventArgs());
         }
 
-        public static void UpgradeRoof()
+        public static void UpgradeRoofBy(int value)
         {
-            RoofState += 1;
+            RoofState += value;
             if (RoofState > 4) RoofState = 4;
             RoofChanged?.Invoke(RoofState, new EventArgs());
         }
-        public static void DowngradeRoof()
+        public static void DowngradeRoofBy(int value)
         {
-            RoofState -= 1;
+            RoofState -= value;
             if (RoofState < 0) RoofState = 0;
             RoofChanged?.Invoke(RoofState, new EventArgs());
         }
