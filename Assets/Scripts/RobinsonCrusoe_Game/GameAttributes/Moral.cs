@@ -28,6 +28,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             RaiseMoral();
         }
 
+        public static MoralState GetCurrentMoralState()
+        {
+            return currentMorale;
+        }
+
         public static void RaiseMoral()
         {
             MoralState newMoralState = MoralState.Neutral;

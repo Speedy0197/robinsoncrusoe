@@ -16,6 +16,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public abstract void UseAbility_3();
         public abstract void UseAbility_4();
         public abstract void AddNewWound(int x, int y); //Change Method Signature
+        public abstract void ChangeMoralTokenValueBy(int value);
+
         public abstract event EventHandler HealthLoss;
         public abstract event EventHandler PreRaiseMoral;
         public abstract event EventHandler RaiseMoral;

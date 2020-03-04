@@ -11,6 +11,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         private int actualHealthPoints;
         private int maxHealthPoints;
         private string characterName;
+        private int moralTokens;
         private int[,] wounds; //Change Datatype
 
         public Cook()
@@ -18,6 +19,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             characterName = "Cook";
             maxHealthPoints = 12;
             actualHealthPoints = 12;
+            moralTokens = 0;
         }
 
         public override event EventHandler HealthLoss;
@@ -128,6 +130,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public override void UseAbility_4()
         {
             throw new NotImplementedException();
+        }
+
+        public override void ChangeMoralTokenValueBy(int value)
+        {
+            moralTokens = moralTokens + value;
+            while(moralTokens < 0)
+            {
+                moralTokens++;
+                TakePointsOfDamage(1, DamageType.Damage);
+            }
         }
     }
 }
