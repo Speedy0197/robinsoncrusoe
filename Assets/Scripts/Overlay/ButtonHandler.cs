@@ -1,17 +1,17 @@
 ﻿using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ButtonHandler : MonoBehaviour
 {
-    public bool btn_ChangeStageclicked = false;
+    public static event EventHandler Btn_ChangeStageClicked;
 
     public void Btn_ChangeStageOnClick()
     {
-       btn_ChangeStageclicked = true;
+        Btn_ChangeStageClicked?.Invoke(this,new EventArgs());
     }
 
 }

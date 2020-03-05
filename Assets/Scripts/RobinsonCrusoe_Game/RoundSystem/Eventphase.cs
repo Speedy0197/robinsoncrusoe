@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
@@ -21,7 +22,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public void ProcessStage()
         {
-            throw new NotImplementedException();
+            GameObject card;
+
+
             //Draw eventcard
 
             //Activate its imediate effect

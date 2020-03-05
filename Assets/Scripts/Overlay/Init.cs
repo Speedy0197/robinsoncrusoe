@@ -21,8 +21,8 @@ public class Init : MonoBehaviour
         string filePath = "Assets/Materials/" + character.GetCharacterName() + ".png";
         characterImageContainer.texture = ImageLoader.LoadPNG(filePath);
 
-        RoundSystem roundSystem = new RoundSystem();
-    }
+        RoundSystem.init();
+            }
 
     // Update is called once per frame
     void Update()

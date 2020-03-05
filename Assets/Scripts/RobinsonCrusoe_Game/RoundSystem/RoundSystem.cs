@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
-    public class RoundSystem
+    public static class RoundSystem
     {
-        private int gameRound;
-        private int playerNumber;
-        private int maxGameRound;
+        private static int gameRound;
+        private static int playerNumber;
+        private static int maxGameRound;
 
-        public RoundSystem() 
+        public static void init() 
         {
             //init
             gameRound = 1;
@@ -32,27 +33,39 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             lastRound();
         }
 
-        private void firstRound()
+        private static void firstRound()
         {
             //TO-DO Lots
             increaseRound(gameRound);
         }
 
-        private void normalRound()
+        private static void normalRound()
         {
             //TO-DO Lots More
             increaseRound(gameRound);
         }
 
-        private void lastRound()
+        private static void lastRound()
         {
             //TO-DO if not successful -> DEFEAT
         }
 
-        private void increaseRound(int i)
+        private static void increaseRound(int i)
         {
             i += 1;
         }
 
-    }   
+    }
+
+    public class ButtonHandler : MonoBehaviour
+    {
+        public static event EventHandler Btn_ChangeStageOnClicked;
+        public void Btn_ChangeStageOnClick()
+        {
+            Btn_ChangeStageOnClicked?.Invoke(this, new EventArgs());
+        }
+ 
+
+    }
+
 }
