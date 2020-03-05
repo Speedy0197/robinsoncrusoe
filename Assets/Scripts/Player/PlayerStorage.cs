@@ -35,5 +35,15 @@ namespace Assets.Scripts.Player
         {
             return allPlayers[activePlayer];
         }
+
+        public static int GetAmountOfPlayers()
+        {
+            int players = 0;
+            foreach(Player p in allPlayers)
+            {
+                if (p != null) players++;
+            }
+            return players;
+        }
     }
 }

@@ -8,8 +8,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
     public interface IStage
     {
-        public void InitStage();
-        public void ProcessStage();
-        public void EndStage();
+        void InitStage();
+        void ProcessStage();
+        void EndStage();
     }
 }

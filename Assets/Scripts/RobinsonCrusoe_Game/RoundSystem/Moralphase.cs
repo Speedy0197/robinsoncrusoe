@@ -12,6 +12,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
     {
         public void EndStage()
         {
+            throw new NotImplementedException();
             //Change to next stage
         }
 
@@ -36,6 +37,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             if (state == MoralState.Best)
             {
                 //TODO: handle choice between +2 and +heart
+                throw new NotImplementedException();
             }
             else
             {
