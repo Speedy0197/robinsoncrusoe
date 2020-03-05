@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,20 +12,27 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
     public static class RoundSystem
     {
         private static int gameRound;
-        private static int playerNumber;
+        public static int maxPlayerNumber;
         private static int maxGameRound;
 
         public static void init() 
         {
             //init
             gameRound = 1;
-            playerNumber = 1;
+            maxPlayerNumber = 1;
             maxGameRound = 12;
             RobinsonCrusoe_Game.GameAttributes.Roof.SetStartValue(0);
             RobinsonCrusoe_Game.GameAttributes.Wall.SetStartState(0);
             RobinsonCrusoe_Game.GameAttributes.WeaponPower.SetStartValue(0);
             RobinsonCrusoe_Game.GameAttributes.Phases.SetStartValue();
-            firstRound();
+
+            Moralphase moralphase = new Moralphase();
+            Productionphase productionphase = new Productionphase();
+            
+
+
+            firstRound(moralphase, productionphase);
+
 
             for (int i = 1; i < maxGameRound-1; i++)
             {
@@ -33,9 +42,20 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             lastRound();
         }
 
-        private static void firstRound()
+        private static void firstRound(Moralphase moralphase, Productionphase productionphase)
         {
-            //TO-DO Lots
+            //Skip EventPhase in first round
+            Phases.NextPhase();
+
+            moralphase.InitStage();
+            moralphase.ProcessStage();
+            moralphase.EndStage();
+
+            productionphase.InitStage();
+            productionphase.ProcessStage();
+            
+
+
             increaseRound(gameRound);
         }
 

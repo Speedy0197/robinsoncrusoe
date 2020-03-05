@@ -76,5 +76,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
                 }
             }
         }
+
+        public void increaseFood()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

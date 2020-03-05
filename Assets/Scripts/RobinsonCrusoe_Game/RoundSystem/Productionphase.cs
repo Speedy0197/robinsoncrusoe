@@ -1,18 +1,18 @@
-﻿using System;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using UnityEngine;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
-    public class Eventphase : IStage
+    class Productionphase: IStage
     {
         public void EndStage()
         {
             throw new NotImplementedException();
-            //Change Stage
+            //Skip to next phase
         }
 
         public void InitStage()
@@ -22,11 +22,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public void ProcessStage()
         {
-            //Draw eventcard
+            //Get Position of Tent //Mock
+            int postion = 0;
 
-            //Activate its imediate effect
-
-            //Push nearest danger card from stack and execute its effect
+            if (postion == 0)
+            {
+                FoodStorage.Instance.increaseFood();
+            }
         }
     }
 }

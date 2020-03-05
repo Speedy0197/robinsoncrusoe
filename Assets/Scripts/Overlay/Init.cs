@@ -22,7 +22,7 @@ public class Init : MonoBehaviour
         characterImageContainer.texture = ImageLoader.LoadPNG(filePath);
 
         RoundSystem.init();
-            }
+    }
 
     // Update is called once per frame
     void Update()

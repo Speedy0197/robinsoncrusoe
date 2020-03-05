@@ -34,6 +34,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         public void ProcessStage()
         {
             var state = Moral.GetCurrentMoralState();
+
+            if (RoundSystem.maxPlayerNumber == 1)
+            {
+                Moral.RaiseMoral();
+            }
+
             if (state == MoralState.Best)
             {
                 //TODO: handle choice between +2 and +heart
