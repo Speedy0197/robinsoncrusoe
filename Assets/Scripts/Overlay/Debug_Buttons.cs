@@ -16,10 +16,10 @@ public class Debug_Buttons : MonoBehaviour
     void Start()
     {
         TestPlayerDmg = false;
-        TestMoralMarkers = true;
-        TestRoofMarkers = true;
-        TestWallMarkers = true;
-        TestWeaponMarkers = true;
+        TestMoralMarkers = false;
+        TestRoofMarkers = false;
+        TestWallMarkers = false;
+        TestWeaponMarkers = false;
     }
 
     // Update is called once per frame
