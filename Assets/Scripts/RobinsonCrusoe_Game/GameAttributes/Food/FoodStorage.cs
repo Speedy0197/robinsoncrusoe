@@ -54,5 +54,27 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
             amountOfAllFood = amountOfPerishableFood + amountOfUnperishableFood;
             TotalAmountOfFoodChanged?.Invoke(amountOfAllFood, new EventArgs());
         }
+
+        public void ConsumeFood(int amount)
+        {
+            while(amount > 0)
+            {
+                if(amountOfPerishableFood > 0)
+                {
+                    PerishableFood.DecreasePerishableFoodBy(1);
+                    amount--;
+                }
+                else if(amountOfUnperishableFood > 0)
+                {
+                    UnperishableFood.DecreasePerishableFoodBy(1);
+                    amount--;
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                    //Select player that doesnt eat and takes damage.
+                }
+            }
+        }
     }
 }

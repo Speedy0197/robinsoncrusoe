@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
-    public class NightStage : IStage
+    public class Actionphase : IStage
     {
+
         public void EndStage()
         {
             throw new NotImplementedException();
-            //Change to next stage
+            //Skip to next phase
         }
 
         public void InitStage()
@@ -21,8 +22,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public void ProcessStage()
         {
-            var numberOfPlayers = Player.PlayerStorage.GetAmountOfPlayers();
-            
+            throw new NotImplementedException();
         }
     }
 }
