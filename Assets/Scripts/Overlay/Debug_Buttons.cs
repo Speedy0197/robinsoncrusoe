@@ -11,7 +11,7 @@ public class Debug_Buttons : MonoBehaviour
     private bool TestRoofMarkers;
     private bool TestWallMarkers;
     private bool TestWeaponMarkers;
-    private bool TestCardDrawing;
+    private bool TestEventCardDraw;
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +21,7 @@ public class Debug_Buttons : MonoBehaviour
         TestRoofMarkers = false;
         TestWallMarkers = false;
         TestWeaponMarkers = false;
-        TestCardDrawing = true;
-
-        Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.EventCard_Stack.Init();
+        TestEventCardDraw = true;
     }
 
     // Update is called once per frame
@@ -37,7 +35,7 @@ public class Debug_Buttons : MonoBehaviour
             if (TestRoofMarkers) Roof.UpgradeRoofBy(1);
             if (TestWallMarkers) Wall.UpgradeWallBy(1);
             if (TestWeaponMarkers) WeaponPower.RaiseWeaponPowerBy(1);
-            if (TestCardDrawing) Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.EventCard_Stack.Draw();
+            if (TestEventCardDraw) EventCard_Deck.RequestDraw();
         }
 
         //Right

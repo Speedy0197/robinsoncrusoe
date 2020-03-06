@@ -23,7 +23,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         public void ProcessStage()
         {
             //Draw eventcard
-            Cards.EventCards.EventCard_Stack.Draw();
 
             //Activate its imediate effect
 

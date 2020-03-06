@@ -32,10 +32,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
             }
         }
 
-        public Material GetMaterial()
+        public int GetMaterialNumber()
         {
-            var material = Resources.Load("Assets/Materials/Materials/EventCard_WinterDepression", typeof(Material)) as Material;
-            return material;
+            return 4;
         }
 
         public QuestionMark GetQuestionMark()
@@ -51,6 +50,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
         public void RemoveCard()
         {
             throw new NotImplementedException();
+        }
+        public override string ToString()
+        {
+            return "WinterDepression;" + GetMaterialNumber().ToString();
         }
     }
 }

@@ -19,7 +19,7 @@ public class Init : MonoBehaviour
         PlayerStorage.AddPlayer(PlayerHelper.Instance());
 
         characterImageContainer.color = new Color(255, 255, 255, 255);
-        string filePath = "Assets/Materials/" + character.GetCharacterName() + ".png";
+        string filePath = "Assets/Images/" + character.GetCharacterName() + ".png";
         characterImageContainer.texture = ImageLoader.LoadPNG(filePath);
 
         RoundSystem.init();
