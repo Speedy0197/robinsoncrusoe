@@ -13,6 +13,7 @@ public class EventCard_Deck : MonoBehaviour
     private static event EventHandler DrawRequest;
 
     private List<IEventCard> EventDeck;
+    private IEventCard lastDrawnCard;
 
     // Start is called before the first frame update
     void Start()
@@ -42,9 +43,15 @@ public class EventCard_Deck : MonoBehaviour
     {
         //TODO: delete old cards;
         var card = EventDeck[0];
+        lastDrawnCard = card;
 
         GameObject newCard = Instantiate(cardPrefab, transform);
         newCard.name = card.ToString();
+    }
+
+    public IEventCard GetDrawnEventClass()
+    {
+        return lastDrawnCard;
     }
 
     public Material GetMaterialFromName(string name)

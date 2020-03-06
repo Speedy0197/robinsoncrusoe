@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class UpdateEventCard_Material : MonoBehaviour
 
     private EventCard_Deck deck;
     private MeshRenderer meshRenderer;
+    private IEventCard cardClass;
 
     //TODO: is it necessary to provide the option to change the viewpoint of the card?
     bool isVisible = false;
@@ -17,7 +19,10 @@ public class UpdateEventCard_Material : MonoBehaviour
     void Start()
     {
         deck = FindObjectOfType<EventCard_Deck>();
+
         cardFront = deck.GetMaterialFromName(name);
+        cardClass = deck.GetDrawnEventClass();
+
         meshRenderer = GetComponent<MeshRenderer>();
 
         isVisible = true;
@@ -34,5 +39,11 @@ public class UpdateEventCard_Material : MonoBehaviour
         {
             meshRenderer.material = cardBack;
         }
+    }
+
+    private void OnMouseDown()
+    {
+        cardClass.ExecuteActiveThreat();
+        Destroy(this);
     }
 }
