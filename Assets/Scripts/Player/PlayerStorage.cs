@@ -8,7 +8,7 @@ namespace Assets.Scripts.Player
 {
     public static class PlayerStorage
     {
-        private static Player[] allPlayers = new Player[4] { null, null, null, null };
+        public static Player[] allPlayers = new Player[4] { null, null, null, null };
         private static int activePlayer = 0;
 
         public static void AddPlayer(Player player)
