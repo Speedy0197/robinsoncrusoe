@@ -11,16 +11,26 @@ public class EventCard_Deck : MonoBehaviour
     public Material[] CardFaces;
 
     private static event EventHandler DrawRequest;
+    private static event EventHandler PutRequest;
 
     private List<IEventCard> EventDeck;
     private IEventCard lastDrawnCard;
+    private GameObject lastIntantiatedCard;
 
     // Start is called before the first frame update
     void Start()
     {
         DrawRequest += OnDrawRequest;
+        PutRequest += OnPutRequest;
 
         PlayCards();
+    }
+
+    private void OnPutRequest(object sender, EventArgs e)
+    {
+        var card = sender as IEventCard;
+        EventDeck.Add(card);
+        DeckActions.Shuffle(EventDeck);
     }
 
     private void OnDrawRequest(object sender, EventArgs e)
@@ -41,17 +51,23 @@ public class EventCard_Deck : MonoBehaviour
 
     void Draw()
     {
-        //TODO: delete old cards;
         var card = EventDeck[0];
         lastDrawnCard = card;
+        EventDeck.RemoveAt(0);
 
         GameObject newCard = Instantiate(cardPrefab, transform);
         newCard.name = card.ToString();
+        lastIntantiatedCard = newCard;
     }
 
     public IEventCard GetDrawnEventClass()
     {
         return lastDrawnCard;
+    }
+
+    public GameObject GetInstantiatedEventClass()
+    {
+        return lastIntantiatedCard;
     }
 
     public Material GetMaterialFromName(string name)
@@ -77,5 +93,10 @@ public class EventCard_Deck : MonoBehaviour
     public static void RequestDraw()
     {
         DrawRequest?.Invoke(null, new EventArgs());
+    }
+
+    public static void RequestPut(IEventCard card)
+    {
+        PutRequest?.Invoke(card, new EventArgs());
     }
 }

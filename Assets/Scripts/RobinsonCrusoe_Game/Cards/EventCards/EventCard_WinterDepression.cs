@@ -47,10 +47,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
             return false;
         }
 
-        public void RemoveCard()
-        {
-            throw new NotImplementedException();
-        }
         public override string ToString()
         {
             return "WinterDepression;" + GetMaterialNumber().ToString();

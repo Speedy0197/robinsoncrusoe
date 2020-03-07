@@ -15,9 +15,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
         void ExecuteActiveThreat();
         void ExecuteFutureThreat();
         void ExecuteCompletionEvent();
-        void RemoveCard();
-        //void SpawnCard(GameObject cardObject, Transform placeToSpawn);
-                   
     }
 }
 
