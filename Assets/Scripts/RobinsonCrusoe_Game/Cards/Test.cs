@@ -12,7 +12,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards
     {
         public GameObject CardObject;
 
-        public GameObject CardPosition_0;
         private GameObject instatiatedCard;
 
         void Start()
@@ -22,7 +21,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards
 
         private void Btn_ChangeStageClicked(object sender, System.EventArgs e)
         {
-            instatiatedCard = Instantiate(CardObject, CardPosition_0.transform);
             ButtonHandler.Btn_ChangeStageClicked -= Btn_ChangeStageClicked;
             ButtonHandler.Btn_ChangeStageClicked += Continue;
         }

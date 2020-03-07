@@ -1,35 +1,33 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards;
-using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
-using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventCard_Deck : MonoBehaviour
+public class ExploringCard_Deck : MonoBehaviour
 {
     public GameObject cardPrefab;
     public Material[] CardFaces;
 
     private static event EventHandler DrawRequest;
-    private static event EventHandler PutRequest;
 
-    private List<IEventCard> EventDeck;
-    private IEventCard lastDrawnCard;
+    private List<IExploringCard> EventDeck;
+    private IExploringCard lastDrawnCard;
     private GameObject lastIntantiatedCard;
 
     // Start is called before the first frame update
     void Start()
     {
         DrawRequest += OnDrawRequest;
-        PutRequest += OnPutRequest;
 
         PlayCards();
     }
 
     private void OnPutRequest(object sender, EventArgs e)
     {
-        var card = sender as IEventCard;
+        var card = sender as IExploringCard;
         EventDeck.Add(card);
         DeckActions.Shuffle(EventDeck);
     }
@@ -44,7 +42,7 @@ public class EventCard_Deck : MonoBehaviour
         EventDeck = GenerateNewDeck();
         DeckActions.Shuffle(EventDeck);
 
-        foreach(var card in EventDeck)
+        foreach (var card in EventDeck)
         {
             Debug.Log(card);
         }
@@ -61,7 +59,7 @@ public class EventCard_Deck : MonoBehaviour
         lastIntantiatedCard = newCard;
     }
 
-    public IEventCard GetDrawnEventClass()
+    public IExploringCard GetDrawnEventClass()
     {
         return lastDrawnCard;
     }
@@ -79,25 +77,18 @@ public class EventCard_Deck : MonoBehaviour
         return CardFaces[id];
     }
 
-    public static List<IEventCard> GenerateNewDeck()
+    public static List<IExploringCard> GenerateNewDeck()
     {
-        List<IEventCard> newDeck = new List<IEventCard>();
-        
+        List<IExploringCard> newDeck = new List<IExploringCard>();
+
         //TODO: Change the following to include mutliple cards
-        for(int i = 0; i < 12; i++)
-        {
-            newDeck.Add(new EventCard_WinterDepression());
-        }
+        newDeck.Add(new ExploringCard_Tiger());
+
         return newDeck;
     }
 
     public static void RequestDraw()
     {
         DrawRequest?.Invoke(null, new EventArgs());
-    }
-
-    public static void RequestPut(IEventCard card)
-    {
-        PutRequest?.Invoke(card, new EventArgs());
     }
 }

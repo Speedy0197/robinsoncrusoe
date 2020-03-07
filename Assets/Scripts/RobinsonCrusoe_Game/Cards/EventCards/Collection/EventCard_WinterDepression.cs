@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
+namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 {
     public class EventCard_WinterDepression : IEventCard
     {
@@ -49,7 +49,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
 
         public override string ToString()
         {
-            return "WinterDepression;" + GetMaterialNumber().ToString();
+            return "WinterDepression;" + GetMaterialNumber();
         }
     }
 }

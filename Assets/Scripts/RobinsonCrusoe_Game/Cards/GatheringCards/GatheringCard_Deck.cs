@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection;
 using System;
 using System.Collections;
 using System.Collections.Generic;

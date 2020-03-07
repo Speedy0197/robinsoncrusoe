@@ -46,7 +46,7 @@ public class Debug_Buttons : MonoBehaviour
             if (TestRoofMarkers) Roof.DowngradeRoofBy(1);
             if (TestWallMarkers) Wall.DowngradeWallBy(1);
             if (TestWeaponMarkers) WeaponPower.LowerWeaponPowerBy(1);
-            if (TestEventCardDraw) GatheringCard_Deck.RequestDraw();
+            if (TestEventCardDraw) ExploringCard_Deck.RequestDraw();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,6 +31,16 @@ public class UpdateEventCard_Material : MonoBehaviour
             var gatheringDeck = FindObjectOfType<GatheringCard_Deck>();
             cardFront = gatheringDeck.GetMaterialFromName(name);
         }
+        else if(cardClass is IBuildingCard)
+        {
+            var buildingDeck = FindObjectOfType<BuildingCard_Deck>();
+            cardFront = buildingDeck.GetMaterialFromName(name);
+        }
+        else if(cardClass is IExploringCard)
+        {
+            var buildingDeck = FindObjectOfType<ExploringCard_Deck>();
+            cardFront = buildingDeck.GetMaterialFromName(name);
+        }
         else
         {
             cardFront = deck.GetMaterialFromName(name);
@@ -44,6 +56,16 @@ public class UpdateEventCard_Material : MonoBehaviour
         ButtonHandler.Btn_ChangeStageClicked -= OnContinueButtonPressed;
 
         if(cardClass is IGatheringCard)
+        {
+            cardClass.ExecuteFutureThreat();
+            Destroy(instance);
+        }
+        else if(cardClass is IBuildingCard)
+        {
+            cardClass.ExecuteFutureThreat();
+            Destroy(instance);
+        }
+        else if(cardClass is IExploringCard)
         {
             cardClass.ExecuteFutureThreat();
             Destroy(instance);
