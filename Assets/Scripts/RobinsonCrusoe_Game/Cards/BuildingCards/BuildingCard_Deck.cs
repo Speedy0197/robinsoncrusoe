@@ -13,7 +13,7 @@ public class BuildingCard_Deck : MonoBehaviour
 
     private static event EventHandler DrawRequest;
 
-    private List<IBuildingCard> EventDeck;
+    private List<IBuildingCard> buildingDeck;
     private IBuildingCard lastDrawnCard;
     private GameObject lastIntantiatedCard;
 
@@ -28,8 +28,8 @@ public class BuildingCard_Deck : MonoBehaviour
     private void OnPutRequest(object sender, EventArgs e)
     {
         var card = sender as IBuildingCard;
-        EventDeck.Add(card);
-        DeckActions.Shuffle(EventDeck);
+        buildingDeck.Add(card);
+        DeckActions.Shuffle(buildingDeck);
     }
 
     private void OnDrawRequest(object sender, EventArgs e)
@@ -39,10 +39,10 @@ public class BuildingCard_Deck : MonoBehaviour
 
     void PlayCards()
     {
-        EventDeck = GenerateNewDeck();
-        DeckActions.Shuffle(EventDeck);
+        buildingDeck = GenerateNewDeck();
+        DeckActions.Shuffle(buildingDeck);
 
-        foreach (var card in EventDeck)
+        foreach (var card in buildingDeck)
         {
             Debug.Log(card);
         }
@@ -50,9 +50,9 @@ public class BuildingCard_Deck : MonoBehaviour
 
     void Draw()
     {
-        var card = EventDeck[0];
+        var card = buildingDeck[0];
         lastDrawnCard = card;
-        EventDeck.RemoveAt(0);
+        buildingDeck.RemoveAt(0);
 
         GameObject newCard = Instantiate(cardPrefab, transform);
         newCard.name = card.ToString();

@@ -35,7 +35,7 @@ public class Debug_Buttons : MonoBehaviour
             if (TestRoofMarkers) Roof.UpgradeRoofBy(1);
             if (TestWallMarkers) Wall.UpgradeWallBy(1);
             if (TestWeaponMarkers) WeaponPower.RaiseWeaponPowerBy(1);
-            if (TestEventCardDraw) EventCard_Deck.RequestDraw();
+            
         }
 
         //Right
@@ -46,7 +46,7 @@ public class Debug_Buttons : MonoBehaviour
             if (TestRoofMarkers) Roof.DowngradeRoofBy(1);
             if (TestWallMarkers) Wall.DowngradeWallBy(1);
             if (TestWeaponMarkers) WeaponPower.LowerWeaponPowerBy(1);
-            if (TestEventCardDraw) ExploringCard_Deck.RequestDraw();
+            if (TestEventCardDraw) EventCard_Deck.RequestDraw();
         }
     }
 }

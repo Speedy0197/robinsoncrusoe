@@ -14,6 +14,7 @@ public class UpdateEventCard_Material : MonoBehaviour
     private MeshRenderer meshRenderer;
     private IEventCard cardClass;
     private GameObject instance;
+    private int Position;
 
     //TODO: is it necessary to provide the option to change the viewpoint of the card?
     bool isVisible = false;
@@ -21,6 +22,8 @@ public class UpdateEventCard_Material : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Position = 0;
+
         meshRenderer = GetComponent<MeshRenderer>();
         var deck = FindObjectOfType<EventCard_Deck>();
         cardClass = deck.GetDrawnEventClass();
@@ -74,9 +77,14 @@ public class UpdateEventCard_Material : MonoBehaviour
         {
             cardClass.ExecuteActiveThreat();
 
-            //TODO: change this to move card
-            Destroy(instance);
+            Move_EventCard.MoveEvent += OnMoveEvent;
+            Move_EventCard.RequestMove();
         }
+    }
+
+    private void OnMoveEvent(object sender, System.EventArgs e)
+    {
+        Move();
     }
 
     // Update is called once per frame
@@ -89,6 +97,22 @@ public class UpdateEventCard_Material : MonoBehaviour
         else
         {
             meshRenderer.material = cardBack;
+        }
+    }
+
+    private void Move()
+    {
+        if (Position > 1)
+        {
+            cardClass.ExecuteFutureThreat();
+            Move_EventCard.MoveEvent -= OnMoveEvent;
+            Destroy(instance);
+        }
+        else
+        {
+            var cardMover = FindObjectOfType<Move_EventCard>();
+            cardMover.MoveCardOnPosition(instance, Position);
+            Position++;
         }
     }
 }

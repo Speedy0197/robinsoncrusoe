@@ -13,7 +13,7 @@ public class ExploringCard_Deck : MonoBehaviour
 
     private static event EventHandler DrawRequest;
 
-    private List<IExploringCard> EventDeck;
+    private List<IExploringCard> exploringDeck;
     private IExploringCard lastDrawnCard;
     private GameObject lastIntantiatedCard;
 
@@ -28,8 +28,8 @@ public class ExploringCard_Deck : MonoBehaviour
     private void OnPutRequest(object sender, EventArgs e)
     {
         var card = sender as IExploringCard;
-        EventDeck.Add(card);
-        DeckActions.Shuffle(EventDeck);
+        exploringDeck.Add(card);
+        DeckActions.Shuffle(exploringDeck);
     }
 
     private void OnDrawRequest(object sender, EventArgs e)
@@ -39,10 +39,10 @@ public class ExploringCard_Deck : MonoBehaviour
 
     void PlayCards()
     {
-        EventDeck = GenerateNewDeck();
-        DeckActions.Shuffle(EventDeck);
+        exploringDeck = GenerateNewDeck();
+        DeckActions.Shuffle(exploringDeck);
 
-        foreach (var card in EventDeck)
+        foreach (var card in exploringDeck)
         {
             Debug.Log(card);
         }
@@ -50,9 +50,9 @@ public class ExploringCard_Deck : MonoBehaviour
 
     void Draw()
     {
-        var card = EventDeck[0];
+        var card = exploringDeck[0];
         lastDrawnCard = card;
-        EventDeck.RemoveAt(0);
+        exploringDeck.RemoveAt(0);
 
         GameObject newCard = Instantiate(cardPrefab, transform);
         newCard.name = card.ToString();
