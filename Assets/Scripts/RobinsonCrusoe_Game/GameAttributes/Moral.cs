@@ -11,14 +11,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
     {
         public static event EventHandler MoralStateChanged;
         private static MoralState currentMorale = GetStartState();
-        public static void AddToMoralSystem(Player.Player player)
-        {
-            Character character = player.GetCharacter();
-            character.LowerMoral += Character_LowerMoral;
-            character.RaiseMoral += Character_RaiseMoral;
 
-            MoralStateChanged?.Invoke(currentMorale, new EventArgs());
-        }
         public static MoralState GetStartState()
         {
             return MoralState.Neutral;
