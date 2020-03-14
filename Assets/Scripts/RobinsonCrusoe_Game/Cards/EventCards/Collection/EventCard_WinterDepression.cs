@@ -32,6 +32,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
             }
         }
 
+        public string GetDescriptionText()
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetMaterialNumber()
         {
             return 4;

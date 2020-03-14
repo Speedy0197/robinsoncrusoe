@@ -25,6 +25,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
             throw new NotImplementedException();
         }
 
+        public string GetDescriptionText()
+        {
+            throw new NotImplementedException();
+        }
+
         public int GetMaterialNumber()
         {
             return 0;

@@ -15,6 +15,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
         void ExecuteActiveThreat();
         void ExecuteFutureThreat();
         void ExecuteCompletionEvent();
+        string GetDescriptionText();
     }
 }
 
