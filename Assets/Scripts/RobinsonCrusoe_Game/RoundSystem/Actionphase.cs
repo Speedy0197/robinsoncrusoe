@@ -3,26 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
     public class Actionphase : IStage
     {
+        public static event EventHandler InitActionPhase;
+        public static event EventHandler EndActionPhase;
+        
 
         public void EndStage()
         {
-            throw new NotImplementedException();
-            //Skip to next phase
+            EndActionPhase?.Invoke(this, new EventArgs());
         }
 
         public void InitStage()
         {
+            Action action = new Action();
+            InitActionPhase?.Invoke(action, new EventArgs());
             StageHandler.ChangeStage(this);
         }
 
         public void ProcessStage()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
