@@ -211,6 +211,8 @@ MonoBehaviour:
   numberOfPlayers: 1
   button: {fileID: 7181221616155345854}
   playerSelectionScreen: {fileID: 7181221616637766339}
+  characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
+    type: 3}
 --- !u!1 &7181221616292491056
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,6 +595,8 @@ MonoBehaviour:
   numberOfPlayers: 4
   button: {fileID: 7181221617091596369}
   playerSelectionScreen: {fileID: 7181221616637766339}
+  characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
+    type: 3}
 --- !u!1 &7181221617449962121
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +808,8 @@ MonoBehaviour:
   numberOfPlayers: 2
   button: {fileID: 7181221617471056186}
   playerSelectionScreen: {fileID: 7181221616637766339}
+  characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
+    type: 3}
 --- !u!1 &7181221617597572342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,3 +1156,5 @@ MonoBehaviour:
   numberOfPlayers: 3
   button: {fileID: 7181221617778628107}
   playerSelectionScreen: {fileID: 7181221616637766339}
+  characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
+    type: 3}

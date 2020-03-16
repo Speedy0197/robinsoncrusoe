@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using System.Collections.Generic;
 
+//Enums in eigenes .cs file 
 public enum Typ
 {
     cook, 
@@ -31,7 +32,7 @@ public class Action
     public GameObject ActionTest;
 
     public static event EventHandler ActionCreated;
-
+    //Hätte ich in den Character-Klassen gespeichert
     private float numberOfMovesCook;
     private float numberOfMovesFriday;
     private float numberOfMovesDog;
@@ -82,6 +83,7 @@ public class Action
     }
 }
 
+//Neues .cs file
 public class Position
 {
 

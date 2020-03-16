@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 6853226958490437701}
   - component: {fileID: 6853226958490437706}
   - component: {fileID: 8336240835324713073}
+  - component: {fileID: 5746994155929620397}
   m_Layer: 5
   m_Name: AbilityInfoScreen
   m_TagString: Untagged
@@ -465,3 +466,16 @@ MonoBehaviour:
   abilityName: {fileID: 6853226958205113478}
   abilityCosts: {fileID: 6853226958278244058}
   abilityInfoText: {fileID: 6853226957523432441}
+--- !u!114 &5746994155929620397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6853226958490437704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 460b234c82801404cb52858d4e27bda6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityInfoScreen: {fileID: 6853226958490437704}

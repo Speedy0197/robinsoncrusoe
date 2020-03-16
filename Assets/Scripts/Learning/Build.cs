@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Build : MonoBehaviour
 {
+    //Generell sehr kompliziert gecoded, muss angepasst werden wenn wir alle charactere + friday und dog haben wollen
+    //Morgen mal drüber reden damit ich genauer verstehe was deine Gedanken waren, dann kann ich dir helfen des ein bisschen Kompakter und allgemeiner zu machen
 
     public GameObject BuildPopup;
     public GameObject BuildTest;
@@ -42,7 +44,7 @@ public class Build : MonoBehaviour
         positions = action.GetPositions();
 
         if (CookSliderValue == 0)
-        {
+        {   //CookSlider als variable speichern -> schneller, übersichtlicher
             if (CookSlider.GetComponent<Slider>().value != 0 && CookSlider.GetComponent<Slider>().value <= action.getNumberOfMoves(Typ.cook))
             {
                 CookSliderValue = CookSlider.GetComponent<Slider>().value;
