@@ -27,7 +27,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
             if (postion == 0)
             {
-                FoodStorage.Instance.increaseFood();
+                //FoodStorage.Instance.increaseFood();
             }
         }
     }

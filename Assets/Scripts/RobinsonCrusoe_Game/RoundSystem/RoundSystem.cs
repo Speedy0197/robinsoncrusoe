@@ -29,7 +29,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             Moralphase moralphase = new Moralphase();
             Productionphase productionphase = new Productionphase();
 
-
             firstRound(moralphase, productionphase);
 
 
@@ -44,15 +43,23 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         private static void firstRound(Moralphase moralphase, Productionphase productionphase)
         {
             //Skip EventPhase in first round
+            
             Phases.NextPhase();
 
+            
             moralphase.InitStage();
             moralphase.ProcessStage();
             moralphase.EndStage();
-
+            
             productionphase.InitStage();
             productionphase.ProcessStage();
-            
+
+            Actionphase actionphase = new Actionphase();
+            actionphase.InitStage();
+            actionphase.ProcessStage();
+            //actionphase.EndStage();
+
+
 
             increaseRound(gameRound);
         }

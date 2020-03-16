@@ -12,7 +12,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
     {
         public void EndStage()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
             //Change to next stage
         }
 
