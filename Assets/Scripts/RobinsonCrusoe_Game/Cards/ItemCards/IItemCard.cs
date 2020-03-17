@@ -8,5 +8,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards
 {
     public interface IItemCard
     {
+        int GetMaterialNumber();
+        bool MaterialsAvailable();
+        void Build();
     }
 }

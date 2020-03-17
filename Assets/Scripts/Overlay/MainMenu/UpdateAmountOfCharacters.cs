@@ -16,6 +16,18 @@ public class UpdateAmountOfCharacters : MonoBehaviour
         {
             lastAmount = TempoarySettings.NumberOfSelectedCharacters;
             amountText.text = TempoarySettings.NumberOfSelectedCharacters.ToString() + " / " + TempoarySettings.NumberOfPlayers.ToString();
+            
+            //Allow scene change
+            if(TempoarySettings.NumberOfSelectedCharacters == TempoarySettings.NumberOfPlayers)
+            {
+                var start = FindObjectOfType<StartGameSession>();
+                start.canStart = true;
+            }
+            else
+            {
+                var start = FindObjectOfType<StartGameSession>();
+                start.canStart = false;
+            }
         }
     }
 }

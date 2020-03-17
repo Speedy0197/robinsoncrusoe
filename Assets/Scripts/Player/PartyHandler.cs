@@ -21,30 +21,61 @@ namespace Assets.Scripts.Player
 
         private static void CreateFourPlayerParty(Party newParty)
         {
-            throw new NotImplementedException();
+            int index = 0;
+            PartySession = new Character[3];
+            if (newParty.cook != null) { PartySession[index] = newParty.cook; index++; }
+            if (newParty.carpenter != null) { PartySession[index] = newParty.carpenter; index++; }
+            if (newParty.explorer != null) { PartySession[index] = newParty.explorer; index++; }
+            if (newParty.soldier != null) { PartySession[index] = newParty.soldier; index++; }
+
+            //TODO: Additional changes for four players
+
+            //Set character as active
+            PartySession[0].IsActiveCharacter = true;
         }
 
         private static void CreateThreePlayerParty(Party newParty)
         {
-            throw new NotImplementedException();
+            int index = 0;
+            PartySession = new Character[3];
+            if (newParty.cook != null) { PartySession[index] = newParty.cook; index++; }
+            if (newParty.carpenter != null) { PartySession[index] = newParty.carpenter; index++; }
+            if (newParty.explorer != null) { PartySession[index] = newParty.explorer; index++; }
+            if (newParty.soldier != null) { PartySession[index] = newParty.soldier; index++; }
+
+            //Set character as active
+            PartySession[0].IsActiveCharacter = true;
         }
 
         private static void CreateTwoPlayerParty(Party newParty)
         {
-            throw new NotImplementedException();
+            int index = 0;
+            PartySession = new Character[3];
+            if (newParty.cook != null) { PartySession[index] = newParty.cook; index++; }
+            if (newParty.carpenter != null) { PartySession[index] = newParty.carpenter; index++; }
+            if (newParty.explorer != null) { PartySession[index] = newParty.explorer; index++; }
+            if (newParty.soldier != null) { PartySession[index] = newParty.soldier; index++; }
+
+            //Create SideCharacters
+            PartySession[index] = new Friday();
+
+            //Set character as active
+            PartySession[0].IsActiveCharacter = true;
         }
 
         private static void CreateOnePlayerParty(Party newParty)
         {
+            int index = 0;
             PartySession = new Character[3];
-            if (newParty.cook != null) PartySession[0] = newParty.cook;
-            else if (newParty.carpenter != null) PartySession[0] = newParty.carpenter;
-            else if (newParty.explorer != null) PartySession[0] = newParty.explorer;
-            else if (newParty.soldier != null) PartySession[0] = newParty.soldier;
+            if (newParty.cook != null) { PartySession[index] = newParty.cook; index++; }
+            if (newParty.carpenter != null) { PartySession[index] = newParty.carpenter; index++; }
+            if (newParty.explorer != null) { PartySession[index] = newParty.explorer; index++; }
+            if (newParty.soldier != null) { PartySession[index] = newParty.soldier; index++; }
 
             //Create SideCharacters
-            PartySession[1] = new Friday();
-            PartySession[2] = new Dog();
+            PartySession[index] = new Friday();
+            index++;
+            PartySession[index] = new Dog();
 
             //Set character as active
             PartySession[0].IsActiveCharacter = true;

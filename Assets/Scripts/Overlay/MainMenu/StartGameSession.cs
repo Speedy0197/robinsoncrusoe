@@ -10,6 +10,7 @@ using UnityEngine.UI;
 public class StartGameSession : MonoBehaviour
 {
     public Button button;
+    public bool canStart = false;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +20,13 @@ public class StartGameSession : MonoBehaviour
 
     private void TaskOnClick()
     {
-        //TODO: Use information in TempoarySettings to create actual Party
-        //Initialize all the other stuff
+        if (canStart)
+        {
+            //TODO: Initialize all the other stuff
 
-        PartyHandler.CreateParty(TempoarySettings.Party, TempoarySettings.NumberOfPlayers);
+            PartyHandler.CreateParty(TempoarySettings.Party, TempoarySettings.NumberOfPlayers);
 
-        SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("GameScene");
+        }
     }
 }
