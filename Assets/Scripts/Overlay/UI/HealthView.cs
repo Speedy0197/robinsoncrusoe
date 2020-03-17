@@ -13,12 +13,14 @@ public class HealthView : MonoBehaviour
     public Text characterDetermination;
     public RawImage[] heartContainer;
     public RawImage moralArrow;
+    public RawImage activePlayerMarker;
 
     private Character currentMainCharacter;
     private int lastHealth;
     private int lastDetermination;
     private Texture2D full;
     private Texture2D empty;
+    private bool lastActive;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class HealthView : MonoBehaviour
         SetMainCharacter(PartyActions.GetActiveCharacter());
         lastHealth = 0;
         lastDetermination = 0;
+        lastActive = false;
         empty = ImageLoader.LoadPNG("Assets/Images/UI/Empty_Heart.png");
         full = ImageLoader.LoadPNG("Assets/Images/UI/Full_Heart.png");
     }
@@ -45,6 +48,17 @@ public class HealthView : MonoBehaviour
             var value = currentMainCharacter.CurrentDetermination;
             lastDetermination = value;
             characterDetermination.text = value.ToString();
+        }
+
+        if (currentMainCharacter.IsActiveCharacter && lastActive != currentMainCharacter.IsActiveCharacter)
+        {
+            activePlayerMarker.color = new Color(255, 255, 255, 255);
+            lastActive = currentMainCharacter.IsActiveCharacter;
+        }
+        else if(lastActive != currentMainCharacter.IsActiveCharacter && !currentMainCharacter.IsActiveCharacter)
+        {
+            activePlayerMarker.color = new Color(255, 255, 255, 0);
+            lastActive = currentMainCharacter.IsActiveCharacter;
         }
     }
 
