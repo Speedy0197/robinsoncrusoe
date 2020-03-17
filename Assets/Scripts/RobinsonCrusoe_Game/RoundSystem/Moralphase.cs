@@ -48,9 +48,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             else
             {
                 var numberOfTokens = ConvertMoralToValue(state);
-                var activePlayer = PlayerStorage.GetActivePlayer();
-                var character = activePlayer.GetCharacter();
-                character.ChangeMoralTokenValueBy(numberOfTokens);
+                var character = PartyActions.GetActiveCharacter();
+                
+                if(numberOfTokens < 0)
+                {
+                    Characters.CharacterActions.LowerCharacterDeterminationBy(Math.Abs(numberOfTokens), character);
+                }
+                else
+                {
+                    Characters.CharacterActions.RaiseCharacterDeterminationBy(Math.Abs(numberOfTokens), character);
+                }
             }
 
             EndStage();

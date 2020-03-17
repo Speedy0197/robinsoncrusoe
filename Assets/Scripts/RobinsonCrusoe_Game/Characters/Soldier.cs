@@ -9,100 +9,22 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 {
     public class Soldier : Character
     {
-        private int actualHealthPoints;
-        private int maxHealthPoints;
-        private int[] moralChangeValues;
-        private string characterName;
-        private int moralTokens;
+        public override string CharacterName { get; set; }
+        public override int CurrentHealth { get; set; }
+        public override int MaxHealth { get; set; }
+        public override int CurrentDetermination { get; set; }
+        public override int[] MoraleChangeArray { get; set; }
+        public override bool IsActiveCharacter { get; set; }
 
         public Soldier()
         {
-            characterName = "Soldier";
-            maxHealthPoints = 11;
-            actualHealthPoints = maxHealthPoints;
-            moralTokens = 0;
-            moralChangeValues = new int[] { 4, 8 };
+            CharacterName = "Soldier";
+            MaxHealth = 11;
+            CurrentHealth = MaxHealth;
+            CurrentDetermination = 0;
+            MoraleChangeArray = new int[] { 4, 8 };
+            IsActiveCharacter = false;
         }
-
-        public override void AddNewWound(int x, int y)
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void ChangeMoralTokenValueBy(int value)
-        {
-            moralTokens = moralTokens + value;
-            while (moralTokens < 0)
-            {
-                moralTokens++;
-                TakePointsOfDamage(1, DamageType.Damage);
-            }
-        }
-
-        public override string GetCharacterName()
-        {
-            return characterName;
-        }
-
-        public override int GetCurrentHealth()
-        {
-            return actualHealthPoints;
-        }
-
-        public override int GetMaxHealth()
-        {
-            return maxHealthPoints;
-        }
-
-        public override bool IsPreMoralChange()
-        {
-            foreach (int value in moralChangeValues)
-            {
-                if (value == GetCurrentHealth())
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
-        public override void TakePointsOfDamage(int damage, DamageType damageType)
-        {
-            damage = Math.Abs(damage);
-            if (damageType == DamageType.Damage)
-            {
-                actualHealthPoints -= damage;
-                if (actualHealthPoints <= 0)
-                {
-                    throw new NotImplementedException();
-                }
-                if (CheckForMoralLoss())
-                {
-                    Moral.LowerMoral();
-                }
-            }
-            else
-            {
-                actualHealthPoints += damage;
-                if (actualHealthPoints > maxHealthPoints)
-                {
-                    actualHealthPoints = maxHealthPoints;
-                }
-            }
-        }
-
-        private bool CheckForMoralLoss()
-        {
-            foreach (int value in moralChangeValues)
-            {
-                if (value - 1 == GetCurrentHealth())
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public override void UseAbility_1()
         {
             throw new NotImplementedException();
@@ -121,11 +43,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public override void UseAbility_4()
         {
             throw new NotImplementedException();
-        }
-
-        public override int GetCurrentAmountOfMoraleTokens()
-        {
-            return moralTokens;
         }
     }
 }

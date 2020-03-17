@@ -21,7 +21,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public void ProcessStage()
         {
-            var numberOfPlayers = Player.PlayerStorage.GetAmountOfPlayers();
             
         }
     }

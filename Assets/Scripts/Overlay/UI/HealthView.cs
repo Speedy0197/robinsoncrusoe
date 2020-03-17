@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Generic;
+using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System;
 using System.Collections;
@@ -22,7 +23,7 @@ public class HealthView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SetMainCharacter(new Cook());
+        SetMainCharacter(PartyActions.GetActiveCharacter());
         lastHealth = 0;
         lastDetermination = 0;
         empty = ImageLoader.LoadPNG("Assets/Images/UI/Empty_Heart.png");
@@ -32,16 +33,16 @@ public class HealthView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(lastHealth != currentMainCharacter.GetCurrentHealth())
+        if(lastHealth != currentMainCharacter.CurrentHealth)
         {
-            lastHealth = currentMainCharacter.GetCurrentHealth();
+            lastHealth = currentMainCharacter.CurrentHealth;
             UpdateContainerStatus();
             UpdateMoralArrow();
         }
 
-        if(lastDetermination != currentMainCharacter.GetCurrentAmountOfMoraleTokens())
+        if(lastDetermination != currentMainCharacter.CurrentDetermination)
         {
-            var value = currentMainCharacter.GetCurrentAmountOfMoraleTokens();
+            var value = currentMainCharacter.CurrentDetermination;
             lastDetermination = value;
             characterDetermination.text = value.ToString();
         }
@@ -51,15 +52,15 @@ public class HealthView : MonoBehaviour
     {
         lastHealth = 0;
         currentMainCharacter = character;
-        characterName.text = currentMainCharacter.GetCharacterName();
+        characterName.text = currentMainCharacter.CharacterName;
         UpdateNumberOfVisibleContainers();
         UpdateContainerStatus();
     }
 
     private void UpdateContainerStatus()
     {
-        int tempAmount = currentMainCharacter.GetCurrentHealth();
-        for(int i = currentMainCharacter.GetMaxHealth() - 1; i >= 0; i--)
+        int tempAmount = currentMainCharacter.CurrentHealth;
+        for(int i = currentMainCharacter.MaxHealth - 1; i >= 0; i--)
         {
             if (tempAmount <= 0)
             {               
@@ -76,7 +77,7 @@ public class HealthView : MonoBehaviour
 
     private void UpdateNumberOfVisibleContainers()
     {
-        var maxHealth = currentMainCharacter.GetMaxHealth();
+        var maxHealth = currentMainCharacter.MaxHealth;
         for (int i = 0; i < heartContainer.Length; i++)
         {
             if (maxHealth <= i)
@@ -92,7 +93,7 @@ public class HealthView : MonoBehaviour
 
     private void UpdateMoralArrow()
     {
-        if (currentMainCharacter.IsPreMoralChange())
+        if (CharacterActions.IsCharacterHealthInPreMoralChangeRange(currentMainCharacter))
         {
             moralArrow.color = new Color(255, 255, 255, 255);
         }

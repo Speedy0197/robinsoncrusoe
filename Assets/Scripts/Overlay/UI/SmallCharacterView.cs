@@ -22,21 +22,22 @@ public class SmallCharacterView : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-        if (lastHealth != myCharacter.GetCurrentHealth())
+        if (lastHealth != myCharacter.CurrentHealth)
         {
-            healthPoints.text = myCharacter.GetCurrentHealth().ToString();
-            lastHealth = myCharacter.GetCurrentHealth();
+            healthPoints.text = myCharacter.CurrentHealth.ToString();
+            lastHealth = myCharacter.CurrentHealth;
         }
     }
 
     public void SetCharacter(Character character)
     {
         myCharacter = character;
-        characterName.text = myCharacter.GetCharacterName();
+        characterName.text = myCharacter.CharacterName;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (myCharacter is ISideCharacter) return; //Cannot click on side character, they have no abilities
         var view = FindObjectOfType<HealthView>();
         view.SetMainCharacter(myCharacter);
     }

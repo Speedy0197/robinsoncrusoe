@@ -1,4 +1,6 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,19 +19,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public void ExecuteCompletionEvent()
         {
-            var player = Player.PlayerStorage.GetActivePlayer();
-            player.GetCharacter().ChangeMoralTokenValueBy(1);
+            var character = PartyActions.GetActiveCharacter();
+            CharacterActions.LowerCharacterDeterminationBy(1, character);
         }
 
         public void ExecuteFutureThreat()
         {
-            foreach(Player.Player player in Player.PlayerStorage.allPlayers)
-            {
-                if(player != null)
-                {
-                    player.GetCharacter().ChangeMoralTokenValueBy(-1);
-                }
-            }
+            PartyActions.LowerDeterminationOfPartyBy(1);
         }
 
         public string GetDescriptionText()

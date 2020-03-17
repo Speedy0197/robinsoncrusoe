@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,10 +14,8 @@ public class CharacterView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        List<Character> chars = new List<Character>() { new Cook(), new Soldier(), new Explorer() };
-        chars[1].TakePointsOfDamage(2, DamageType.Damage);
         Transform tempPosition = position;
-        foreach(var character in chars)
+        foreach(var character in PartyHandler.PartySession)
         {
             var instance = Instantiate(characterContainerPrefab, tempPosition);
             instance.transform.Translate(0, spaceBetween, 0);

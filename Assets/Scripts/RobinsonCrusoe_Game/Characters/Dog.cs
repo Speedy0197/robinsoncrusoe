@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 {
-    public class Cook : Character
+    public class Dog : Character, ISideCharacter
     {
         public override string CharacterName { get; set; }
         public override int CurrentHealth { get; set; }
@@ -16,16 +15,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public override int[] MoraleChangeArray { get; set; }
         public override bool IsActiveCharacter { get; set; }
 
-        public Cook()
+        public Dog()
         {
-            CharacterName = "Cook";
-            MaxHealth = 12;
+            CharacterName = "Dog";
+            MaxHealth = 3;
             CurrentHealth = MaxHealth;
             CurrentDetermination = 0;
-            MoraleChangeArray = new int[] { 3, 5, 7, 10};
+            MoraleChangeArray = null;
             IsActiveCharacter = false;
         }
-
         public override void UseAbility_1()
         {
             throw new NotImplementedException();

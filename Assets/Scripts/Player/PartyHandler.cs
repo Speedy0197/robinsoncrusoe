@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+﻿using Assets.Scripts.Overlay.MainMenu;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,86 +10,44 @@ namespace Assets.Scripts.Player
 {
     public static class PartyHandler
     {
-        private static int _partySize;
-        private static Character[] characters;
-        private static int mainCharacter;
-
-        //private static SideCharacter[] sideCharacters;
-        //private static bool hasSideCharacters;
-
-        private const int minAmountOfPlayers = 1;
-        private const int maxAmountOfPlayers = 4;
-
-        public static void BuildNewParty(int partySize)
+        public static Character[] PartySession;
+        public static void CreateParty(Party newParty, int partySize)
         {
-            if (partySize < minAmountOfPlayers) partySize = minAmountOfPlayers;
-            if (partySize > maxAmountOfPlayers) partySize = maxAmountOfPlayers;
-            _partySize = partySize;
-
-            characters = new Character[_partySize];
-            InitArrayWithNull();
-            mainCharacter = 0;
-
-            /* if(_partySize == 1) Create Friday and Dog
-             * if(_partySize == 2) Create Friday
-             */
+            if (partySize == 1) CreateOnePlayerParty(newParty);
+            if (partySize == 2) CreateTwoPlayerParty(newParty);
+            if (partySize == 3) CreateThreePlayerParty(newParty);
+            if (partySize == 4) CreateFourPlayerParty(newParty);
         }
 
-        private static void InitArrayWithNull()
+        private static void CreateFourPlayerParty(Party newParty)
         {
-            for(int i = 0; i < characters.Length; i++)
-            {
-                characters[i] = null;
-            }
+            throw new NotImplementedException();
         }
 
-        public static bool AddCharacterToParty(Character character)
+        private static void CreateThreePlayerParty(Party newParty)
         {
-            for(int i = 0; i < characters.Length; i++)
-            {
-                if(characters[i] == null)
-                {
-                    characters[i] = character;
-                    return true;
-                }
-            }
-            return false;
+            throw new NotImplementedException();
         }
 
-        public static Character GetMainCharacter()
+        private static void CreateTwoPlayerParty(Party newParty)
         {
-            while(characters[mainCharacter] == null)
-            {
-                ChangeMainCharacterToNextPlayer();
-            }
-            return characters[mainCharacter];
+            throw new NotImplementedException();
         }
 
-        public static void ChangeMainCharacterToNextPlayer()
+        private static void CreateOnePlayerParty(Party newParty)
         {
-            mainCharacter++;
-            if(mainCharacter >= characters.Length)
-            {
-                mainCharacter = 0;
-            }
-        }
+            PartySession = new Character[3];
+            if (newParty.cook != null) PartySession[0] = newParty.cook;
+            else if (newParty.carpenter != null) PartySession[0] = newParty.carpenter;
+            else if (newParty.explorer != null) PartySession[0] = newParty.explorer;
+            else if (newParty.soldier != null) PartySession[0] = newParty.soldier;
 
-        public static void DealDmgToWholeParty(int amount)
-        {
-            foreach(Character c in characters)
-            {
-                if (c == null) continue;
-                c.TakePointsOfDamage(amount, DamageType.Damage);
-            }
-        }
+            //Create SideCharacters
+            PartySession[1] = new Friday();
+            PartySession[2] = new Dog();
 
-        public static void WholePartyMoralTokenChange(int amount)
-        {
-            foreach (Character c in characters)
-            {
-                if (c == null) continue;
-                c.ChangeMoralTokenValueBy(amount);
-            }
+            //Set character as active
+            PartySession[0].IsActiveCharacter = true;
         }
     }
 }
