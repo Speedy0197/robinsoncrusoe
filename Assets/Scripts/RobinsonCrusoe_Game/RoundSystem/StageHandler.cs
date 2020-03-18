@@ -10,9 +10,19 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
     {
         public static event EventHandler CurrentStageChanged;
 
-        public static void ChangeStage(IStage stage)
+        public static void ChangeStage(Stage stage)
         {
             CurrentStageChanged?.Invoke(stage, new EventArgs());
         }
+    }
+
+    public enum Stage
+    {
+        Event,
+        Morale,
+        Production,
+        Action,
+        Weather,
+        Night
     }
 }

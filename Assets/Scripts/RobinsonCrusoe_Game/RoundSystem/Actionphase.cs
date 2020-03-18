@@ -22,7 +22,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         {
             Action action = new Action();
             InitActionPhase?.Invoke(action, new EventArgs());
-            StageHandler.ChangeStage(this);
+            StageHandler.ChangeStage(Stage.Action);
         }
 
         public void ProcessStage()

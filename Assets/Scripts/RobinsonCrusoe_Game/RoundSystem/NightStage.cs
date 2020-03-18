@@ -16,7 +16,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public void InitStage()
         {
-            StageHandler.ChangeStage(this);
+            StageHandler.ChangeStage(Stage.Night);
         }
 
         public void ProcessStage()
