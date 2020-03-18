@@ -53,9 +53,4 @@ public class Beast_Deck : MonoBehaviour
         return cardFaces[id];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
