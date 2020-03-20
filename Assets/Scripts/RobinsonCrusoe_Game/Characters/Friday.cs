@@ -14,6 +14,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public override int CurrentDetermination { get; set; }
         public override int[] MoraleChangeArray { get; set; }
         public override bool IsActiveCharacter { get; set; }
+        public override int CurrentNumberOfActions { get; set; }
+        public override int MaxNumberOfActions { get; set; }
 
         public Friday()
         {
@@ -23,6 +25,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             CurrentDetermination = 0;
             MoraleChangeArray = null;
             IsActiveCharacter = false;
+            MaxNumberOfActions = 1;
+            CurrentNumberOfActions = MaxNumberOfActions;
         }
 
         public override void UseAbility_1()

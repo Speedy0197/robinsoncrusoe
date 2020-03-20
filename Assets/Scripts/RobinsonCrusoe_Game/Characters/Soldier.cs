@@ -15,6 +15,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public override int CurrentDetermination { get; set; }
         public override int[] MoraleChangeArray { get; set; }
         public override bool IsActiveCharacter { get; set; }
+        public override int CurrentNumberOfActions { get; set; }
+        public override int MaxNumberOfActions { get; set; }
 
         public Soldier()
         {
@@ -24,6 +26,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             CurrentDetermination = 0;
             MoraleChangeArray = new int[] { 4, 8 };
             IsActiveCharacter = false;
+            MaxNumberOfActions = 2;
+            CurrentNumberOfActions = MaxNumberOfActions;
         }
         public override void UseAbility_1()
         {
