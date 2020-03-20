@@ -19,7 +19,7 @@ public class PhasesMarkers_Complete : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Phases.PhasesChanged += Phases_PhasesChanged;
+        //Phases.PhasesChanged += Phases_PhasesChanged;
     }
 
     private void Phases_PhasesChanged(object sender, System.EventArgs e)

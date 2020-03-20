@@ -6,17 +6,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
-    public static class StageHandler
-    {
-        public static event EventHandler CurrentStageChanged;
-
-        public static void ChangeStage(Stage stage)
-        {
-            CurrentStageChanged?.Invoke(stage, new EventArgs());
-        }
-    }
-
-    public enum Stage
+    public enum E_Phase
     {
         Event,
         Morale,

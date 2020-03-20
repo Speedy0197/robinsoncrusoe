@@ -22,8 +22,6 @@ public class StartGameSession : MonoBehaviour
     {
         if (canStart)
         {
-            //TODO: Initialize all the other stuff
-
             PartyHandler.CreateParty(TempoarySettings.Party, TempoarySettings.NumberOfPlayers);
 
             SceneManager.LoadScene("GameScene");

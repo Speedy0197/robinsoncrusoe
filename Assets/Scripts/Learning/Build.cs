@@ -24,7 +24,7 @@ public class Build : MonoBehaviour
     void Start()
     {
         //Actionphase.InitActionPhase += initActionChanged;
-        Actionphase.EndActionPhase += endActionChanged;
+        //Actionphase.EndActionPhase += endActionChanged;
         Action.ActionCreated += initActionChanged;
     }
 

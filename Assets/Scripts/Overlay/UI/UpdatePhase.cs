@@ -18,17 +18,19 @@ public class UpdatePhase : MonoBehaviour
     void Start()
     {
         container = GetComponent<RawImage>();
-        StageHandler.CurrentStageChanged += StageHandler_CurrentStageChanged;
+        var phaseView = FindObjectOfType<PhaseView>();
+        phaseView.currentPhaseChanged += StageHandler_CurrentStageChanged;
     }
 
     private void StageHandler_CurrentStageChanged(object sender, System.EventArgs e)
     {
-        Stage stage = (Stage)sender;
-        if (stage == Stage.Event) container.texture = eventPhase;
-        if (stage == Stage.Morale) container.texture = moralePhase;
-        if (stage == Stage.Production) container.texture = productionPhase;
-        if (stage == Stage.Action) container.texture = actionPhase;
-        if (stage == Stage.Weather) container.texture = weatherPhase;
-        if (stage == Stage.Night) container.texture = nightPhase;
+        var phaseView = sender as PhaseView;
+        E_Phase stage = phaseView.currentPhase;
+        if (stage == E_Phase.Event) container.texture = eventPhase;
+        if (stage == E_Phase.Morale) container.texture = moralePhase;
+        if (stage == E_Phase.Production) container.texture = productionPhase;
+        if (stage == E_Phase.Action) container.texture = actionPhase;
+        if (stage == E_Phase.Weather) container.texture = weatherPhase;
+        if (stage == E_Phase.Night) container.texture = nightPhase;
     }
 }

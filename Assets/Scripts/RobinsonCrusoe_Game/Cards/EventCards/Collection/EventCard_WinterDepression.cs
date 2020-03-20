@@ -50,7 +50,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public override string ToString()
         {
-            return "WinterDepression;" + GetMaterialNumber();
+            return "Winter Depression";
         }
     }
 }
