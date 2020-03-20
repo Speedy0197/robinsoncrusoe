@@ -20,9 +20,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public void InitStage()
         {
-            Action action = new Action();
-            InitActionPhase?.Invoke(action, new EventArgs());
-            StageHandler.ChangeStage(Stage.Action);
+            //Action action = new Action();
+            //InitActionPhase?.Invoke(action, new EventArgs());
+            //StageHandler.ChangeStage(Stage.Action);
         }
 
         public void ProcessStage()
