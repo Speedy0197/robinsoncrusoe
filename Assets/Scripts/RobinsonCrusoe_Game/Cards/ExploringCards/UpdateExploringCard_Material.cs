@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards;
 using System.Collections;
 using System.Collections.Generic;
@@ -33,8 +34,8 @@ public class UpdateExploringCard_Material : MonoBehaviour
     private void OnContinueButtonPressed(object sender, System.EventArgs e)
     {
         ButtonHandler.Btn_ChangeStageClicked -= OnContinueButtonPressed;
-        var eventCard = cardClass as IEventCard;
-        eventCard.ExecuteActiveThreat();
+        var eventCard = cardClass as ICard;
+        eventCard.ExecuteEvent();
         Destroy(instance);
     }
 

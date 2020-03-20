@@ -10,27 +10,37 @@ using UnityEngine;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 {
-    public class EventCard_WinterDepression : IEventCard
+    public class EventCard_WinterDepression : ICard, IEventCard
     {
-        public void ExecuteActiveThreat()
+        private int eventNumber = 0;
+        public void ExecuteEvent()
         {
-            Moral.LowerMoral();
+            if (eventNumber == 0)
+            {
+                ExecuteActiveThreat();
+                eventNumber++;
+            }
+            else
+            {
+                ExecuteFutureThreat();
+            }
+
         }
 
-        public void ExecuteCompletionEvent()
-        {
-            var character = PartyActions.GetActiveCharacter();
-            CharacterActions.LowerCharacterDeterminationBy(1, character);
-        }
-
-        public void ExecuteFutureThreat()
+        private void ExecuteFutureThreat()
         {
             PartyActions.LowerDeterminationOfPartyBy(1);
         }
 
-        public string GetDescriptionText()
+        private void ExecuteActiveThreat()
         {
-            throw new NotImplementedException();
+            Moral.LowerMoral();
+        }
+
+        public void ExecuteSuccessEvent()
+        {
+            var character = PartyActions.GetActiveCharacter();
+            CharacterActions.LowerCharacterDeterminationBy(1, character);
         }
 
         public int GetMaterialNumber()
@@ -51,6 +61,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         public override string ToString()
         {
             return "Winter Depression";
+        }
+
+        public string GetCardDescription()
+        {
+            throw new NotImplementedException();
         }
     }
 }

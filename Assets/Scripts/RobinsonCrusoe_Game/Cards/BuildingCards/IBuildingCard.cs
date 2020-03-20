@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards
 {
     public interface IBuildingCard
-    {
-        void PutIntoEventDeck();
+    { 
     }
 }

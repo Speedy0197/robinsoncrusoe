@@ -8,6 +8,5 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards
 {
     public interface IExploringCard
     {
-        void PutIntoEventDeck();
     }
 }

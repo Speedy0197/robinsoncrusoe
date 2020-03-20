@@ -70,6 +70,55 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!1 &579754407365755445
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5633000475415382298}
+  - component: {fileID: 345161426189976414}
+  m_Layer: 5
+  m_Name: PopUp_Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5633000475415382298
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579754407365755445}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4137782365197659172}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &345161426189976414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579754407365755445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94804226942a0a04caf48d2382540dff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiBase: {fileID: 579754407365755445}
 --- !u!1 &784512528878802651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2973,6 +3022,7 @@ RectTransform:
   - {fileID: 1835170911937798529}
   - {fileID: 2802449366473203748}
   - {fileID: 3797032681287526799}
+  - {fileID: 5633000475415382298}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3849,6 +3899,7 @@ GameObject:
   - component: {fileID: 3797032681287526799}
   - component: {fileID: 4895949621677387758}
   - component: {fileID: 930693854459773026}
+  - component: {fileID: 5603860644437611773}
   m_Layer: 5
   m_Name: Threat_Card_Container
   m_TagString: Untagged
@@ -3910,6 +3961,21 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &5603860644437611773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7390889996856212207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ecc4c95a01e81a4882ee80770ef45b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threatHigh: {fileID: 5629092485355208119}
+  threatLow: {fileID: 8513712588857090027}
+  backgroundTexture: {fileID: 2800000, guid: 0d588fc6c43de0e4686a99c886ebdb8e, type: 3}
 --- !u!1 &8500795843789408579
 GameObject:
   m_ObjectHideFlags: 0

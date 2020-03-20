@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards;
@@ -15,7 +16,7 @@ public class PopUp_Card_Show : MonoBehaviour
     public Text descriptionText;
     public Button confirmButton;
 
-    private IEventCard myCard;
+    private ICard myCard;
     private Texture2D myCardTexture;
 
     private void Start()
@@ -28,14 +29,14 @@ public class PopUp_Card_Show : MonoBehaviour
         
     }
 
-    public void SetCard(IEventCard card)
+    public void SetCard(ICard card)
     {
         myCard = card;
         myCardTexture = GetCardTexture();
         cardFaceContainer.texture = myCardTexture;
 
         cardNameText.text = myCard.ToString();
-        descriptionText.text = myCard.GetDescriptionText();
+        descriptionText.text = myCard.GetCardDescription();
     }
 
     private Texture2D GetCardTexture()

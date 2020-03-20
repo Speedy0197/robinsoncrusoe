@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Eventphase : MonoBehaviour
 {
+    public GameObject cardShow_Prefab;
     private PhaseView myView;
 
     // Start is called before the first frame update
@@ -19,7 +20,15 @@ public class Eventphase : MonoBehaviour
         if(myView.currentPhase == E_Phase.Event)
         {
             //Draw Event Card
+            var eventDeck = FindObjectOfType<EventCard_Deck>();
+            var card = eventDeck.Draw();
+
             //Show Card in Popup
+            var ui = FindObjectOfType<GetUIBase>().GetUI();
+            var instance = Instantiate(cardShow_Prefab, ui.transform);
+            var show = instance.GetComponent<PopUp_Card_Show>();
+            show.SetCard(card);
+
             //Wait for player confirmation
             //Close popUp
             //Execute Immediate Effekt

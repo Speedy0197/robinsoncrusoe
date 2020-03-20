@@ -9,13 +9,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
 {
     public interface IEventCard
     {
-        int GetMaterialNumber();
         bool IsCardTypeBook();
         QuestionMark GetQuestionMark();
-        void ExecuteActiveThreat();
-        void ExecuteFutureThreat();
-        void ExecuteCompletionEvent();
-        string GetDescriptionText();
+        void ExecuteSuccessEvent();
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,20 +9,44 @@ public class ThreatCardViewer : MonoBehaviour
 {
     public RawImage threatHigh;
     public RawImage threatLow;
+    public Texture2D backgroundTexture;
 
-    private IEventCard cardThreatHigh;
+    private ICard cardThreatHigh;
     private Texture2D cardTextureThreatHigh;
 
-    private IEventCard cardThreatLow;
+    private ICard cardThreatLow;
     private Texture2D cardTextureThreatLow;
 
-    private void SetHigh(IEventCard newCard, Texture2D cardTexture)
+    private void Start()
     {
-
+        cardThreatHigh = null;
+        cardThreatLow = null;
+        cardTextureThreatHigh = backgroundTexture;
+        cardTextureThreatLow = backgroundTexture;
     }
-
-    public void SetLow(IEventCard newCard, Texture2D cardTexture)
+    public void MoveOntoThreatStack(ICard card, Texture2D cardTexture)
     {
+        if(card == null)
+        {
+            cardTextureThreatLow = null;
+            cardTextureThreatLow = backgroundTexture;
+            threatLow.texture = cardTextureThreatLow;
+        }
+        else
+        {
+            var doomedCard = cardThreatHigh;
 
+            //swap low threat to high threat
+            cardThreatHigh = cardThreatLow;
+            cardTextureThreatHigh = cardTextureThreatLow;
+            threatHigh.texture = cardTextureThreatHigh;
+
+            //set low threat
+            cardThreatLow = card;
+            cardTextureThreatLow = cardTexture;
+            threatLow.texture = cardTextureThreatLow;
+
+            //TODO: Show PopUp with doomed card
+        }
     }
 }

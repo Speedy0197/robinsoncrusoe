@@ -6,24 +6,19 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 {
-    public class Wreckage_WreckedLifeboat : IEventCard
+    public class Wreckage_WreckedLifeboat : ICard, IEventCard
     {
-        public void ExecuteActiveThreat()
+        public void ExecuteEvent()
+        {
+            //Has none
+        }
+
+        public void ExecuteSuccessEvent()
         {
             throw new NotImplementedException();
         }
 
-        public void ExecuteCompletionEvent()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ExecuteFutureThreat()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetDescriptionText()
+        public string GetCardDescription()
         {
             throw new NotImplementedException();
         }
@@ -44,7 +39,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         }
         public override string ToString()
         {
-            return "WreckedLifeboat;" + GetMaterialNumber();
+            return "Wrecked Lifeboat";
         }
     }
 }

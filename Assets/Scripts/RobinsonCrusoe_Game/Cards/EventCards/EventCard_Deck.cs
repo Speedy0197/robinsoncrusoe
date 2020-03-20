@@ -11,7 +11,7 @@ public class EventCard_Deck : MonoBehaviour
     public GameObject cardPrefab;
     public Texture2D[] CardFaces;
 
-    private List<IEventCard> EventDeck;
+    private List<ICard> EventDeck;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class EventCard_Deck : MonoBehaviour
         }
     }
 
-    public IEventCard Draw()
+    public ICard Draw()
     {
         var card = EventDeck[0];
         EventDeck.RemoveAt(0);
@@ -43,9 +43,9 @@ public class EventCard_Deck : MonoBehaviour
         return CardFaces[id];
     }
 
-    public static List<IEventCard> GenerateNewDeck()
+    public static List<ICard> GenerateNewDeck()
     {
-        List<IEventCard> newDeck = new List<IEventCard>();
+        List<ICard> newDeck = new List<ICard>();
         
         //TODO: Change the following to include mutliple cards
         for(int i = 0; i < 12; i++)

@@ -7,24 +7,14 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 {
-    public class GatheringCard_WeatherBreakdown : IGatheringCard, IEventCard
+    public class GatheringCard_WeatherBreakdown : IGatheringCard, ICard
     {
-        public void ExecuteActiveThreat()
-        {
-            PutIntoEventDeck();
-        }
-
-        public void ExecuteCompletionEvent()
+        public void ExecuteEvent()
         {
             throw new NotImplementedException();
         }
 
-        public void ExecuteFutureThreat()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetDescriptionText()
+        public string GetCardDescription()
         {
             throw new NotImplementedException();
         }
@@ -33,25 +23,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
         {
             return 0;
         }
-
-        public QuestionMark GetQuestionMark()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsCardTypeBook()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PutIntoEventDeck()
-        {
-            EventCard_Deck.RequestPut(this);
-        }
-
         public override string ToString()
         {
-            return "WeatherBreakdown;" + GetMaterialNumber();
+            return "Weather Breakdown";
         }
     }
 }

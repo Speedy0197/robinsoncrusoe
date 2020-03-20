@@ -9,12 +9,7 @@ public class PhaseView : MonoBehaviour
     public E_Phase currentPhase;
 
     public event EventHandler currentPhaseChanged;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-    
+
     public void ChangeCurrentPhaseTo(E_Phase phase)
     {
         currentPhase = phase;
@@ -31,5 +26,17 @@ public class PhaseView : MonoBehaviour
         currentPhase = E_Phase.Event;
 
         currentPhaseChanged.Invoke(this, new EventArgs());
+    }
+
+    public bool created = false;
+    public bool testEvent = false;
+    private void Update()
+    {
+        if (testEvent && !created)
+        {
+            ChangeCurrentPhaseTo(E_Phase.Event);
+            testEvent = false;
+            created = true;
+        }
     }
 }

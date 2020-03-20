@@ -7,25 +7,14 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 {
-    public class ExploringCard_Tiger : IExploringCard, IEventCard
+    public class ExploringCard_Tiger : IExploringCard, ICard
     {
-        public void ExecuteActiveThreat()
-        {
-            //TODO: Fill in Event
-            PutIntoEventDeck();
-        }
-
-        public void ExecuteCompletionEvent()
+        public void ExecuteEvent()
         {
             throw new NotImplementedException();
         }
 
-        public void ExecuteFutureThreat()
-        {
-            throw new NotImplementedException();
-        }
-
-        public string GetDescriptionText()
+        public string GetCardDescription()
         {
             throw new NotImplementedException();
         }
@@ -34,24 +23,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
         {
             return 0;
         }
-
-        public QuestionMark GetQuestionMark()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool IsCardTypeBook()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void PutIntoEventDeck()
-        {
-            EventCard_Deck.RequestPut(this);
-        }
         public override string ToString()
         {
-            return "Tiger;" + GetMaterialNumber();
+            return "Tiger";
         }
     }
 }
