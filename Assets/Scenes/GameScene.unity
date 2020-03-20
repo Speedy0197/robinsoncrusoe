@@ -369,7 +369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e406cfd68d1144abdbd1a94801d62c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildPopup: {fileID: 0}
+  BuildPopup: {fileID: 2798432896716705498, guid: 2e695e91bf5e36945acdaac52feb7ff8,
+    type: 3}
   BuildTest: {fileID: 1961122417}
   BuildPostion: {fileID: 1711735344}
   CookSlider: {fileID: 0}
@@ -2993,9 +2994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3792464b0d96cba4996f39cfc0f6a815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CardObject: {fileID: 5884607642520478921, guid: 6015a8a773dfe6c4292f875104b3be50,
-    type: 3}
-  instatiatedCard: {fileID: 0}
 --- !u!114 &900573310
 MonoBehaviour:
   m_ObjectHideFlags: 0
