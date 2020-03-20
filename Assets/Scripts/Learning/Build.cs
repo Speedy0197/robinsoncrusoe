@@ -1,4 +1,4 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
+﻿/*using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -176,3 +176,4 @@ public class Build : MonoBehaviour
         isClickable = false;
     }
 }
+*/

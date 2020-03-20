@@ -1,13 +1,24 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Action_Template : MonoBehaviour
 {
-    //GameObjecet PopUp => PopUpValue Script
-    //enum ActionType 
+    public GameObject popup;  // => PopUpValue Script
+    public GameObject popup_position;
+
+    public enum ActionType
+    {
+        unknown,
+        build,
+        collect,
+        explore,
+    }
     //IEventCard hintergrund Klasse
-    //Public Position pos = null
+    public Position pos = null;
     //Position:
     //  ctor: Dictionary<Typ, int> = new Dictionary(); foreach character in Party do Dictionary.Add(character, 0)
     //  Dictionary.Add(CharacterTyp.Cook, AmountOfActionsSpend);
@@ -18,13 +29,20 @@ public class Action_Template : MonoBehaviour
 
     //public static event SetClickable
 
+    private GameObject InstantiatedPopup;
+    public float test;
     // Start is called before the first frame update
     void Start()
     {
+        InstantiatedPopup = Instantiate(popup);
+        pos = new Position();
+
         //Instantiate PopUp
         //instance.GetComponent(PopUpValues)
         //PopUpValues => Slider, Text, etc.
-        //PopUp.EventOnClose += Save
+        PopupSave.SaveButtonClicked += Save;
+
+
 
         //PartyHandler.PartySession => alle charactere
         //Aktualisere Slider anhand von Pos;
@@ -33,13 +51,46 @@ public class Action_Template : MonoBehaviour
         //if(entry.key = cook) Slider[0].Value = entry.Value
     }
 
-    //public Save(sender){
-    //  pos = new Position(sender)
-    //  pos.ChangeValue(Cook, CookSLider.Value);
-    //  pos.ChangeValue(Friday, FridaySlider.Value);
-    //  Instantiate Marker ||FindObjectOfType<Marker> Marker.SetPosition(this.transform);
-    //  Destroy PopUp
-    //}
+    void OnMouseDown()
+    {
+        //if (isClickable)
+        {
+            InstantiatedPopup = Instantiate(popup, popup_position.transform);
+            Dictionary<string, int> dictionary = pos.GetDictionary();
+            if (dictionary != null)
+            {
+                int i = 1;
+                foreach (var character in PartyHandler.PartySession)
+                {
+                    GameObject.Find("Slider" + i).GetComponent<Slider>().value = dictionary[character.CharacterName];
+                    i++;
+                }
+            }
+
+
+        }
+    }
+
+    public void Save(object sender, System.EventArgs e)
+    {
+        PopupAction popup = InstantiatedPopup.GetComponent<PopupAction>();
+        float Slider1Value = popup.GetSliderValue(1);
+
+        Debug.Log(Slider1Value);
+
+        float Slider2Value = GameObject.Find("Slider2").GetComponent<Slider>().value;
+        float Slider3Value = GameObject.Find("Slider3").GetComponent<Slider>().value;
+        
+        if (GameObject.Find("Slider1").GetComponent<Slider>().value <= PartyHandler.PartySession[0].CurrentNumberOfActions)
+        {
+
+        }
+        //  pos = new Position(sender)
+        //  pos.ChangeValue(Cook, CookSLider.Value);
+        //  pos.ChangeValue(Friday, FridaySlider.Value);
+        //  Instantiate Marker ||FindObjectOfType<Marker> Marker.SetPosition(this.transform);
+        //  Destroy PopUp
+    }
 
     //public Cancel(): Destroy PopUp
 

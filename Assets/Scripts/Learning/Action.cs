@@ -1,31 +1,7 @@
-﻿using UnityEngine;
+﻿/*using UnityEngine;
 using System.Collections;
 using System;
 using System.Collections.Generic;
-
-//Enums in eigenes .cs file 
-public enum Typ
-{
-    cook, 
-    friday,
-    dog,
-}
-
-public enum ActionType
-{
-    unknown,
-    build,
-    collect,
-    explore,
-}
-
-public enum Name
-{
-    cook1,
-    cook2,
-    friday,
-    dog
-}
 
 public class Action
 { 
@@ -97,4 +73,4 @@ public class Position
         this.actionType = actionType;
         this.value = value;
     }
-}
+} */
