@@ -30,9 +30,10 @@ public class Build : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (isClickable)
-        {          
-            BuildPopup.SetActive(true);
+        //if (isClickable)
+        {
+            Debug.Log("Build");
+            Instantiate(BuildPopup);
         }
     }
 
