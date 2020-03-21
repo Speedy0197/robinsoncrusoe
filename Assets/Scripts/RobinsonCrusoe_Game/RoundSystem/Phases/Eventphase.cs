@@ -28,12 +28,19 @@ public class Eventphase : MonoBehaviour
             var instance = Instantiate(cardShow_Prefab, ui.transform);
             var show = instance.GetComponent<PopUp_Card_Show>();
             show.SetCard(card);
-
-            //Wait for player confirmation
-            //Close popUp
-            //Execute Immediate Effekt
-            //IF card is not "real" event card -> Draw again
-            //Move Card onto threat stack
         }
+    }
+
+    public void DrawAgain()
+    {
+        //Draw Event Card
+        var eventDeck = FindObjectOfType<EventCard_Deck>();
+        var card = eventDeck.Draw();
+
+        //Show Card in Popup
+        var ui = FindObjectOfType<GetUIBase>().GetUI();
+        var instance = Instantiate(cardShow_Prefab, ui.transform);
+        var show = instance.GetComponent<PopUp_Card_Show>();
+        show.SetCard(card);
     }
 }

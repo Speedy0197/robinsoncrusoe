@@ -26,27 +26,23 @@ public class ThreatCardViewer : MonoBehaviour
     }
     public void MoveOntoThreatStack(ICard card, Texture2D cardTexture)
     {
-        if(card == null)
-        {
-            cardTextureThreatLow = null;
-            cardTextureThreatLow = backgroundTexture;
-            threatLow.texture = cardTextureThreatLow;
-        }
-        else
-        {
-            var doomedCard = cardThreatHigh;
+        var doomedCard = cardThreatHigh;
 
-            //swap low threat to high threat
-            cardThreatHigh = cardThreatLow;
-            cardTextureThreatHigh = cardTextureThreatLow;
-            threatHigh.texture = cardTextureThreatHigh;
+        //swap low threat to high threat
+        cardThreatHigh = cardThreatLow;
+        if (cardThreatHigh == null) cardTextureThreatHigh = backgroundTexture;
+        else cardTextureThreatHigh = cardTextureThreatLow;
 
-            //set low threat
-            cardThreatLow = card;
-            cardTextureThreatLow = cardTexture;
-            threatLow.texture = cardTextureThreatLow;
+        threatHigh.texture = cardTextureThreatHigh;
 
-            //TODO: Show PopUp with doomed card
-        }
+
+        //set low threat
+        cardThreatLow = card;
+        if(cardThreatLow == null) cardTextureThreatLow = backgroundTexture;
+        else cardTextureThreatLow = cardTexture;
+        threatLow.texture = cardTextureThreatLow;
+
+        //TODO: Show PopUp with doomed card
+
     }
 }

@@ -5,12 +5,13 @@ using UnityEngine.EventSystems;
 
 public class PopUp_Card_Hide : MonoBehaviour, IPointerClickHandler
 {
-    GameObject currentPopUp;
+    public GameObject currentPopUp;
 
     public void OnPointerClick(PointerEventData eventData)
     {
         currentPopUp.SetActive(false);
-        
-        //TODO put PopUp into Reactivation Button
+
+        var reactivator = FindObjectOfType<PopUp_Reactivate>();
+        reactivator.SetSaved(currentPopUp);
     }
 }

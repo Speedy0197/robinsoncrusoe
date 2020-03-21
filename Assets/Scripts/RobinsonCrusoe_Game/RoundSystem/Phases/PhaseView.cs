@@ -27,16 +27,4 @@ public class PhaseView : MonoBehaviour
 
         currentPhaseChanged.Invoke(this, new EventArgs());
     }
-
-    public bool created = false;
-    public bool testEvent = false;
-    private void Update()
-    {
-        if (testEvent && !created)
-        {
-            ChangeCurrentPhaseTo(E_Phase.Event);
-            testEvent = false;
-            created = true;
-        }
-    }
 }

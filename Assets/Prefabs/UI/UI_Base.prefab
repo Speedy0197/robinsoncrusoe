@@ -3709,6 +3709,7 @@ GameObject:
   - component: {fileID: 2802449366473203748}
   - component: {fileID: 5490983425393180421}
   - component: {fileID: 4474394516690358204}
+  - component: {fileID: 434633370414761464}
   m_Layer: 5
   m_Name: PopUp_Reactivator
   m_TagString: Untagged
@@ -3768,6 +3769,20 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &434633370414761464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4474291380391342431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32973def5fffac24ebb5f2e60f445cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  savedPopUp: {fileID: 0}
+  reactivator: {fileID: 4474291380391342431}
 --- !u!1 &5106857185028003166
 GameObject:
   m_ObjectHideFlags: 0

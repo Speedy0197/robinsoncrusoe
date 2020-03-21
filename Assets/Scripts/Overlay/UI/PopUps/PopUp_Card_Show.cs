@@ -11,6 +11,8 @@ using UnityEngine.UI;
 
 public class PopUp_Card_Show : MonoBehaviour
 {
+    public GameObject popUp;
+
     public Text cardNameText;
     public RawImage cardFaceContainer;
     public Text descriptionText;
@@ -26,7 +28,18 @@ public class PopUp_Card_Show : MonoBehaviour
 
     private void TaskOnClick()
     {
-        
+        Destroy(popUp);
+        myCard.ExecuteEvent();
+        if(myCard is IEventCard)
+        {
+            var threatStack = FindObjectOfType<ThreatCardViewer>();
+            threatStack.MoveOntoThreatStack(myCard, GetCardTexture());
+        }
+        else
+        {
+            var eventStack = FindObjectOfType<Eventphase>();
+            eventStack.DrawAgain();
+        }
     }
 
     public void SetCard(ICard card)
