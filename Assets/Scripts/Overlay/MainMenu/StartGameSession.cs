@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Overlay.MainMenu;
 using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Level;
+using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -23,6 +25,7 @@ public class StartGameSession : MonoBehaviour
         if (canStart)
         {
             PartyHandler.CreateParty(TempoarySettings.Party, TempoarySettings.NumberOfPlayers);
+            new RoundSystem(new Castaways()); //TODO: add level selection
 
             SceneManager.LoadScene("GameScene");
         }

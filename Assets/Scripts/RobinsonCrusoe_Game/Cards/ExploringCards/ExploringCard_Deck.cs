@@ -42,10 +42,10 @@ public class ExploringCard_Deck : MonoBehaviour
         exploringDeck = GenerateNewDeck();
         DeckActions.Shuffle(exploringDeck);
 
-        foreach (var card in exploringDeck)
-        {
-            Debug.Log(card);
-        }
+        //foreach (var card in exploringDeck)
+        //{
+        //    Debug.Log(card);
+        //}
     }
 
     void Draw()

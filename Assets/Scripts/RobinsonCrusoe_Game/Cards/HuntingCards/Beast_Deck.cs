@@ -24,10 +24,10 @@ public class Beast_Deck : MonoBehaviour
         beastDeck = GenerateNewDeck();
         DeckActions.Shuffle(beastDeck);
 
-        foreach (var card in beastDeck)
-        {
-            Debug.Log(card);
-        }
+        //foreach (var card in beastDeck)
+        //{
+        //    Debug.Log(card);
+        //}
     }
 
     private List<IBeastCard> GenerateNewDeck()

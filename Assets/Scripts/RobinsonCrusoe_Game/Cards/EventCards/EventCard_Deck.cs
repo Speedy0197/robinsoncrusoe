@@ -24,10 +24,10 @@ public class EventCard_Deck : MonoBehaviour
         EventDeck = GenerateNewDeck();
         DeckActions.Shuffle(EventDeck);
 
-        foreach(var card in EventDeck)
-        {
-            Debug.Log(card);
-        }
+        //foreach(var card in EventDeck)
+        //{
+        //    Debug.Log(card);
+        //}
     }
 
     public ICard Draw()

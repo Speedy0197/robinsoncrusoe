@@ -26,10 +26,10 @@ public class ItemCard_Deck : MonoBehaviour
         itemDeck = GenerateNewDeck();
         DeckActions.Shuffle(itemDeck);
 
-        foreach (var card in itemDeck)
-        {
-            Debug.Log(card);
-        }
+        //foreach (var card in itemDeck)
+        //{
+        //    Debug.Log(card);
+        //}
     }
 
     void FillItemBoard()

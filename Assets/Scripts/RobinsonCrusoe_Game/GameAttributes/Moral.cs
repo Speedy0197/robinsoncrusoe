@@ -41,6 +41,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             MoralStateChanged?.Invoke(currentMorale, new EventArgs());
         }
 
+        public static void SetStartValue()
+        {
+            currentMorale = MoralState.Neutral;
+            MoralStateChanged?.Invoke(currentMorale, new EventArgs());
+        }
+
         private static void Character_LowerMoral(object sender, EventArgs e)
         {
             LowerMoral();

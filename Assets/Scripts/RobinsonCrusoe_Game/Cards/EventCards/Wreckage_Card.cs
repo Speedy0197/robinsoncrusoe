@@ -10,22 +10,20 @@ public class Wreckage_Card : MonoBehaviour
 {
     public Texture2D[] cardFront;
     private ICard cardClass;
-
-    // Start is called before the first frame update
-    void Start()
+    public void GenerateWreckage()
     {
         System.Random r = new System.Random();
         int result = r.Next(1, 3);
 
-        if(result == 1)
+        if (result == 1)
         {
             cardClass = new Wreckage_FoodCrate();
         }
-        else if(result == 2)
+        else if (result == 2)
         {
             cardClass = new Wreckage_WreckedLifeboat();
         }
-        else if(result == 3)
+        else if (result == 3)
         {
             cardClass = new Wreckage_CaptainsChest();
         }

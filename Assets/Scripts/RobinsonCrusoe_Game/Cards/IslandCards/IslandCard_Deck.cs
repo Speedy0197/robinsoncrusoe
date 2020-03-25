@@ -23,10 +23,10 @@ public class IslandCard_Deck : MonoBehaviour
         islandDeck = GenerateNewDeck();
         DeckActions.Shuffle(islandDeck);
 
-        foreach (var card in islandDeck)
-        {
-            Debug.Log(card);
-        }
+        //foreach (var card in islandDeck)
+        //{
+        //    Debug.Log(card);
+        //}
     }
 
     public IIslandCard Draw()

@@ -17,6 +17,7 @@ public class Eventphase : MonoBehaviour
 
     private void OnPhaseChange(object sender, System.EventArgs e)
     {
+        Debug.Log("Entered Phase Event ");
         if(myView.currentPhase == E_Phase.Event)
         {
             //Draw Event Card

@@ -550,8 +550,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentPhase: 0
-  created: 0
-  testEvent: 0
 --- !u!4 &96635787
 Transform:
   m_ObjectHideFlags: 0
@@ -2811,8 +2809,8 @@ GameObject:
   - component: {fileID: 900573307}
   - component: {fileID: 900573306}
   - component: {fileID: 900573305}
-  - component: {fileID: 900573309}
   - component: {fileID: 900573310}
+  - component: {fileID: 900573309}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -3063,7 +3061,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 900573300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3792464b0d96cba4996f39cfc0f6a815, type: 3}
+  m_Script: {fileID: 11500000, guid: 569c2664813eb5e4cb88e122cbda728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &900573310

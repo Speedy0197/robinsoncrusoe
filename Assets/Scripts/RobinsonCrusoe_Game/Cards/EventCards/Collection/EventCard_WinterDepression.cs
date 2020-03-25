@@ -65,7 +65,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            throw new NotImplementedException();
+            return "Description";
         }
     }
 }

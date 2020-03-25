@@ -23,8 +23,14 @@ public class PhaseView : MonoBehaviour
         else if (currentPhase == E_Phase.Production) currentPhase = E_Phase.Action;
         else if (currentPhase == E_Phase.Action) currentPhase = E_Phase.Weather;
         else if (currentPhase == E_Phase.Weather) currentPhase = E_Phase.Night;
-        currentPhase = E_Phase.Event;
+        else if (currentPhase == E_Phase.Night) currentPhase = E_Phase.Event;
 
         currentPhaseChanged.Invoke(this, new EventArgs());
+    }
+
+    public static void StartGame()
+    {
+        var view = FindObjectOfType<PhaseView>();
+        view.ChangeCurrentPhaseTo(E_Phase.Event);
     }
 }

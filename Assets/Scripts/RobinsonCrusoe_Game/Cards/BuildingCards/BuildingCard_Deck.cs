@@ -42,10 +42,10 @@ public class BuildingCard_Deck : MonoBehaviour
         buildingDeck = GenerateNewDeck();
         DeckActions.Shuffle(buildingDeck);
 
-        foreach (var card in buildingDeck)
-        {
-            Debug.Log(card);
-        }
+        //foreach (var card in buildingDeck)
+        //{
+        //    Debug.Log(card);
+        //}
     }
 
     void Draw()

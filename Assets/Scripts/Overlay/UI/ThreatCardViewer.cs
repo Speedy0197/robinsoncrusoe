@@ -7,42 +7,66 @@ using UnityEngine.UI;
 
 public class ThreatCardViewer : MonoBehaviour
 {
-    public RawImage threatHigh;
-    public RawImage threatLow;
-    public Texture2D backgroundTexture;
+    public RawImage Card_HighThreat;
+    public RawImage Card_LowThreat;
+    public Texture2D Card_basicBackground;
 
-    private ICard cardThreatHigh;
-    private Texture2D cardTextureThreatHigh;
-
-    private ICard cardThreatLow;
-    private Texture2D cardTextureThreatLow;
+    private Queue<ThreatCard> threatStack = new Queue<ThreatCard>();
 
     private void Start()
     {
-        cardThreatHigh = null;
-        cardThreatLow = null;
-        cardTextureThreatHigh = backgroundTexture;
-        cardTextureThreatLow = backgroundTexture;
+        threatStack.Enqueue(new ThreatCard(null, Card_basicBackground));
+        threatStack.Enqueue(new ThreatCard(null, Card_basicBackground));
+        imageUpdateUI();
+
+        var wreckage = FindObjectOfType<Wreckage_Card>();
+        wreckage.GenerateWreckage();
     }
     public void MoveOntoThreatStack(ICard card, Texture2D cardTexture)
     {
-        var doomedCard = cardThreatHigh;
+        if (card == null) cardTexture = Card_basicBackground;
+        ThreatCard item = new ThreatCard(card, cardTexture);
+        threatStack.Enqueue(item);
+        imageUpdateUI();
+    }
 
-        //swap low threat to high threat
-        cardThreatHigh = cardThreatLow;
-        if (cardThreatHigh == null) cardTextureThreatHigh = backgroundTexture;
-        else cardTextureThreatHigh = cardTextureThreatLow;
+    private void imageUpdateUI()
+    {
+        if(threatStack.Count == 3)
+        {
+            var threatArray = threatStack.ToArray();
+            Card_LowThreat.texture = threatArray[2].CardTexture;
+            Card_HighThreat.texture = threatArray[1].CardTexture;
 
-        threatHigh.texture = cardTextureThreatHigh;
+            HandleDoomedCard();
+        }
+        else if(threatStack.Count == 2)
+        {
+            var threatArray = threatStack.ToArray();
+            Card_LowThreat.texture = threatArray[1].CardTexture;
+            Card_HighThreat.texture = threatArray[0].CardTexture;
+        }
+    }
 
+    private void HandleDoomedCard()
+    {
+        var doomedCard = threatStack.Dequeue();
+        if (doomedCard.CardClass == null) return;
+        else
+        {
+            //TODO: specify event??
+            doomedCard.CardClass.ExecuteEvent();
+        }
+    }
+}
 
-        //set low threat
-        cardThreatLow = card;
-        if(cardThreatLow == null) cardTextureThreatLow = backgroundTexture;
-        else cardTextureThreatLow = cardTexture;
-        threatLow.texture = cardTextureThreatLow;
-
-        //TODO: Show PopUp with doomed card
-
+public class ThreatCard
+{
+    public ICard CardClass { get; private set; }
+    public Texture2D CardTexture { get; private set; }
+    public ThreatCard(ICard cardClass, Texture2D texture)
+    {
+        CardClass = cardClass;
+        CardTexture = texture;
     }
 }

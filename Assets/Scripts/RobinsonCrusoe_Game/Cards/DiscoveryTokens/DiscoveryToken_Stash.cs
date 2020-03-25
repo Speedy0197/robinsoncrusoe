@@ -23,10 +23,10 @@ public class DiscoveryToken_Stash : MonoBehaviour
         tokenStash = GenerateNewDeck();
         DeckActions.Shuffle(tokenStash);
 
-        foreach (var token in tokenStash)
-        {
-            Debug.Log(token);
-        }
+        //foreach (var token in tokenStash)
+        //{
+        //    Debug.Log(token);
+        //}
     }
     private List<IDiscoveryToken> GenerateNewDeck()
     {

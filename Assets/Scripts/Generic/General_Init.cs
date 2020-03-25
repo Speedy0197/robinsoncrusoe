@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,5 +16,6 @@ public class General_Init : MonoBehaviour
         Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Wood.SetStartValue(0);
         Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food.PerishableFood.SetStartValue(0);
         Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food.UnperishableFood.SetStartValue(0);
+        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Moral.SetStartValue();
     }
 }

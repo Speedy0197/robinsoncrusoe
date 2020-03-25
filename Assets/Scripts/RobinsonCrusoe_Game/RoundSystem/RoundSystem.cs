@@ -11,6 +11,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
     public class RoundSystem
     {
+        public static RoundSystem instance;
+
         private int currentRound;
         private Level.Level myLevel;
 
@@ -18,11 +20,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         {
             currentRound = 1;
             myLevel = level;
+
+            instance = this;
         }
 
         public void StartGame()
         {
-            //Trigger Start Event?
+            PhaseView.StartGame();
         }
 
         public void increaseRound(int i)

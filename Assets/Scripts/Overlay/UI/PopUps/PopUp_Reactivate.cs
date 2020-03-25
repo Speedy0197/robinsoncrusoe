@@ -1,24 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PopUp_Reactivate : MonoBehaviour, IPointerClickHandler
+public class PopUp_Reactivate : MonoBehaviour
 {
     public GameObject savedPopUp;
-    public GameObject reactivator;
+    public GameObject reactivatorImage;
 
-    public void OnPointerClick(PointerEventData eventData)
+    public static event EventHandler ReactivatorImageClicked;
+    private void Start()
     {
-        savedPopUp.SetActive(true);
+        ReactivatorImageClicked += OnImageClicked;
+    }
 
-        reactivator.SetActive(false);
+    private void OnImageClicked(object sender, EventArgs e)
+    {
+        OpenSaved();
     }
 
     public void SetSaved(GameObject popUp)
     {
         savedPopUp = popUp;
 
-        reactivator.SetActive(true);
+        reactivatorImage.SetActive(true);
+    }
+
+    public void OpenSaved()
+    {
+        savedPopUp.SetActive(true);
+
+        reactivatorImage.SetActive(false);
+    }
+
+    public static void HandleImageClick()
+    {
+        ReactivatorImageClicked?.Invoke(null, new EventArgs());
     }
 }

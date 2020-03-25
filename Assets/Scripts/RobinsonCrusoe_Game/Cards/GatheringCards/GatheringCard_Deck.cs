@@ -35,10 +35,10 @@ public class GatheringCard_Deck : MonoBehaviour
         gatheringDeck = GenerateNewDeck();
         DeckActions.Shuffle(gatheringDeck);
 
-        foreach (var card in gatheringDeck)
-        {
-            Debug.Log(card);
-        }
+        //foreach (var card in gatheringDeck)
+        //{
+        //    Debug.Log(card);
+        //}
     }
 
     void Draw()
