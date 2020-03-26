@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Action_Template : MonoBehaviour
 {
-    public GameObject popup;  // => PopUpValue Script
+    public GameObject popup;
     public GameObject popup_position;
 
     public enum ActionType
@@ -28,19 +28,19 @@ public class Action_Template : MonoBehaviour
     //GameObject Marker
 
     //public static event SetClickable
-
     private GameObject InstantiatedPopup;
+
     public float test;
     // Start is called before the first frame update
     void Start()
     {
-        InstantiatedPopup = Instantiate(popup);
+        
         pos = new Position();
 
         //Instantiate PopUp
         //instance.GetComponent(PopUpValues)
         //PopUpValues => Slider, Text, etc.
-        PopupSave.SaveButtonClicked += Save;
+
 
 
 
@@ -53,16 +53,20 @@ public class Action_Template : MonoBehaviour
 
     void OnMouseDown()
     {
-        //if (isClickable)
+        //if (isClickable) TO-DO
         {
+            
             InstantiatedPopup = Instantiate(popup, popup_position.transform);
-            Dictionary<string, int> dictionary = pos.GetDictionary();
+            PopupSave.SaveButtonClicked += Save;
+            PopupCancel.CancelButtonClicked += Cancel;
+            Dictionary<string, float> dictionary = pos.GetDictionary();
+                        
             if (dictionary != null)
             {
                 int i = 1;
                 foreach (var character in PartyHandler.PartySession)
                 {
-                    GameObject.Find("Slider" + i).GetComponent<Slider>().value = dictionary[character.CharacterName];
+                    InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
                     i++;
                 }
             }
@@ -75,16 +79,21 @@ public class Action_Template : MonoBehaviour
     {
         PopupAction popup = InstantiatedPopup.GetComponent<PopupAction>();
         float Slider1Value = popup.GetSliderValue(1);
+        float Slider2Value = popup.GetSliderValue(2);
+        float Slider3Value = popup.GetSliderValue(3);
 
-        Debug.Log(Slider1Value);
-
-        float Slider2Value = GameObject.Find("Slider2").GetComponent<Slider>().value;
-        float Slider3Value = GameObject.Find("Slider3").GetComponent<Slider>().value;
         
-        if (GameObject.Find("Slider1").GetComponent<Slider>().value <= PartyHandler.PartySession[0].CurrentNumberOfActions)
-        {
+        pos.SetDictionary(PartyHandler.PartySession[1].CharacterName, Slider2Value);
+        pos.SetDictionary(PartyHandler.PartySession[2].CharacterName, Slider3Value);
 
+        if (popup.GetStartSliderValue(1) != Slider1Value)
+        {
+            pos.SetDictionary(PartyHandler.PartySession[0].CharacterName, Slider1Value);
+            PartyHandler.PartySession[0].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(1) - Slider1Value);
         }
+        PopupSave.SaveButtonClicked -= Save;
+        PopupCancel.CancelButtonClicked -= Cancel;
+        Destroy(InstantiatedPopup);
         //  pos = new Position(sender)
         //  pos.ChangeValue(Cook, CookSLider.Value);
         //  pos.ChangeValue(Friday, FridaySlider.Value);
@@ -92,7 +101,12 @@ public class Action_Template : MonoBehaviour
         //  Destroy PopUp
     }
 
-    //public Cancel(): Destroy PopUp
+    public void Cancel(object sender, System.EventArgs e)
+        {
+            PopupSave.SaveButtonClicked -= Save;
+            PopupCancel.CancelButtonClicked -= Cancel;
+            Destroy(InstantiatedPopup);
+        }
 
     //OnSlider.OnValueChange{
     //  if(currentValue > maxValue) currentValue = maxValue;
