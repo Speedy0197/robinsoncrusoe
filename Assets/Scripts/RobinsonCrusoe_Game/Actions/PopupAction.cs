@@ -16,10 +16,13 @@ public class PopupAction : MonoBehaviour
     private float maxValue2;
     private float startValue3;
     private float maxValue3;
+    private float totalValue;
+    private float totalMaxValue = 2;
 
     // Start is called before the first frame update
     void Start()
     {
+        totalValue = 0;
         startValue1 = slider1.value;
         maxValue1 = PartyHandler.PartySession[0].CurrentNumberOfActions + startValue1;
 
@@ -36,25 +39,31 @@ public class PopupAction : MonoBehaviour
 
     private void Slider3OnValueChanged(float arg0)
     {
-        if (arg0 > maxValue3)
+        totalValue = arg0 + slider1.value + slider2.value;
+
+        if (arg0 > maxValue3 || totalValue > totalMaxValue)
         {
-            slider3.value = maxValue3;
+            slider3.value = Math.Min(arg0 - (totalValue - totalMaxValue), maxValue3);
         }
     }
 
     private void Slider2OnValueChanged(float arg0)
     {
-        if (arg0 > maxValue2)
+        totalValue = arg0 + slider1.value + slider3.value;
+
+        if (arg0 > maxValue2 || totalValue > totalMaxValue)
         {
-            slider2.value = maxValue2;
+            slider2.value = Math.Min(arg0 - (totalValue - totalMaxValue), maxValue3);
         }
     }
 
     private void Slider1OnValueChanged(float arg0)
     {
-        if (arg0 > maxValue1)
+        totalValue = arg0 + slider2.value + slider3.value;
+
+        if (arg0 > maxValue1 || totalValue > totalMaxValue)
         {
-            slider1.value = maxValue1;
+            slider1.value = Math.Min(arg0 -(totalValue - totalMaxValue), maxValue1);
         }
     }
 

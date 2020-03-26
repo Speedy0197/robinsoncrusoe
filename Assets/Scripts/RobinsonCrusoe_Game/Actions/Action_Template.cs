@@ -10,13 +10,6 @@ public class Action_Template : MonoBehaviour
     public GameObject popup;
     public GameObject popup_position;
 
-    public enum ActionType
-    {
-        unknown,
-        build,
-        collect,
-        explore,
-    }
     //IEventCard hintergrund Klasse
     public Position pos = null;
     //Position:
@@ -34,43 +27,24 @@ public class Action_Template : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         pos = new Position();
-
-        //Instantiate PopUp
-        //instance.GetComponent(PopUpValues)
-        //PopUpValues => Slider, Text, etc.
-
-
-
-
-        //PartyHandler.PartySession => alle charactere
-        //Aktualisere Slider anhand von Pos;
-        //Pos.GetDictionary()
-        //foreach entry in Dictionary
-        //if(entry.key = cook) Slider[0].Value = entry.Value
     }
 
     void OnMouseDown()
     {
         //if (isClickable) TO-DO
         {
-            
             InstantiatedPopup = Instantiate(popup, popup_position.transform);
             PopupSave.SaveButtonClicked += Save;
             PopupCancel.CancelButtonClicked += Cancel;
             Dictionary<string, float> dictionary = pos.GetDictionary();
                         
-            if (dictionary != null)
+            int i = 1;
+            foreach (var character in PartyHandler.PartySession)
             {
-                int i = 1;
-                foreach (var character in PartyHandler.PartySession)
-                {
-                    InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
-                    i++;
-                }
+                InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
+                i++;
             }
-
 
         }
     }
@@ -80,17 +54,32 @@ public class Action_Template : MonoBehaviour
         PopupAction popup = InstantiatedPopup.GetComponent<PopupAction>();
         float Slider1Value = popup.GetSliderValue(1);
         float Slider2Value = popup.GetSliderValue(2);
-        float Slider3Value = popup.GetSliderValue(3);
-
-        
-        pos.SetDictionary(PartyHandler.PartySession[1].CharacterName, Slider2Value);
-        pos.SetDictionary(PartyHandler.PartySession[2].CharacterName, Slider3Value);
+        float Slider3Value = popup.GetSliderValue(3);      
 
         if (popup.GetStartSliderValue(1) != Slider1Value)
         {
-            pos.SetDictionary(PartyHandler.PartySession[0].CharacterName, Slider1Value);
+            string characterName = PartyHandler.PartySession[0].CharacterName;
+            pos.SetDictionary(characterName, Slider1Value);
             PartyHandler.PartySession[0].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(1) - Slider1Value);
+            GameObject.Find("PlayerMarker1").transform.position = this.transform.position + new Vector3(0,4,0);
+            GameObject.Find("DogMarker").transform.position = this.transform.position + new Vector3(0, 12, 0);
         }
+
+        if (popup.GetStartSliderValue(2) != Slider2Value)
+        {
+            pos.SetDictionary(PartyHandler.PartySession[1].CharacterName, Slider2Value);
+            PartyHandler.PartySession[1].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(2) - Slider2Value);
+        }
+
+        if (popup.GetStartSliderValue(3) != Slider3Value)
+        {
+            pos.SetDictionary(PartyHandler.PartySession[2].CharacterName, Slider3Value);
+            PartyHandler.PartySession[2].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(3) - Slider3Value);
+        }
+
+
+
+
         PopupSave.SaveButtonClicked -= Save;
         PopupCancel.CancelButtonClicked -= Cancel;
         Destroy(InstantiatedPopup);
