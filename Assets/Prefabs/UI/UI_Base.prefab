@@ -4153,7 +4153,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 1bb8d6b13a8ed6a42bd44b16808562aa, type: 3}
+  m_Texture: {fileID: 2800000, guid: c57cc574558457249a2016ca7ea22798, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4176,7 +4176,7 @@ MonoBehaviour:
   plus_two_heart: {fileID: 2800000, guid: 53a19de789b56d947a897212ef564521, type: 3}
   plus_two: {fileID: 2800000, guid: d0e0b172291901e47a0c82c6591541ba, type: 3}
   plus_one: {fileID: 2800000, guid: 457c4535f197ee745a787784f651773b, type: 3}
-  plus_zero: {fileID: 2800000, guid: 1bb8d6b13a8ed6a42bd44b16808562aa, type: 3}
+  plus_zero: {fileID: 2800000, guid: c57cc574558457249a2016ca7ea22798, type: 3}
   minus_one: {fileID: 2800000, guid: 104fd26763f127449b814f4677880ec9, type: 3}
   minus_two: {fileID: 2800000, guid: a82a5236ed257724b98512ea3926b4be, type: 3}
   minuts_three: {fileID: 2800000, guid: 91870b6a4c56791489e8c501c790b9d6, type: 3}

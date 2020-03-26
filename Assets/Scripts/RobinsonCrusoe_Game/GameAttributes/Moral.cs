@@ -41,6 +41,32 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             MoralStateChanged?.Invoke(currentMorale, new EventArgs());
         }
 
+        public static string GetMoraleString()
+        {
+            string moraleString = string.Empty;
+            if (currentMorale == MoralState.Best) moraleString = "+2 Entschlossenheit oder +1 Leben";
+            if (currentMorale == MoralState.Better) moraleString = "+2 Entschlossenheit";
+            if (currentMorale == MoralState.Good) moraleString = "+1 Entschlossenheit";
+            if (currentMorale == MoralState.Neutral) moraleString =  "+0 Entschlossenheit";
+            if (currentMorale == MoralState.Bad) moraleString = "-1 Entschlossenheit";
+            if (currentMorale == MoralState.Worse) moraleString = "-2 Entschlossenheit";
+            if (currentMorale == MoralState.Demoralized) moraleString = "-3 Entschlossenheit";
+            return moraleString;
+        }
+
+        internal static int GetMoraleInt()
+        {
+            int moraleInt = 0;
+            if (currentMorale == MoralState.Best) moraleInt = 2;
+            if (currentMorale == MoralState.Better) moraleInt = 2;
+            if (currentMorale == MoralState.Good) moraleInt = 1;
+            if (currentMorale == MoralState.Neutral) moraleInt = 0;
+            if (currentMorale == MoralState.Bad) moraleInt = -1;
+            if (currentMorale == MoralState.Worse) moraleInt = -2;
+            if (currentMorale == MoralState.Demoralized) moraleInt = -3;
+            return moraleInt;
+        }
+
         public static void SetStartValue()
         {
             currentMorale = MoralState.Neutral;
