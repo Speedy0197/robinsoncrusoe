@@ -7,10 +7,12 @@ public class ExploreIsland : MonoBehaviour
 {
     public Material islandBackground;
     public bool isExplored = false;
+    public bool hasCamp = false;
+    public IIslandCard myCard;
 
     private IslandCard_Deck deck;
     private MeshRenderer mesh;
-    private IIslandCard myCard;
+
     private void Start()
     {
         deck = FindObjectOfType<IslandCard_Deck>();
@@ -19,7 +21,6 @@ public class ExploreIsland : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("Explore");
         if (!isExplored)
         {
             isExplored = true;
@@ -27,5 +28,16 @@ public class ExploreIsland : MonoBehaviour
             myCard = deck.Draw();
             mesh.material = deck.GetMaterialFromID(myCard.GetMaterialNumber());
         }
+    }
+
+    public void CampHere()
+    {
+        var islands = FindObjectsOfType<ExploreIsland>();
+        foreach(var island in islands)
+        {
+            if (!island.isExplored) continue;
+            island.hasCamp = false;
+        }
+        hasCamp = true;
     }
 }
