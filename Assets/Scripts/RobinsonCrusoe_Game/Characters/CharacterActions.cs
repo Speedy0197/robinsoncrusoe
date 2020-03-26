@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 {
@@ -51,7 +52,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         }
         public static void LowerCharacterDeterminationBy(int amount, Character character)
         {
-            if (amount < 0) amount = 0;
+            if (amount < 0) amount = Math.Abs(amount);
 
             if (character is ISideCharacter)
             {

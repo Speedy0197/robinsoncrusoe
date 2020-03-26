@@ -70,8 +70,10 @@ public class PopUp_Morale_Show : MonoBehaviour
         }
         else
         {
+            Debug.Log(character.CharacterName + "-" + character.CurrentHealth);
             int moralevalue = Moral.GetMoraleInt();
-            if(moralevalue < 0)
+            Debug.Log(moralevalue);
+            if (moralevalue < 0)
             {
                 CharacterActions.LowerCharacterDeterminationBy(moralevalue, character);
             }
@@ -79,6 +81,7 @@ public class PopUp_Morale_Show : MonoBehaviour
             {
                 CharacterActions.RaiseCharacterDeterminationBy(moralevalue, character);
             }
+            Debug.Log(character.CharacterName + "-" + character.CurrentHealth);
         }
         Destroy(popUp);
     }
