@@ -5,19 +5,24 @@ using UnityEngine;
 
 public class Position
 {
-    private Dictionary<string, int> dictionary = null;
+    private Dictionary<string, float> dictionary = null;
 
     public Position()
     {
-        dictionary = new Dictionary<string, int>();
+        dictionary = new Dictionary<string, float>();
         foreach (var character in PartyHandler.PartySession)
         {
             dictionary.Add(character.CharacterName, 0);
         }
     }
 
-    public Dictionary<string, int> GetDictionary()
+    public Dictionary<string, float> GetDictionary()
     {
         return dictionary;
+    }
+
+    public void SetDictionary(string name, float value)
+    {
+        dictionary[name] = value;
     }
 }

@@ -1722,6 +1722,7 @@ GameObject:
   - component: {fileID: 8583039407994256875}
   - component: {fileID: 8966088291140020710}
   - component: {fileID: 9013095393543707309}
+  - component: {fileID: 2004001732822638730}
   m_Layer: 5
   m_Name: PopUp_BtnCancel
   m_TagString: Untagged
@@ -1828,6 +1829,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2004001732822638730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7634215668340909803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01d6135f9b0bf24c81ceae8b969922d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 9013095393543707309}
 --- !u!1 &7777639685042690920
 GameObject:
   m_ObjectHideFlags: 0
