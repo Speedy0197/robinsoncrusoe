@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Moralephase : MonoBehaviour
 {
+    public GameObject morale_Prefab;
     private PhaseView myView;
 
     // Start is called before the first frame update
@@ -16,14 +17,12 @@ public class Moralephase : MonoBehaviour
 
     private void OnPhaseChange(object sender, System.EventArgs e)
     {
-        if(myView.currentPhase == E_Phase.Morale)
+        if (myView.currentPhase == E_Phase.Morale)
         {
-            //Open Popup
-            //Get Current Morale Value
-            //if value is best -> Let player choose
-            //wait for player confirmation
-            //Close Popup
-            //apply changes to active character
+            Debug.Log("Entered Phase: Morale ");
+            //Show PopUp
+            var ui = FindObjectOfType<GetUIBase>().GetUI();
+            Instantiate(morale_Prefab, ui.transform);
         }
     }
 
