@@ -504,6 +504,7 @@ GameObject:
   - component: {fileID: 96635786}
   - component: {fileID: 96635785}
   - component: {fileID: 96635784}
+  - component: {fileID: 96635788}
   m_Layer: 0
   m_Name: PhaseView
   m_TagString: Untagged
@@ -566,6 +567,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &96635788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96635783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20ba6b4dd00c4ec468b8ab8eb4556905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionphase_Prefab: {fileID: 630799297431174563, guid: f9d2a21cee7e7e64f8e26204579bfea7,
+    type: 3}
 --- !u!1 &106043396
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,0 +1,2 @@
+AudioManager (Global oder Lokal für jeden Character)
+Animation -> Blender
