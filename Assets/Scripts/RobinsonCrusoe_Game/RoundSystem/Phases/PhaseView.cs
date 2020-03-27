@@ -31,7 +31,7 @@ public class PhaseView : MonoBehaviour
     public static void StartGame()
     {
         var view = FindObjectOfType<PhaseView>();
-        view.ChangeCurrentPhaseTo(E_Phase.Event);
+        view.ChangeCurrentPhaseTo(E_Phase.Morale);
     }
 
     public E_Phase GetCurrentPhase()

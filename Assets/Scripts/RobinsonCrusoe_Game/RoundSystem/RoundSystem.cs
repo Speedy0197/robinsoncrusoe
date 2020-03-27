@@ -12,6 +12,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 {
     public class RoundSystem
     {
+        public static event EventHandler RoundChanged;
         public static RoundSystem instance;
 
         private int currentRound;
@@ -23,6 +24,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             myLevel = level;
 
             instance = this;
+
+            InvokeRoundChange();
         }
 
         public void StartGame()
@@ -41,11 +44,18 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
             //TODO: Check for victory conditions -> Trigger Victory event
 
-            if(currentRound > myLevel.GetNumberOfRounds())
+            if (currentRound > myLevel.GetNumberOfRounds())
             {
                 //Trigger Defeat event
             }
+
+            InvokeRoundChange();
         }
 
+        private void InvokeRoundChange()
+        {
+            string roundString = currentRound + "/" + myLevel.GetNumberOfRounds();
+            RoundChanged?.Invoke(roundString, new EventArgs());
+        }
     }
 }
