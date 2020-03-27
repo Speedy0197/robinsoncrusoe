@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,35 +11,29 @@ public class Action_Template : MonoBehaviour
     public GameObject popup;
     public GameObject popup_position;
 
-    //IEventCard hintergrund Klasse
     public Position pos = null;
-    //Position:
-    //  ctor: Dictionary<Typ, int> = new Dictionary(); foreach character in Party do Dictionary.Add(character, 0)
-    //  Dictionary.Add(CharacterTyp.Cook, AmountOfActionsSpend);
-    //  ActionType
-    //  ChangeValue(character, value) Dictionary[character].Value = value;
-    //  IEventCard hintergrund Klasse
-    //GameObject Marker
 
-    //public static event SetClickable
     private GameObject InstantiatedPopup;
 
-    public float test;
+    private bool isClickable = false;
+
     // Start is called before the first frame update
     void Start()
     {
         pos = new Position();
+        var view = FindObjectOfType<PhaseView>();
+        view.currentPhaseChanged += ActionPhaseTriggered;
     }
 
     void OnMouseDown()
     {
-        //if (isClickable) TO-DO
+        if (isClickable)
         {
             InstantiatedPopup = Instantiate(popup, popup_position.transform);
             PopupSave.SaveButtonClicked += Save;
             PopupCancel.CancelButtonClicked += Cancel;
             Dictionary<string, float> dictionary = pos.GetDictionary();
-                        
+
             int i = 1;
             foreach (var character in PartyHandler.PartySession)
             {
@@ -49,19 +44,19 @@ public class Action_Template : MonoBehaviour
         }
     }
 
-    public void Save(object sender, System.EventArgs e)
+    private void Save(object sender, System.EventArgs e)
     {
         PopupAction popup = InstantiatedPopup.GetComponent<PopupAction>();
         float Slider1Value = popup.GetSliderValue(1);
         float Slider2Value = popup.GetSliderValue(2);
-        float Slider3Value = popup.GetSliderValue(3);      
+        float Slider3Value = popup.GetSliderValue(3);
 
         if (popup.GetStartSliderValue(1) != Slider1Value)
         {
             string characterName = PartyHandler.PartySession[0].CharacterName;
             pos.SetDictionary(characterName, Slider1Value);
             PartyHandler.PartySession[0].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(1) - Slider1Value);
-            GameObject.Find("PlayerMarker1").transform.position = this.transform.position + new Vector3(0,4,0);
+            GameObject.Find("PlayerMarker1").transform.position = this.transform.position + new Vector3(0, 4, 0);
             GameObject.Find("DogMarker").transform.position = this.transform.position + new Vector3(0, 12, 0);
         }
 
@@ -83,34 +78,29 @@ public class Action_Template : MonoBehaviour
         PopupSave.SaveButtonClicked -= Save;
         PopupCancel.CancelButtonClicked -= Cancel;
         Destroy(InstantiatedPopup);
-        //  pos = new Position(sender)
-        //  pos.ChangeValue(Cook, CookSLider.Value);
-        //  pos.ChangeValue(Friday, FridaySlider.Value);
-        //  Instantiate Marker ||FindObjectOfType<Marker> Marker.SetPosition(this.transform);
-        //  Destroy PopUp
     }
 
-    public void Cancel(object sender, System.EventArgs e)
+    private void ActionPhaseTriggered(object sender, System.EventArgs e)
+    {
+        PhaseView view = (PhaseView)sender;
+
+        if (view.GetCurrentPhase() != E_Phase.Action)
         {
-            PopupSave.SaveButtonClicked -= Save;
-            PopupCancel.CancelButtonClicked -= Cancel;
-            Destroy(InstantiatedPopup);
+            return;
+        }
+        else
+        {
+            isClickable = true;
         }
 
-    //OnSlider.OnValueChange{
-    //  if(currentValue > maxValue) currentValue = maxValue;
-    //}
+    }
 
-
-    //if(hintergrundKlasse is IInsel){
-    /* var inselCard = hintergurndKlasse as IInsel;
-     * inselCard.IsExplored, .Explore(), .Gather(),
-     * */
-
-    //OnClickableChanged(sender => bool value) 
-
-    //Reset(){ 
-    // pos = null
-    // Marker.ReturnToBasePosition();
-    //}
+    private void Cancel(object sender, System.EventArgs e)
+    {
+        PopupSave.SaveButtonClicked -= Save;
+        PopupCancel.CancelButtonClicked -= Cancel;
+        Destroy(InstantiatedPopup);
+    }
 }
+
+    

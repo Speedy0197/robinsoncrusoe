@@ -33,4 +33,9 @@ public class PhaseView : MonoBehaviour
         var view = FindObjectOfType<PhaseView>();
         view.ChangeCurrentPhaseTo(E_Phase.Event);
     }
+
+    public E_Phase GetCurrentPhase()
+    {
+        return currentPhase;
+    }
 }
