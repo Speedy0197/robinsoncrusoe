@@ -43,4 +43,10 @@ namespace Assets.Scripts.Generic.Dice
         FoodLoss,
         Nothing
     }
+    public struct DiceSet
+    {
+        public bool weatherDice_Normal { get; set; }
+        public bool weatherDice_Advanced { get; set; }
+        public bool environmentalDice { get; set; }
+    }
 }

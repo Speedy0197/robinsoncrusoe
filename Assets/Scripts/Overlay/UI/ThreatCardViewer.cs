@@ -11,16 +11,18 @@ public class ThreatCardViewer : MonoBehaviour
     public RawImage Card_LowThreat;
     public Texture2D Card_basicBackground;
 
+    public GameObject threatCard_Prefab;
+
     private Queue<ThreatCard> threatStack = new Queue<ThreatCard>();
 
     private void Start()
     {
         threatStack.Enqueue(new ThreatCard(null, Card_basicBackground));
-        threatStack.Enqueue(new ThreatCard(null, Card_basicBackground));
-        imageUpdateUI();
 
         var wreckage = FindObjectOfType<Wreckage_Card>();
         wreckage.GenerateWreckage();
+
+        imageUpdateUI();
     }
     public void MoveOntoThreatStack(ICard card, Texture2D cardTexture)
     {
@@ -51,12 +53,12 @@ public class ThreatCardViewer : MonoBehaviour
     private void HandleDoomedCard()
     {
         var doomedCard = threatStack.Dequeue();
-        if (doomedCard.CardClass == null) return;
-        else
-        {
-            //TODO: specify event??
-            doomedCard.CardClass.ExecuteEvent();
-        }
+        Debug.Log(doomedCard.CardClass);
+
+        var ui = FindObjectOfType<GetUIBase>().GetUI();
+        var instance = Instantiate(threatCard_Prefab, ui.transform);
+        var show = instance.GetComponent<PopUp_Threat_Show>();
+        show.SetCard(doomedCard.CardClass, doomedCard.CardTexture);    
     }
 }
 

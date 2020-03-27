@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.Generic.Dice;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Level
 {
@@ -11,6 +12,29 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Level
         public override int GetNumberOfRounds()
         {
             return 12;
+        }
+
+        public override DiceSet GetWeatherDices(int currentRound)
+        {
+            DiceSet dice = new DiceSet();
+            if(currentRound >= 4 && currentRound < 7)
+            {
+                dice.weatherDice_Normal = true;
+                dice.weatherDice_Advanced = false;
+                dice.environmentalDice = false;
+                return dice;
+            }
+            else if(currentRound >= 7)
+            {
+                dice.weatherDice_Normal = true;
+                dice.weatherDice_Advanced = true;
+                dice.environmentalDice = true;
+                return dice;
+            }
+            dice.weatherDice_Normal = false;
+            dice.weatherDice_Advanced = false;
+            dice.environmentalDice = false;
+            return dice;
         }
     }
 }

@@ -29,7 +29,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            PartyActions.LowerDeterminationOfPartyBy(1);
+            //TODO: this method is bugged
+            Debug.Log("WinterDepression - Future Threat");
+            //PartyActions.LowerDeterminationOfPartyBy(1);
         }
 
         private void ExecuteActiveThreat()

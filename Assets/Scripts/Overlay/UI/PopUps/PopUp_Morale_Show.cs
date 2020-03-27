@@ -26,6 +26,8 @@ public class PopUp_Morale_Show : MonoBehaviour
         chooseHeart.onClick.AddListener(ChooseHearts);
         chooseMorale.onClick.AddListener(ChooseMorale);
 
+        if (PartyHandler.PartySize == 1) Moral.RaiseMoral();
+
         ShowInfoText();
         if(Moral.GetCurrentMoralState() == MoralState.Best)
         {
@@ -70,9 +72,7 @@ public class PopUp_Morale_Show : MonoBehaviour
         }
         else
         {
-            Debug.Log(character.CharacterName + "-" + character.CurrentHealth);
             int moralevalue = Moral.GetMoraleInt();
-            Debug.Log(moralevalue);
             if (moralevalue < 0)
             {
                 CharacterActions.LowerCharacterDeterminationBy(moralevalue, character);
@@ -81,8 +81,9 @@ public class PopUp_Morale_Show : MonoBehaviour
             {
                 CharacterActions.RaiseCharacterDeterminationBy(moralevalue, character);
             }
-            Debug.Log(character.CharacterName + "-" + character.CurrentHealth);
         }
         Destroy(popUp);
+        var phaseView = FindObjectOfType<PhaseView>();
+        phaseView.NextPhase();
     }
 }

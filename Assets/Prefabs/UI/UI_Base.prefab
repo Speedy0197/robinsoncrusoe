@@ -271,7 +271,6 @@ GameObject:
   - component: {fileID: 7837143406072164328}
   - component: {fileID: 335340930571706493}
   - component: {fileID: 5755501015836172632}
-  - component: {fileID: 2085182229032809706}
   m_Layer: 5
   m_Name: CurrentPhase
   m_TagString: Untagged
@@ -349,18 +348,6 @@ MonoBehaviour:
   actionPhase: {fileID: 2800000, guid: 6f3cf4666da34884681304787719d739, type: 3}
   weatherPhase: {fileID: 2800000, guid: 8800d27fc79034341a48c28dc44155ea, type: 3}
   nightPhase: {fileID: 2800000, guid: 66230f842b07e184ca976a8a9f9b9b90, type: 3}
---- !u!114 &2085182229032809706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2173844058146949223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8b1c7f55cf83284eaa15ac2222b3b32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3277794841751712593
 GameObject:
   m_ObjectHideFlags: 0
@@ -4088,6 +4075,8 @@ MonoBehaviour:
   Card_HighThreat: {fileID: 5629092485355208119}
   Card_LowThreat: {fileID: 8513712588857090027}
   Card_basicBackground: {fileID: 2800000, guid: 0d588fc6c43de0e4686a99c886ebdb8e,
+    type: 3}
+  threatCard_Prefab: {fileID: 2055594503526103222, guid: 3b5964b9592cea2468d9a46e83854c5f,
     type: 3}
 --- !u!1 &7650612468407632477
 GameObject:

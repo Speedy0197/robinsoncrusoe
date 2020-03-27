@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+﻿using Assets.Scripts.Generic.Dice;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using System;
 using System.Collections.Generic;
@@ -29,13 +30,18 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             PhaseView.StartGame();
         }
 
-        public void increaseRound(int i)
+        public DiceSet GetWeatherDices()
         {
-            i += 1;
+            return myLevel.GetWeatherDices(currentRound);
+        }
+
+        public void increaseRound()
+        {
+            currentRound += 1;
 
             //TODO: Check for victory conditions -> Trigger Victory event
 
-            if(i > myLevel.GetNumberOfRounds())
+            if(currentRound > myLevel.GetNumberOfRounds())
             {
                 //Trigger Defeat event
             }

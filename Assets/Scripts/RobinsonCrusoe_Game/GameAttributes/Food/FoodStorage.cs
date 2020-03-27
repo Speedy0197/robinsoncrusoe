@@ -71,8 +71,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
                 }
                 else
                 {
-                    throw new NotImplementedException();
-                    //Select player that doesnt eat and takes damage.
+                    amount--;
+                    //TODO: what to do when there is no food??
                 }
             }
         }

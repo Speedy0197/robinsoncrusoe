@@ -38,12 +38,6 @@ public class PopUp_Action_Show : MonoBehaviour
         return true;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //TODO: update text???
-    }
-
     private string CheckAllActions()
     {
         string actionString = string.Empty;
