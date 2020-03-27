@@ -17,24 +17,24 @@ public static class MarkerHandler2
             if (name == "Cook")
             {
 
-                markerHandler.GetMarkerByName(name, 1).transform.position = position;
+                markerHandler.GetMarkerByName(name, 1).transform.position = position + new Vector3(0, 10, 0);
                 name += "Marker1";
                 //TO-DO Error Sets both Marker in Dic
-                Debug.Log(dictionary[name].actionType);
+                Marker marker = new Marker();               
                 dictionary[name].actionType = actionType;
                 dictionary[name].isUsed = true;
                 dictionary[name].value = value;
             }
             else if (name == "Friday")
             {
-                markerHandler.GetMarkerByName(name, 1).transform.position = position;
+                markerHandler.GetMarkerByName(name, 1).transform.position = position + new Vector3(0,10,0);
                 dictionary[name + "Marker1"].actionType = actionType;
                 dictionary[name + "Marker1"].isUsed = true;
                 dictionary[name + "Marker1"].value = value;
             }
             else if (name == "Dog")
             {
-                markerHandler.GetMarkerByName(name, 1).transform.position = position;
+                markerHandler.GetMarkerByName(name, 1).transform.position = position + new Vector3(0, 10, 0);
                 dictionary[name + "Marker1"].actionType = actionType;
                 dictionary[name + "Marker1"].isUsed = true;
                 dictionary[name + "Marker1"].value = value;
@@ -44,7 +44,7 @@ public static class MarkerHandler2
         {
             if (name == "Cook")
             {
-                markerHandler.GetMarkerByName(name, 2).transform.position = position;
+                markerHandler.GetMarkerByName(name, 2).transform.position = position + new Vector3(0, 10, 0);
                 dictionary[name + "Marker2"].actionType = actionType;
                 dictionary[name + "Marker2"].isUsed = true;
                 dictionary[name + "Marker2"].value = value;

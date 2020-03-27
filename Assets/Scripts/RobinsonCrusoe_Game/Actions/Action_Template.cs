@@ -15,7 +15,7 @@ public class Action_Template : MonoBehaviour
 
     private GameObject InstantiatedPopup;
 
-    private bool isClickable = false;
+    private bool isClickable = true; //TO-DO Change back to false
 
     // Start is called before the first frame update
     void Start()

@@ -33,10 +33,12 @@ public class MarkerHandler : MonoBehaviour
         foreach (var character in PartyHandler.PartySession)
         {
             Marker marker = new Marker();
+            
             MarkerHandler2.dictionary.Add(character.CharacterName + "Marker1", marker);
             if (character.CharacterName != "Dog" && character.CharacterName != "Friday")
             {
-                MarkerHandler2.dictionary.Add(character.CharacterName + "Marker2", marker);
+                Marker marker2 = new Marker();
+                MarkerHandler2.dictionary.Add(character.CharacterName + "Marker2", marker2);
             }
         }
 
