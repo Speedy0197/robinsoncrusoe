@@ -50,14 +50,47 @@ public class Action_Template : MonoBehaviour
         float Slider1Value = popup.GetSliderValue(1);
         float Slider2Value = popup.GetSliderValue(2);
         float Slider3Value = popup.GetSliderValue(3);
+        float StartSlider1Value = popup.GetStartSliderValue(1);
+        float StartSlider2Value = popup.GetStartSliderValue(2);
+        float StartSlider3Value = popup.GetStartSliderValue(3);
 
-        if (popup.GetStartSliderValue(1) != Slider1Value)
+        if (StartSlider1Value != Slider1Value)
         {
             string characterName = PartyHandler.PartySession[0].CharacterName;
             pos.SetDictionary(characterName, Slider1Value);
-            PartyHandler.PartySession[0].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(1) - Slider1Value);
-            GameObject.Find("PlayerMarker1").transform.position = this.transform.position + new Vector3(0, 4, 0);
-            GameObject.Find("DogMarker").transform.position = this.transform.position + new Vector3(0, 12, 0);
+            PartyHandler.PartySession[0].CurrentNumberOfActions += (int)(StartSlider1Value - Slider1Value);
+
+            if (StartSlider1Value < Slider1Value)
+            {
+                if (Slider1Value - StartSlider1Value == 1)
+                {
+                    MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+                }
+                else if (Slider1Value - StartSlider1Value == 2)
+                {
+                    MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+                    MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+                }
+            }
+            else if (StartSlider1Value > Slider1Value)
+            {
+                if (StartSlider1Value - Slider1Value == 1)
+                {
+                    MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+                }
+                else if (StartSlider1Value - Slider1Value == 2)
+                {
+                    MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+                    MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+                }
+
+            }
+
+
+
+
+            //  GameObject.Find("PlayerMarker1").transform.position = this.transform.position + new Vector3(0, 4, 0);
+            //  GameObject.Find("DogMarker").transform.position = this.transform.position + new Vector3(0, 12, 0);
         }
 
         if (popup.GetStartSliderValue(2) != Slider2Value)
@@ -103,4 +136,4 @@ public class Action_Template : MonoBehaviour
     }
 }
 
-    
+

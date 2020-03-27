@@ -2,9 +2,19 @@
 using System.Collections.Generic;
 
 
-enum Marker
+public class Marker
 {
-    ActionType,
-    value,
-    isUsed,
+    public ActionType actionType { get; set; }
+
+    public float value { get; set; }
+
+    public bool isUsed { get; set; }
+
+    public Marker()
+    {
+        actionType = ActionType.unknown;
+        value = 0;
+        isUsed = false;
+    }
+    
 }

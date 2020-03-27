@@ -10,9 +10,13 @@ namespace Assets.Scripts.Player
 {
     public static class PartyHandler
     {
+        public static int PartySize;
+
         public static Character[] PartySession;
         public static void CreateParty(Party newParty, int partySize)
         {
+            PartySize = partySize;
+
             if (partySize == 1) CreateOnePlayerParty(newParty);
             if (partySize == 2) CreateTwoPlayerParty(newParty);
             if (partySize == 3) CreateThreePlayerParty(newParty);

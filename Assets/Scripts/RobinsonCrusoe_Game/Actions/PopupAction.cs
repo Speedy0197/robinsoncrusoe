@@ -53,7 +53,7 @@ public class PopupAction : MonoBehaviour
 
         if (arg0 > maxValue2 || totalValue > totalMaxValue)
         {
-            slider2.value = Math.Min(arg0 - (totalValue - totalMaxValue), maxValue3);
+            slider2.value = Math.Min(arg0 - (totalValue - totalMaxValue), maxValue2);
         }
     }
 
