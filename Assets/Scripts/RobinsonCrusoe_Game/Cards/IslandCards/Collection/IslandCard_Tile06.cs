@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +10,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
 {
     public class IslandCard_Tile06 : IIslandCard
     {
-        public void Explore()
+        public void GatherRessources(RessourceType ressource)
         {
-            throw new NotImplementedException();
-        }
-
-        public void GatherRessources()
-        {
-            throw new NotImplementedException();
+            if (ressource == RessourceType.Parrot)
+            {
+                PerishableFood.IncreasePerishableFoodBy(1);
+            }
         }
 
         public int GetMaterialNumber()
@@ -23,14 +23,34 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
             return 6;
         }
 
-        public bool HasCamp()
+        public int GetNumberOfAnimals()
         {
-            throw new NotImplementedException();
+            return 1;
+        }
+
+        public int GetNumberOfDiscoveryTokens()
+        {
+            return 3;
+        }
+
+        public RessourceType[] GetRessourcesOnIsland()
+        {
+            return new RessourceType[] { RessourceType.Parrot };
+        }
+
+        public TerrainType GetTerrain()
+        {
+            return TerrainType.Plain;
+        }
+
+        public bool IsNaturalCamp()
+        {
+            return false;
         }
 
         public override string ToString()
         {
-            return "Tile06;" + GetMaterialNumber();
+            return "Feld";
         }
     }
 }

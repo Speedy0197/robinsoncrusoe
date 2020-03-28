@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +10,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
 {
     public class IslandCard_Tile09 : IIslandCard
     {
-        public void Explore()
+        public void GatherRessources(RessourceType ressource)
         {
-            throw new NotImplementedException();
-        }
-
-        public void GatherRessources()
-        {
-            throw new NotImplementedException();
+            if(ressource == RessourceType.Fish)
+            {
+                PerishableFood.IncreasePerishableFoodBy(1);
+            }
+            else if(ressource == RessourceType.Wood)
+            {
+                Wood.IncreaseWoodBy(1);
+            }
         }
 
         public int GetMaterialNumber()
@@ -23,14 +27,34 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
             return 9;
         }
 
-        public bool HasCamp()
+        public int GetNumberOfAnimals()
         {
-            throw new NotImplementedException();
+            return 0;
+        }
+
+        public int GetNumberOfDiscoveryTokens()
+        {
+            return 1;
+        }
+
+        public RessourceType[] GetRessourcesOnIsland()
+        {
+            return new RessourceType[] { RessourceType.Wood, RessourceType.Fish };
+        }
+
+        public TerrainType GetTerrain()
+        {
+            return TerrainType.River;
+        }
+
+        public bool IsNaturalCamp()
+        {
+            return false;
         }
 
         public override string ToString()
         {
-            return "Tile09;" + GetMaterialNumber();
+            return "Bach";
         }
     }
 }

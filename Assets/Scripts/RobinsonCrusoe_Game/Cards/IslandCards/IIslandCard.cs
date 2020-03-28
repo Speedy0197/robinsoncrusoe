@@ -8,9 +8,29 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards
 {
     public interface IIslandCard
     {
-        void GatherRessources();
-        void Explore();
-        bool HasCamp();
+        RessourceType[] GetRessourcesOnIsland();
+        void GatherRessources(RessourceType ressource);
+        bool IsNaturalCamp();
         int GetMaterialNumber();
+        int GetNumberOfDiscoveryTokens();
+        TerrainType GetTerrain();
+        int GetNumberOfAnimals();
+    }
+
+    public enum RessourceType
+    {
+        Fish,
+        Parrot,
+        Wood,
+    }
+
+    public enum TerrainType
+    {
+        Beach,
+        Plain,
+        Mountain,
+        River,
+        Hill,
+        Volcano
     }
 }

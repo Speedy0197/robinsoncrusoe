@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,14 +9,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
 {
     public class IslandCard_Tile08 : IIslandCard
     {
-        public void Explore()
+        public void GatherRessources(RessourceType ressource)
         {
-            throw new NotImplementedException();
-        }
-
-        public void GatherRessources()
-        {
-            throw new NotImplementedException();
+            if(ressource == RessourceType.Wood)
+            {
+                Wood.IncreaseWoodBy(1);
+            }
         }
 
         public int GetMaterialNumber()
@@ -23,13 +22,34 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
             return 8;
         }
 
-        public bool HasCamp()
+        public int GetNumberOfAnimals()
         {
-            throw new NotImplementedException();
+            return 1;
         }
+
+        public int GetNumberOfDiscoveryTokens()
+        {
+            return 1;
+        }
+
+        public RessourceType[] GetRessourcesOnIsland()
+        {
+            return new RessourceType[] { RessourceType.Wood };
+        }
+
+        public TerrainType GetTerrain()
+        {
+            return TerrainType.Mountain;
+        }
+
+        public bool IsNaturalCamp()
+        {
+            return true;
+        }
+
         public override string ToString()
         {
-            return "Tile08;" + GetMaterialNumber();
+            return "Nebelberg";
         }
     }
 }
