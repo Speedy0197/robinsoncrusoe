@@ -7,6 +7,7 @@ public class ExploreIsland : MonoBehaviour
 {
     public Material islandBackground;
     public bool isExplored = false;
+    public bool canExplore = false;
     public bool hasCamp = false;
     public IIslandCard myCard;
 
@@ -21,7 +22,7 @@ public class ExploreIsland : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (!isExplored)
+        if (!isExplored && canExplore)
         {
             isExplored = true;
 
