@@ -1,4 +1,7 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
+using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,13 +12,14 @@ public class General_Init : MonoBehaviour
     void Start()
     {
         //TODO: Initialize all the other stuff
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Roof.SetStartValue(0);
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Wall.SetStartState(0);
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.WeaponPower.SetStartValue(0);
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Fur.SetStartValue(0);
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Wood.SetStartValue(0);
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food.PerishableFood.SetStartValue(0);
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food.UnperishableFood.SetStartValue(0);
-        Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Moral.SetStartValue();
+        Roof.SetStartValue(0);
+        Wall.SetStartState(0);
+        WeaponPower.SetStartValue(0);
+        Fur.SetStartValue(0);
+        Wood.SetStartValue(0);
+        PerishableFood.SetStartValue(0);
+        UnperishableFood.SetStartValue(0);
+        Moral.SetStartValue();
+        TerrainStorage.CreateStorageSpace();
     }
 }

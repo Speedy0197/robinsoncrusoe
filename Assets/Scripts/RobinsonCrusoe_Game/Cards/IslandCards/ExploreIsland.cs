@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,22 +14,13 @@ public class ExploreIsland : MonoBehaviour
 
     private IslandCard_Deck deck;
     private MeshRenderer mesh;
+    private Actionphase_CanClick clicker;
 
     private void Start()
     {
         deck = FindObjectOfType<IslandCard_Deck>();
         mesh = GetComponent<MeshRenderer>();
-    }
-
-    private void OnMouseDown()
-    {
-        if (!isExplored && canExplore)
-        {
-            isExplored = true;
-
-            myCard = deck.Draw();
-            mesh.material = deck.GetMaterialFromID(myCard.GetMaterialNumber());
-        }
+        clicker = GetComponent<Actionphase_CanClick>();
     }
 
     public void CampHere()
@@ -40,5 +32,22 @@ public class ExploreIsland : MonoBehaviour
             island.hasCamp = false;
         }
         hasCamp = true;
+    }
+
+    public void Explore()
+    {
+        if (!isExplored && canExplore)
+        {
+            isExplored = true;
+
+            myCard = deck.Draw();
+            mesh.material = deck.GetMaterialFromID(myCard.GetMaterialNumber());
+
+            TerrainStorage.UnlockTerrain(myCard.GetTerrain());
+
+            //TODO:
+            //Spawn Hunting Cards
+            //Spawn Discovery Tokens
+        }
     }
 }
