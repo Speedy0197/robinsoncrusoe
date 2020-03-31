@@ -36,6 +36,17 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terra
             AvailableInventions.Add(Invention.Snare, false);
             AvailableInventions.Add(Invention.Spear, false);
             AvailableInventions.Add(Invention.Wall, false);
+
+            //Start Items
+            AvailableInventions.Add(Invention.Knife, false);
+            AvailableInventions.Add(Invention.Cure, false);
+            AvailableInventions.Add(Invention.Dam, false);
+            AvailableInventions.Add(Invention.Fire, false);
+            AvailableInventions.Add(Invention.Map, false);
+            AvailableInventions.Add(Invention.Pot, false);
+            AvailableInventions.Add(Invention.Rope, false);
+            AvailableInventions.Add(Invention.Shovel, false);
+            AvailableInventions.Add(Invention.Brick, false);
         }
 
         public static void UnlockInvention(Invention invention)
@@ -45,6 +56,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terra
         public  static void LockInvention(Invention invention)
         {
             AvailableInventions[invention] = false;
+        }
+
+        public static bool IsAvailable(Invention invention)
+        {
+            return AvailableInventions[invention];
         }
     }
 
@@ -70,6 +86,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terra
         Sling,
         Snare,
         Spear,
-        Wall
+        Wall,
+        //Start Inventions:
+        Knife,
+        Cure,
+        Dam,
+        Fire,
+        Map,
+        Pot,
+        Rope,
+        Shovel,
+        Brick,
     }
 }

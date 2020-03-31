@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,7 +10,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards
     public interface IItemCard
     {
         int GetMaterialNumber();
-        bool MaterialsAvailable();
-        void Build();
+        bool IsBuildable();
+        Invention GetInventionType();
+        RessourceCosts GetRessourceCosts();
+    }
+
+    public struct RessourceCosts
+    {
+        public int AmountOfWood { get; set; }
+        public int AmountOfLeather { get; set; }
     }
 }

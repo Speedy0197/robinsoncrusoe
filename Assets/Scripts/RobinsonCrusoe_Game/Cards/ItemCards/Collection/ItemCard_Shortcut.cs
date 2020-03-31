@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
 {
     public class ItemCard_Shortcut : IItemCard
     {
-        public void Build()
+        public Invention GetInventionType()
         {
-            throw new NotImplementedException();
+            return Invention.Shortcut;
         }
 
         public int GetMaterialNumber()
@@ -18,13 +19,22 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
             return 1;
         }
 
-        public bool MaterialsAvailable()
+        public RessourceCosts GetRessourceCosts()
         {
-            throw new NotImplementedException();
+            var costs = new RessourceCosts();
+            costs.AmountOfLeather = 0;
+            costs.AmountOfWood = 0;
+            return costs;
         }
+
+        public bool IsBuildable()
+        {
+            return true;
+        }
+
         public override string ToString()
         {
-            return "Shortcut;" + GetMaterialNumber();
+            return "Shortcut";
         }
     }
 }

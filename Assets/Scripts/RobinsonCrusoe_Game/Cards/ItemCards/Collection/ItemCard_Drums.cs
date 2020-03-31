@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
 {
     public class ItemCard_Drums : IItemCard
     {
-        public void Build()
+        public Invention GetInventionType()
         {
-            throw new NotImplementedException();
+            return Invention.Drums;
         }
 
         public int GetMaterialNumber()
@@ -18,13 +20,26 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
             return 11;
         }
 
-        public bool MaterialsAvailable()
+        public RessourceCosts GetRessourceCosts()
         {
-            throw new NotImplementedException();
+            var costs = new RessourceCosts();
+            costs.AmountOfLeather = 1;
+            costs.AmountOfWood = 0;
+            return costs;
         }
+
+        public bool IsBuildable()
+        {
+            if (TerrainStorage.GetValue(TerrainType.Hill))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public override string ToString()
         {
-            return "Drums;" + GetMaterialNumber();
+            return "Drums";
         }
     }
 }

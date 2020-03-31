@@ -40,6 +40,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terra
                 box.TimesUnlocked = 0;
             }
         }
+
+        public static bool GetValue(TerrainType terrain)
+        {
+            return AvailableTerrain[terrain].IsUnlocked;
+        }
     }
 
     class StorageBox

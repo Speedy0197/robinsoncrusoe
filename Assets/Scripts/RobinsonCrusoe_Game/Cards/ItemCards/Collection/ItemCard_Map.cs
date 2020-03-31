@@ -7,34 +7,37 @@ using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
 {
-    public class ItemCard_Sack : IItemCard
+    public class ItemCard_Map : IItemCard
     {
         public Invention GetInventionType()
         {
-            return Invention.Sack;
+            return Invention.Map;
         }
 
         public int GetMaterialNumber()
         {
-            return 16;
+            return 27;
         }
 
         public RessourceCosts GetRessourceCosts()
         {
             var costs = new RessourceCosts();
-            costs.AmountOfLeather = 1;
+            costs.AmountOfLeather = 0;
             costs.AmountOfWood = 0;
             return costs;
         }
 
         public bool IsBuildable()
         {
-            return true;
+            if (TerrainStorage.GetValue(IslandCards.TerrainType.River))
+            {
+                return true;
+            }
+            return false;
         }
-
         public override string ToString()
         {
-            return "Sack";
+            return "Map";
         }
     }
 }

@@ -11,12 +11,6 @@ public class ItemCard : MonoBehaviour
     public IItemCard cardClass;
     public bool state = false;
 
-    private void OnMouseDown()
-    {
-        state = !state;
-        UpdateMaterial();
-    }
-
     private void UpdateMaterial()
     {
         if (state)
@@ -36,5 +30,10 @@ public class ItemCard : MonoBehaviour
         cardClass = itemCard;
 
         UpdateMaterial();
+    }
+
+    public void Research()
+    {
+
     }
 }
