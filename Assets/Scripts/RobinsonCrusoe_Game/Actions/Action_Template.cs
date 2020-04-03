@@ -1,21 +1,26 @@
 ﻿using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
 using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class Action_Template : MonoBehaviour
 {
     public GameObject popup;
     public GameObject popup_position;
+    public ActionType actionType;
+    public static event EventHandler ContinueButtonIsClickable;
+    public static event EventHandler ContinueButtonIsNotClickable;
 
     public Position pos = null;
 
     private GameObject InstantiatedPopup;
 
-    private bool isClickable = true; //TO-DO Change back to false
+    private bool isClickable = false; //TO-DO Change back to false
 
     // Start is called before the first frame update
     void Start()
@@ -68,8 +73,25 @@ public class Action_Template : MonoBehaviour
             CheckSliderValueAndChangeStuff(2, StartSlider3Value, Slider3Value);
         }
 
+        bool Done = true;
 
+        foreach (var marker in MarkerHandler2.dictionary)
+        {
+            if (marker.Value.actionType == ActionType.unknown)
+            {
+                Done = false;
+                break;
+            }
+        }
 
+        if (Done)
+        {
+            ContinueButtonIsClickable?.Invoke(this, new EventArgs());
+        }
+        else
+        {
+            ContinueButtonIsNotClickable?.Invoke(this, new EventArgs());
+        }
 
         PopupSave.SaveButtonClicked -= Save;
         PopupCancel.CancelButtonClicked -= Cancel;
@@ -108,12 +130,12 @@ public class Action_Template : MonoBehaviour
         {
             if (SliderValue - StartSliderValue == 1)
             {
-                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, actionType, 1);
             }
             else if (SliderValue - StartSliderValue == 2)
             {
-                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
-                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, actionType, 1);
+                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, actionType, 1);
             }
         }
         else if (StartSliderValue > SliderValue)

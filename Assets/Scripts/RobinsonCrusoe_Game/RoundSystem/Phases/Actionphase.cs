@@ -21,9 +21,7 @@ public class Actionphase : MonoBehaviour
         if (myView.currentPhase == E_Phase.Action)
         {
             Debug.Log("Entered Phase: Event ");
-            //Show PopUp
-            var ui = FindObjectOfType<GetUIBase>().GetUI();
-            Instantiate(actionphase_Prefab, ui.transform);
+            
         }
     }
 }

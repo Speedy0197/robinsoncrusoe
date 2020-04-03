@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popup: {fileID: 2798432896716705498, guid: 2e695e91bf5e36945acdaac52feb7ff8, type: 3}
   popup_position: {fileID: 1687774668}
+  actionType: 1
 --- !u!65 &66948421
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3829,6 +3830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popup: {fileID: 2798432896716705498, guid: 2e695e91bf5e36945acdaac52feb7ff8, type: 3}
   popup_position: {fileID: 1687774668}
+  actionType: 1
 --- !u!65 &1086921070
 BoxCollider:
   m_ObjectHideFlags: 0
