@@ -2893,11 +2893,6 @@ GameObject:
   - component: {fileID: 900573303}
   - component: {fileID: 900573302}
   - component: {fileID: 900573301}
-  - component: {fileID: 900573308}
-  - component: {fileID: 900573307}
-  - component: {fileID: 900573306}
-  - component: {fileID: 900573305}
-  - component: {fileID: 900573310}
   - component: {fileID: 900573309}
   - component: {fileID: 900573311}
   m_Layer: 0
@@ -3021,90 +3016,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &900573305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900573300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d718648fcb5dc854c94adacc9a83bd11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPowerMarkerObject: {fileID: 7783439088408286967, guid: 6d6099cdc279fe942be94b514f9aee80,
-    type: 3}
-  weaponPowerPosition_0: {fileID: 0}
-  weaponPowerPosition_1: {fileID: 0}
-  weaponPowerPosition_2: {fileID: 0}
-  weaponPowerPosition_3: {fileID: 0}
-  weaponPowerPosition_4: {fileID: 0}
-  weaponPowerPosition_5: {fileID: 0}
-  weaponPowerPosition_6: {fileID: 0}
-  weaponPowerPosition_7: {fileID: 0}
-  weaponPowerPosition_8: {fileID: 0}
-  weaponPowerPosition_9: {fileID: 0}
-  weaponPowerPosition_10: {fileID: 0}
---- !u!114 &900573306
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900573300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 728ad7492ce03ad408ab150571be7cd4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wallMarkerObject: {fileID: 6620634667967721511, guid: 6c7f5dceae403674495aa24a7a662259,
-    type: 3}
-  wallPosition_0: {fileID: 0}
-  wallPosition_1: {fileID: 0}
-  wallPosition_2: {fileID: 0}
-  wallPosition_3: {fileID: 0}
-  wallPosition_4: {fileID: 0}
---- !u!114 &900573307
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900573300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1fda70298032fa4fa5aac9e11fe258e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roofMarkerObject: {fileID: 4677510575552511589, guid: a484a7cabc343024ab76047a90aa9289,
-    type: 3}
-  roofPosition_0: {fileID: 0}
-  roofPosition_1: {fileID: 0}
-  roofPosition_2: {fileID: 0}
-  roofPosition_3: {fileID: 0}
-  roofPosition_4: {fileID: 0}
---- !u!114 &900573308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900573300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83467d0e8c22e96488257f2b9055de24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moralMarkerObject: {fileID: 5132841978218360677, guid: 9620881e1db18e5458c2d36b548c21a8,
-    type: 3}
-  markerPosition_m3: {fileID: 0}
-  markerPosition_m2: {fileID: 0}
-  markerPosition_m1: {fileID: 0}
-  markerPosition_0: {fileID: 0}
-  markerPosition_p1: {fileID: 0}
-  markerPosition_p2: {fileID: 0}
-  markerPosition_p2h: {fileID: 0}
 --- !u!114 &900573309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3117,20 +3028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 569c2664813eb5e4cb88e122cbda728c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &900573310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 900573300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b3342ecbbb4de14b9731a286cd27f25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NearDanger: {fileID: 0}
-  InDanger: {fileID: 0}
 --- !u!114 &900573311
 MonoBehaviour:
   m_ObjectHideFlags: 0

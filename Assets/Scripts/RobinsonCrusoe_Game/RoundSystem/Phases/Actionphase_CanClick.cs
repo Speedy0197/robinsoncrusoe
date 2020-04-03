@@ -16,14 +16,17 @@ public class Actionphase_CanClick : MonoBehaviour
 
     private void OnPhaseChanged(object sender, System.EventArgs e)
     {
-        E_Phase currentPhase = (E_Phase)sender;
-        if(currentPhase == E_Phase.Action)
+        if (sender is E_Phase)
         {
-            IsClickable = true;
-        }
-        else
-        {
-            IsClickable = false;
+            E_Phase currentPhase = (E_Phase)sender;
+            if (currentPhase == E_Phase.Action)
+            {
+                IsClickable = true;
+            }
+            else
+            {
+                IsClickable = false;
+            }
         }
     }
 }
