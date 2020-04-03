@@ -10,6 +10,11 @@ public class PopupAction : MonoBehaviour
     public Slider slider1;
     public Slider slider2;
     public Slider slider3;
+    public Text text0;
+    public Text text1;
+    public Text text2;
+    public Text text3;
+
     private float startValue1;
     private float maxValue1;
     private float startValue2;
@@ -63,7 +68,7 @@ public class PopupAction : MonoBehaviour
 
         if (arg0 > maxValue1 || totalValue > totalMaxValue)
         {
-            slider1.value = Math.Min(arg0 -(totalValue - totalMaxValue), maxValue1);
+            slider1.value = Math.Min(arg0 - (totalValue - totalMaxValue), maxValue1);
         }
     }
 
@@ -85,9 +90,17 @@ public class PopupAction : MonoBehaviour
 
     public void SetSliderValue(int sliderNr, float value)
     {
-        if (sliderNr == 1)  slider1.value = value;
-        if (sliderNr == 2)  slider2.value = value;
-        if (sliderNr == 3)  slider3.value = value;
+        if (sliderNr == 1) slider1.value = value;
+        if (sliderNr == 2) slider2.value = value;
+        if (sliderNr == 3) slider3.value = value;
+    }
+
+    public void SetText(int textNr, string text)
+    {
+        if (textNr == 0) text0.text = text;
+        if (textNr == 1) text1.text = text;
+        if (textNr == 2) text2.text = text;
+        if (textNr == 3) text3.text = text;
     }
 
 }

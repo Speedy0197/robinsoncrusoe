@@ -20,7 +20,7 @@ public class Action_Template : MonoBehaviour
 
     private GameObject InstantiatedPopup;
 
-    private bool isClickable = false; //TO-DO Change back to false
+    private bool isClickable = false;
 
     // Start is called before the first frame update
     void Start()
@@ -33,8 +33,9 @@ public class Action_Template : MonoBehaviour
     void OnMouseDown()
     {
         if (isClickable)
-        {
+        {           
             InstantiatedPopup = Instantiate(popup, popup_position.transform);
+            InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString());
             PopupSave.SaveButtonClicked += Save;
             PopupCancel.CancelButtonClicked += Cancel;
             Dictionary<string, float> dictionary = pos.GetDictionary();
@@ -42,6 +43,7 @@ public class Action_Template : MonoBehaviour
             int i = 1;
             foreach (var character in PartyHandler.PartySession)
             {
+                if(character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
                 InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
                 i++;
             }

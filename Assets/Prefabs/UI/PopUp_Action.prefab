@@ -493,6 +493,10 @@ MonoBehaviour:
   slider1: {fileID: 6612378855839814006}
   slider2: {fileID: 3168723230564598862}
   slider3: {fileID: 8972422498525572991}
+  text0: {fileID: 3773422831430372688}
+  text1: {fileID: 1782495130231415671}
+  text2: {fileID: 320302174635085253}
+  text3: {fileID: 6317938184609128488}
 --- !u!1 &2996375923490257759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +1042,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Building
+  m_Text: Aktion
 --- !u!1 &5952481907312026334
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,7 +1217,7 @@ GameObject:
   - component: {fileID: 7582419133281768562}
   - component: {fileID: 320302174635085253}
   m_Layer: 5
-  m_Name: PopUp_CookFriday
+  m_Name: PopUp_Text2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1277,7 +1281,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Friday
+  m_Text: Text2
 --- !u!1 &6418062211621156046
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1894,7 @@ GameObject:
   - component: {fileID: 5815375397949957600}
   - component: {fileID: 1782495130231415671}
   m_Layer: 5
-  m_Name: PopUp_CookText
+  m_Name: PopUp_Text1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1954,7 +1958,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Cook
+  m_Text: Text1
 --- !u!1 &8477845591830911210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,7 +1971,7 @@ GameObject:
   - component: {fileID: 4427991473098460036}
   - component: {fileID: 6317938184609128488}
   m_Layer: 5
-  m_Name: PopUp_CookDog
+  m_Name: PopUp_Text3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2031,4 +2035,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Dog
+  m_Text: Text3
