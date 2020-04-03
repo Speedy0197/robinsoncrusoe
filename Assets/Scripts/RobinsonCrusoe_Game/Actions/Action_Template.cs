@@ -54,55 +54,18 @@ public class Action_Template : MonoBehaviour
         float StartSlider2Value = popup.GetStartSliderValue(2);
         float StartSlider3Value = popup.GetStartSliderValue(3);
 
+
         if (StartSlider1Value != Slider1Value)
         {
-            string characterName = PartyHandler.PartySession[0].CharacterName;
-            pos.SetDictionary(characterName, Slider1Value);
-            PartyHandler.PartySession[0].CurrentNumberOfActions += (int)(StartSlider1Value - Slider1Value);
-
-            if (StartSlider1Value < Slider1Value)
-            {
-                if (Slider1Value - StartSlider1Value == 1)
-                {
-                    MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
-                }
-                else if (Slider1Value - StartSlider1Value == 2)
-                {
-                    MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
-                    MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
-                }
-            }
-            else if (StartSlider1Value > Slider1Value)
-            {
-                if (StartSlider1Value - Slider1Value == 1)
-                {
-                    MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
-                }
-                else if (StartSlider1Value - Slider1Value == 2)
-                {
-                    MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
-                    MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
-                }
-
-            }
-
-
-
-
-            //  GameObject.Find("PlayerMarker1").transform.position = this.transform.position + new Vector3(0, 4, 0);
-            //  GameObject.Find("DogMarker").transform.position = this.transform.position + new Vector3(0, 12, 0);
+            CheckSliderValueAndChangeStuff(0, StartSlider1Value, Slider1Value);
         }
-
-        if (popup.GetStartSliderValue(2) != Slider2Value)
+        if (StartSlider2Value != Slider2Value)
         {
-            pos.SetDictionary(PartyHandler.PartySession[1].CharacterName, Slider2Value);
-            PartyHandler.PartySession[1].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(2) - Slider2Value);
+            CheckSliderValueAndChangeStuff(1, StartSlider2Value, Slider2Value);
         }
-
-        if (popup.GetStartSliderValue(3) != Slider3Value)
+        if (StartSlider3Value != Slider3Value)
         {
-            pos.SetDictionary(PartyHandler.PartySession[2].CharacterName, Slider3Value);
-            PartyHandler.PartySession[2].CurrentNumberOfActions += (int)(popup.GetStartSliderValue(3) - Slider3Value);
+            CheckSliderValueAndChangeStuff(2, StartSlider3Value, Slider3Value);
         }
 
 
@@ -133,6 +96,39 @@ public class Action_Template : MonoBehaviour
         PopupSave.SaveButtonClicked -= Save;
         PopupCancel.CancelButtonClicked -= Cancel;
         Destroy(InstantiatedPopup);
+    }
+
+    private void CheckSliderValueAndChangeStuff(int characterNr, float StartSliderValue, float SliderValue)
+    {
+        string characterName = PartyHandler.PartySession[characterNr].CharacterName;
+        pos.SetDictionary(characterName, SliderValue);
+        PartyHandler.PartySession[characterNr].CurrentNumberOfActions += (int)(StartSliderValue - SliderValue);
+
+        if (StartSliderValue < SliderValue)
+        {
+            if (SliderValue - StartSliderValue == 1)
+            {
+                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+            }
+            else if (SliderValue - StartSliderValue == 2)
+            {
+                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+                MarkerHandler2.SetMarkerByName(characterName, this.transform.position, ActionType.build, 1);
+            }
+        }
+        else if (StartSliderValue > SliderValue)
+        {
+            if (StartSliderValue - SliderValue == 1)
+            {
+                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+            }
+            else if (StartSliderValue - SliderValue == 2)
+            {
+                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+            }
+
+        }
     }
 }
 

@@ -6,6 +6,7 @@ public class Collision : MonoBehaviour
 {
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        Debug.Log("Collision");
+        this.GetComponent<Rigidbody>().isKinematic = true;
+        this.GetComponent<Rigidbody>().isKinematic = false;
     }
 }

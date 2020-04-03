@@ -16,10 +16,8 @@ public static class MarkerHandler2
         {
             if (name == "Cook")
             {
-
                 markerHandler.GetMarkerByName(name, 1).transform.position = position + new Vector3(0, 10, 0);
                 name += "Marker1";
-                //TO-DO Error Sets both Marker in Dic
                 Marker marker = new Marker();               
                 dictionary[name].actionType = actionType;
                 dictionary[name].isUsed = true;
@@ -56,14 +54,26 @@ public static class MarkerHandler2
     {
         MarkerHandler markerHandler = GameObject.Find("Board").GetComponent<MarkerHandler>();
 
-        if (dictionary[name + "Marker1"].isUsed && markerHandler.GetMarkerByName(name, 1).transform.position == position)
+        if (dictionary[name + "Marker1"].isUsed)
         {
-            markerHandler.GetMarkerByName(name, 1).transform.position = markerHandler.GetInitMarkerPositionByName(name, 1);
-            dictionary[name + "Marker1"].actionType = ActionType.unknown;
-            dictionary[name + "Marker1"].isUsed = false;
-            dictionary[name + "Marker1"].value = 0;
+            if (markerHandler.GetMarkerByName(name, 1).transform.position.Round() == position + new Vector3(0, 6, 0))
+            {
+                markerHandler.GetMarkerByName(name, 1).transform.position = markerHandler.GetInitMarkerPositionByName(name, 1);
+                dictionary[name + "Marker1"].actionType = ActionType.unknown;
+                dictionary[name + "Marker1"].isUsed = false;
+                dictionary[name + "Marker1"].value = 0;
+            }
+
+
+            else if (markerHandler.GetMarkerByName(name, 1).transform.position.Round() == position + new Vector3(0, 14, 0))
+            {
+                markerHandler.GetMarkerByName(name, 1).transform.position = markerHandler.GetInitMarkerPositionByName(name, 1);
+                dictionary[name + "Marker1"].actionType = ActionType.unknown;
+                dictionary[name + "Marker1"].isUsed = false;
+                dictionary[name + "Marker1"].value = 0;
+            }
         }
-        else if(dictionary[name + "Marker2"].isUsed && markerHandler.GetMarkerByName(name, 2).transform.position == position)
+        else if(dictionary[name + "Marker2"].isUsed && (markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position + new Vector3(0, 6, 0) || markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position + new Vector3(0, 14, 0)))
         {
             markerHandler.GetMarkerByName(name, 2).transform.position = markerHandler.GetInitMarkerPositionByName(name, 2);
             dictionary[name + "Marker2"].actionType = ActionType.unknown;
