@@ -3,10 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
 {
-    class ItemCard_Fire
+    public class ItemCard_Fire : IItemCard
     {
+        public Invention GetInventionType()
+        {
+            return Invention.Fire;
+        }
+
+        public int GetMaterialNumber()
+        {
+            return 25;
+        }
+
+        public RessourceCosts GetRessourceCosts()
+        {
+            var costs = new RessourceCosts(0, 0, 0);
+            return costs;
+        }
+
+        public bool IsBuildable()
+        {
+            if (TerrainStorage.GetValue(TerrainType.Mountain))
+            {
+                return true;
+            }
+            return false;
+        }
+        public override string ToString()
+        {
+            return "Fire";
+        }
     }
 }

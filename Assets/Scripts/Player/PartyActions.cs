@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Assets.Scripts.Player
 {
     public static class PartyActions
-    {
+    { 
         public static Character GetActiveCharacter()
         {
             foreach(Character c in PartyHandler.PartySession)
@@ -24,6 +24,43 @@ namespace Assets.Scripts.Player
             foreach (Character c in PartyHandler.PartySession)
             {
                 CharacterActions.LowerCharacterDeterminationBy(amount, c);
+            }
+        }
+
+        public static void DamageAllPlayers(int amount)
+        {
+            foreach (Character c in PartyHandler.PartySession)
+            {
+                CharacterActions.DamageCharacterBy(1, c);
+            }
+        }
+
+        public static void SetNextActiveCharacter()
+        {
+            bool foundCurrentCharacter = false;
+            for(int i = 0; i < PartyHandler.PartySession.Length; i++)
+            {
+                if (PartyHandler.PartySession[i] is ISideCharacter)
+                {
+                    if (i == PartyHandler.PartySession.Length - 1) i = -1;
+                    continue;
+                }
+
+
+                if (PartyHandler.PartySession[i].IsActiveCharacter)
+                {
+                    PartyHandler.PartySession[i].IsActiveCharacter = false;
+                    foundCurrentCharacter = true;
+
+                    if (i == PartyHandler.PartySession.Length - 1) i = -1;
+                    continue;
+                }
+
+                if (foundCurrentCharacter)
+                {
+                    PartyHandler.PartySession[i].IsActiveCharacter = true;
+                    return;
+                }
             }
         }
     }

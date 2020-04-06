@@ -21,9 +21,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
 
         public RessourceCosts GetRessourceCosts()
         {
-            var costs = new RessourceCosts();
-            costs.AmountOfWood = 1;
-            costs.AmountOfLeather = 0; //TODO: leather is actually 1, but you can choose between either wood or leather. Don't know how to implement it atm
+            //TODO: leather is actually 1, but you can choose between either wood or leather. Don't know how to implement it atm
+            var costs = new RessourceCosts(1,0,0);
             return costs;
         }
 

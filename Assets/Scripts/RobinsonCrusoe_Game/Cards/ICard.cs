@@ -12,4 +12,18 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards
         void ExecuteEvent();
         string GetCardDescription();
     }
+
+    public class RessourceCosts
+    {
+        public RessourceCosts(int wood, int leather, int food)
+        {
+            AmountOfWood = wood;
+            AmountOfLeather = leather;
+            AmountOfFood = food;
+        }
+
+        public int AmountOfWood { get; private set; }
+        public int AmountOfLeather { get; private set; }
+        public int AmountOfFood { get; private set; }
+    }
 }

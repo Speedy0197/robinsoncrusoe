@@ -29,9 +29,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            //TODO: this method is bugged
-            Debug.Log("WinterDepression - Future Threat");
-            //PartyActions.LowerDeterminationOfPartyBy(1);
+            PartyActions.LowerDeterminationOfPartyBy(1);
         }
 
         private void ExecuteActiveThreat()
@@ -68,6 +66,21 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         public string GetCardDescription()
         {
             return "Description";
+        }
+
+        public bool CanCompleteQuest()
+        {
+            return true;
+        }
+
+        public int GetActionCosts()
+        {
+            return 1;
+        }
+
+        public RessourceCosts GetRessourceCosts()
+        {
+            return new RessourceCosts(0, 0, 1);
         }
     }
 }

@@ -27,6 +27,10 @@ public class ContinueButton : MonoBehaviour, IPointerClickHandler
         if (isClickable)
         {
             Debug.Log("Get Shit Done");
+
+            //Change to next phase
+            var phaseView = FindObjectOfType<PhaseView>();
+            phaseView.NextPhase();
         }
     }
     private void ActionPhaseTriggered(object sender, System.EventArgs e)

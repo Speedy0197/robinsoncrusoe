@@ -9,6 +9,7 @@ using UnityEngine;
 public class GatheringCard_Deck : MonoBehaviour
 {
     public GameObject cardPrefab;
+    public GameObject questionMarkToken;
     public Material[] CardFaces;
 
     private static event EventHandler DrawRequest;
@@ -16,6 +17,7 @@ public class GatheringCard_Deck : MonoBehaviour
     private List<IGatheringCard> gatheringDeck;
     private IGatheringCard lastDrawnCard;
     private GameObject lastInstaniatedCard;
+    private bool hasQuestionMarkOnDeck;
 
     // Start is called before the first frame update
     void Start()
@@ -83,5 +85,14 @@ public class GatheringCard_Deck : MonoBehaviour
     public static void RequestDraw()
     {
         DrawRequest?.Invoke(null, new EventArgs());
+    }
+
+    public void SetQuestionMarkOnDeck()
+    {
+        if (!hasQuestionMarkOnDeck)
+        {
+            hasQuestionMarkOnDeck = true;
+            questionMarkToken.SetActive(true);
+        }
     }
 }

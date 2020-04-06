@@ -12,6 +12,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards
         bool IsCardTypeBook();
         QuestionMark GetQuestionMark();
         void ExecuteSuccessEvent();
+        bool CanCompleteQuest();
+        int GetActionCosts();
+        RessourceCosts GetRessourceCosts();
     }
 }
 

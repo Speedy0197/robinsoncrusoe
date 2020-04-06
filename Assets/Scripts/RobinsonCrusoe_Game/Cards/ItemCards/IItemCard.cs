@@ -14,10 +14,4 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards
         Invention GetInventionType();
         RessourceCosts GetRessourceCosts();
     }
-
-    public struct RessourceCosts
-    {
-        public int AmountOfWood { get; set; }
-        public int AmountOfLeather { get; set; }
-    }
 }

@@ -21,9 +21,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
 
         public RessourceCosts GetRessourceCosts()
         {
-            var costs = new RessourceCosts();
-            costs.AmountOfWood = 0;
-            costs.AmountOfLeather = 0;
+            var costs = new RessourceCosts(0,0,0);
             return costs;
         }
 

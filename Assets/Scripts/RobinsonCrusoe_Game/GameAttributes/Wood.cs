@@ -13,7 +13,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
         /// </summary>
         public static event EventHandler AmountOfWoodChanged;
 
-        private static int currentAmountOfWood;
+        public static int currentAmountOfWood { get; private set; }
         private const int maxValue = 1000;
         private const int minValue = 0;
 

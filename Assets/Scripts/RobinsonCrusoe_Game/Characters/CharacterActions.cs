@@ -19,7 +19,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
                 //Character Death
                 throw new NotImplementedException();
             }
-            if (CheckForMoralLoss(character))
+            if (!(character is ISideCharacter) 
+                && CheckForMoralLoss(character))
             {
                 Moral.LowerMoral();
             }
@@ -64,8 +65,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 
                 while (character.CurrentDetermination < 0)
                 {
+                    Debug.Log("Loop");
                     character.CurrentDetermination++;
                     DamageCharacterBy(1, character);
+                    Debug.Log(character.CurrentDetermination);
                 }
             }
         }
