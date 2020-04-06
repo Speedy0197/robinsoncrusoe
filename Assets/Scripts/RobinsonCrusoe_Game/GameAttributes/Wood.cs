@@ -40,5 +40,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
 
             AmountOfWoodChanged?.Invoke(currentAmountOfWood, new EventArgs());
         }
+
+        public static void DiscardAll()
+        {
+            currentAmountOfWood = 0;
+            AmountOfWoodChanged?.Invoke(currentAmountOfWood, new EventArgs());
+        }
     }
 }

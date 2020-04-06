@@ -27,5 +27,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             AmountOFFurChanged?.Invoke(currentAmountOfFur, new EventArgs());
         }
 
+        public static void DiscardAll()
+        {
+            currentAmountOfFur = 0;
+
+            AmountOFFurChanged?.Invoke(currentAmountOfFur, new EventArgs());
+        }
     }
 }

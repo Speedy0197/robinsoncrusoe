@@ -38,5 +38,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
 
             AmountOfUnperishableFoodChanged?.Invoke(currentAmountOfUnperishableFood, new EventArgs());
         }
+
+        public static void DiscardAll()
+        {
+            currentAmountOfUnperishableFood = 0;
+
+            AmountOfUnperishableFoodChanged?.Invoke(currentAmountOfUnperishableFood, new EventArgs());
+        }
     }
 }

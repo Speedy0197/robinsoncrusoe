@@ -10,7 +10,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
     {
         public static event EventHandler WeaponPowerChanged;
 
-        private static int currentWeaponPower;
+        public static int currentWeaponPower { get; private set; }
 
         public static void SetStartValue(int start)
         {

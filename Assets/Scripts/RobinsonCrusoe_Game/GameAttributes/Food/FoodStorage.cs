@@ -81,5 +81,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
         {
             throw new NotImplementedException();
         }
+
+        public void DiscardAll()
+        {
+            PerishableFood.DiscardAll();
+            UnperishableFood.DiscardAll();
+        }
     }
 }
