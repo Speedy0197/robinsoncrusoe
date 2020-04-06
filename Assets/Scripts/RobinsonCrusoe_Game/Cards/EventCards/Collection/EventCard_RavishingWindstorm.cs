@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 {
-    public class EventCard_DevastatingHurricane : IEventCard, ICard
+    public class EventCard_RavishingWindstorm : IEventCard, ICard
     {
         public bool CanCompleteQuest()
         {
@@ -30,25 +30,23 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            Wall.DowngradeWallBy(1);
-            //TODO: implement choice between wall and weapons
+            //Nothing happens
         }
 
         private void ExecuteActiveThreat()
         {
-            int state = Wall.WallState;
-            double half = state / 2;
-            state = Convert.ToInt32(half);
-
-            Wall.DowngradeWallBy(state);
-
-            //TODO: implement choice between wall and weapons
+            if(WeaponPower.currentWeaponPower >= 2)
+            {
+                WeaponPower.LowerWeaponPowerBy(2);
+            }
         }
 
         public void ExecuteSuccessEvent()
         {
-            Wall.UpgradeWallBy(1);
-            //TODO: implement choice between wall and weapons
+            WeaponPower.RaiseWeaponPowerBy(1);
+
+            var active = Player.PartyActions.GetActiveCharacter();
+            Characters.CharacterActions.RaiseCharacterDeterminationBy(1, active);
         }
 
         public int GetActionCosts()
@@ -63,17 +61,17 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public int GetMaterialNumber()
         {
-            return 51;
+            return 52;
         }
 
         public QuestionMark GetQuestionMark()
         {
-            return QuestionMark.Gathering;
+            return QuestionMark.Exploring;
         }
 
         public RessourceCosts GetRessourceCosts()
         {
-            return new RessourceCosts(1, 0, 0);
+            return new RessourceCosts(0, 0, 0);
         }
 
         public bool IsCardTypeBook()
@@ -82,7 +80,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         }
         public override string ToString()
         {
-            return "Devastating Hurricane";
+            return "Ravishing Windstorm";
         }
     }
 }

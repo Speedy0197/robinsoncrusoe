@@ -10,7 +10,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
     {
         public static event EventHandler WallStateChanged;
 
-        private static int WallState;
+        public static int WallState { get; private set; }
 
         public static void SetStartState(int start)
         {
