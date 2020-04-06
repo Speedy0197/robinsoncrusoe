@@ -10,11 +10,13 @@ using UnityEngine.UI;
 
 public class Action_Template : MonoBehaviour
 {
-    public GameObject popup;
-    public GameObject popup_position;
+    private GameObject popup;
+    private GameObject popup_position;
     public ActionType actionType;
     public static event EventHandler ContinueButtonIsClickable;
     public static event EventHandler ContinueButtonIsNotClickable;
+    public static event EventHandler ActionIsClickable;
+    public static event EventHandler ActionIsNotClickable;
 
     public Position pos = null;
 
@@ -26,14 +28,19 @@ public class Action_Template : MonoBehaviour
     void Start()
     {
         pos = new Position();
+        popup = Resources.Load("prefabs/PopUp_Action") as GameObject;       
         var view = FindObjectOfType<PhaseView>();
         view.currentPhaseChanged += ActionPhaseTriggered;
+        ActionIsClickable += SetActionIsClickable;
+        ActionIsNotClickable += SetActionIsNotClickable;
     }
 
     void OnMouseDown()
     {
         if (isClickable)
-        {           
+        {
+            ActionIsNotClickable?.Invoke(this, new EventArgs());
+            popup_position = GameObject.Find("UI_Base");
             InstantiatedPopup = Instantiate(popup, popup_position.transform);
             InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString());
             PopupSave.SaveButtonClicked += Save;
@@ -43,7 +50,7 @@ public class Action_Template : MonoBehaviour
             int i = 1;
             foreach (var character in PartyHandler.PartySession)
             {
-                if(character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
+                if (character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
                 InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
                 i++;
             }
@@ -53,6 +60,7 @@ public class Action_Template : MonoBehaviour
 
     private void Save(object sender, System.EventArgs e)
     {
+        ActionIsClickable?.Invoke(this, new EventArgs());
         PopupAction popup = InstantiatedPopup.GetComponent<PopupAction>();
         float Slider1Value = popup.GetSliderValue(1);
         float Slider2Value = popup.GetSliderValue(2);
@@ -115,10 +123,21 @@ public class Action_Template : MonoBehaviour
 
     }
 
+    private void SetActionIsClickable(object sender, System.EventArgs e)
+    {
+        isClickable = true;
+    }
+
+    private void SetActionIsNotClickable(object sender, System.EventArgs e)
+    {
+        isClickable = false;
+    }
+
     private void Cancel(object sender, System.EventArgs e)
     {
         PopupSave.SaveButtonClicked -= Save;
         PopupCancel.CancelButtonClicked -= Cancel;
+        ActionIsClickable?.Invoke(this, new EventArgs());
         Destroy(InstantiatedPopup);
     }
 
