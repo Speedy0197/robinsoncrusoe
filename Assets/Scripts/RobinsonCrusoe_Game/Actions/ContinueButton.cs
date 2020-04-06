@@ -28,6 +28,19 @@ public class ContinueButton : MonoBehaviour, IPointerClickHandler
         {
             Debug.Log("Get Shit Done");
 
+            /*
+             * if ActionType == Explore
+             * if(AmountOfMoves == 1)
+             *      var success = ExplorationDice_Simulation.RollSuccessDice()
+             *      var dmg = ExplorationDice_Simulation.RollDamageDice()
+             *      var card = ExplorationDice_Simulation.RollCardDice()
+             *      
+             *      FindObjectOfType<GatheringCard_Deck>.Draw()
+             *      
+             *      Food.PerishableFood.IncreaseBy(int amount);
+             */
+
+
             //Change to next phase
             var phaseView = FindObjectOfType<PhaseView>();
             phaseView.NextPhase();
