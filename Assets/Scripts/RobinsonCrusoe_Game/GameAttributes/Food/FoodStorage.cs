@@ -61,12 +61,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
             {
                 if(amountOfPerishableFood > 0)
                 {
-                    PerishableFood.DecreasePerishableFoodBy(1);
+                    PerishableFood.DecreaseBy(1);
                     amount--;
                 }
                 else if(amountOfUnperishableFood > 0)
                 {
-                    UnperishableFood.DecreasePerishableFoodBy(1);
+                    UnperishableFood.DecreaseBy(1);
                     amount--;
                 }
                 else

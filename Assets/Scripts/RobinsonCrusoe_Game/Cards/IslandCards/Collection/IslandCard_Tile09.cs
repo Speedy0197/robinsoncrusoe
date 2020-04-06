@@ -14,7 +14,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
         {
             if(ressource == RessourceType.Fish)
             {
-                PerishableFood.IncreasePerishableFoodBy(1);
+                PerishableFood.IncreaseBy(1);
             }
             else if(ressource == RessourceType.Wood)
             {

@@ -18,7 +18,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards.Collection
             }
             else if (ressource == RessourceType.Parrot)
             {
-                PerishableFood.IncreasePerishableFoodBy(1);
+                PerishableFood.IncreaseBy(1);
             }
         }
 

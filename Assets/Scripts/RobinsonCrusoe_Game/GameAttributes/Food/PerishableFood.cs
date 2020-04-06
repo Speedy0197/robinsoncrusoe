@@ -23,7 +23,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
             AmountOfPerishableFoodChanged?.Invoke(currentAmountOfPerishableFood, new EventArgs());
         }
 
-        public static void IncreasePerishableFoodBy(int value)
+        public static void IncreaseBy(int value)
         {
             currentAmountOfPerishableFood += value;
             if (currentAmountOfPerishableFood > maxValue) currentAmountOfPerishableFood = maxValue;
@@ -31,7 +31,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
             AmountOfPerishableFoodChanged?.Invoke(currentAmountOfPerishableFood, new EventArgs());
         }
 
-        public static void DecreasePerishableFoodBy(int value)
+        public static void DecreaseBy(int value)
         {
             currentAmountOfPerishableFood -= value;
             if (currentAmountOfPerishableFood < minValue) currentAmountOfPerishableFood = minValue;
