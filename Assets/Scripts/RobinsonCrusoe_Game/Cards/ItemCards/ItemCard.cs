@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +10,11 @@ public class ItemCard : MonoBehaviour
     public Material cardBack;
 
     public IItemCard cardClass;
-    public bool state = false;
+    public bool isResearched = false;
 
     private void UpdateMaterial()
     {
-        if (state)
+        if (isResearched)
         {
             GetComponent<MeshRenderer>().material = cardBack;
         }
@@ -34,6 +35,14 @@ public class ItemCard : MonoBehaviour
 
     public void Research()
     {
+        if (!isResearched)
+        {
+            isResearched = true;
+            UpdateMaterial();
 
+            InventionStorage.UnlockInvention(cardClass.GetInventionType());
+
+            //TODO: Apply card effects, do they even have effects?
+        }
     }
 }

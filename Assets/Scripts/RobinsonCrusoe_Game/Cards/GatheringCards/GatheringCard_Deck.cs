@@ -10,26 +10,15 @@ public class GatheringCard_Deck : MonoBehaviour
 {
     public GameObject cardPrefab;
     public GameObject questionMarkToken;
-    public Material[] CardFaces;
+    public Texture2D[] CardFaces;
 
-    private static event EventHandler DrawRequest;
-
-    private List<IGatheringCard> gatheringDeck;
-    private IGatheringCard lastDrawnCard;
-    private GameObject lastInstaniatedCard;
+    private List<ICard> gatheringDeck;
     private bool hasQuestionMarkOnDeck;
 
     // Start is called before the first frame update
     void Start()
     {
-        DrawRequest += OnDrawRequest;
-
         PlayCards();
-    }
-
-    private void OnDrawRequest(object sender, EventArgs e)
-    {
-        Draw();
     }
 
     void PlayCards()
@@ -43,48 +32,27 @@ public class GatheringCard_Deck : MonoBehaviour
         //}
     }
 
-    void Draw()
+    public ICard Draw()
     {
         var card = gatheringDeck[0];
-        lastDrawnCard = card;
         gatheringDeck.RemoveAt(0);
 
-        GameObject newCard = Instantiate(cardPrefab, transform);
-        newCard.name = card.ToString();
-        lastInstaniatedCard = newCard;
+        return card;
     }
 
-    public IGatheringCard GetDrawnEventClass()
+    public Texture2D GetMaterialFromName(int id)
     {
-        return lastDrawnCard;
-    }
-
-    public GameObject GetInstantiatedEventClass()
-    {
-        return lastInstaniatedCard;
-    }
-
-    public Material GetMaterialFromName(string name)
-    {
-        string[] splitted = name.Split(';');
-        int id = Convert.ToInt32(splitted[1]);
-
         return CardFaces[id];
     }
 
-    public static List<IGatheringCard> GenerateNewDeck()
+    public static List<ICard> GenerateNewDeck()
     {
-        List<IGatheringCard> newDeck = new List<IGatheringCard>();
+        List<ICard> newDeck = new List<ICard>();
 
         //TODO: Change the following to include mutliple cards
         newDeck.Add(new GatheringCard_WeatherBreakdown());
 
         return newDeck;
-    }
-
-    public static void RequestDraw()
-    {
-        DrawRequest?.Invoke(null, new EventArgs());
     }
 
     public void SetQuestionMarkOnDeck()

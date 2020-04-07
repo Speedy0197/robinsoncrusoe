@@ -37,6 +37,7 @@ public class SmallCharacterView : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (!FindObjectOfType<ClickChecker>().clickAllowed) return;
         if (myCharacter is ISideCharacter) return; //Cannot click on side character, they have no abilities
         var view = FindObjectOfType<HealthView>();
         view.SetMainCharacter(myCharacter);

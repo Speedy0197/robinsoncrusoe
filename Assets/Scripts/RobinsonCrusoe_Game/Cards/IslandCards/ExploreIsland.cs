@@ -45,9 +45,21 @@ public class ExploreIsland : MonoBehaviour
 
             TerrainStorage.UnlockTerrain(myCard.GetTerrain());
 
-            //TODO:
             //Spawn Hunting Cards
+            int amountOfBeasts = myCard.GetNumberOfAnimals();
+            var huntingDeck = FindObjectOfType<Hunting_Deck>();
+            for (int i = 0; i < amountOfBeasts; i++)
+            {
+                huntingDeck.GetBeastFromBeastDeck();
+            }
+
             //Spawn Discovery Tokens
+            int amountOfTokens = myCard.GetNumberOfDiscoveryTokens();
+            var discoveryDeck = FindObjectOfType<DiscoveryToken_Stash>();
+            for(int i = 0; i < amountOfTokens; i++)
+            {
+                //Spawn Tokens
+            }
         }
     }
 }

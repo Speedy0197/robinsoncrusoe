@@ -9,7 +9,7 @@ using UnityEngine;
 public class Beast_Deck : MonoBehaviour
 {
     public Material cardBack;
-    public Material[] cardFaces;
+    public Texture2D[] cardFaces;
 
     private List<IBeastCard> beastDeck;
 
@@ -48,7 +48,7 @@ public class Beast_Deck : MonoBehaviour
         return card;
     }
 
-    public Material GetMaterialFromID(int id)
+    public Texture2D GetMaterialFromID(int id)
     {
         return cardFaces[id];
     }
