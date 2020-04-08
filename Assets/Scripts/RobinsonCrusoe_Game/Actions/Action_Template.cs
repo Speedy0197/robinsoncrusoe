@@ -28,11 +28,17 @@ public class Action_Template : MonoBehaviour
     void Start()
     {
         pos = new Position();
-        popup = Resources.Load("prefabs/PopUp_Action") as GameObject;       
+
+
+        if (actionType == ActionType.build) popup = Resources.Load("prefabs/PopUp_Action") as GameObject;
+        if (actionType == ActionType.collect) popup = Resources.Load("prefabs/PopUp_Collect") as GameObject;
+        if (actionType == ActionType.explore) popup = Resources.Load("prefabs/PopUp_Action") as GameObject;
+
         var view = FindObjectOfType<PhaseView>();
         view.currentPhaseChanged += ActionPhaseTriggered;
         ActionIsClickable += SetActionIsClickable;
         ActionIsNotClickable += SetActionIsNotClickable;
+        ContinueButton.ActionIsNotClickable += SetActionIsNotClickable;
     }
 
     void OnMouseDown()
@@ -42,7 +48,7 @@ public class Action_Template : MonoBehaviour
             ActionIsNotClickable?.Invoke(this, new EventArgs());
             popup_position = GameObject.Find("UI_Base");
             InstantiatedPopup = Instantiate(popup, popup_position.transform);
-            InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString());
+            InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
             PopupSave.SaveButtonClicked += Save;
             PopupCancel.CancelButtonClicked += Cancel;
             Dictionary<string, float> dictionary = pos.GetDictionary();
@@ -163,12 +169,12 @@ public class Action_Template : MonoBehaviour
         {
             if (StartSliderValue - SliderValue == 1)
             {
-                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position, actionType);
             }
             else if (StartSliderValue - SliderValue == 2)
             {
-                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
-                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position);
+                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position, actionType);
+                MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position, actionType);
             }
 
         }

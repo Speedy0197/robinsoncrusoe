@@ -50,9 +50,11 @@ public static class MarkerHandler2
         }
     }
 
-    public static void RemoveMarkerByName(string name, Vector3 position)
+    public static void RemoveMarkerByName(string name, Vector3 position, ActionType actionType)
     {
         MarkerHandler markerHandler = GameObject.Find("Board").GetComponent<MarkerHandler>();
+
+        if (actionType == ActionType.explore || actionType == ActionType.collect) position.y += 1;
 
         if (dictionary[name + "Marker1"].isUsed)
         {
@@ -65,7 +67,7 @@ public static class MarkerHandler2
             }
 
 
-            else if (markerHandler.GetMarkerByName(name, 1).transform.position.Round() == position + new Vector3(0, 12, 0))
+            else if (markerHandler.GetMarkerByName(name, 1).transform.position.Round() == position.Round() + new Vector3(0, 12, 0))
             {
                 markerHandler.GetMarkerByName(name, 1).transform.position = markerHandler.GetInitMarkerPositionByName(name, 1);
                 dictionary[name + "Marker1"].actionType = ActionType.unknown;
@@ -73,7 +75,7 @@ public static class MarkerHandler2
                 dictionary[name + "Marker1"].value = 0;
             }
         }
-        else if(dictionary[name + "Marker2"].isUsed && (markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position + new Vector3(0, 4, 0) || markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position + new Vector3(0, 12, 0)))
+        else if(dictionary[name + "Marker2"].isUsed && (markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position.Round() + new Vector3(0, 4, 0) || markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position.Round() + new Vector3(0, 12, 0)))
         {
             markerHandler.GetMarkerByName(name, 2).transform.position = markerHandler.GetInitMarkerPositionByName(name, 2);
             dictionary[name + "Marker2"].actionType = ActionType.unknown;

@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ public class ContinueButton : MonoBehaviour, IPointerClickHandler
     public GameObject BtnCon;
     public Texture texture;
     public Texture textureRed;
+
+    public static event EventHandler ActionIsNotClickable;
 
     private bool isClickable = false;
 
@@ -26,8 +29,8 @@ public class ContinueButton : MonoBehaviour, IPointerClickHandler
     {
         if (isClickable)
         {
-            Debug.Log("Get Shit Done");
 
+            ActionIsNotClickable?.Invoke(this, new EventArgs());
             /*
              * if ActionType == Explore
              * if(AmountOfMoves == 1)
