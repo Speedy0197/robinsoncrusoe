@@ -25,6 +25,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             if (RoofState > 4) RoofState = 4;
             RoofChanged?.Invoke(RoofState, new EventArgs());
         }
+
+        internal static void HalfValue()
+        {
+            int current = RoofState;
+            int halfed = Convert.ToInt32(current / 2);
+
+            RoofState = halfed;
+            RoofChanged?.Invoke(RoofState, new EventArgs());
+        }
+
         public static void DowngradeRoofBy(int value)
         {
             RoofState -= value;

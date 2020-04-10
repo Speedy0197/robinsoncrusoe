@@ -35,6 +35,17 @@ namespace Assets.Scripts.Player
             }
         }
 
+        public static int GetNumberOfPlayers()
+        {
+            int result = 0;
+            foreach(var character in PartyHandler.PartySession)
+            {
+                if (character is ISideCharacter) continue;
+                result++;
+            }
+            return result;
+        }
+
         public static void SetNextActiveCharacter()
         {
             bool foundCurrentCharacter = false;
