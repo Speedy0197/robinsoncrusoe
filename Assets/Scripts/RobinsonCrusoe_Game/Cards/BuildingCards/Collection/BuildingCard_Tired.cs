@@ -1,5 +1,4 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
-using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 {
-    public class BuildingCard_Breakdown : IBuildingCard, ICard
+    public class BuildingCard_Tired : ICard, IBuildingCard
     {
         private int eventNumber = 0;
         public void ExecuteEvent()
@@ -26,13 +25,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            var active = Player.PartyActions.GetActiveCharacter();
-            Characters.CharacterActions.RaiseCharacterDeterminationBy(2, active);
+            Moral.LowerMoral();
         }
 
         private void ExecuteActiveThreat()
         {
-            Moral.LowerMoral();
+            var active = Player.PartyActions.GetActiveCharacter();
+            Characters.CharacterActions.HealCharacterBy(2, active);
         }
 
         public string GetCardDescription()
@@ -42,16 +41,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         public int GetMaterialNumber()
         {
-            return 0;
-        }
-        public override string ToString()
-        {
-            return "Breakdown";
+            return 12;
         }
 
         public bool HasDiscardOption()
         {
-            return false;
+            return true;
+        }
+        public override string ToString()
+        {
+            return "Tired";
         }
     }
 }

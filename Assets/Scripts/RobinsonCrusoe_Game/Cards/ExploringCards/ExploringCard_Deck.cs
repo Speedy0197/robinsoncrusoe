@@ -34,6 +34,12 @@ public class ExploringCard_Deck : MonoBehaviour
 
     public ICard Draw()
     {
+        //Used to create an infinite amount of cards during playthrough, so that not all cards have to be implemented
+        if(exploringDeck.Count == 0)
+        {
+            PlayCards();
+        }
+
         var card = exploringDeck[0];
         exploringDeck.RemoveAt(0);
 
@@ -50,8 +56,13 @@ public class ExploringCard_Deck : MonoBehaviour
         List<ICard> newDeck = new List<ICard>();
 
         //TODO: Change the following to include mutliple cards
-        newDeck.Add(new ExploringCard_Tiger());
-
+        newDeck.Add(new ExploringCard_Bamboo());
+        newDeck.Add(new ExploringCard_Carcass());
+        newDeck.Add(new ExploringCard_ColdWind());
+        newDeck.Add(new ExploringCard_OldGrave());
+        newDeck.Add(new ExploringCard_TheresSomethingInTheAir());
+        newDeck.Add(new ExploringCard_WildDog());
+        
         return newDeck;
     }
 

@@ -1,14 +1,14 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
-using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
+namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 {
-    public class BuildingCard_Breakdown : IBuildingCard, ICard
+    public class ExploringCard_WildDog : ICard, IExploringCard
     {
         private int eventNumber = 0;
         public void ExecuteEvent()
@@ -26,13 +26,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            var active = Player.PartyActions.GetActiveCharacter();
-            Characters.CharacterActions.RaiseCharacterDeterminationBy(2, active);
+            PerishableFood.DecreaseBy(1);
+            WeaponPower.RaiseWeaponPowerBy(1);
         }
 
         private void ExecuteActiveThreat()
         {
-            Moral.LowerMoral();
+            var active = Player.PartyActions.GetActiveCharacter();
+            Characters.CharacterActions.DamageCharacterBy(1, active);
         }
 
         public string GetCardDescription()
@@ -42,16 +43,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         public int GetMaterialNumber()
         {
-            return 0;
-        }
-        public override string ToString()
-        {
-            return "Breakdown";
+            return 5;
         }
 
         public bool HasDiscardOption()
         {
             return false;
+        }
+        public override string ToString()
+        {
+            return "Wild Dog";
         }
     }
 }

@@ -17,12 +17,16 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             if (value < 0) value = 0;
             currentAmountOfFur = value;
         }
-
-        public static void ChangeFurValueBy(int amount)
+        public static void IncreaseBy(int amount)
         {
             currentAmountOfFur += amount;
+
+            AmountOFFurChanged?.Invoke(currentAmountOfFur, new EventArgs());
+        }
+        public static void DecreaseBy(int amount)
+        {
+            currentAmountOfFur -= amount;
             if (currentAmountOfFur < 0) currentAmountOfFur = 0;
-            //Max value needed?
 
             AmountOFFurChanged?.Invoke(currentAmountOfFur, new EventArgs());
         }

@@ -27,6 +27,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             WallStateChanged?.Invoke(WallState, new EventArgs());
         }
 
+        internal static void HalfValue()
+        {
+            int current = WallState;
+            int halfed = Convert.ToInt32(current / 2);
+
+            WallState = halfed;
+            WallStateChanged?.Invoke(WallState, new EventArgs());
+        }
+
         public static void DowngradeWallBy(int value)
         {
             WallState -= value;

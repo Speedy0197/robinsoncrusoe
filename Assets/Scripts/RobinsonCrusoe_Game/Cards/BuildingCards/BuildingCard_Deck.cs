@@ -34,6 +34,11 @@ public class BuildingCard_Deck : MonoBehaviour
 
     public ICard Draw()
     {
+        if(buildingDeck.Count == 0)
+        {
+            PlayCards();
+        }
+
         var card = buildingDeck[0];
         buildingDeck.RemoveAt(0);
 
@@ -51,6 +56,11 @@ public class BuildingCard_Deck : MonoBehaviour
 
         //TODO: Change the following to include mutliple cards
         newDeck.Add(new BuildingCard_Breakdown());
+        newDeck.Add(new BuildingCard_Construction());
+        newDeck.Add(new BuildingCard_ConstructionIsWeak());
+        newDeck.Add(new BuildingCard_Savings());
+        newDeck.Add(new BuildingCard_Tired());
+        newDeck.Add(new BuildingCard_WindStorm());
 
         return newDeck;
     }
