@@ -48,20 +48,58 @@ public class Action_Template : MonoBehaviour
             ActionIsNotClickable?.Invoke(this, new EventArgs());
             popup_position = GameObject.Find("UI_Base");
             InstantiatedPopup = Instantiate(popup, popup_position.transform);
-            InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
-            PopupSave.SaveButtonClicked += Save;
-            PopupCancel.CancelButtonClicked += Cancel;
-            Dictionary<string, float> dictionary = pos.GetDictionary();
-
-            int i = 1;
-            foreach (var character in PartyHandler.PartySession)
+            if (actionType == ActionType.build)
             {
-                if (character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
-                InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
-                i++;
+                InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
+                PopupSave.SaveButtonClicked += Save;
+                PopupCancel.CancelButtonClicked += Cancel;
+                Dictionary<string, float> dictionary = pos.GetDictionary();
+
+                int i = 1;
+
+                foreach (var character in PartyHandler.PartySession)
+                {
+                    if (character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
+                    InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
+                    i++;
+                }
+
+            }
+            if (actionType == ActionType.collect)
+            {
+                PopupCollect.ButtonClicked += Collect;
             }
 
         }
+    }
+
+    private void Collect(object sender, EventArgs e)
+    {
+        PopupCollect collect = (PopupCollect)sender;
+        PopupCollect.ButtonClicked -= Collect;
+        Destroy(InstantiatedPopup);
+        GameObject popup2 = Resources.Load("prefabs/PopUp_Action") as GameObject;
+        InstantiatedPopup = Instantiate(popup2, popup_position.transform);
+        InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
+        InstantiatedPopup.GetComponent<PopupAction>().SetImage(collect.button1.GetComponent<RawImage>());
+        PopupSave.SaveButtonClicked += Save;
+        PopupCancel.CancelButtonClicked += Cancel;
+        Dictionary<string, dynamic> dictionary = pos.GetCollectData();
+        int i = 1;
+
+        foreach (var character in PartyHandler.PartySession)
+        {
+            if (character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
+
+            if (dictionary[character.CharacterName].wood == 1 && collect.button1.name == "Wood") InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, 1);
+            if (dictionary[character.CharacterName].wood == 2 && collect.button1.name == "Wood") InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, 2);
+            
+            if (dictionary[character.CharacterName].food == 1 && collect.button1.name == "Food") InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, 1);
+            if (dictionary[character.CharacterName].food == 2 && collect.button1.name == "Food") InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, 2);
+
+            i++;
+        }
+
     }
 
     private void Save(object sender, System.EventArgs e)
@@ -75,18 +113,20 @@ public class Action_Template : MonoBehaviour
         float StartSlider2Value = popup.GetStartSliderValue(2);
         float StartSlider3Value = popup.GetStartSliderValue(3);
 
-
         if (StartSlider1Value != Slider1Value)
         {
             CheckSliderValueAndChangeStuff(0, StartSlider1Value, Slider1Value);
+            if (actionType == ActionType.collect) pos.SetCollectData(PartyHandler.PartySession[0].CharacterName, popup.GetImageName(), Slider1Value);
         }
         if (StartSlider2Value != Slider2Value)
         {
             CheckSliderValueAndChangeStuff(1, StartSlider2Value, Slider2Value);
+            if (actionType == ActionType.collect) pos.SetCollectData(PartyHandler.PartySession[1].CharacterName, popup.GetImageName(), Slider2Value);
         }
         if (StartSlider3Value != Slider3Value)
         {
             CheckSliderValueAndChangeStuff(2, StartSlider3Value, Slider3Value);
+            if (actionType == ActionType.collect) pos.SetCollectData(PartyHandler.PartySession[2].CharacterName, popup.GetImageName(), Slider2Value);
         }
 
         bool Done = true;

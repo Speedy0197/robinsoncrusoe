@@ -18,14 +18,14 @@ public static class MarkerHandler2
             {
                 markerHandler.GetMarkerByName(name, 1).transform.position = position + new Vector3(0, 8, 0);
                 name += "Marker1";
-                Marker marker = new Marker();               
+                Marker marker = new Marker();
                 dictionary[name].actionType = actionType;
                 dictionary[name].isUsed = true;
                 dictionary[name].value = value;
             }
             else if (name == "Friday")
             {
-                markerHandler.GetMarkerByName(name, 1).transform.position = position + new Vector3(0,8,0);
+                markerHandler.GetMarkerByName(name, 1).transform.position = position + new Vector3(0, 8, 0);
                 dictionary[name + "Marker1"].actionType = actionType;
                 dictionary[name + "Marker1"].isUsed = true;
                 dictionary[name + "Marker1"].value = value;
@@ -56,26 +56,14 @@ public static class MarkerHandler2
 
         if (actionType == ActionType.explore || actionType == ActionType.collect) position.y += 1;
 
-        if (dictionary[name + "Marker1"].isUsed)
+        if (markerHandler.GetMarkerByName(name, 1).transform.position.Round().x == position.Round().x && markerHandler.GetMarkerByName(name, 1).transform.position.Round().z == position.Round().z)
         {
-            if (markerHandler.GetMarkerByName(name, 1).transform.position.Round() == position.Round() + new Vector3(0, 4, 0))
-            {
-                markerHandler.GetMarkerByName(name, 1).transform.position = markerHandler.GetInitMarkerPositionByName(name, 1);
-                dictionary[name + "Marker1"].actionType = ActionType.unknown;
-                dictionary[name + "Marker1"].isUsed = false;
-                dictionary[name + "Marker1"].value = 0;
-            }
-
-
-            else if (markerHandler.GetMarkerByName(name, 1).transform.position.Round() == position.Round() + new Vector3(0, 12, 0))
-            {
-                markerHandler.GetMarkerByName(name, 1).transform.position = markerHandler.GetInitMarkerPositionByName(name, 1);
-                dictionary[name + "Marker1"].actionType = ActionType.unknown;
-                dictionary[name + "Marker1"].isUsed = false;
-                dictionary[name + "Marker1"].value = 0;
-            }
+            markerHandler.GetMarkerByName(name, 1).transform.position = markerHandler.GetInitMarkerPositionByName(name, 1);
+            dictionary[name + "Marker1"].actionType = ActionType.unknown;
+            dictionary[name + "Marker1"].isUsed = false;
+            dictionary[name + "Marker1"].value = 0;
         }
-        else if(dictionary[name + "Marker2"].isUsed && (markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position.Round() + new Vector3(0, 4, 0) || markerHandler.GetMarkerByName(name, 2).transform.position.Round() == position.Round() + new Vector3(0, 12, 0)))
+        else if (markerHandler.GetMarkerByName(name, 2).transform.position.Round().x == position.Round().x && markerHandler.GetMarkerByName(name, 2).transform.position.Round().z == position.Round().z)
         {
             markerHandler.GetMarkerByName(name, 2).transform.position = markerHandler.GetInitMarkerPositionByName(name, 2);
             dictionary[name + "Marker2"].actionType = ActionType.unknown;

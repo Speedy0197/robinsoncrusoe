@@ -14,6 +14,7 @@ public class PopupAction : MonoBehaviour
     public Text text1;
     public Text text2;
     public Text text3;
+    public RawImage image;
 
     private float startValue1;
     private float maxValue1;
@@ -101,6 +102,15 @@ public class PopupAction : MonoBehaviour
         if (textNr == 1) text1.text = text;
         if (textNr == 2) text2.text = text;
         if (textNr == 3) text3.text = text;
+    }
+    public void SetImage(RawImage image)
+    {
+        this.image.texture = image.texture;
+    }
+
+    public string GetImageName()
+    {
+        return image.texture.name;
     }
 
 }

@@ -3174,8 +3174,8 @@ Transform:
   - {fileID: 1593957848}
   - {fileID: 930342985}
   - {fileID: 1658250270}
-  - {fileID: 687516791}
   - {fileID: 1075349981}
+  - {fileID: 687516791}
   - {fileID: 653783146}
   - {fileID: 640081736}
   m_Father: {fileID: 0}
@@ -4162,8 +4162,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 90
   m_CollisionDetection: 0
---- !u!65 &1051151300
-BoxCollider:
+--- !u!64 &1051151300
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4172,9 +4172,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.0000019669533, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1075349980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5110,7 +5111,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ba11234b100044b8df471e5fadb506, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionType: 3
+  actionType: 2
 --- !u!64 &1351401463
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -6115,9 +6116,9 @@ GameObject:
   - component: {fileID: 1668541798}
   - component: {fileID: 1668541797}
   - component: {fileID: 1668541796}
-  - component: {fileID: 1668541799}
   - component: {fileID: 1668541795}
   - component: {fileID: 1668541800}
+  - component: {fileID: 1668541799}
   m_Layer: 0
   m_Name: CookMarker2
   m_TagString: Untagged
@@ -6202,8 +6203,8 @@ Transform:
   m_Father: {fileID: 46826944}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &1668541799
-MeshCollider:
+--- !u!65 &1668541799
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6212,10 +6213,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 2
+  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
+  m_Center: {x: 0.0000019669533, y: 0, z: -0.00000008940697}
 --- !u!114 &1668541800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6464,7 +6464,6 @@ GameObject:
   - component: {fileID: 1916557838}
   - component: {fileID: 1916557843}
   - component: {fileID: 1916557842}
-  - component: {fileID: 1916557841}
   - component: {fileID: 1916557837}
   m_Layer: 0
   m_Name: DogMarker
@@ -6473,8 +6472,8 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1916557837
-BoxCollider:
+--- !u!64 &1916557837
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6483,9 +6482,10 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.0000019669533, y: 0, z: -0.00000008940697}
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1916557838
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6547,19 +6547,6 @@ Transform:
   m_Father: {fileID: 46826944}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1916557841
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1916557836}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.0000019669533, y: 0, z: -0.00000008940697}
 --- !u!54 &1916557842
 Rigidbody:
   m_ObjectHideFlags: 0
