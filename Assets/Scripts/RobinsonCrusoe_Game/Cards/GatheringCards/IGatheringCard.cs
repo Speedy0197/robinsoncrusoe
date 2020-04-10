@@ -8,6 +8,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards
 {
     public interface IGatheringCard
     {
-
+        bool HasDiscardOption();
     }
 }

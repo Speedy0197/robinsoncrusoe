@@ -9,20 +9,45 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 {
     public class GatheringCard_WeatherBreakdown : IGatheringCard, ICard
     {
+        private int eventNumber = 0;
         public void ExecuteEvent()
         {
-            throw new NotImplementedException();
+            if (eventNumber == 0)
+            {
+                ExecuteActiveThreat();
+                eventNumber++;
+            }
+            else
+            {
+                ExecuteFutureThreat();
+            }
+        }
+
+        private void ExecuteFutureThreat()
+        {
+            //TODO: put storm into weather space
+        }
+
+        private void ExecuteActiveThreat()
+        {
+            //Has none
         }
 
         public string GetCardDescription()
         {
-            throw new NotImplementedException();
+            return "TODO";
         }
 
         public int GetMaterialNumber()
         {
             return 0;
         }
+
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
+
         public override string ToString()
         {
             return "Weather Breakdown";
