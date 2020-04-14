@@ -24,12 +24,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            //TODO: put ? on explore deck
+            ExploringCard_Deck.GlobalSetQuestionMarkOnDeck();
         }
 
         private void ExecuteActiveThreat()
         {
-            //TODO: put ? on explore deck
+            ExploringCard_Deck.GlobalSetQuestionMarkOnDeck();
         }
 
         public string GetCardDescription()

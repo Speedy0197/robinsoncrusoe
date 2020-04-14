@@ -25,7 +25,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            //TODO: put storm into weather space
+            WeatherContainer.GlobalPlaceToken(WeatherToken.Storm);
         }
 
         private void ExecuteActiveThreat()

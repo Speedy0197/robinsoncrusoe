@@ -41,7 +41,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         private void ExecuteActiveThreat()
         {
-            //TODO: Put question mark on explore deck
+            ExploringCard_Deck.GlobalSetQuestionMarkOnDeck();
         }
 
         public void ExecuteSuccessEvent()

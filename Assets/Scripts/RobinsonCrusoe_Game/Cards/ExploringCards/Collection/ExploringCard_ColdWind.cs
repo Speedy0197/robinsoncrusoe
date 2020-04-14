@@ -24,7 +24,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            //TODO: put snow in weather space
+            WeatherContainer.GlobalPlaceToken(WeatherToken.Snow);
         }
 
         private void ExecuteActiveThreat()

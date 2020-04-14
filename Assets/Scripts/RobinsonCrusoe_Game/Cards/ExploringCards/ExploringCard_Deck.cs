@@ -40,6 +40,8 @@ public class ExploringCard_Deck : MonoBehaviour
             PlayCards();
         }
 
+        RemoveQuestionMarkFormDeck();
+
         var card = exploringDeck[0];
         exploringDeck.RemoveAt(0);
 
@@ -73,5 +75,15 @@ public class ExploringCard_Deck : MonoBehaviour
             hasQuestionMarkOnDeck = true;
             questionMarkToken.SetActive(true);
         }
+    }
+    public void RemoveQuestionMarkFormDeck()
+    {
+        hasQuestionMarkOnDeck = false;
+        questionMarkToken.SetActive(false);
+    }
+    public static void GlobalSetQuestionMarkOnDeck()
+    {
+        var deck = FindObjectOfType<ExploringCard_Deck>();
+        deck.SetQuestionMarkOnDeck();
     }
 }

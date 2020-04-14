@@ -39,6 +39,8 @@ public class GatheringCard_Deck : MonoBehaviour
             PlayCards();
         }
 
+        RemoveQuestionMarkFromDeck();
+
         var card = gatheringDeck[0];
         gatheringDeck.RemoveAt(0);
 
@@ -72,5 +74,16 @@ public class GatheringCard_Deck : MonoBehaviour
             hasQuestionMarkOnDeck = true;
             questionMarkToken.SetActive(true);
         }
+    }
+
+    public void RemoveQuestionMarkFromDeck()
+    {
+        hasQuestionMarkOnDeck = false;
+        questionMarkToken.SetActive(false);
+    }
+    public static void GlobalSetQuestionMarkOnDeck()
+    {
+        var deck = FindObjectOfType<GatheringCard_Deck>();
+        deck.SetQuestionMarkOnDeck();
     }
 }
