@@ -55,8 +55,26 @@ public class PopUp_Card_Show : MonoBehaviour
     private Texture2D GetCardTexture()
     {
         //Check all decks
-
-        var eventDeck = FindObjectOfType<EventCard_Deck>();
-        return eventDeck.GetTextureFromID(myCard.GetMaterialNumber());
+        if (myCard is IEventCard)
+        {
+            var eventDeck = FindObjectOfType<EventCard_Deck>();
+            return eventDeck.GetTextureFromID(myCard.GetMaterialNumber());
+        }
+        if(myCard is IBuildingCard)
+        {
+            var buildingDeck = FindObjectOfType<BuildingCard_Deck>();
+            return buildingDeck.GetMaterialFromID(myCard.GetMaterialNumber());
+        }
+        if(myCard is IGatheringCard)
+        {
+            var gatheringDeck = FindObjectOfType<GatheringCard_Deck>();
+            return gatheringDeck.GetMaterialFromID(myCard.GetMaterialNumber());
+        }
+        if(myCard is IExploringCard)
+        {
+            var exploringDeck = FindObjectOfType<ExploringCard_Deck>();
+            return exploringDeck.GetMaterialFromID(myCard.GetMaterialNumber());
+        }
+        throw new Exception("Texture not found");
     }
 }

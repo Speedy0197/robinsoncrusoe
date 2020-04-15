@@ -11,6 +11,7 @@ public class ExploringCard_Deck : MonoBehaviour
     public GameObject cardPrefab;
     public GameObject questionMarkToken;
     public Texture2D[] CardFaces;
+    public GameObject popUp_Prefab;
 
     private List<ICard> exploringDeck;
     private bool hasQuestionMarkOnDeck;
@@ -32,23 +33,40 @@ public class ExploringCard_Deck : MonoBehaviour
         //}
     }
 
-    public ICard Draw()
+    public void DrawAndShow()
     {
-        //Used to create an infinite amount of cards during playthrough, so that not all cards have to be implemented
-        if(exploringDeck.Count == 0)
-        {
-            PlayCards();
-        }
-
+        CardsAvailable();
         RemoveQuestionMarkFormDeck();
 
+        ICard card = Draw();
+        OpenPopUp(card);
+    }
+
+    private void OpenPopUp(ICard card)
+    {
+        //Show Card in Popup
+        var ui = FindObjectOfType<GetUIBase>().GetUI();
+        var instance = Instantiate(popUp_Prefab, ui.transform);
+        var show = instance.GetComponent<PopUp_Card_Show>();
+        show.SetCard(card);
+    }
+
+    private ICard Draw()
+    {
         var card = exploringDeck[0];
         exploringDeck.RemoveAt(0);
-
         return card;
     }
 
-    public Texture2D GetMaterialFromName(int id)
+    private void CardsAvailable()
+    {
+        if (exploringDeck.Count == 0)
+        {
+            PlayCards();
+        }
+    }
+
+    public Texture2D GetMaterialFromID(int id)
     {
         return CardFaces[id];
     }

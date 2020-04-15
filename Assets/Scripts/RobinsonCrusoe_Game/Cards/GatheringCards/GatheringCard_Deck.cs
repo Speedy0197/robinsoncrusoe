@@ -11,6 +11,7 @@ public class GatheringCard_Deck : MonoBehaviour
     public GameObject cardPrefab;
     public GameObject questionMarkToken;
     public Texture2D[] CardFaces;
+    public GameObject popUp_Prefab;
 
     private List<ICard> gatheringDeck;
     private bool hasQuestionMarkOnDeck;
@@ -32,22 +33,40 @@ public class GatheringCard_Deck : MonoBehaviour
         //}
     }
 
-    public ICard Draw()
+    public void DrawAndShow()
     {
-        if(gatheringDeck.Count == 0)
-        {
-            PlayCards();
-        }
-
+        CardsAvailable();
         RemoveQuestionMarkFromDeck();
 
+        ICard card = Draw();
+        OpenPopUp(card);
+    }
+
+    private void OpenPopUp(ICard card)
+    {
+        //Show Card in Popup
+        var ui = FindObjectOfType<GetUIBase>().GetUI();
+        var instance = Instantiate(popUp_Prefab, ui.transform);
+        var show = instance.GetComponent<PopUp_Card_Show>();
+        show.SetCard(card);
+    }
+
+    private ICard Draw()
+    {
         var card = gatheringDeck[0];
         gatheringDeck.RemoveAt(0);
-
         return card;
     }
 
-    public Texture2D GetMaterialFromName(int id)
+    private void CardsAvailable()
+    {
+        if (gatheringDeck.Count == 0)
+        {
+            PlayCards();
+        }
+    }
+
+    public Texture2D GetMaterialFromID(int id)
     {
         return CardFaces[id];
     }

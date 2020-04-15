@@ -6,12 +6,14 @@ using UnityEngine.EventSystems;
 
 public class PopUp_Reactivate : MonoBehaviour
 {
-    public GameObject savedPopUp;
     public GameObject reactivatorImage;
+
+    private Stack<GameObject> savedObjects;
 
     public static event EventHandler ReactivatorImageClicked;
     private void Start()
     {
+        savedObjects = new Stack<GameObject>();
         ReactivatorImageClicked += OnImageClicked;
     }
 
@@ -22,13 +24,14 @@ public class PopUp_Reactivate : MonoBehaviour
 
     public void SetSaved(GameObject popUp)
     {
-        savedPopUp = popUp;
+        savedObjects.Push(popUp);
 
         reactivatorImage.SetActive(true);
     }
 
     public void OpenSaved()
     {
+        var savedPopUp = savedObjects.Pop();
         savedPopUp.SetActive(true);
 
         reactivatorImage.SetActive(false);

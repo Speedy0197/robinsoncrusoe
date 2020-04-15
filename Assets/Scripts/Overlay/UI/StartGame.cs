@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class StartGame : MonoBehaviour, IPointerClickHandler
 {
@@ -13,6 +14,7 @@ public class StartGame : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         RoundSystem.instance.StartGame();
+        Analytics.CustomEvent("Game Start");
         Destroy(startButton);
     }
 }

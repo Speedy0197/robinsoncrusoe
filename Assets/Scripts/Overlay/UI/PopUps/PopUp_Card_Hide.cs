@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 
 public class PopUp_Card_Hide : MonoBehaviour, IPointerClickHandler
@@ -15,6 +16,7 @@ public class PopUp_Card_Hide : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Analytics.CustomEvent("Minimized PopUp");
         currentPopUp.SetActive(false);
       
         reactivator.SetSaved(currentPopUp);

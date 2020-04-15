@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Analytics;
+using UnityEngine.SceneManagement;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 {
@@ -17,7 +19,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             if (character.CurrentHealth <= 0)
             {
                 //Character Death
-                throw new NotImplementedException();
+                if(character is ISideCharacter)
+                {
+                    //TODO: remove from action system
+                }
+                else
+                {
+                    Analytics.CustomEvent("GameOver");
+                    SceneManager.LoadScene("GameOver");
+                }
             }
             if (!(character is ISideCharacter) 
                 && CheckForMoralLoss(character))
