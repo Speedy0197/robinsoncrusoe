@@ -20,7 +20,7 @@ public class Actionphase : MonoBehaviour
     {
         if (myView.currentPhase == E_Phase.Action)
         {
-            Debug.Log("Entered Phase: Event ");
+            Debug.Log("Entered Phase: Action");
             
         }
     }

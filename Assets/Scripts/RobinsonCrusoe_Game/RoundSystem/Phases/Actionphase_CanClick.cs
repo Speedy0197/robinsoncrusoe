@@ -6,27 +6,24 @@ using UnityEngine;
 public class Actionphase_CanClick : MonoBehaviour
 {
     public bool IsClickable = false;
-
+    private PhaseView myview;
     // Start is called before the first frame update
     void Start()
     {
-        var phaseView = FindObjectOfType<PhaseView>();
-        phaseView.currentPhaseChanged += OnPhaseChanged;
+        myview = FindObjectOfType<PhaseView>();
+        myview.currentPhaseChanged += OnPhaseChanged;
     }
 
     private void OnPhaseChanged(object sender, System.EventArgs e)
     {
-        if (sender is E_Phase)
+        if (myview.currentPhase == E_Phase.Action)
         {
-            E_Phase currentPhase = (E_Phase)sender;
-            if (currentPhase == E_Phase.Action)
-            {
-                IsClickable = true;
-            }
-            else
-            {
-                IsClickable = false;
-            }
+            IsClickable = true;
         }
+        else
+        {
+            IsClickable = false;
+        }
+        
     }
 }

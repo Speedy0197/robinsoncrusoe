@@ -149,6 +149,9 @@ public class Action_Template : MonoBehaviour
             ContinueButtonIsNotClickable?.Invoke(this, new EventArgs());
         }
 
+        //Added method to safe the current GameObject (e.g. Island) in the pos object
+        GetReferingObject();
+
         PopupSave.SaveButtonClicked -= Save;
         PopupCancel.CancelButtonClicked -= Cancel;
         Destroy(InstantiatedPopup);
@@ -217,6 +220,20 @@ public class Action_Template : MonoBehaviour
                 MarkerHandler2.RemoveMarkerByName(characterName, this.transform.position, actionType);
             }
 
+        }
+    }
+
+    private void GetReferingObject()
+    {
+        if(actionType == ActionType.explore || actionType == ActionType.collect)
+        {
+            var obj = GetComponent<ExploreIsland>();
+            pos.ReferingObject = obj;
+        }
+        if(actionType == ActionType.build)
+        {
+            var obj = GetComponent<ItemCard>();
+            pos.ReferingObject = obj;
         }
     }
 }

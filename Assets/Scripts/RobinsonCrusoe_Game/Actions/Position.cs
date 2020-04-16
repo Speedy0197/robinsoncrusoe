@@ -46,4 +46,6 @@ public class Position
         if (collectType == "Food") dictionary2[name].food = value;
         if (collectType == "Wood") dictionary2[name].wood = value;
     }
+
+    public MonoBehaviour ReferingObject { get; set; }
 }

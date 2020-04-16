@@ -14,13 +14,11 @@ public class ExploreIsland : MonoBehaviour
 
     private IslandCard_Deck deck;
     private MeshRenderer mesh;
-    private Actionphase_CanClick clicker;
 
     private void Start()
     {
         deck = FindObjectOfType<IslandCard_Deck>();
         mesh = GetComponent<MeshRenderer>();
-        clicker = GetComponent<Actionphase_CanClick>();
     }
 
     public void CampHere()

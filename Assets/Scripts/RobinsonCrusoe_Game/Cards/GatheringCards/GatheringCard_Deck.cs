@@ -14,7 +14,7 @@ public class GatheringCard_Deck : MonoBehaviour
     public GameObject popUp_Prefab;
 
     private List<ICard> gatheringDeck;
-    private bool hasQuestionMarkOnDeck;
+    public bool hasQuestionMarkOnDeck { get; private set; }
 
     // Start is called before the first frame update
     void Start()

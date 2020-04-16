@@ -234,6 +234,7 @@ MonoBehaviour:
   questionMarkToken: {fileID: 913300184}
   CardFaces:
   - {fileID: 2100000, guid: 5675437ea90539c45b10dc3944784960, type: 2}
+  popUp_Prefab: {fileID: 0}
 --- !u!1 &46826943
 GameObject:
   m_ObjectHideFlags: 0
@@ -2149,6 +2150,7 @@ MonoBehaviour:
   questionMarkToken: {fileID: 913300184}
   CardFaces:
   - {fileID: 2100000, guid: 29492efb687f3db4da3330358c916206, type: 2}
+  popUp_Prefab: {fileID: 0}
 --- !u!1 &659887359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5264,8 +5266,9 @@ GameObject:
   - component: {fileID: 1351401460}
   - component: {fileID: 1351401459}
   - component: {fileID: 1351401461}
-  - component: {fileID: 1351401462}
   - component: {fileID: 1351401463}
+  - component: {fileID: 1351401464}
+  - component: {fileID: 1351401462}
   m_Layer: 0
   m_Name: IslandTile_StartTile
   m_TagString: Untagged
@@ -5385,10 +5388,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1351401455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7ba11234b100044b8df471e5fadb506, type: 3}
+  m_Script: {fileID: 11500000, guid: c7c6fb9de1e22fb4f95b9d2aec73d8b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionType: 2
+  RessourcePopUp: {fileID: 7406442076697442650, guid: 6252e4681341d284188c3edfa9766430,
+    type: 3}
+  ExplorePopUp: {fileID: 0}
 --- !u!64 &1351401463
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5403,6 +5408,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5206334576151680407, guid: af1bbe7df31f5214ca79a38694c6fadd, type: 3}
+--- !u!114 &1351401464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351401455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5632330561827f74c92ee82c0727376c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActionType: 2
+  popUp: {fileID: 7406442076697442650, guid: 6252e4681341d284188c3edfa9766430, type: 3}
 --- !u!1 &1375636080
 GameObject:
   m_ObjectHideFlags: 0
@@ -5516,6 +5535,7 @@ MonoBehaviour:
   questionMarkToken: {fileID: 932426860}
   CardFaces:
   - {fileID: 2100000, guid: 223028da5b7cb28469d0907539b39595, type: 2}
+  popUp_Prefab: {fileID: 0}
 --- !u!1 &1392681236
 GameObject:
   m_ObjectHideFlags: 0

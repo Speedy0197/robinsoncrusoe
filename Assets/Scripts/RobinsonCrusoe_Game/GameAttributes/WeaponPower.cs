@@ -10,7 +10,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
     {
         public static event EventHandler WeaponPowerChanged;
 
-        public static int currentWeaponPower { get; private set; }
+        public static int currentWeaponPower { get; private set; } = 0;
 
         public static void SetStartValue(int start)
         {
@@ -18,7 +18,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             if (start > 10) start = 10;
 
             currentWeaponPower = start;
-            WeaponPowerChanged(currentWeaponPower, new EventArgs());
+            WeaponPowerChanged?.Invoke(currentWeaponPower, new EventArgs());
         }
 
         public static void RaiseWeaponPowerBy(int value)
