@@ -30,9 +30,9 @@ public class Action_Template : MonoBehaviour
         pos = new Position();
 
 
-        if (actionType == ActionType.build) popup = Resources.Load("prefabs/PopUp_Action") as GameObject;
+        if (actionType == ActionType.build) popup = Resources.Load("prefabs/PopUp_Build") as GameObject;
         if (actionType == ActionType.collect) popup = Resources.Load("prefabs/PopUp_Collect") as GameObject;
-        if (actionType == ActionType.explore) popup = Resources.Load("prefabs/PopUp_Action") as GameObject;
+        if (actionType == ActionType.explore) popup = Resources.Load("prefabs/PopUp_Explore") as GameObject;
 
         var view = FindObjectOfType<PhaseView>();
         view.currentPhaseChanged += ActionPhaseTriggered;
@@ -51,6 +51,7 @@ public class Action_Template : MonoBehaviour
             if (actionType == ActionType.build)
             {
                 InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
+                InstantiatedPopup.GetComponent<PopupAction>().SetMaterial(this.gameObject.GetComponent<MeshRenderer>());
                 PopupSave.SaveButtonClicked += Save;
                 PopupCancel.CancelButtonClicked += Cancel;
                 Dictionary<string, float> dictionary = pos.GetDictionary();
@@ -68,6 +69,23 @@ public class Action_Template : MonoBehaviour
             if (actionType == ActionType.collect)
             {
                 PopupCollect.ButtonClicked += Collect;
+            }
+            if (actionType == ActionType.explore)
+            {
+                InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
+                PopupSave.SaveButtonClicked += Save;
+                PopupCancel.CancelButtonClicked += Cancel;
+                Dictionary<string, float> dictionary = pos.GetDictionary();
+
+                int i = 1;
+
+                foreach (var character in PartyHandler.PartySession)
+                {
+                    if (character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
+                    InstantiatedPopup.GetComponent<PopupAction>().SetSliderValue(i, dictionary[character.CharacterName]);
+                    i++;
+                }
+
             }
 
         }

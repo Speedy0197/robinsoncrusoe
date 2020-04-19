@@ -5394,6 +5394,7 @@ MonoBehaviour:
   RessourcePopUp: {fileID: 7406442076697442650, guid: 6252e4681341d284188c3edfa9766430,
     type: 3}
   ExplorePopUp: {fileID: 0}
+  island: {fileID: 0}
 --- !u!64 &1351401463
 MeshCollider:
   m_ObjectHideFlags: 0

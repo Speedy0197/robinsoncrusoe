@@ -108,6 +108,11 @@ public class PopupAction : MonoBehaviour
         this.image.texture = image.texture;
     }
 
+    public void SetMaterial(MeshRenderer material)
+    {
+        this.image.material = material.material;
+    }
+
     public string GetImageName()
     {
         return image.texture.name;
