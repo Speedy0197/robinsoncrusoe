@@ -7,23 +7,22 @@ public class Actionphase_CanClick : MonoBehaviour
 {
     public bool IsClickable = false;
     private PhaseView myview;
+    private GetUIBase ui;
     // Start is called before the first frame update
     void Start()
     {
-        myview = FindObjectOfType<PhaseView>();
-        myview.currentPhaseChanged += OnPhaseChanged;
+
     }
 
-    private void OnPhaseChanged(object sender, System.EventArgs e)
+    private void Update()
     {
-        if (myview.currentPhase == E_Phase.Action)
+        myview = FindObjectOfType<PhaseView>();
+        ui = FindObjectOfType<GetUIBase>();
+        if (myview.currentPhase == E_Phase.Action &&
+            !ui.IsBlocked)
         {
             IsClickable = true;
         }
-        else
-        {
-            IsClickable = false;
-        }
-        
+        else IsClickable = false;
     }
 }

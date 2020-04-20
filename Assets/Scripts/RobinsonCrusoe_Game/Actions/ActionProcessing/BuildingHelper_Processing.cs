@@ -22,7 +22,7 @@ public class BuildingHelper_Processing : MonoBehaviour
 
     private void HandlePotentialDiceRoll(int amountOfActionsSpend)
     {
-        if (amountOfActionsSpend == 0) throw new Exception("Cant process actions - No action points spend");
+        if (amountOfActionsSpend == 0) return;
         if (amountOfActionsSpend == 1)
         {
             //TODO: show dice roll, for now just log it in console and process it (ignoring character abilities)

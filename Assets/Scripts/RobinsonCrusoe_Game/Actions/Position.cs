@@ -48,4 +48,5 @@ public class Position
     }
 
     public MonoBehaviour ReferingObject { get; set; }
+    public ActionType ActionType { get; set; }
 }

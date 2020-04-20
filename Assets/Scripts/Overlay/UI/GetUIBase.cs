@@ -10,4 +10,17 @@ public class GetUIBase : MonoBehaviour
     {
         return uiBase;
     }
+
+    public bool IsBlocked = false;
+    private void Update()
+    {
+        if(transform.childCount == 0)
+        {
+            IsBlocked = false;
+        }
+        else
+        {
+            IsBlocked = true;
+        }
+    }
 }

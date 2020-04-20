@@ -12,7 +12,7 @@ public class TokenKeeper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        CurrentAction = new ActionContainer();
-        CurrentAction.ActionType = ActionType;
+        //CurrentAction = new ActionContainer();
+        //CurrentAction.ActionType = ActionType;
     }
 }

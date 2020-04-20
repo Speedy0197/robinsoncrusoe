@@ -73,12 +73,12 @@ public class Action_Template : MonoBehaviour
             if (actionType == ActionType.explore)
             {
                 InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
+
                 PopupSave.SaveButtonClicked += Save;
                 PopupCancel.CancelButtonClicked += Cancel;
+
                 Dictionary<string, float> dictionary = pos.GetDictionary();
-
                 int i = 1;
-
                 foreach (var character in PartyHandler.PartySession)
                 {
                     if (character != null) InstantiatedPopup.GetComponent<PopupAction>().SetText(i, character.CharacterName);
@@ -96,12 +96,15 @@ public class Action_Template : MonoBehaviour
         PopupCollect collect = (PopupCollect)sender;
         PopupCollect.ButtonClicked -= Collect;
         Destroy(InstantiatedPopup);
+
         GameObject popup2 = Resources.Load("prefabs/PopUp_Action") as GameObject;
         InstantiatedPopup = Instantiate(popup2, popup_position.transform);
         InstantiatedPopup.GetComponent<PopupAction>().SetText(0, actionType.ToString().ToUpper());
         InstantiatedPopup.GetComponent<PopupAction>().SetImage(collect.button1.GetComponent<RawImage>());
+
         PopupSave.SaveButtonClicked += Save;
         PopupCancel.CancelButtonClicked += Cancel;
+
         Dictionary<string, dynamic> dictionary = pos.GetCollectData();
         int i = 1;
 

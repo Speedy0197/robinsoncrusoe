@@ -14,14 +14,17 @@ namespace Assets.Scripts.Overlay.Action_PopUps.TokenSelector
         public Character ExecutingCharacter { get; set; }
         public MonoBehaviour ReferingObject { get; set; }
         public ActionType ActionType { get; set; }
+        public int ActionCosts { get; set; }
 
-        public ActionContainer()
+        public ActionContainer(int actionCosts)
         {
             CharacterTokensSpend = new Dictionary<Character, int>();
             foreach(var c in Player.PartyHandler.PartySession)
             {
                 AddParameterSet(c, 0);
             }
+
+            ActionCosts = actionCosts;
         }
 
         public void SetValue(Character character, int spendTokens)

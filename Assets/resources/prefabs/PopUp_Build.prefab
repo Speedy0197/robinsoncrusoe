@@ -1821,7 +1821,7 @@ GameObject:
   - component: {fileID: 6539404729935569141}
   - component: {fileID: 752911185987792990}
   m_Layer: 5
-  m_Name: PopUp_Explore
+  m_Name: PopUp_Build
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
