@@ -21,5 +21,6 @@ public class General_Init : MonoBehaviour
         UnperishableFood.SetStartValue(0);
         Moral.SetStartValue();
         TerrainStorage.CreateStorageSpace();
+        InventionStorage.CreateStorageSpace();
     }
 }

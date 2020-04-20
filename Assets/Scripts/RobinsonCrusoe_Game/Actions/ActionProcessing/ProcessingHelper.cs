@@ -8,7 +8,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Actions.ActionProcessing
 {
     public static class ProcessingHelper
     { 
-        public static int CalculateAmountOfActions(Dictionary<string, float> dictionary)
+        public static int CalculateAmountOfActions(Dictionary<Characters.Character, int> dictionary)
         {
             int actions = 0;
             foreach (var kvp in dictionary)

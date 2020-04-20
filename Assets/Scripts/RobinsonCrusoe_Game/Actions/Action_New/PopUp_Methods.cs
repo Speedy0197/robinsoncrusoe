@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
+using Assets.Scripts.Player;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -56,10 +57,31 @@ public class PopUp_Methods : MonoBehaviour
             {
                 container.SetValue(component.Character, Convert.ToInt32(component.GetCurrentSliderValue()));
                 component.Character.CurrentNumberOfActions += component.GetDifference();
-                Debug.Log(component.Character.CharacterName + " - " + component.Character.CurrentNumberOfActions);
+                container.HasStoredAction = true;
             }
         }
+
+        AreAllTokensSpend();
+
         return container;
+    }
+
+    private void AreAllTokensSpend()
+    {
+        bool allTokensSpend = true;
+        foreach(var character in PartyHandler.PartySession)
+        {
+            if (character.CurrentNumberOfActions > 0) allTokensSpend = false;
+        }
+
+        if (allTokensSpend)
+        {
+            FindObjectOfType<ContinueButton>().SetClickableTo(true);
+        }
+        else
+        {
+            FindObjectOfType<ContinueButton>().SetClickableTo(false);
+        }
     }
 
     public void Cancel()

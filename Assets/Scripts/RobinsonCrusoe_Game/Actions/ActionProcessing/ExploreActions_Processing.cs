@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Generic.Dice;
+using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
 using Assets.Scripts.RobinsonCrusoe_Game.Actions.ActionProcessing;
 using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System;
@@ -10,13 +11,12 @@ public class ExploreActions_Processing : MonoBehaviour
 {
     private ExploreIsland island;
     private Character executingCharacter;
-    public void ProcessExploreAction(Action_Template action)
+    public void ProcessExploreAction(ActionContainer action)
     {
-        var position = action.pos;
-        island = position.ReferingObject as ExploreIsland;
-        executingCharacter = ProcessingHelper.GetExecutingCharacter(position.GetDictionary());
+        island = action.ReferingObject as ExploreIsland;
+        executingCharacter = action.ExecutingCharacter;
 
-        int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(position.GetDictionary());
+        int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(action.CharacterTokensSpend);
         HandlePotentialDiceRoll(amountOfActionsSpend);
     }
 

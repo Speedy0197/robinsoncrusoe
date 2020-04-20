@@ -82,13 +82,14 @@ GameObject:
   - component: {fileID: 2491595645024948495}
   - component: {fileID: 7908655298300650514}
   - component: {fileID: 8866152804061400441}
+  - component: {fileID: 1762620775992675138}
   m_Layer: 5
-  m_Name: Food
+  m_Name: Ressource_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5814019166988359482
 RectTransform:
   m_ObjectHideFlags: 0
@@ -101,7 +102,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373279185264304859}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -154,6 +155,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button1: {fileID: 2295713128485703427}
+--- !u!114 &1762620775992675138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2295713128485703427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f60e6f92692584cb37ef8a727e511e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2474732204896713089
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,13 +179,14 @@ GameObject:
   - component: {fileID: 6396640186235604659}
   - component: {fileID: 4548275130012971325}
   - component: {fileID: 9127470451025265126}
+  - component: {fileID: 7440706899672644344}
   m_Layer: 5
-  m_Name: Wood
+  m_Name: Ressource_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &139260886020889696
 RectTransform:
   m_ObjectHideFlags: 0
@@ -185,7 +199,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 373279185264304859}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -238,6 +252,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button1: {fileID: 2474732204896713089}
+--- !u!114 &7440706899672644344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2474732204896713089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9f60e6f92692584cb37ef8a727e511e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2798432896716705498
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +275,7 @@ GameObject:
   - component: {fileID: 373279185264304859}
   - component: {fileID: 7009345876316985283}
   - component: {fileID: 997751979991055993}
+  - component: {fileID: 6387922066884854048}
   m_Layer: 5
   m_Name: PopUp_Collect
   m_TagString: Untagged
@@ -269,8 +296,8 @@ RectTransform:
   m_Children:
   - {fileID: 4651245833987908679}
   - {fileID: 1822107400492992768}
-  - {fileID: 5814019166988359482}
   - {fileID: 139260886020889696}
+  - {fileID: 5814019166988359482}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -312,6 +339,23 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &6387922066884854048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2798432896716705498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d472dcb35de8e043a747e5e35808517, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ressources:
+  - {fileID: 2474732204896713089}
+  - {fileID: 2295713128485703427}
+  foodTexture: {fileID: 2800000, guid: 0dcf33ef9f527cf4baf5dc4f549fc6e5, type: 3}
+  woodTexture: {fileID: 2800000, guid: a85dcd915c0ab3246b37e435ccf63d5d, type: 3}
 --- !u!1 &5862113358337771107
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,4 +432,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Aktion
+  m_Text: Ressourcenauswahl

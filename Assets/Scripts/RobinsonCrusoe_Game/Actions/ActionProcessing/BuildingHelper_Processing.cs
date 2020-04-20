@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Generic.Dice;
+using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
 using Assets.Scripts.RobinsonCrusoe_Game.Actions.ActionProcessing;
 using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System;
@@ -10,13 +11,12 @@ public class BuildingHelper_Processing : MonoBehaviour
 {
     private ItemCard item;
     private Character executingCharacter;
-    public void ProcessExploreAction(Action_Template action)
+    public void ProcessExploreAction(ActionContainer action)
     {
-        var position = action.pos;
-        item = position.ReferingObject as ItemCard;
-        executingCharacter = ProcessingHelper.GetExecutingCharacter(position.GetDictionary());
+        item = action.ReferingObject as ItemCard;
+        executingCharacter = action.ExecutingCharacter;
 
-        int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(position.GetDictionary());
+        int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(action.CharacterTokensSpend);
         HandlePotentialDiceRoll(amountOfActionsSpend);
     }
 

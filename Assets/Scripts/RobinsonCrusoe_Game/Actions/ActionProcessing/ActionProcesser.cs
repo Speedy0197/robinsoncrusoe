@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Generic.Dice;
+using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,17 +12,17 @@ public class ActionProcesser : MonoBehaviour
         var actions = GetAllActions();
         foreach(var action in actions)
         {
-            if (action.actionType == ActionType.explore)
+            if (action.ActionType == ActionType.explore)
             {
                 var processor = GetComponent<ExploreActions_Processing>();
                 processor.ProcessExploreAction(action);
             }
-            else if(action.actionType == ActionType.build)
+            else if(action.ActionType == ActionType.build)
             {
                 var processor = GetComponent<BuildingHelper_Processing>();
                 processor.ProcessExploreAction(action);
             }
-            else if(action.actionType == ActionType.collect)
+            else if(action.ActionType == ActionType.collect)
             {
                 var processor = GetComponent<GatheringActions_Processing>();
                 processor.ProcessExploreAction(action);
@@ -33,16 +34,32 @@ public class ActionProcesser : MonoBehaviour
         phaseView.NextPhase();
     }
 
-    private List<Action_Template> GetAllActions()
+    private List<ActionContainer> GetAllActions()
     {
-        List<Action_Template> importantActions = new List<Action_Template>();
+        List<ActionContainer> importantActions = new List<ActionContainer>();
 
-        var allActions = FindObjectsOfType<Action_Template>();
-        foreach(var action in allActions)
+        //Explore
+        var explore = FindObjectsOfType<Action_Explore>();
+        foreach(var action in explore)
         {
-            if (action.actionType == ActionType.unknown)
-                continue;
-            importantActions.Add(action);
+            if(action.container.HasStoredAction)
+                importantActions.Add(action.container);
+        }
+
+        //Gather
+        var gather = FindObjectsOfType<Action_Gather>();
+        foreach (var action in gather)
+        {
+            if (action.container.HasStoredAction)
+                importantActions.Add(action.container);
+        }
+
+        //Build
+        var build = FindObjectsOfType<Action_Build>();
+        foreach (var action in build)
+        {
+            if (action.container.HasStoredAction)
+                importantActions.Add(action.container);
         }
 
         return importantActions;

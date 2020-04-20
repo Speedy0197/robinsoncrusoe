@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Action_Explore : MonoBehaviour
+public class Action_Build : MonoBehaviour
 {
     public ActionContainer container = null;
 
@@ -16,7 +16,7 @@ public class Action_Explore : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        popup = Resources.Load("prefabs/PopUp_Explore") as GameObject;
+        popup = Resources.Load("prefabs/PopUp_Build") as GameObject;
 
         var view = FindObjectOfType<PhaseView>();
         view.currentPhaseChanged += ActionPhaseTriggered;
@@ -28,8 +28,8 @@ public class Action_Explore : MonoBehaviour
         if (view.GetCurrentPhase() == E_Phase.Action)
         {
             container = new ActionContainer(2);
-            container.ActionType = ActionType.explore;
-            container.ReferingObject = GetComponent<ExploreIsland>();
+            container.ActionType = ActionType.build;
+            container.ReferingObject = GetComponent<ItemCard>();
         }
     }
 

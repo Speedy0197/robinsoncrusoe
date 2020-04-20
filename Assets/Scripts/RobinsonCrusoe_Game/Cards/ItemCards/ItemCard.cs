@@ -26,6 +26,7 @@ public class ItemCard : MonoBehaviour
 
     public void ChangeCardClass(Material front, Material back, IItemCard itemCard)
     {
+        Debug.Log(cardClass);
         cardFront = front;
         cardBack = back;
         cardClass = itemCard;

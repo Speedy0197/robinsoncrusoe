@@ -1,22 +1,25 @@
 ﻿using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards;
 using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Action_Explore : MonoBehaviour
+public class Action_Gather : MonoBehaviour
 {
     public ActionContainer container = null;
 
-    private GameObject popup;
+    private GameObject popupCollect;
+    private GameObject popupToken;
     private GameObject instantiatedPopup;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        popup = Resources.Load("prefabs/PopUp_Explore") as GameObject;
+        popupCollect = Resources.Load("prefabs/PopUp_Collect") as GameObject;
+        popupToken = Resources.Load("prefabs/PopUp_Explore") as GameObject;
 
         var view = FindObjectOfType<PhaseView>();
         view.currentPhaseChanged += ActionPhaseTriggered;
@@ -28,13 +31,34 @@ public class Action_Explore : MonoBehaviour
         if (view.GetCurrentPhase() == E_Phase.Action)
         {
             container = new ActionContainer(2);
-            container.ActionType = ActionType.explore;
+            container.ActionType = ActionType.collect;
             container.ReferingObject = GetComponent<ExploreIsland>();
         }
     }
 
     public void ExecuteTask()
     {
+        RessourceSelection();
+    }
+
+    private void RessourceSelection()
+    {
+        //Open ressource selection
+        //Then open token selection -> two potential ActionContainers, one for each ressource
+        var spawn = FindObjectOfType<GetUIBase>().GetUI();
+        instantiatedPopup = Instantiate(popupCollect, spawn.transform);
+        var component = instantiatedPopup.GetComponent<PopUp_RessourceSelection>();
+        component.SetSelection(((ExploreIsland)container.ReferingObject).myCard.GetRessourcesOnIsland());
+        component.SelectedRessource += OnRessourceSelected;
+    }
+
+    private void OnRessourceSelected(object sender, EventArgs e)
+    {
+        var component = instantiatedPopup.GetComponent<PopUp_RessourceSelection>();
+        component.SelectedRessource -= OnRessourceSelected;
+        container.CollectRessource = (RessourceType)sender;
+        Destroy(instantiatedPopup);
+
         CreatePopUp();
 
         var functions = instantiatedPopup.GetComponent<PopUp_Methods>();
@@ -77,6 +101,12 @@ public class Action_Explore : MonoBehaviour
     private void CreatePopUp()
     {
         var spawn = FindObjectOfType<GetUIBase>().GetUI();
-        instantiatedPopup = Instantiate(popup, spawn.transform);
+        instantiatedPopup = Instantiate(popupToken, spawn.transform);
+    }
+
+    private bool IsClickable()
+    {
+        var obj = GetComponent<Actionphase_CanClick>();
+        return obj.IsClickable;
     }
 }

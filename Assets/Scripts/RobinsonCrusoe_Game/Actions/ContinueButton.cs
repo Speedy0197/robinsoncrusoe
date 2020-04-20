@@ -22,16 +22,11 @@ public class ContinueButton : MonoBehaviour, IPointerClickHandler
         var view = FindObjectOfType<PhaseView>();
         view.currentPhaseChanged += ActionPhaseTriggered;
         BtnCon.SetActive(false);
-        Action_Template.ContinueButtonIsClickable += ContinueButtonIsClickable;
-        Action_Template.ContinueButtonIsNotClickable += ContinueButtonIsNotClickable;
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (isClickable)
         {
-
-            ActionIsNotClickable?.Invoke(this, new EventArgs());
-
             var processor = FindObjectOfType<ActionProcesser>();
             processor.ProcessAllActions();
         }
@@ -46,17 +41,14 @@ public class ContinueButton : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    private void ContinueButtonIsClickable(object sender, System.EventArgs e)
+    public void SetClickableTo(bool state)
     {
-        BtnCon.GetComponent<RawImage>().texture = textureRed;
-        isClickable = true;
+        isClickable = state;
+        if(isClickable)
+            BtnCon.GetComponent<RawImage>().texture = textureRed;
+        else
+            BtnCon.GetComponent<RawImage>().texture = texture;
     }
-    private void ContinueButtonIsNotClickable(object sender, System.EventArgs e)
-    {
-        BtnCon.GetComponent<RawImage>().texture = texture;
-        isClickable = false;
-    }
-
 }
 
 

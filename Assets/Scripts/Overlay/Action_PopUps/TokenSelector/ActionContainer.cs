@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,9 @@ namespace Assets.Scripts.Overlay.Action_PopUps.TokenSelector
         public Character ExecutingCharacter { get; set; }
         public MonoBehaviour ReferingObject { get; set; }
         public ActionType ActionType { get; set; }
+        public RessourceType CollectRessource { get; set; }
         public int ActionCosts { get; set; }
+        public bool HasStoredAction { get; set; } = false;
 
         public ActionContainer(int actionCosts)
         {
