@@ -12,8 +12,6 @@ public class ContinueButton : MonoBehaviour, IPointerClickHandler
     public Texture texture;
     public Texture textureRed;
 
-    public static event EventHandler ActionIsNotClickable;
-
     private bool isClickable = false;
 
     // Start is called before the first frame update

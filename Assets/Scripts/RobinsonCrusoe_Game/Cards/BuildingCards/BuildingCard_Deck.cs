@@ -46,7 +46,7 @@ public class BuildingCard_Deck : MonoBehaviour
     {
         var ui = FindObjectOfType<GetUIBase>().GetUI();
         var instance = Instantiate(popUp_Prefab, ui.transform);
-        var show = instance.GetComponent<PopUp_Card_Show>();
+        var show = instance.GetComponent<PopUp_DeckCard_Show>();
         show.SetCard(card);
     }
 

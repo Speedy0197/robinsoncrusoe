@@ -30,8 +30,10 @@ public class ActionProcesser : MonoBehaviour
         }
 
         //Change to next phase
-        var phaseView = FindObjectOfType<PhaseView>();
+        /*var phaseView = FindObjectOfType<PhaseView>();
         phaseView.NextPhase();
+        */
+        //TODO: reset: texture of sign, actionTokens of character
     }
 
     private List<ActionContainer> GetAllActions()

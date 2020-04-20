@@ -38,7 +38,7 @@ public class Action_Template : MonoBehaviour
         view.currentPhaseChanged += ActionPhaseTriggered;
         ActionIsClickable += SetActionIsClickable;
         ActionIsNotClickable += SetActionIsNotClickable;
-        ContinueButton.ActionIsNotClickable += SetActionIsNotClickable;
+        //ContinueButton.ActionIsNotClickable += SetActionIsNotClickable;
     }
 
     void OnMouseDown()

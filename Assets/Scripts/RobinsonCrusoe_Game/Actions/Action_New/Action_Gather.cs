@@ -19,7 +19,7 @@ public class Action_Gather : MonoBehaviour
     void Start()
     {
         popupCollect = Resources.Load("prefabs/PopUp_Collect") as GameObject;
-        popupToken = Resources.Load("prefabs/PopUp_Explore") as GameObject;
+        popupToken = Resources.Load("prefabs/PopUp_Collect_Tokens") as GameObject;
 
         var view = FindObjectOfType<PhaseView>();
         view.currentPhaseChanged += ActionPhaseTriggered;

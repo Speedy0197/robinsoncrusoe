@@ -38,6 +38,12 @@ public class EventCard_Deck : MonoBehaviour
         return card;
     }
 
+    public void PushAndShuffel(ICard card)
+    {
+        EventDeck.Add(card);
+        DeckActions.Shuffle(EventDeck);
+    }
+
     public Texture2D GetTextureFromID(int id)
     {
         return CardFaces[id];

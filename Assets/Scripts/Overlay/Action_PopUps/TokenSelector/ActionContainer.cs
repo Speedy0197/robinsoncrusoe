@@ -12,7 +12,7 @@ namespace Assets.Scripts.Overlay.Action_PopUps.TokenSelector
     public class ActionContainer
     {
         public Dictionary<Character, int> CharacterTokensSpend { get; private set; }
-        public Character ExecutingCharacter { get; set; }
+        public Character ExecutingCharacter { get; set; } = Player.PartyActions.GetActiveCharacter();
         public MonoBehaviour ReferingObject { get; set; }
         public ActionType ActionType { get; set; }
         public RessourceType CollectRessource { get; set; }

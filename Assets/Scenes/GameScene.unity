@@ -262,7 +262,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 08bca967a2e459f4eb731c46db89c5f7, type: 3}
   - {fileID: 2800000, guid: a32acc64513241a4391c409e92256078, type: 3}
   - {fileID: 2800000, guid: 44ae47ffba6260e4cac2201dfcd93841, type: 3}
-  popUp_Prefab: {fileID: 3859956088301884797, guid: 07d0a97ebbe45a14e854b3cca9e49e1b,
+  popUp_Prefab: {fileID: 283246353524740213, guid: 68379915ca43fbd4b9045a92fc56f1c2,
     type: 3}
 --- !u!1 &46826943
 GameObject:
@@ -2343,7 +2343,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 9d20d0ab8319a2c4fb9f206e5699c361, type: 3}
   - {fileID: 2800000, guid: ffb3f7106d6f8ba4290e7e985d59b104, type: 3}
   - {fileID: 2800000, guid: fd6d1781989dda34fbafc8126f9b88f3, type: 3}
-  popUp_Prefab: {fileID: 3859956088301884797, guid: 07d0a97ebbe45a14e854b3cca9e49e1b,
+  popUp_Prefab: {fileID: 283246353524740213, guid: 68379915ca43fbd4b9045a92fc56f1c2,
     type: 3}
 --- !u!1 &659887359
 GameObject:
@@ -6024,7 +6024,7 @@ MonoBehaviour:
   - {fileID: 2800000, guid: 1affaf18bcd993d4db543af270b43947, type: 3}
   - {fileID: 2800000, guid: fc42c132dd49104408e4b16f1ec3475d, type: 3}
   - {fileID: 2800000, guid: 59f401164803f9442a84b76e6d164c9d, type: 3}
-  popUp_Prefab: {fileID: 3859956088301884797, guid: 07d0a97ebbe45a14e854b3cca9e49e1b,
+  popUp_Prefab: {fileID: 283246353524740213, guid: 68379915ca43fbd4b9045a92fc56f1c2,
     type: 3}
 --- !u!1 &1392681236
 GameObject:

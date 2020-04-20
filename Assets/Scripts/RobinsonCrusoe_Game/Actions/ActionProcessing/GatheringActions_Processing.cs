@@ -11,8 +11,10 @@ public class GatheringActions_Processing : MonoBehaviour
 {
     private ExploreIsland island;
     private Character executingCharacter;
+    private ActionContainer container;
     public void ProcessExploreAction(ActionContainer action)
     {
+        container = action;
         island = action.ReferingObject as ExploreIsland;
         executingCharacter = action.ExecutingCharacter;
 
@@ -32,7 +34,7 @@ public class GatheringActions_Processing : MonoBehaviour
         }
         if (amountOfActionsSpend == 2)
         {
-            Experimental_GetRessources();
+            GetRessources();
         }
     }
 
@@ -67,16 +69,12 @@ public class GatheringActions_Processing : MonoBehaviour
         }
         else
         {
-            Experimental_GetRessources();
+            GetRessources();
         }
     }
 
-    private void Experimental_GetRessources()
+    private void GetRessources()
     {
-        //TODO: for now all ressources of an island are collected, due to the fact that the actual ressource selection isn't working yet.
-        foreach (var ressource in island.myCard.GetRessourcesOnIsland())
-        {
-            island.myCard.GatherRessources(ressource);
-        }
+        island.myCard.GatherRessources(container.CollectRessource);
     }
 }
