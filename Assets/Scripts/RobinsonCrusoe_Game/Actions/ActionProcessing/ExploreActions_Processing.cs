@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class ExploreActions_Processing : MonoBehaviour
 {
+    public GameObject progressViewer;
+
     private ExploreIsland island;
     private Character executingCharacter;
     public void ProcessExploreAction(ActionContainer action)

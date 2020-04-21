@@ -50,6 +50,9 @@ public class PopUp_Weather_Show : MonoBehaviour
         phaseView.NextPhase();
     }
 
+    private WeatherDice_Normal result_Normal;
+    private WeatherDice_Advanced result_Advanced;
+    private EnvironmentalDice result_Environment;
     private void RollDices(DiceSet weatherDice)
     {
         if (weatherDice.weatherDice_Normal)
@@ -59,6 +62,7 @@ public class PopUp_Weather_Show : MonoBehaviour
             if (result == WeatherDice_Normal.Rain) dice_1.texture = orangeDiceTexture[0];
             if (result == WeatherDice_Normal.StrongRain) dice_1.texture = orangeDiceTexture[1];
             if (result == WeatherDice_Normal.Snow) dice_1.texture = orangeDiceTexture[2];
+            result_Normal = result;
         }
         if (weatherDice.weatherDice_Advanced)
         {
@@ -67,6 +71,7 @@ public class PopUp_Weather_Show : MonoBehaviour
             if (result == WeatherDice_Advanced.StrongRain) dice_2.texture = whiteDiceTexture[0];
             if (result == WeatherDice_Advanced.Snow) dice_2.texture = whiteDiceTexture[1];
             if (result == WeatherDice_Advanced.StrongSnow) dice_2.texture = whiteDiceTexture[2];
+            result_Advanced = result;
         }
         if (weatherDice.environmentalDice)
         {
@@ -76,6 +81,7 @@ public class PopUp_Weather_Show : MonoBehaviour
             if (result == EnvironmentalDice.Nothing) dice_3.texture = redDiceTexture[1];
             if (result == EnvironmentalDice.FoodLoss) dice_3.texture = redDiceTexture[2];
             if (result == EnvironmentalDice.PalisadeDamage) dice_3.texture = redDiceTexture[3];
+            result_Environment = result;
         }
     }
 }

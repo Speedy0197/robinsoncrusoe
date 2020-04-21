@@ -8,67 +8,78 @@ using UnityEngine;
 
 public class ActionProcesser : MonoBehaviour
 {
+    List<ActionContainer> currentActions;
+    int currentIndex;
     public void ProcessAllActions()
     {
         FindObjectOfType<ContinueButton>().SetClickableTo(false);
         popUpCounter = 0;
 
-        var actions = GetAllActions();
-        foreach(var action in actions)
-        {
-            if (action.ActionType == ActionType.explore)
-            {
-                var processor = GetComponent<ExploreActions_Processing>();
-                processor.ProcessExploreAction(action);
-            }
-            else if(action.ActionType == ActionType.build)
-            {
-                var processor = GetComponent<BuildingHelper_Processing>();
-                processor.ProcessBuildAction(action);
-            }
-            else if(action.ActionType == ActionType.collect)
-            {
-                var processor = GetComponent<GatheringActions_Processing>();
-                processor.ProcessCollectAction(action);
-            }
-            else if(action.ActionType == ActionType.clean)
-            {
-                var processor = GetComponent<CleanAction_Processing>();
-                processor.ProcessCleanAction(action);
-            }
-            else if (action.ActionType == ActionType.rest)
-            {
-                var processor = GetComponent<RestAction_Processing>();
-                processor.ProcessRestAction(action);
-            }
-            else if (action.ActionType == ActionType.preventDanger)
-            {
-                var processor = GetComponent<PreventDangerAction_Processing>();
-                processor.ProcessPreventAction(action);
-            }
-            else if (action.ActionType == ActionType.upgradeTent)
-            {
-                var processor = GetComponent<TentAction_Processing>();
-                processor.ProcessBuildAction_Tent(action);
-            }
-            else if (action.ActionType == ActionType.upgradeRoof)
-            {
-                var processor = GetComponent<RoofAction_Processing>();
-                processor.ProcessBuildAction_Roof(action);
-            }
-            else if (action.ActionType == ActionType.upgradeWall)
-            {
-                var processor = GetComponent<WallAction_Processing>();
-                processor.ProcessBuildAction_Wall(action);
-            }
-            else if (action.ActionType == ActionType.upgradeWeapons)
-            {
-                var processor = GetComponent<WeaponAction_Processing>();
-                processor.ProcessBuildAction_Weapon(action);
-            }
-        }
+        currentActions = GetAllActions();
+        currentIndex = 0;
+    }
 
-        phaseChangeAllowed = true;
+    private void ProcessOneAction()
+    {
+        if (currentIndex >= currentActions.Count) ChangePhase();
+
+        var action = currentActions[currentIndex];
+        if (action.ActionType == ActionType.explore)
+        {
+            var processor = GetComponent<ExploreActions_Processing>();
+            processor.ProcessExploreAction(action);
+        }
+        else if (action.ActionType == ActionType.build)
+        {
+            var processor = GetComponent<BuildingHelper_Processing>();
+            processor.ProcessBuildAction(action);
+        }
+        else if (action.ActionType == ActionType.collect)
+        {
+            var processor = GetComponent<GatheringActions_Processing>();
+            processor.ProcessCollectAction(action);
+        }
+        else if (action.ActionType == ActionType.clean)
+        {
+            var processor = GetComponent<CleanAction_Processing>();
+            processor.ProcessCleanAction(action);
+        }
+        else if (action.ActionType == ActionType.rest)
+        {
+            var processor = GetComponent<RestAction_Processing>();
+            processor.ProcessRestAction(action);
+        }
+        else if (action.ActionType == ActionType.preventDanger)
+        {
+            var processor = GetComponent<PreventDangerAction_Processing>();
+            processor.ProcessPreventAction(action);
+        }
+        else if (action.ActionType == ActionType.upgradeTent)
+        {
+            var processor = GetComponent<TentAction_Processing>();
+            processor.ProcessBuildAction_Tent(action);
+        }
+        else if (action.ActionType == ActionType.upgradeRoof)
+        {
+            var processor = GetComponent<RoofAction_Processing>();
+            processor.ProcessBuildAction_Roof(action);
+        }
+        else if (action.ActionType == ActionType.upgradeWall)
+        {
+            var processor = GetComponent<WallAction_Processing>();
+            processor.ProcessBuildAction_Wall(action);
+        }
+        else if (action.ActionType == ActionType.upgradeWeapons)
+        {
+            var processor = GetComponent<WeaponAction_Processing>();
+            processor.ProcessBuildAction_Weapon(action);
+        }
+        currentIndex++;
+    }
+
+    private void ChangePhase()
+    {
+        throw new NotImplementedException();
     }
 
     private void ResetCharacterActionTokens()
