@@ -14,12 +14,12 @@ public class HealthView : MonoBehaviour
     public RawImage[] heartContainer;
     public RawImage moralArrow;
     public RawImage activePlayerMarker;
+    public Texture2D full;
+    public Texture2D empty;
 
     private Character currentMainCharacter;
     private int lastHealth;
     private int lastDetermination;
-    private Texture2D full;
-    private Texture2D empty;
     private bool lastActive;
 
     // Start is called before the first frame update
@@ -29,8 +29,6 @@ public class HealthView : MonoBehaviour
         lastHealth = 0;
         lastDetermination = 0;
         lastActive = false;
-        empty = ImageLoader.LoadPNG("Assets/Images/UI/Empty_Heart.png");
-        full = ImageLoader.LoadPNG("Assets/Images/UI/Full_Heart.png");
     }
 
     // Update is called once per frame

@@ -2372,6 +2372,8 @@ MonoBehaviour:
   - {fileID: 4137782365158919466}
   moralArrow: {fileID: 4137782365393090534}
   activePlayerMarker: {fileID: 5065961029539102961}
+  full: {fileID: 2800000, guid: 3e635f4741e054d4f8255bdee8056f5f, type: 3}
+  empty: {fileID: 2800000, guid: 68842b8a84b9eae41bf25deee8e64a7c, type: 3}
 --- !u!1 &4137782364535888110
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,7 +3549,7 @@ RectTransform:
   - {fileID: 5633000475415382298}
   - {fileID: 8453638455860888650}
   - {fileID: 3723542648266658086}
-  - {fileID: 5664511149938350944}
+  - {fileID: 4599709199404963668}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4904,7 +4906,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: {fileID: 3078437042792757591}
---- !u!1001 &8919798230779303792
+--- !u!1001 &756724583481187140
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5023,9 +5025,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc1e00ebccc39b14394f488db687341e, type: 3}
---- !u!224 &5664511149938350944 stripped
+--- !u!224 &4599709199404963668 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3843012879596030992, guid: bc1e00ebccc39b14394f488db687341e,
     type: 3}
-  m_PrefabInstance: {fileID: 8919798230779303792}
+  m_PrefabInstance: {fileID: 756724583481187140}
   m_PrefabAsset: {fileID: 0}
