@@ -19,7 +19,6 @@ public class Action_Gather : MonoBehaviour
     void Start()
     {
         island = GetComponent<ExploreIsland>();
-        container = new Dictionary<RessourceType, ActionContainer>();
 
         popupCollect = Resources.Load("prefabs/PopUp_Collect") as GameObject;
         popupToken = Resources.Load("prefabs/PopUp_Collect_Tokens") as GameObject;
@@ -30,6 +29,7 @@ public class Action_Gather : MonoBehaviour
 
     private void ActionPhaseTriggered(object sender, EventArgs e)
     {
+        container = new Dictionary<RessourceType, ActionContainer>();
         PhaseView view = (PhaseView)sender;
         if (view.GetCurrentPhase() == E_Phase.Action && island.myCard != null)
         {

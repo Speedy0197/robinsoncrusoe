@@ -30,6 +30,7 @@ public class Action_PreventDanger : MonoBehaviour
         {
             container = new ActionContainer(0);
             container.ActionType = ActionType.preventDanger;
+            Debug.Log("ThreatAction:" + container);
         }
     }
 

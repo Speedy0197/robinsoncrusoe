@@ -155,7 +155,7 @@ public class ActionProcesser : MonoBehaviour
                 importantActions.Add(action.container);
         }
 
-        //Prevent
+        //Weapon
         var weapon = FindObjectsOfType<Action_BuildWeapon>();
         foreach (var action in weapon)
         {

@@ -6,23 +6,17 @@ using UnityEngine;
 
 public class CharacterView : MonoBehaviour
 {
-    public GameObject characterContainerPrefab;
-    public Transform position;
-
-    public int spaceBetween = 30;
+    public GameObject[] previews;
 
     // Start is called before the first frame update
     void Start()
     {
-        Transform tempPosition = position;
+        int index = 0;
         foreach(var character in PartyHandler.PartySession)
         {
-            var instance = Instantiate(characterContainerPrefab, tempPosition);
-            instance.transform.Translate(0, spaceBetween, 0);
-            tempPosition = instance.transform;
-
-            var view = instance.GetComponent<SmallCharacterView>();
-            view.SetCharacter(character);
+            previews[index].SetActive(true);
+            previews[index].GetComponent<SmallCharacterView>().SetCharacter(character);
+            index++;
         }
     }
 }
