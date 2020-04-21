@@ -9,12 +9,15 @@ using UnityEngine;
 
 public class BuildingHelper_Processing : MonoBehaviour
 {
-    private ItemCard item;
-    private Character executingCharacter;
+    public GameObject popUp;
+
+    public ItemCard item;
+
+    public ActionContainer myAction { get; private set; }
     public void ProcessBuildAction(ActionContainer action)
     {
+        myAction = action;
         item = action.ReferingObject as ItemCard;
-        executingCharacter = action.ExecutingCharacter;
 
         int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(action.CharacterTokensSpend);
         HandlePotentialDiceRoll(amountOfActionsSpend);
@@ -25,10 +28,9 @@ public class BuildingHelper_Processing : MonoBehaviour
         if (amountOfActionsSpend == 0) return;
         if (amountOfActionsSpend == 1)
         {
-            //TODO: show dice roll, for now just log it in console and process it (ignoring character abilities)
-            CheckForSuccess();
-            CheckForPlayerDamage();
-            CheckForCardDraw();
+            var ui = FindObjectOfType<GetUIBase>().GetUI();
+            var instance = Instantiate(popUp, ui.transform);
+            instance.GetComponent<popProcess_Build>().Process(this);
         }
         if (amountOfActionsSpend == 2)
         {
@@ -36,37 +38,39 @@ public class BuildingHelper_Processing : MonoBehaviour
         }
     }
 
-    private void CheckForCardDraw()
+    public bool CheckForCardDraw()
     {
         var card = BuildingDice_Simulation.RollCardDice();
         var deck = FindObjectOfType<BuildingCard_Deck>();
         if (deck.hasQuestionMarkToken || card == CardDice.Card)
         {
-            deck.DrawAndShow();
+            return true;
         }
+        return false;
     }
 
-    private void CheckForPlayerDamage()
+    public bool CheckForPlayerDamage()
     {
         var damage = BuildingDice_Simulation.RollDamageDice();
         Debug.Log(damage);
         if (damage == DamageDice.Damage)
         {
-            CharacterActions.DamageCharacterBy(1, executingCharacter);
+            return true;
         }
+        return false;
     }
 
-    private void CheckForSuccess()
+    public bool CheckForSuccess()
     {
         var success = BuildingDice_Simulation.RollSuccessDice();
         Debug.Log(success);
         if (success == SuccessDice.Determination)
         {
-            CharacterActions.RaiseCharacterDeterminationBy(1, executingCharacter);
+            return false;
         }
         else
         {
-            item.Research();
+            return true;
         }
     }
 }
