@@ -46,6 +46,26 @@ public class ActionProcesser : MonoBehaviour
                 var processor = GetComponent<PreventDangerAction_Processing>();
                 processor.ProcessPreventAction(action);
             }
+            else if (action.ActionType == ActionType.upgradeTent)
+            {
+                var processor = GetComponent<TentAction_Processing>();
+                processor.ProcessBuildAction_Tent(action);
+            }
+            else if (action.ActionType == ActionType.upgradeRoof)
+            {
+                var processor = GetComponent<RoofAction_Processing>();
+                processor.ProcessBuildAction_Roof(action);
+            }
+            else if (action.ActionType == ActionType.upgradeWall)
+            {
+                var processor = GetComponent<WallAction_Processing>();
+                processor.ProcessBuildAction_Wall(action);
+            }
+            else if (action.ActionType == ActionType.upgradeWeapons)
+            {
+                var processor = GetComponent<WeaponAction_Processing>();
+                processor.ProcessBuildAction_Weapon(action);
+            }
         }
 
         phaseChangeAllowed = true;
@@ -103,6 +123,38 @@ public class ActionProcesser : MonoBehaviour
         //Prevent
         var prevent = FindObjectsOfType<Action_PreventDanger>();
         foreach (var action in prevent)
+        {
+            if (action.container.HasStoredAction)
+                importantActions.Add(action.container);
+        }
+
+        //Tent
+        var tent = FindObjectsOfType<Action_BuildTent>();
+        foreach (var action in tent)
+        {
+            if (action.container.HasStoredAction)
+                importantActions.Add(action.container);
+        }
+
+        //Roof
+        var roof = FindObjectsOfType<Action_BuildRoof>();
+        foreach (var action in roof)
+        {
+            if (action.container.HasStoredAction)
+                importantActions.Add(action.container);
+        }
+
+        //Wall
+        var wall = FindObjectsOfType<Action_BuildWall>();
+        foreach (var action in wall)
+        {
+            if (action.container.HasStoredAction)
+                importantActions.Add(action.container);
+        }
+
+        //Prevent
+        var weapon = FindObjectsOfType<Action_BuildWeapon>();
+        foreach (var action in weapon)
         {
             if (action.container.HasStoredAction)
                 importantActions.Add(action.container);

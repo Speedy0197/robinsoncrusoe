@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 using System.Collections;
 using System.Collections.Generic;
@@ -73,8 +74,14 @@ public class ExploreIsland : MonoBehaviour
             campPlaceholder.SetActive(true);
             hasCamp = true;
 
-            //TODO: use right material
-            campPlaceholder.GetComponent<MeshRenderer>().material = camp_Fireplace;
+            if (Tent.Status == TentStatus.Fireplace)
+            {
+                campPlaceholder.GetComponent<MeshRenderer>().material = camp_Fireplace;
+            }
+            else
+            {
+                campPlaceholder.GetComponent<MeshRenderer>().material = camp_Tent;
+            }
         }
         else
         {

@@ -10,5 +10,9 @@ public enum ActionType
         explore,
         rest,
         clean,
-        preventDanger
+        preventDanger,
+        upgradeTent,
+        upgradeWall,
+        upgradeRoof,
+        upgradeWeapons
 }
