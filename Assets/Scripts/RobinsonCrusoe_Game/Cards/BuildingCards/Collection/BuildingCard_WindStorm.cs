@@ -35,7 +35,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Du/Ihr verliert 1 Palisaden Stärke. /r/n Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()

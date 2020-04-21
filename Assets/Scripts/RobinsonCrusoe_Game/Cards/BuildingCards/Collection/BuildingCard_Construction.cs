@@ -35,7 +35,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()

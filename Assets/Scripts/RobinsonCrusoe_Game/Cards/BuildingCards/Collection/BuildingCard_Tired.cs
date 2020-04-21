@@ -36,7 +36,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Der Startspieler bekommt 2 Leben. /r/n Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()
