@@ -19,10 +19,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public abstract bool IsDead { get; set; }
 
 
-        public abstract void UseAbility_1();
-        public abstract void UseAbility_2();
-        public abstract void UseAbility_3();
-        public abstract void UseAbility_4();
+        public abstract void UseAbility();
+        public abstract int GetAbilityCosts();
     }
 
     public enum DamageType

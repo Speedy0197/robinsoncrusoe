@@ -29,22 +29,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             MaxNumberOfActions = 1;
             CurrentNumberOfActions = 1;
         }
-        public override void UseAbility_1()
+        public override void UseAbility()
         {
             throw new NotImplementedException();
         }
 
-        public override void UseAbility_2()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void UseAbility_3()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void UseAbility_4()
+        public override int GetAbilityCosts()
         {
             throw new NotImplementedException();
         }

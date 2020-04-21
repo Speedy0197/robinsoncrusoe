@@ -40,8 +40,8 @@ public class BuildingHelper_Processing : MonoBehaviour
     {
         var card = BuildingDice_Simulation.RollCardDice();
         Debug.Log(card);
-        var deck = FindObjectOfType<ExploringCard_Deck>();
-        if (deck.hasQuestionMarkOnDeck || card == CardDice.Card)
+        var deck = FindObjectOfType<BuildingCard_Deck>();
+        if (deck.hasQuestionMarkToken || card == CardDice.Card)
         {
             deck.DrawAndShow();
         }

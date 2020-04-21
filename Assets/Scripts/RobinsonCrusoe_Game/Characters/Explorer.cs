@@ -29,24 +29,19 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             MaxNumberOfActions = 2;
             CurrentNumberOfActions = MaxNumberOfActions;
         }
-        public override void UseAbility_1()
+        public override void UseAbility()
         {
-            throw new NotImplementedException();
+            if(CurrentDetermination >= GetAbilityCosts())
+            {
+                //Motivational Speech
+                CharacterActions.LowerCharacterDeterminationBy(GetAbilityCosts(), this);
+                Moral.RaiseMoral();
+            }
         }
 
-        public override void UseAbility_2()
+        public override int GetAbilityCosts()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void UseAbility_3()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void UseAbility_4()
-        {
-            throw new NotImplementedException();
+            return 3;
         }
     }
 }

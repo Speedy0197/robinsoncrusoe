@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,24 +32,19 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             CurrentNumberOfActions = MaxNumberOfActions;
         }
 
-        public override void UseAbility_1()
+        public override void UseAbility()
         {
-            throw new NotImplementedException();
+            if(CurrentDetermination >= GetAbilityCosts())
+            {
+                //Stone Soup
+                CharacterActions.LowerCharacterDeterminationBy(GetAbilityCosts(), this);
+                PerishableFood.IncreaseBy(1);
+            }
         }
 
-        public override void UseAbility_2()
+        public override int GetAbilityCosts()
         {
-            throw new NotImplementedException();
-        }
-
-        public override void UseAbility_3()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void UseAbility_4()
-        {
-            throw new NotImplementedException();
+            return 3;
         }
     }
 }

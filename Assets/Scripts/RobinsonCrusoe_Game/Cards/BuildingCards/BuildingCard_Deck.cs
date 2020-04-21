@@ -14,7 +14,7 @@ public class BuildingCard_Deck : MonoBehaviour
     public GameObject popUp_Prefab;
 
     private List<ICard> buildingDeck;
-    private bool hasQuestionMarkToken;
+    public bool hasQuestionMarkToken { get; private set; }
 
     // Start is called before the first frame update
     void Start()
