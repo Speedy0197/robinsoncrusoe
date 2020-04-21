@@ -12,6 +12,10 @@ public class ExploreIsland : MonoBehaviour
     public bool hasCamp = false;
     public IIslandCard myCard;
 
+    public GameObject campPlaceholder;
+    public Material camp_Fireplace;
+    public Material camp_Tent;
+
     private IslandCard_Deck deck;
     private MeshRenderer mesh;
 
@@ -27,9 +31,9 @@ public class ExploreIsland : MonoBehaviour
         foreach(var island in islands)
         {
             if (!island.isExplored) continue;
-            island.hasCamp = false;
+            island.SetCamp(false);
         }
-        hasCamp = true;
+        SetCamp(true);
     }
 
     public void Explore()
@@ -59,6 +63,23 @@ public class ExploreIsland : MonoBehaviour
             {
                 //Spawn Tokens
             }*/
+        }
+    }
+
+    public void SetCamp(bool state)
+    {
+        if (state)
+        {
+            campPlaceholder.SetActive(true);
+            hasCamp = true;
+
+            //TODO: use right material
+            campPlaceholder.GetComponent<MeshRenderer>().material = camp_Fireplace;
+        }
+        else
+        {
+            campPlaceholder.SetActive(false);
+            hasCamp = false;
         }
     }
 }

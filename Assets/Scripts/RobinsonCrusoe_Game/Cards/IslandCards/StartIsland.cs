@@ -12,5 +12,6 @@ public class StartIsland : MonoBehaviour
     {
         var explore = startIsland.GetComponent<ExploreIsland>();
         explore.myCard = new IslandCard_StartingTile();
+        explore.SetCamp(true);
     }
 }
