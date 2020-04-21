@@ -52,7 +52,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Der nächste Spieler ist jetzt der Startspieler.";
         }
 
         public int GetMaterialNumber()

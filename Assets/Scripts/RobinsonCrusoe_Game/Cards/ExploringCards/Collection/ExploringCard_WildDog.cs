@@ -38,7 +38,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Du verlierst 1 Leben. \r\n Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()

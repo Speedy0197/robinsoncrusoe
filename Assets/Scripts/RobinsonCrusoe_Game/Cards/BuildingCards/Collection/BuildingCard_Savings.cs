@@ -35,7 +35,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         public string GetCardDescription()
         {
-            return "Du/Ihr bekommt 2 Hold. /r/n Diese Karte wird in den Eventstapel gemischt.";
+            return "Du/Ihr bekommt 2 Hold. \r\n Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()

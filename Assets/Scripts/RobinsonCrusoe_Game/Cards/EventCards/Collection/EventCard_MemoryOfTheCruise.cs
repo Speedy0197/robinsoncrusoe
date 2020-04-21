@@ -53,7 +53,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Deine/Eure Moral sinkt um 1.";
         }
 
         public int GetMaterialNumber()

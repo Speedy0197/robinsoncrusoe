@@ -34,7 +34,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Ein grünes Fragezeichen wird zusätzlich platziert.";
         }
 
         public int GetMaterialNumber()

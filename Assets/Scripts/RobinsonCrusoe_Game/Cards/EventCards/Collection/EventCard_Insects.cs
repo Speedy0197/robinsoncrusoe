@@ -63,7 +63,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Du/Ihr verliert 1 Holz, sonst 1 Leben.";
         }
 
         public int GetMaterialNumber()
