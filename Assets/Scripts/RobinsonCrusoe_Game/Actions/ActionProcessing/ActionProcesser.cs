@@ -92,8 +92,11 @@ public class ActionProcesser : MonoBehaviour
         var gather = FindObjectsOfType<Action_Gather>();
         foreach (var action in gather)
         {
-            if (action.container.HasStoredAction)
-                importantActions.Add(action.container);
+            foreach (var ressourceAction in action.container)
+            {
+                if (ressourceAction.Value.HasStoredAction)
+                    importantActions.Add(ressourceAction.Value);
+            }
         }
 
         //Build

@@ -8,16 +8,19 @@ using UnityEngine;
 
 public class Action_Gather : MonoBehaviour
 {
-    public ActionContainer container = null;
+    public Dictionary<RessourceType,ActionContainer> container = null;
 
     private GameObject popupCollect;
     private GameObject popupToken;
     private GameObject instantiatedPopup;
-
+    private ExploreIsland island;
 
     // Start is called before the first frame update
     void Start()
     {
+        island = GetComponent<ExploreIsland>();
+        container = new Dictionary<RessourceType, ActionContainer>();
+
         popupCollect = Resources.Load("prefabs/PopUp_Collect") as GameObject;
         popupToken = Resources.Load("prefabs/PopUp_Collect_Tokens") as GameObject;
 
@@ -28,11 +31,17 @@ public class Action_Gather : MonoBehaviour
     private void ActionPhaseTriggered(object sender, EventArgs e)
     {
         PhaseView view = (PhaseView)sender;
-        if (view.GetCurrentPhase() == E_Phase.Action)
+        if (view.GetCurrentPhase() == E_Phase.Action && island.myCard != null)
         {
-            container = new ActionContainer(2);
-            container.ActionType = ActionType.collect;
-            container.ReferingObject = GetComponent<ExploreIsland>();
+            foreach (var ressource in island.myCard.GetRessourcesOnIsland())
+            {
+                var action = new ActionContainer(2);
+                action.ActionType = ActionType.collect;
+                action.ReferingObject = island;
+                action.CollectRessource = ressource;
+
+                container.Add(ressource, action);
+            }
         }
     }
 
@@ -47,8 +56,10 @@ public class Action_Gather : MonoBehaviour
         //Then open token selection -> two potential ActionContainers, one for each ressource
         var spawn = FindObjectOfType<GetUIBase>().GetUI();
         instantiatedPopup = Instantiate(popupCollect, spawn.transform);
+
         var component = instantiatedPopup.GetComponent<PopUp_RessourceSelection>();
-        component.SetSelection(((ExploreIsland)container.ReferingObject).myCard.GetRessourcesOnIsland());
+
+        component.SetSelection(island.myCard.GetRessourcesOnIsland());
         component.SelectedRessource += OnRessourceSelected;
     }
 
@@ -56,13 +67,13 @@ public class Action_Gather : MonoBehaviour
     {
         var component = instantiatedPopup.GetComponent<PopUp_RessourceSelection>();
         component.SelectedRessource -= OnRessourceSelected;
-        container.CollectRessource = (RessourceType)sender;
+
         Destroy(instantiatedPopup);
 
         CreatePopUp();
 
         var functions = instantiatedPopup.GetComponent<PopUp_Methods>();
-        functions.SetActionContainer(container);
+        functions.SetActionContainer(container[(RessourceType)sender]);
 
         AddListeners(functions);
     }
@@ -91,7 +102,8 @@ public class Action_Gather : MonoBehaviour
     private void OnSave()
     {
         var functions = instantiatedPopup.GetComponent<PopUp_Methods>();
-        container = functions.SaveChanges();
+        var action = functions.SaveChanges();
+        container[action.CollectRessource] = action;
 
         RemoveListeners(functions);
 
