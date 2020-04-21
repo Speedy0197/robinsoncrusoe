@@ -531,6 +531,7 @@ MonoBehaviour:
   - {fileID: 8928371368200015668}
   saveButton: {fileID: 8785707889370829779}
   cancelButton: {fileID: 4833754526623907220}
+  useRessources: 1
 --- !u!1 &2466027279087712303
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,11 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.Scripts.Generic.Dice;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Level
 {
     public class Castaways : Level
     {
+        public override bool CheckForVictory(int currentRound)
+        {
+            if(currentRound >= 10 &&
+              InventionStorage.IsAvailable(Invention.Fire) &&
+              Wood.currentAmountOfWood >= 15)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public override int GetNumberOfRounds()
         {
             return 12;

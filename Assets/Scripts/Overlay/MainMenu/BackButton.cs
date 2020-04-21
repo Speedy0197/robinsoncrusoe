@@ -8,16 +8,14 @@ public class BackButton : MonoBehaviour
 {
     public GameObject previousScreenPrefab;
 
-    public Button button;
     public GameObject currentScreen;
 
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(TaskOnClick);
     }
 
-    private void TaskOnClick()
+    public void TaskOnClick()
     {
         var canvas = FindObjectOfType<Canvas>();
         Instantiate(previousScreenPrefab, canvas.transform);

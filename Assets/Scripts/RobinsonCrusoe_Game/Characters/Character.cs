@@ -16,6 +16,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public abstract bool IsActiveCharacter { get; set; }
         public abstract int CurrentNumberOfActions { get; set; }
         public abstract int MaxNumberOfActions { get; set; }
+        public abstract bool IsDead { get; set; }
 
 
         public abstract void UseAbility_1();

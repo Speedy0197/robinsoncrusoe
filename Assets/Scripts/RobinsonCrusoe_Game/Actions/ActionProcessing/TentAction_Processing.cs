@@ -71,6 +71,6 @@ public class TentAction_Processing : MonoBehaviour
 
     private void Build()
     {
-        Tent.Status = TentStatus.Shelter;
+        Tent.ChangeTentSatus(TentStatus.Shelter);
     }
 }

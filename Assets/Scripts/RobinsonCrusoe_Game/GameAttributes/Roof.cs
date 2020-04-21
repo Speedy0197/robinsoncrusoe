@@ -10,7 +10,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
     {
         public static event EventHandler RoofChanged;
 
-        private static int RoofState;
+        public static int RoofState { get; private set; }
         public static void SetStartValue(int start)
         {
             if (start < 0) start = 0;

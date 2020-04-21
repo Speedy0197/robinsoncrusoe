@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
@@ -24,8 +25,11 @@ public class PopUp_Night_Show : MonoBehaviour
 
     private void TaskOnClick()
     {
-        //TODO: deal damage to starving player
-        FoodStorage.Instance.ConsumeFood(PartyHandler.PartySize);
+        PartyActions.Sleep();
+        if(Tent.Status != TentStatus.Shelter)
+        {
+            PartyActions.DamageAllPlayers(1);
+        }
 
         Destroy(popUp);
         var phaseView = FindObjectOfType<PhaseView>();

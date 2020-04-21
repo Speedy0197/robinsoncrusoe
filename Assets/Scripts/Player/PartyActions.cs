@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -75,11 +76,32 @@ namespace Assets.Scripts.Player
             }
         }
 
-        internal static void TokenReset()
+        public static void TokenReset()
         {
             foreach (var character in PartyHandler.PartySession)
             {
                 character.CurrentNumberOfActions = character.MaxNumberOfActions;
+            }
+        }
+
+        public static void Sleep()
+        {
+            foreach (Character c in PartyHandler.PartySession)
+            {
+                if (c is ISideCharacter) continue;
+
+                if(PerishableFood.currentAmountOfPerishableFood > 0)
+                {
+                    PerishableFood.DecreaseBy(1);
+                }
+                else if(UnperishableFood.currentAmountOfUnperishableFood > 0)
+                {
+                    UnperishableFood.DecreaseBy(1);
+                }
+                else
+                {
+                    CharacterActions.DamageCharacterBy(1, c);
+                }
             }
         }
     }

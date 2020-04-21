@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +22,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
                 //Character Death
                 if(character is ISideCharacter)
                 {
-                    //TODO: remove from action system
+                    character.IsDead = true;
+                    character.CurrentHealth = 0;
                 }
                 else
                 {
-                    Analytics.CustomEvent("GameOver");
-                    SceneManager.LoadScene("GameOver");
+                    EndGame.Defeat();
                 }
             }
             if (!(character is ISideCharacter) 
@@ -75,7 +76,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 
                 while (character.CurrentDetermination < 0)
                 {
-                    Debug.Log("Loop");
                     character.CurrentDetermination++;
                     DamageCharacterBy(1, character);
                     Debug.Log(character.CurrentDetermination);

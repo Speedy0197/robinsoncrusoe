@@ -33,6 +33,7 @@ public class PopUp_Action_Show : MonoBehaviour
         var party = PartyHandler.PartySession;
         foreach(var character in party)
         {
+            if (character.IsDead) continue;
             if (character.CurrentNumberOfActions != 0) return false;
         }
         return true;

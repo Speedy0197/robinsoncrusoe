@@ -8,11 +8,14 @@ public class BuildRoof_OnClick : MonoBehaviour
     private void OnMouseDown()
     {
         if (GetComponent<Actionphase_CanClick>().IsClickable &&
-            Tent.Status == TentStatus.Shelter &&
-            Wood.currentAmountOfWood >= BuildingCosts.GetBuildCostsWood())
+            Tent.Status == TentStatus.Shelter)
         {
-            var component = GetComponent<Action_BuildRoof>();
-            component.ExecuteTask();
+            if (Wood.currentAmountOfWood >= BuildingCosts.GetBuildCostsWood() ||
+            GetComponent<Action_BuildRoof>().container.HasStoredAction)
+            {
+                var component = GetComponent<Action_BuildRoof>();
+                component.ExecuteTask();
+            }
         }
     }
 }

@@ -24,6 +24,7 @@ public class ExploreIsland : MonoBehaviour
     {
         deck = FindObjectOfType<IslandCard_Deck>();
         mesh = GetComponent<MeshRenderer>();
+        Tent.OnTentStatusChanged += Tent_OnTentStatusChanged;
     }
 
     public void CampHere()
@@ -87,6 +88,21 @@ public class ExploreIsland : MonoBehaviour
         {
             campPlaceholder.SetActive(false);
             hasCamp = false;
+        }
+    }
+
+    private void Tent_OnTentStatusChanged(object sender, System.EventArgs e)
+    {
+        if (hasCamp)
+        {
+            if (Tent.Status == TentStatus.Fireplace)
+            {
+                campPlaceholder.GetComponent<MeshRenderer>().material = camp_Fireplace;
+            }
+            else
+            {
+                campPlaceholder.GetComponent<MeshRenderer>().material = camp_Tent;
+            }
         }
     }
 }

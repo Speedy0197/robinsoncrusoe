@@ -57,24 +57,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
 
         public void ConsumeFood(int amount)
         {
-            while(amount > 0)
-            {
-                if(amountOfPerishableFood > 0)
-                {
-                    PerishableFood.DecreaseBy(1);
-                    amount--;
-                }
-                else if(amountOfUnperishableFood > 0)
-                {
-                    UnperishableFood.DecreaseBy(1);
-                    amount--;
-                }
-                else
-                {
-                    amount--;
-                    //TODO: what to do when there is no food??
-                }
-            }
         }
 
         public void increaseFood()

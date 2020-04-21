@@ -12,16 +12,14 @@ using UnityEngine.UI;
 
 public class StartGameSession : MonoBehaviour
 {
-    public Button button;
     public bool canStart = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(TaskOnClick);
     }
 
-    private void TaskOnClick()
+    public void TaskOnClick()
     {
         if (canStart)
         {

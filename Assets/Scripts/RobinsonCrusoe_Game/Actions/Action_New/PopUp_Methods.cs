@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
 using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ public class PopUp_Methods : MonoBehaviour
     public Button saveButton;
     public Button cancelButton;
 
+    public bool useRessources = false;
+
     public void SetActionContainer(ActionContainer actionContainer)
     {
         container = actionContainer;
@@ -20,6 +23,8 @@ public class PopUp_Methods : MonoBehaviour
         int configuratorIndex = 0; //max = 4
         foreach(var kvp in container.CharacterTokensSpend)
         {
+            if (kvp.Key.IsDead) continue;
+
             tokenConfigurator[configuratorIndex].SetActive(true);
             var component = tokenConfigurator[configuratorIndex].GetComponent<PopUp_CharSettings>();
             component.SetCharacter(kvp.Key);
@@ -61,9 +66,37 @@ public class PopUp_Methods : MonoBehaviour
             }
         }
 
+
+        DoRessourceCollection();
         AreAllTokensSpend();
 
         return container;
+    }
+
+    private void DoRessourceCollection()
+    {
+        if (useRessources)
+        {
+            var tokens = GetTotalValue();
+            int costs = 0;
+            if(container.ActionType == ActionType.upgradeWeapons)
+            {
+                costs = 1;
+            }
+            else
+            {
+                costs = BuildingCosts.GetBuildCostsWood();
+            }
+            
+            if (tokens > 0)
+            {
+                Wood.DecreaseWoodBy(costs);
+            }
+            else if(tokens == 0)
+            {
+                Wood.IncreaseWoodBy(costs);
+            }
+        }
     }
 
     private void AreAllTokensSpend()
@@ -71,6 +104,7 @@ public class PopUp_Methods : MonoBehaviour
         bool allTokensSpend = true;
         foreach(var character in PartyHandler.PartySession)
         {
+            if (character.IsDead) continue;
             if (character.CurrentNumberOfActions > 0) allTokensSpend = false;
         }
 

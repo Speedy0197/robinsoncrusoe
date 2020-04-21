@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Generic.Dice;
+using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using System;
@@ -15,13 +16,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         public static event EventHandler RoundChanged;
         public static RoundSystem instance;
 
-        private int currentRound;
+        public int currentRound { get; private set; }
+        public bool started { get; private set; }
         private Level.Level myLevel;
 
         public RoundSystem(Level.Level level)
         {
             currentRound = 1;
             myLevel = level;
+            started = false;
 
             instance = this;
 
@@ -30,6 +33,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public void StartGame()
         {
+            started = true;
             PhaseView.StartGame();
         }
 
@@ -41,12 +45,17 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         public void increaseRound()
         {
             currentRound += 1;
+            PartyActions.SetNextActiveCharacter();
 
             //TODO: Check for victory conditions -> Trigger Victory event
+            if (myLevel.CheckForVictory(currentRound))
+            {
+                EndGame.Victory();
+            }
 
             if (currentRound > myLevel.GetNumberOfRounds())
             {
-                //Trigger Defeat event
+                EndGame.Defeat();
             }
 
             InvokeRoundChange();

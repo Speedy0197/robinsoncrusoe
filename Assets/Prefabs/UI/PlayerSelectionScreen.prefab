@@ -195,7 +195,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7181221616155345849}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7181221616155345851}
+        m_MethodName: TaskOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7181221616155345851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfPlayers: 1
-  button: {fileID: 7181221616155345854}
   playerSelectionScreen: {fileID: 7181221616637766339}
   characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
     type: 3}
@@ -381,7 +391,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   previousScreenPrefab: {fileID: 0}
-  button: {fileID: 0}
   currentScreen: {fileID: 0}
 --- !u!1 &7181221616637766339
 GameObject:
@@ -579,7 +588,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7181221617091596368}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7181221617091596370}
+        m_MethodName: TaskOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7181221617091596370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -593,7 +613,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfPlayers: 4
-  button: {fileID: 7181221617091596369}
   playerSelectionScreen: {fileID: 7181221616637766339}
   characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
     type: 3}
@@ -792,7 +811,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7181221617471056165}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7181221617471056167}
+        m_MethodName: TaskOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7181221617471056167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -806,7 +836,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfPlayers: 2
-  button: {fileID: 7181221617471056186}
   playerSelectionScreen: {fileID: 7181221616637766339}
   characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
     type: 3}
@@ -928,7 +957,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7181221617597572339}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5423804117229439554}
+        m_MethodName: TaskOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5423804117229439554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -943,7 +983,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   previousScreenPrefab: {fileID: 3493946701785526576, guid: 32f40739b7b770a4e9e31d5b9f027c85,
     type: 3}
-  button: {fileID: 7181221617597572336}
   currentScreen: {fileID: 7181221616637766339}
 --- !u!1 &7181221617660730258
 GameObject:
@@ -1140,7 +1179,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7181221617778628106}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7181221617778628148}
+        m_MethodName: TaskOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7181221617778628148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1154,7 +1204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numberOfPlayers: 3
-  button: {fileID: 7181221617778628107}
   playerSelectionScreen: {fileID: 7181221616637766339}
   characterSelectionScreen: {fileID: 3576676583078298081, guid: b705bf04d915b8047a2383c1fae760f6,
     type: 3}

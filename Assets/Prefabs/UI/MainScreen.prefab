@@ -272,7 +272,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3493946700733937941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114688567651234058}
+        m_MethodName: TaskOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &114688567651234058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,7 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe66ffb2ec40c54fbc65220378528f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 3493946700733937938}
   mainScreen: {fileID: 3493946701785526576}
   playerSelectionScreen: {fileID: 7181221616637766339, guid: 677a7611ac27c5d4bb14dd1a6874ae4d,
     type: 3}
@@ -301,7 +311,7 @@ GameObject:
   - component: {fileID: 3493946701417523192}
   - component: {fileID: 3493946701417523193}
   - component: {fileID: 3493946701417523174}
-  - component: {fileID: 2174054642609183220}
+  - component: {fileID: 6461512661711162623}
   m_Layer: 5
   m_Name: Btn_Exit
   m_TagString: Untagged
@@ -407,8 +417,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3493946701417523193}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &2174054642609183220
+      m_Calls:
+      - m_Target: {fileID: 6461512661711162623}
+        m_MethodName: TaskOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &6461512661711162623
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -420,7 +441,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fab95c35b71d9245a03859a176327f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  button: {fileID: 3493946701417523174}
 --- !u!1 &3493946701785526576
 GameObject:
   m_ObjectHideFlags: 0

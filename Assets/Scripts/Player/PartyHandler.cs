@@ -26,7 +26,7 @@ namespace Assets.Scripts.Player
         private static void CreateFourPlayerParty(Party newParty)
         {
             int index = 0;
-            PartySession = new Character[3];
+            PartySession = new Character[4];
             if (newParty.cook != null) { PartySession[index] = newParty.cook; index++; }
             if (newParty.carpenter != null) { PartySession[index] = newParty.carpenter; index++; }
             if (newParty.explorer != null) { PartySession[index] = newParty.explorer; index++; }

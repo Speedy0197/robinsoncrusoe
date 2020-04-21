@@ -17,6 +17,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public override bool IsActiveCharacter { get; set; }
         public override int CurrentNumberOfActions { get; set; }
         public override int MaxNumberOfActions { get; set; }
+        public override bool IsDead { get; set; } = false;
 
         public Cook()
         {

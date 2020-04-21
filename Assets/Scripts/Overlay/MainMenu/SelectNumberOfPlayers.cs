@@ -8,17 +8,16 @@ using UnityEngine.UI;
 public class SelectNumberOfPlayers : MonoBehaviour
 {
     public int numberOfPlayers = 1;
-    public Button button;
+
     public GameObject playerSelectionScreen;
     public GameObject characterSelectionScreen;
 
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(TaskOnClick);
     }
 
-    private void TaskOnClick()
+    public void TaskOnClick()
     {
         TempoarySettings.Reset();
         TempoarySettings.NumberOfPlayers = numberOfPlayers;

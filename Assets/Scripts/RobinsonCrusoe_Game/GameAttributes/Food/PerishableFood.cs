@@ -10,7 +10,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
     {
         public static event EventHandler AmountOfPerishableFoodChanged;
 
-        private static int currentAmountOfPerishableFood;
+        public static int currentAmountOfPerishableFood { get; private set; }
         private const int maxValue = 1000;
         private const int minValue = 0;
 

@@ -11,6 +11,8 @@ public class PopUp_Production_Show : MonoBehaviour
     public Text infoText;
     public Button confirm;
 
+    private IIslandCard card;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,15 +24,35 @@ public class PopUp_Production_Show : MonoBehaviour
     private void SetInfoText()
     {
         string info = string.Empty;
-        var card = FindIslandWithCamp();
+        card = FindIslandWithCamp();
         if (card == null) info = "Kein Camp gefunden";
         else
         {
             info = "Ihr campt auf der Insel " + card.ToString() + "\r\n";
             info += "Die Insel bringt euch folgende Ressourcen ein:\r\n";
-            info += "TODO: add ressources";
+
+            info += GetRessourceString();
         }
         infoText.text = info;
+    }
+
+    private string GetRessourceString()
+    {
+        string retVal = string.Empty;
+        var ressources = card.GetRessourcesOnIsland();
+        foreach (var ressource in ressources)
+        {
+            if(ressource == RessourceType.Fish || ressource == RessourceType.Parrot)
+            {
+                retVal += "1 Nahrung \r\n";
+            }
+            else
+            {
+                retVal += "1 Holz \r\n";
+            }
+        }
+
+        return retVal;
     }
 
     private IIslandCard FindIslandWithCamp()
@@ -45,6 +67,12 @@ public class PopUp_Production_Show : MonoBehaviour
 
     private void TaskOnClick()
     {
+        var ressources = card.GetRessourcesOnIsland();
+        foreach (var ressource in ressources)
+        {
+            card.GatherRessources(ressource);
+        }
+
         Destroy(popUp);
         var phaseView = FindObjectOfType<PhaseView>();
         phaseView.NextPhase();

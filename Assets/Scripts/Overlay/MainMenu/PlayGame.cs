@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayGame : MonoBehaviour
 {
-    public Button button;
     public GameObject mainScreen;
 
     public GameObject playerSelectionScreen;
@@ -14,10 +13,9 @@ public class PlayGame : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button.onClick.AddListener(TaskOnClick);
     }
 
-    private void TaskOnClick()
+    public void TaskOnClick()
     {
         var canvas = FindObjectOfType<Canvas>();
         Instantiate(playerSelectionScreen, canvas.transform);
