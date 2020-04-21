@@ -37,7 +37,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         public string GetCardDescription()
         {
-            return "Deine/Eure Moral sinkt um 1. /r/n Diese Karte wird in den Eventstapel gemischt.";
+            return "Deine/Eure Moral sinkt um 1. \r\n Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()

@@ -36,7 +36,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Du verlierst ein Entschlossenheitsplättchen. \r\n Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()

@@ -37,7 +37,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Du/ihr bekommt 2 Nahrung und 1 Fell. \r\n Diese Karte wird in den Eventstapel gemischt.";
         }
 
         public int GetMaterialNumber()

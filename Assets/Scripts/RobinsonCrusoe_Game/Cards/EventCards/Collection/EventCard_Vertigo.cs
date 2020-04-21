@@ -51,7 +51,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Der Startspieler hat nur 1 Aktion diesen Zug.";
         }
 
         public int GetMaterialNumber()

@@ -56,7 +56,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Falls möglich wird die Waffenstärke um 2 gesenkt.";
         }
 
         public int GetMaterialNumber()
