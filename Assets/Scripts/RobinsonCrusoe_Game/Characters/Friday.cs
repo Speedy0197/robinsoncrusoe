@@ -38,5 +38,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         {
             throw new NotImplementedException();
         }
+
+        public override string GetAbilityDescription()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

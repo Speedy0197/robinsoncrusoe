@@ -21,6 +21,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 
         public abstract void UseAbility();
         public abstract int GetAbilityCosts();
+        public abstract string GetAbilityDescription();
     }
 
     public enum DamageType

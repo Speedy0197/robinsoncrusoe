@@ -17,6 +17,10 @@ public class HealthView : MonoBehaviour
     public Texture2D full;
     public Texture2D empty;
 
+    public Button AbilityButton;
+    public Text AbilityCosts;
+    public Text AbilityDescription;
+
     private Character currentMainCharacter;
     private int lastHealth;
     private int lastDetermination;
@@ -29,6 +33,15 @@ public class HealthView : MonoBehaviour
         lastHealth = 0;
         lastDetermination = 0;
         lastActive = false;
+        AbilityButton.onClick.AddListener(UseAbility);
+    }
+
+    private void UseAbility()
+    {
+        if (GetComponent<Actionphase_CanClick>().IsClickable)
+        {
+            currentMainCharacter.UseAbility();
+        }
     }
 
     // Update is called once per frame
@@ -65,6 +78,8 @@ public class HealthView : MonoBehaviour
         lastHealth = 0;
         currentMainCharacter = character;
         characterName.text = currentMainCharacter.CharacterName;
+        AbilityCosts.text = "Kosten: " + currentMainCharacter.GetAbilityCosts().ToString() + " Entschlossenheit";
+        AbilityDescription.text = currentMainCharacter.GetAbilityDescription();
         UpdateNumberOfVisibleContainers();
         UpdateContainerStatus();
     }

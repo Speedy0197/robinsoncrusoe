@@ -43,5 +43,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         {
             return 3;
         }
+
+        public override string GetAbilityDescription()
+        {
+            return "Erhöhe die Gruppenmoral um 1";
+        }
     }
 }
