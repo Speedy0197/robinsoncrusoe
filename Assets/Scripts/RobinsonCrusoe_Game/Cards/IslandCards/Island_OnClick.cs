@@ -14,7 +14,7 @@ public class Island_OnClick : MonoBehaviour
                 var component = GetComponent<Action_Gather>();
                 component.ExecuteTask();
             }
-            else if(GetComponent<ExploreIsland>().canExplore)
+            else if (GetComponent<ExploreIsland>().canExplore)
             {
                 var component = GetComponent<Action_Explore>();
                 component.ExecuteTask();

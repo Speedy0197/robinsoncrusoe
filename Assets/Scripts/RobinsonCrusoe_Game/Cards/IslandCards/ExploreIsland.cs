@@ -44,6 +44,7 @@ public class ExploreIsland : MonoBehaviour
             TerrainStorage.UnlockTerrain(myCard.GetTerrain());
 
             //Spawn Hunting Cards
+            /*
             int amountOfBeasts = myCard.GetNumberOfAnimals();
             var huntingDeck = FindObjectOfType<Hunting_Deck>();
             for (int i = 0; i < amountOfBeasts; i++)
@@ -57,7 +58,7 @@ public class ExploreIsland : MonoBehaviour
             for(int i = 0; i < amountOfTokens; i++)
             {
                 //Spawn Tokens
-            }
+            }*/
         }
     }
 }

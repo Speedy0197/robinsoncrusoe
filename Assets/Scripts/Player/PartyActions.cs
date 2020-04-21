@@ -74,5 +74,13 @@ namespace Assets.Scripts.Player
                 }
             }
         }
+
+        internal static void TokenReset()
+        {
+            foreach (var character in PartyHandler.PartySession)
+            {
+                character.CurrentNumberOfActions = character.MaxNumberOfActions;
+            }
+        }
     }
 }

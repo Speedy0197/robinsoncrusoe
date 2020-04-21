@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +8,8 @@ using UnityEngine.UI;
 
 public class ThreatCardViewer : MonoBehaviour
 {
-    public RawImage Card_HighThreat;
-    public RawImage Card_LowThreat;
+    public GameObject Card_HighThreat;
+    public GameObject Card_LowThreat;
     public Texture2D Card_basicBackground;
 
     public GameObject threatCard_Prefab;
@@ -32,21 +33,58 @@ public class ThreatCardViewer : MonoBehaviour
         imageUpdateUI();
     }
 
+    public void RemoveCard(ThreatLevel threatLevel)
+    {
+        var array = threatStack.ToArray();
+        var newStack = new Queue<ThreatCard>();
+
+        if (threatLevel == ThreatLevel.High)
+        {
+            array[0] = new ThreatCard(null, Card_basicBackground);
+        }
+        else
+        {
+            array[1] = new ThreatCard(null, Card_basicBackground);
+        }
+
+        newStack.Enqueue(array[0]);
+        newStack.Enqueue(array[1]);
+        threatStack = newStack;
+
+        Debug.Log("Removing");
+        foreach(var item in threatStack)
+        {
+            Debug.Log(item);
+        }
+
+        imageUpdateUI();
+    }
+
     private void imageUpdateUI()
     {
         if(threatStack.Count == 3)
         {
             var threatArray = threatStack.ToArray();
-            Card_LowThreat.texture = threatArray[2].CardTexture;
-            Card_HighThreat.texture = threatArray[1].CardTexture;
+            Card_LowThreat.GetComponent<RawImage>().texture = threatArray[2].CardTexture;
+            Card_LowThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[2];
+            Card_LowThreat.GetComponent<ThreatCardHolder>().ThreatLevel = ThreatLevel.Low;
+
+            Card_HighThreat.GetComponent<RawImage>().texture = threatArray[1].CardTexture;
+            Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[1];
+            Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatLevel = ThreatLevel.High;
 
             HandleDoomedCard();
         }
         else if(threatStack.Count == 2)
         {
             var threatArray = threatStack.ToArray();
-            Card_LowThreat.texture = threatArray[1].CardTexture;
-            Card_HighThreat.texture = threatArray[0].CardTexture;
+            Card_LowThreat.GetComponent<RawImage>().texture = threatArray[1].CardTexture;
+            Card_LowThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[1];
+            Card_LowThreat.GetComponent<ThreatCardHolder>().ThreatLevel = ThreatLevel.Low;
+
+            Card_HighThreat.GetComponent<RawImage>().texture = threatArray[0].CardTexture;
+            Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[0];
+            Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatLevel = ThreatLevel.High;
         }
     }
 

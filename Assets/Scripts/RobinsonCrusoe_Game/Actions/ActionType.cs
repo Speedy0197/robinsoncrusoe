@@ -8,4 +8,7 @@ public enum ActionType
         build,
         collect,
         explore,
+        rest,
+        clean,
+        preventDanger
 }

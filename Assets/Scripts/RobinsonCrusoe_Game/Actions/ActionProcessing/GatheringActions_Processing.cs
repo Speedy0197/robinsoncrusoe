@@ -12,7 +12,7 @@ public class GatheringActions_Processing : MonoBehaviour
     private ExploreIsland island;
     private Character executingCharacter;
     private ActionContainer container;
-    public void ProcessExploreAction(ActionContainer action)
+    public void ProcessCollectAction(ActionContainer action)
     {
         container = action;
         island = action.ReferingObject as ExploreIsland;

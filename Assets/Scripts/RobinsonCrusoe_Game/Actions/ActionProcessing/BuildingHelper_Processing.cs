@@ -11,7 +11,7 @@ public class BuildingHelper_Processing : MonoBehaviour
 {
     private ItemCard item;
     private Character executingCharacter;
-    public void ProcessExploreAction(ActionContainer action)
+    public void ProcessBuildAction(ActionContainer action)
     {
         item = action.ReferingObject as ItemCard;
         executingCharacter = action.ExecutingCharacter;

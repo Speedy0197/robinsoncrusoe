@@ -56,7 +56,7 @@ public class IslandCard_Deck : MonoBehaviour
         newDeck.Add(new IslandCard_Tile07());
         newDeck.Add(new IslandCard_Tile08());
         newDeck.Add(new IslandCard_Tile09());
-        newDeck.Add(new IslandCard_Volcano());
+        //newDeck.Add(new IslandCard_Volcano());
 
         return newDeck;
     }

@@ -44,6 +44,8 @@ public class ExploringCard_Deck : MonoBehaviour
 
     private void OpenPopUp(ICard card)
     {
+        FindObjectOfType<ActionProcesser>().IncreasePopUpCounter();
+
         //Show Card in Popup
         var ui = FindObjectOfType<GetUIBase>().GetUI();
         var instance = Instantiate(popUp_Prefab, ui.transform);

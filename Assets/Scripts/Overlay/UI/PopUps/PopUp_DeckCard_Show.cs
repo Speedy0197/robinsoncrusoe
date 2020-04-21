@@ -32,6 +32,8 @@ public class PopUp_DeckCard_Show : MonoBehaviour
 
         var mainDeck = FindObjectOfType<EventCard_Deck>();
         mainDeck.PushAndShuffel(myCard);
+
+        FindObjectOfType<ActionProcesser>().DecreasePopUpCounter();
     }
 
     public void SetCard(ICard card)
