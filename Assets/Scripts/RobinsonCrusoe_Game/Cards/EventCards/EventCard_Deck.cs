@@ -67,6 +67,13 @@ public class EventCard_Deck : MonoBehaviour
         //newDeck.Add(new EventCard_Vertigo());
         //newDeck.Add(new EventCard_WinterDepression());
 
+        newDeck.Add(new EventCard_MemoryOfTheCruise());
+        newDeck.Add(new EventCard_MemoryOfTheCruise());
+        newDeck.Add(new EventCard_MemoryOfTheCruise());
+        newDeck.Add(new EventCard_MemoryOfTheCruise());
+        newDeck.Add(new EventCard_MemoryOfTheCruise());
+        newDeck.Add(new EventCard_MemoryOfTheCruise());
+
         return newDeck;
     }
 }
