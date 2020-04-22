@@ -62,6 +62,10 @@ namespace Assets.Scripts.Overlay.Action_PopUps.TokenSelector
                 {
                     return kvp.Key;
                 }
+                else if(kvp.Value == 2)
+                {
+                    return kvp.Key;
+                }
             }
             return null;
         }

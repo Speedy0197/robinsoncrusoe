@@ -21,7 +21,7 @@ public class RestAction_Processing : MonoBehaviour
         else
         {
             var active = PartyActions.ExecutingCharacter;
-            CharacterActions.HealCharacterBy(2, active);
+            CharacterActions.HealCharacterBy(1, active);
         }
     }
 }
