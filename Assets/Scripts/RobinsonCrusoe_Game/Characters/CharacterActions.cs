@@ -16,26 +16,30 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
         public static void DamageCharacterBy(int amount, Character character)
         {
             if (amount < 0) amount = 0;
-            character.CurrentHealth -= amount;
-            if (character.CurrentHealth <= 0)
+            while (amount > 0)
             {
-                character.CurrentDetermination = 0;
-                //Character Death
-                if(character is ISideCharacter)
+                character.CurrentHealth -= 1;
+                if (character.CurrentHealth <= 0)
                 {
-                    character.IsDead = true;
-                    character.CurrentHealth = 0;
+                    character.CurrentDetermination = 0;
+                    //Character Death
+                    if (character is ISideCharacter)
+                    {
+                        character.IsDead = true;
+                        character.CurrentHealth = 0;
+                    }
+                    else
+                    {
+                        EndGame_Object.TriggerDefeat("OH NEIN!\r\n" + character.CharacterName + " hat seinen letzten Atemzug getan!\r\n" +
+                            "Ohne seine Unterstützung wird der Rest der Gruppe auch nicht mehr lange überleben!");
+                    }
                 }
-                else
+                if (!(character is ISideCharacter)
+                    && CheckForMoralLoss(character))
                 {
-                    EndGame_Object.TriggerDefeat("OH NEIN!\r\n" + character.CharacterName + " hat seinen letzten Atemzug getan!\r\n" +
-                        "Ohne seine Unterstützung wird der Rest der Gruppe auch nicht mehr lange überleben!");
+                    Moral.LowerMoral();
                 }
-            }
-            if (!(character is ISideCharacter) 
-                && CheckForMoralLoss(character))
-            {
-                Moral.LowerMoral();
+                amount--;
             }
 
         }
