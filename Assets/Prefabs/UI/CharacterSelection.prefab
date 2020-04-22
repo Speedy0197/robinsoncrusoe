@@ -972,7 +972,8 @@ MonoBehaviour:
   abilityName: Defense Plan
   abilityCost: 2 Entschlossenheit
   abilityInfo: "Erh\xF6he die Waffenst\xE4rke um 1"
-  popUpPrefab: {fileID: 0}
+  popUpPrefab: {fileID: 6853226958490437704, guid: af71cac2edc271a4292bf34bd56d5c84,
+    type: 3}
 --- !u!1 &3576676582224435963
 GameObject:
   m_ObjectHideFlags: 0
