@@ -8,7 +8,7 @@ public class RestAction_Processing : MonoBehaviour
 {
     public void ProcessRestAction(ActionContainer action)
     {
-        var character = action.ExecutingCharacter;
+        var character = action.GetExecutingCharacter();
         CharacterActions.HealCharacterBy(2, character);
     }
 }

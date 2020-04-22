@@ -68,7 +68,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 
             if (character is ISideCharacter)
             {
-                DamageCharacterBy(amount, character);
+                //DamageCharacterBy(amount, character);
             }
             else
             {

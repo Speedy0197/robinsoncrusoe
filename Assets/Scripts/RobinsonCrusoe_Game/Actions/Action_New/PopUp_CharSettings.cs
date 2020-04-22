@@ -14,6 +14,7 @@ public class PopUp_CharSettings : MonoBehaviour
     private int startValue;
     private int maxValue;
     private PopUp_Methods parent;
+    private bool isAddedToDropdown = false;
 
     // Start is called before the first frame update
     void Start()
