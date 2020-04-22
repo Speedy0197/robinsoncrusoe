@@ -33,7 +33,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "1 Arbeiter = 1 Nahrung \r\n 2 Arbeiter = 1 Nahrung und 1 unvergängliche Nahrung";
         }
 
         public int GetMaterialNumber()
