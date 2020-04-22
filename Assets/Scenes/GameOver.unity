@@ -419,7 +419,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Zur\xFCck zum Men\xFC"
+  m_Text: "Schlie\xDFen"
 --- !u!222 &1170368537
 CanvasRenderer:
   m_ObjectHideFlags: 0
