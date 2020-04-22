@@ -8,7 +8,6 @@ public class MoveCamp_OnClick : MonoBehaviour
     public GameObject myIsland;
     private void OnMouseDown()
     {
-        Debug.Log("Click");
         var phase = FindObjectOfType<PhaseView>().currentPhase;
         var ui = FindObjectOfType<GetUIBase>();
         if (phase == Assets.Scripts.RobinsonCrusoe_Game.RoundSystem.E_Phase.Night &&
@@ -17,8 +16,7 @@ public class MoveCamp_OnClick : MonoBehaviour
         {
             myIsland.GetComponent<ExploreIsland>().CampHere();
 
-            Wall.HalfValue();
-            Roof.HalfValue();
+            PopUp_Night_Show.CampMoved = true;
         }
     }
 }

@@ -47,15 +47,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             currentRound += 1;
             PartyActions.SetNextActiveCharacter();
 
-            //TODO: Check for victory conditions -> Trigger Victory event
             if (myLevel.CheckForVictory(currentRound))
             {
-                EndGame.Victory();
+                EndGame_Object.TriggerVictory("Herzlichen Glückwunsch!\r\nDu hast die Mission erfolgreich erfüllt und bist von der Insel entkommen!\r\n\r\nBis zum nächsten mal.");
             }
 
             if (currentRound > myLevel.GetNumberOfRounds())
             {
-                EndGame.Defeat();
+                EndGame_Object.TriggerDefeat("Deiner Gruppe ist leider die Zeit ausgegangen. Aus diesem Grund wird diese Insel von nun an eure neue Heimat.");
             }
 
             InvokeRoundChange();

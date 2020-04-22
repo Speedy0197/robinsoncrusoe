@@ -14,10 +14,13 @@ public class PopUp_Night_Show : MonoBehaviour
     public Button confirm;
     public Text infoText;
     public GameObject popUp;
+    public static bool CampMoved;
 
     // Start is called before the first frame update
     void Start()
     {
+        CampMoved = false;
+
         confirm.onClick.AddListener(TaskOnClick);
         infoText.text = "Die Nacht senkt sich über die Insel.\r\nDie Gruppe isst " + PartyHandler.PartySize.ToString() + " Einheiten Nahrung";
 
@@ -37,6 +40,12 @@ public class PopUp_Night_Show : MonoBehaviour
             var food = FoodStorage.Food;
             FoodStorage.DecreaseFoodBy(food);
             FoodStorage.IncreasePermantFoodBy(food);
+        }
+
+        if (CampMoved)
+        {
+            Wall.HalfValue();
+            Roof.HalfValue();
         }
 
         Destroy(popUp);

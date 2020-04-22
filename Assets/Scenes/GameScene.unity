@@ -3574,7 +3574,7 @@ Transform:
   m_Children:
   - {fileID: 278680099}
   m_Father: {fileID: 900573304}
-  m_RootOrder: 37
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!64 &653783147
 MeshCollider:
@@ -5148,7 +5148,7 @@ Transform:
   m_Children:
   - {fileID: 709038679}
   m_Father: {fileID: 900573304}
-  m_RootOrder: 38
+  m_RootOrder: 37
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &848968403
 MonoBehaviour:
@@ -5472,8 +5472,8 @@ Transform:
   - {fileID: 943403391}
   - {fileID: 757989993}
   - {fileID: 488513975}
-  - {fileID: 653783146}
   - {fileID: 848968402}
+  - {fileID: 653783146}
   - {fileID: 158455953}
   - {fileID: 288321653}
   - {fileID: 842556750}
@@ -10999,6 +10999,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1983444333}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2003856817
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2003856819}
+  - component: {fileID: 2003856818}
+  m_Layer: 0
+  m_Name: EndGameHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2003856818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003856817}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5489235663e90a840b71abf0664378b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 6423201928715265540, guid: 3b73f1c1b0c48584e80ab65993a393f6, type: 3}
+--- !u!4 &2003856819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003856817}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -347.5, y: 17.769547, z: -154.8}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2037192652
 PrefabInstance:
   m_ObjectHideFlags: 0
