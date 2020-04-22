@@ -32,6 +32,7 @@ namespace Assets.Scripts.Player
         {
             foreach (Character c in PartyHandler.PartySession)
             {
+                if (c is ISideCharacter) continue;
                 CharacterActions.DamageCharacterBy(1, c);
             }
         }
