@@ -92,13 +92,9 @@ namespace Assets.Scripts.Player
             {
                 if (c is ISideCharacter) continue;
 
-                if(PerishableFood.currentAmountOfPerishableFood > 0)
+                if(FoodStorage.GetTotal() >= 1)
                 {
-                    PerishableFood.DecreaseBy(1);
-                }
-                else if(UnperishableFood.currentAmountOfUnperishableFood > 0)
-                {
-                    UnperishableFood.DecreaseBy(1);
+                    FoodStorage.Consume(1);
                 }
                 else
                 {

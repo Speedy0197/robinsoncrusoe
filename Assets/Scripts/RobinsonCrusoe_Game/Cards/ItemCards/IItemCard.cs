@@ -13,5 +13,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards
         bool IsBuildable();
         Invention GetInventionType();
         RessourceCosts GetRessourceCosts();
+        void Research();
     }
 }

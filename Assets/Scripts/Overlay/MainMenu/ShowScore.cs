@@ -25,6 +25,7 @@ public class ShowScore : MonoBehaviour
         FromHealth.text = Score.FromHealth.ToString();
         FromWeapon.text = Score.FromWeapon.ToString();
         FromRoof.text = Score.FromRoof.ToString();
+        FromWall.text = Score.FromWall.ToString();
         FromWeapon.text = Score.FromWeapon.ToString();
         FromVictory.text = Score.FromVictory.ToString();
         Total.text = Score.Total.ToString();

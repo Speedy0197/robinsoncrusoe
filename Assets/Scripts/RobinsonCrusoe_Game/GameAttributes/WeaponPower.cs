@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -32,7 +33,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
         public static void LowerWeaponPowerBy(int value)
         {
             currentWeaponPower -= value;
-            if (currentWeaponPower < 0) currentWeaponPower = 0;
+            if (currentWeaponPower < 0)
+            {
+                int dmg = Math.Abs(currentWeaponPower);
+                PartyActions.DamageAllPlayers(dmg);
+
+                currentWeaponPower = 0;
+            }
 
             WeaponPowerChanged?.Invoke(currentWeaponPower, new EventArgs());
         }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
@@ -34,6 +35,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
             }
             return false;
         }
+
+        public void Research()
+        {
+            FoodStorage.IncreasePermantFoodBy(2);
+        }
+
         public override string ToString()
         {
             return "Dam";

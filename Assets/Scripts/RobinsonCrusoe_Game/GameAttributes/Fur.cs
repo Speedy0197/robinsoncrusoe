@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
         public static void DecreaseBy(int amount)
         {
             currentAmountOfFur -= amount;
-            if (currentAmountOfFur < 0) currentAmountOfFur = 0;
+            if (currentAmountOfFur < 0)
+            {
+                int dmg = Math.Abs(currentAmountOfFur);
+                PartyActions.DamageAllPlayers(dmg);
+
+                currentAmountOfFur = 0;
+            }
 
             AmountOFFurChanged?.Invoke(currentAmountOfFur, new EventArgs());
         }

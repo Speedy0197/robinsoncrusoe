@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
         public static void DecreaseWoodBy(int value)
         {
             currentAmountOfWood -= value;
-            if (currentAmountOfWood < minValue) currentAmountOfWood = minValue;
+            if (currentAmountOfWood < minValue)
+            {
+                int dmg = Math.Abs(currentAmountOfWood);
+                PartyActions.DamageAllPlayers(dmg);
+
+                currentAmountOfWood = minValue;
+            }
 
             AmountOfWoodChanged?.Invoke(currentAmountOfWood, new EventArgs());
         }

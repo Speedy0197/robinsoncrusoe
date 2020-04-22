@@ -34,7 +34,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
             }
             return false;
         }
-
+        public void Research()
+        {
+            //Nothing, handled elsewhere
+        }
         public override string ToString()
         {
             return "Bed";

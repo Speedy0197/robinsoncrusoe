@@ -26,7 +26,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            PerishableFood.DecreaseBy(1);
+            if (FoodStorage.GetTotal() < 1)
+            {
+                var active = Player.PartyActions.ExecutingCharacter;
+                Characters.CharacterActions.DamageCharacterBy(1, active);
+            }
+            else
+            {
+                FoodStorage.Consume(1);
+            }
             WeaponPower.RaiseWeaponPowerBy(1);
         }
 

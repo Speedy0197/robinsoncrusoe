@@ -6,68 +6,93 @@ using System.Threading.Tasks;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
 {
-    public class FoodStorage
+    public static class FoodStorage
     {
-        private static FoodStorage instance = null;
+        public static int Food { get; private set; }
+        public static int PermanentFood { get; private set; }
 
-        public static FoodStorage Instance
-        {
-            get
-            {
-                if (instance == null)
-                    instance = new FoodStorage();
-                return instance;
-            }
-            
-        }
-
-        public event EventHandler TotalAmountOfFoodChanged;
-
-        private int amountOfPerishableFood;
-        private int amountOfUnperishableFood;
-        private int amountOfAllFood;
         private const int minValue = 0;
-        private const int maxValue = 2000; //max value unperishable + maxValue perishable
+        private const int maxValue = 100;
 
-        public FoodStorage()
+        public static event EventHandler AmountOfFoodChanged;
+        public static event EventHandler AmountOfPermanentFoodChanged;
+
+        public static void SetStartValue(int food, int permanentFood)
         {
-            PerishableFood.AmountOfPerishableFoodChanged += PerishableFood_AmountOfPerishableFoodChanged;
-            UnperishableFood.AmountOfUnperishableFoodChanged += UnperishableFood_AmountOfUnperishableFoodChanged;
+            Food = food;
+            PermanentFood = permanentFood;
 
-            amountOfAllFood = minValue;
+            if (Food < minValue) Food = minValue;
+            if (PermanentFood < minValue) PermanentFood = minValue;
+
+            if (Food > maxValue) Food = maxValue;
+            if (PermanentFood > maxValue) PermanentFood = maxValue;
+
+            AmountOfFoodChanged?.Invoke(Food, new EventArgs());
+            AmountOfPermanentFoodChanged?.Invoke(PermanentFood, new EventArgs());
         }
 
-        private void UnperishableFood_AmountOfUnperishableFoodChanged(object sender, EventArgs e)
+        public static void IncreaseFoodBy(int amount)
         {
-            amountOfUnperishableFood = (int)sender;
-            UpdateAmountOfFood();
+            Food += amount;
+            if (Food > maxValue) Food = maxValue;
+
+            AmountOfFoodChanged?.Invoke(Food, new EventArgs());
         }
 
-        private void PerishableFood_AmountOfPerishableFoodChanged(object sender, EventArgs e)
+        public static void DecreaseFoodBy(int amount)
         {
-            amountOfPerishableFood = (int)sender;
-            UpdateAmountOfFood();
+            Food -= amount;
+            if (Food < minValue) Food = minValue;
+
+            AmountOfFoodChanged?.Invoke(Food, new EventArgs());
         }
 
-        private void  UpdateAmountOfFood()
+        public static void IncreasePermantFoodBy(int amount)
         {
-            amountOfAllFood = amountOfPerishableFood + amountOfUnperishableFood;
-            TotalAmountOfFoodChanged?.Invoke(amountOfAllFood, new EventArgs());
+            PermanentFood += amount;
+            if (PermanentFood > maxValue) PermanentFood = maxValue;
+
+            AmountOfPermanentFoodChanged?.Invoke(PermanentFood, new EventArgs());
+        }
+        public static void DecreasePermantFoodBy(int amount)
+        {
+            PermanentFood -= amount;
+            if (PermanentFood < minValue) PermanentFood = minValue;
+
+            AmountOfPermanentFoodChanged?.Invoke(PermanentFood, new EventArgs());
         }
 
-        public void ConsumeFood(int amount)
+        public static void DiscardAll()
         {
+            Food = 0;
+            PermanentFood = 0;
+
+            AmountOfFoodChanged?.Invoke(Food, new EventArgs());
+            AmountOfPermanentFoodChanged?.Invoke(PermanentFood, new EventArgs());
         }
 
-        public void increaseFood()
+        public static void Consume(int amount)
         {
-            throw new NotImplementedException();
+            if (amount < 0) amount = Math.Abs(amount);
+            while(amount > 0)
+            {
+                if(Food > 0)
+                {
+                    DecreaseFoodBy(1);
+                }
+                else if(PermanentFood > 0)
+                {
+                    DecreasePermantFoodBy(1);
+                }
+
+                amount--;
+            }
         }
 
-        public void DiscardAll()
+        public static int GetTotal()
         {
-            PerishableFood.DiscardAll();
-            UnperishableFood.DiscardAll();
+            return Food + PermanentFood;
         }
     }
 }

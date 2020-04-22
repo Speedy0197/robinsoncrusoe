@@ -35,7 +35,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
         private void ExecuteActiveThreat()
         {
             var numberOfPlayers = Player.PartyActions.GetNumberOfPlayers();
-            PerishableFood.IncreaseBy(numberOfPlayers);
+            FoodStorage.IncreaseFoodBy(numberOfPlayers);
         }
 
         public string GetCardDescription()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
@@ -34,7 +35,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
             }
             return false;
         }
-
+        public void Research()
+        {
+            WeaponPower.RaiseWeaponPowerBy(3);
+        }
         public override string ToString()
         {
             return "Bow";

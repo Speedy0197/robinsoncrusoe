@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,9 +23,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
 
         public static void UpgradeWallBy(int value)
         {
-            WallState += value;
-            if (WallState > 4) WallState = 4;
-            WallStateChanged?.Invoke(WallState, new EventArgs());
+            if (Tent.Status == TentStatus.Shelter)
+            {
+                WallState += value;
+                if (WallState > 4) WallState = 4;
+                WallStateChanged?.Invoke(WallState, new EventArgs());
+            }
         }
 
         internal static void HalfValue()
@@ -39,7 +43,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
         public static void DowngradeWallBy(int value)
         {
             WallState -= value;
-            if (WallState < 0) WallState = 0;
+            if (WallState < 0)
+            {
+                int dmg = Math.Abs(WallState);
+                PartyActions.DamageAllPlayers(dmg);
+
+                WallState = 0;
+            }
             WallStateChanged?.Invoke(WallState, new EventArgs());
         }
     }

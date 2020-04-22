@@ -67,8 +67,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         public static void CalculatePoints(bool victorious)
         {
             FromWood = Wood.currentAmountOfWood;
-            FromFood = PerishableFood.currentAmountOfPerishableFood;
-            FromPermanentFood = UnperishableFood.currentAmountOfUnperishableFood;
+            FromFood = FoodStorage.Food;
+            FromPermanentFood = FoodStorage.PermanentFood;
 
             FromHealth = 0;
             foreach(var c in PartyHandler.PartySession)

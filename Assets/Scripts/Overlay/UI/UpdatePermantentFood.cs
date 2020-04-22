@@ -11,10 +11,10 @@ public class UpdatePermantentFood : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UnperishableFood.AmountOfUnperishableFoodChanged += UnperishableFood_AmountOfUnperishableFoodChanged;
+        FoodStorage.AmountOfPermanentFoodChanged += OnPermanentFoodChanged;
     }
 
-    private void UnperishableFood_AmountOfUnperishableFoodChanged(object sender, System.EventArgs e)
+    private void OnPermanentFoodChanged(object sender, System.EventArgs e)
     {
         int amount = (int)sender;
         amountOfFood.text = amount.ToString();

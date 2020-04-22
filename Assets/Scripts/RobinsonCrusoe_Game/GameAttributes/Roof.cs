@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,9 +22,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
 
         public static void UpgradeRoofBy(int value)
         {
-            RoofState += value;
-            if (RoofState > 4) RoofState = 4;
-            RoofChanged?.Invoke(RoofState, new EventArgs());
+            if (Tent.Status == TentStatus.Shelter)
+            {
+                RoofState += value;
+                if (RoofState > 4) RoofState = 4;
+                RoofChanged?.Invoke(RoofState, new EventArgs());
+            }
         }
 
         internal static void HalfValue()
@@ -38,7 +42,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
         public static void DowngradeRoofBy(int value)
         {
             RoofState -= value;
-            if (RoofState < 0) RoofState = 0;
+            if (RoofState < 0)
+            {
+                int dmg = Math.Abs(RoofState);
+                PartyActions.DamageAllPlayers(dmg);
+
+                RoofState = 0;
+            }
             RoofChanged?.Invoke(RoofState, new EventArgs());
         }
     }

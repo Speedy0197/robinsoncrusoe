@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
 using System.Collections;
@@ -29,6 +30,13 @@ public class PopUp_Night_Show : MonoBehaviour
         if(Tent.Status == TentStatus.Fireplace)
         {
             PartyActions.DamageAllPlayers(1);
+        }
+
+        if (InventionStorage.IsAvailable(Invention.Furnance))
+        {
+            var food = FoodStorage.Food;
+            FoodStorage.DecreaseFoodBy(food);
+            FoodStorage.IncreasePermantFoodBy(food);
         }
 
         Destroy(popUp);

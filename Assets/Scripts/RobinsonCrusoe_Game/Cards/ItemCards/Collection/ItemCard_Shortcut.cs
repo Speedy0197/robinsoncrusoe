@@ -29,7 +29,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
         {
             return true;
         }
-
+        public void Research()
+        {
+            //Nothing;
+        }
         public override string ToString()
         {
             return "Shortcut";

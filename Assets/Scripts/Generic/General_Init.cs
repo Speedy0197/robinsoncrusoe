@@ -17,8 +17,7 @@ public class General_Init : MonoBehaviour
         WeaponPower.SetStartValue(0);
         Fur.SetStartValue(0);
         Wood.SetStartValue(0);
-        PerishableFood.SetStartValue(0);
-        UnperishableFood.SetStartValue(0);
+        FoodStorage.SetStartValue(0, 0);
         Moral.SetStartValue();
         TerrainStorage.CreateStorageSpace();
         InventionStorage.CreateStorageSpace();
