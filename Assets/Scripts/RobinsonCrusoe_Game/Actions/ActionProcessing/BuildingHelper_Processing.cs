@@ -35,6 +35,7 @@ public class BuildingHelper_Processing : MonoBehaviour
         if (amountOfActionsSpend == 2)
         {
             item.Research();
+            FindObjectOfType<ActionProcesser>().ProcessNextAction();
         }
     }
 

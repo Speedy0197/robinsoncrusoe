@@ -9,12 +9,13 @@ public class Island_OnClick : MonoBehaviour
     {
         if (GetComponent<Actionphase_CanClick>().IsClickable)
         {
-            if (GetComponent<ExploreIsland>().isExplored)
+            if (GetComponent<ExploreIsland>().isExplored && !GetComponent<ExploreIsland>().hasCamp)
             {
                 var component = GetComponent<Action_Gather>();
                 component.ExecuteTask();
             }
-            else if (GetComponent<ExploreIsland>().canExplore)
+            else if (GetComponent<ExploreIsland>().canExplore &&
+                !GetComponent<ExploreIsland>().isExplored)
             {
                 var component = GetComponent<Action_Explore>();
                 component.ExecuteTask();

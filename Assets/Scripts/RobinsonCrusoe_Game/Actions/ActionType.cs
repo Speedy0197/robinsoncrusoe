@@ -14,5 +14,6 @@ public enum ActionType
         upgradeTent,
         upgradeWall,
         upgradeRoof,
-        upgradeWeapons
+        upgradeWeapons,
+        moveCamp
 }

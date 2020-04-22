@@ -16,6 +16,7 @@ public class ExploreIsland : MonoBehaviour
     public GameObject campPlaceholder;
     public Material camp_Fireplace;
     public Material camp_Tent;
+    public Material camp_empty;
 
     private IslandCard_Deck deck;
     private MeshRenderer mesh;
@@ -43,6 +44,9 @@ public class ExploreIsland : MonoBehaviour
         if (!isExplored && canExplore)
         {
             isExplored = true;
+
+            campPlaceholder.SetActive(true);
+            campPlaceholder.GetComponent<MeshRenderer>().material = camp_empty;
 
             myCard = deck.Draw();
             mesh.material = deck.GetMaterialFromID(myCard.GetMaterialNumber());
@@ -72,11 +76,13 @@ public class ExploreIsland : MonoBehaviour
     {
         if (state)
         {
-            campPlaceholder.SetActive(true);
             hasCamp = true;
 
-            if (Tent.Status == TentStatus.Fireplace)
+            if (Tent.Status == TentStatus.Fireplace || Tent.Status == TentStatus.NaturalShelter)
             {
+                if (Tent.Status == TentStatus.Fireplace && myCard.IsNaturalCamp()) Tent.ChangeTentSatus(TentStatus.NaturalShelter);
+                if (Tent.Status == TentStatus.NaturalShelter && !myCard.IsNaturalCamp()) Tent.ChangeTentSatus(TentStatus.Fireplace);
+
                 campPlaceholder.GetComponent<MeshRenderer>().material = camp_Fireplace;
             }
             else
@@ -86,8 +92,8 @@ public class ExploreIsland : MonoBehaviour
         }
         else
         {
-            campPlaceholder.SetActive(false);
             hasCamp = false;
+            campPlaceholder.GetComponent<MeshRenderer>().material = camp_empty;
         }
     }
 
@@ -95,7 +101,7 @@ public class ExploreIsland : MonoBehaviour
     {
         if (hasCamp)
         {
-            if (Tent.Status == TentStatus.Fireplace)
+            if (Tent.Status == TentStatus.Fireplace || Tent.Status == TentStatus.NaturalShelter)
             {
                 campPlaceholder.GetComponent<MeshRenderer>().material = camp_Fireplace;
             }

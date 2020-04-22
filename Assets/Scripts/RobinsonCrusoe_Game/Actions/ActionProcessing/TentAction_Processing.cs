@@ -31,6 +31,7 @@ public class TentAction_Processing : MonoBehaviour
         if (amountOfActionsSpend == 2)
         {
             Build();
+            FindObjectOfType<ActionProcesser>().ProcessNextAction();
         }
     }
 

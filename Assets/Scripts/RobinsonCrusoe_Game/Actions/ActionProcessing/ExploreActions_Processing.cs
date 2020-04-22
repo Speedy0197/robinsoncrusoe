@@ -35,6 +35,7 @@ public class ExploreActions_Processing : MonoBehaviour
         if (amountOfActionsSpend == 2)
         {
             island.Explore();
+            FindObjectOfType<ActionProcesser>().ProcessNextAction();
         }
     }
 

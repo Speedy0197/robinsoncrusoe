@@ -32,6 +32,7 @@ public class RoofAction_Processing : MonoBehaviour
         if (amountOfActionsSpend == 2)
         {
             Build();
+            FindObjectOfType<ActionProcesser>().ProcessNextAction();
         }
     }
 

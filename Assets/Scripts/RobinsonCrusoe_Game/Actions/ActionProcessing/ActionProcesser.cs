@@ -37,6 +37,12 @@ public class ActionProcesser : MonoBehaviour
             ProcessNextAction();
         }
 
+        else if (action.ActionType == ActionType.moveCamp)
+        {
+            var processor = GetComponent<TentMove_Processing>();
+            processor.ProcessTentMove(action);
+            ProcessNextAction();
+        }
         else if (action.ActionType == ActionType.build)
         {
             var processor = GetComponent<BuildingHelper_Processing>();
@@ -195,6 +201,13 @@ public class ActionProcesser : MonoBehaviour
                 importantActions.Add(action.container);
         }
 
+        //Moving Tent
+        var tentMove = FindObjectsOfType<Action_MoveCamp>();
+        foreach (var action in tentMove)
+        {
+            if (action.container.HasStoredAction)
+                importantActions.Add(action.container);
+        }
         return importantActions;
     }
 }

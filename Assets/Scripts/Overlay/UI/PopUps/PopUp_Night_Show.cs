@@ -26,7 +26,7 @@ public class PopUp_Night_Show : MonoBehaviour
     private void TaskOnClick()
     {
         PartyActions.Sleep();
-        if(Tent.Status != TentStatus.Shelter)
+        if(Tent.Status == TentStatus.Fireplace)
         {
             PartyActions.DamageAllPlayers(1);
         }

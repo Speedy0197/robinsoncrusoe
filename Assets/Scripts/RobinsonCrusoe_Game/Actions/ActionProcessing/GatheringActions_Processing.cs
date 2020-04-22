@@ -33,6 +33,7 @@ public class GatheringActions_Processing : MonoBehaviour
         if (amountOfActionsSpend == 2)
         {
             GetRessources();
+            FindObjectOfType<ActionProcesser>().ProcessNextAction();
         }
     }
 

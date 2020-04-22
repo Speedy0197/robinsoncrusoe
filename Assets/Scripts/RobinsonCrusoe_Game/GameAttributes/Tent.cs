@@ -21,6 +21,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
     public enum TentStatus
     {
         Fireplace,
+        NaturalShelter,
         Shelter,
     }
 }
