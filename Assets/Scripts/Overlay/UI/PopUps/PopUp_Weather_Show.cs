@@ -63,7 +63,7 @@ public class PopUp_Weather_Show : MonoBehaviour
     {
         if(!weatherDice.weatherDice_Normal && !weatherDice.weatherDice_Advanced && !weatherDice.environmentalDice)
         {
-            descriptionText.text = "Weit und breit ist keine einzigste Wolke zu sehen";
+            descriptionText.text = "Weit und breit ist keine einzige Wolke zu sehen";
             return;
         }
         descriptionText.text = "Über der Insel braut sich ein Sturm zusammen";
