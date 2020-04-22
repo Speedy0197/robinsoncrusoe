@@ -49,7 +49,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
             }
             else
             {
-                return "Gefahr";
+                return "Deine/Eure Moral sinkt um 2.";
             }
         }
 

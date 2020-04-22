@@ -51,7 +51,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "Der Startspieler hat nur 1 Aktion diesen Zug.";
+            if (eventNumber == 0)
+            {
+                return "Der Startspieler hat nur 1 Aktion diesen Zug.";
+            }
+            else
+            {
+                return "Jeder Spieler verliert 1 Entschlossenheit.";
+            }
         }
 
         public int GetMaterialNumber()

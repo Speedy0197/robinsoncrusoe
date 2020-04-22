@@ -46,7 +46,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         public string GetCardDescription()
         {
-            return "Du verlierst 1 Leben. \r\n Diese Karte wird in den Eventstapel gemischt.";
+            if (eventNumber == 0)
+            {
+                return "Du verlierst 1 Leben. \r\n Diese Karte wird in den Eventstapel gemischt.";
+            }
+            else
+            {
+                return "Falls möglich wird 1 Nahrung abgegeben und die Waffenstärke um 1 erhöht.\r\n Eine neue Karte wird gezogen.";
+            }
         }
 
         public int GetMaterialNumber()

@@ -52,7 +52,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "Der nächste Spieler ist jetzt der Startspieler.";
+            if (eventNumber == 0)
+            {
+                return "Der nächste Spieler ist jetzt der Startspieler.";
+            }
+            else
+            {
+                return "Deine/Eure Moral sinkt um 2.";
+            }
         }
 
         public int GetMaterialNumber()

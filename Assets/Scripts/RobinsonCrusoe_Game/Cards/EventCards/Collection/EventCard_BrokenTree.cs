@@ -58,8 +58,17 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "Jeder Spieler verliert 1 Leben.";
+            
+            if (eventNumber == 0)
+            {
+                return "Jeder Spieler verliert 1 Leben.";
+            }
+            else
+            {
+                return "Deine/Eure Moral sinkt um 1.";
+            }
         }
+
 
         public int GetMaterialNumber()
         {

@@ -58,7 +58,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "Dein/Euer Wall wird halbiert(abgerundet).";
+            
+            if (eventNumber == 0)
+            {
+                return "Dein/Euer Wall wird halbiert(abgerundet).";
+            }
+            else
+            {
+                return "Du/Ihr verliert 1 Wall.";
+            }
         }
 
         public int GetMaterialNumber()

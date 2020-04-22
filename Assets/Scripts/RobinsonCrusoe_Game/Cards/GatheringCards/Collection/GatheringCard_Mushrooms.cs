@@ -40,7 +40,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 
         public string GetCardDescription()
         {
-            return "Wähle aus: Lege diese Karte ab \r\n oder \r\n du/Ihr erhaltet 1 Nahrung pro Spieler und \r\n diese Karte wird in den Eventstapel gemischt.";
+            if (eventNumber == 0)
+            {
+                return "Wähle aus: Lege diese Karte ab \r\n oder \r\n du/Ihr erhaltet 1 Nahrung pro Spieler und \r\n diese Karte wird in den Eventstapel gemischt.";
+            }
+            else
+            {
+                return "Falls keine Medizin vorhanden ist, verliert jeder Spieler 1 Leben.\r\n Eine neue Karte wird gezogen.";
+            }
         }
 
         public int GetMaterialNumber()

@@ -56,7 +56,15 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "Ein grünes Fragezeichen wird zusätzlich platziert.";
+
+            if (eventNumber == 0)
+            {
+                return "Ein grünes Fragezeichen wird zusätzlich platziert.";
+            }
+            else
+            {
+                return "Alle Resourcen wurden abgegeben. \r\n Diese Runde gibt es keine Produktionsphase.";
+            }
         }
 
         public int GetMaterialNumber()

@@ -34,7 +34,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         public string GetCardDescription()
         {
-            return "Ein grünes Fragezeichen wird zusätzlich platziert.";
+            if (eventNumber == 0)
+            {
+                return "Ein grünes Fragezeichen wird zusätzlich platziert.";
+            }
+            else
+            {
+                return "Ein grünes Fragezeichen wird zusätzlich platziert.\r\n Eine neue Karte wird gezogen.";
+            }
         }
 
         public int GetMaterialNumber()

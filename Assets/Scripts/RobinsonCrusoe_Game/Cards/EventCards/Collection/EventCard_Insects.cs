@@ -63,7 +63,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "Du/Ihr verliert 1 Holz, sonst 1 Leben.";
+            if (eventNumber == 0)
+            {
+                return "Du/Ihr verliert 1 Holz, sonst 1 Leben.";
+            }
+            else
+            {
+                return "Du/Ihr verliert 1 Holz, sonst 1 Leben.";
+            }
         }
 
         public int GetMaterialNumber()

@@ -37,7 +37,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         public string GetCardDescription()
         {
-            return "Wähle aus: Lege diese Karte ab \r\n oder \r\n du/ihr bekommt 2 Nahrung und 1 Fell und \r\n diese Karte wird in den Eventstapel gemischt.";
+            if (eventNumber == 0)
+            {
+                return "Wähle aus: Lege diese Karte ab \r\n oder \r\n du/ihr bekommt 2 Nahrung und 1 Fell und \r\n diese Karte wird in den Eventstapel gemischt.";
+            }
+            else
+            {
+                return "Jeder Spieler verliert 1 Leben. \r\n Eine neue Karte wird gezogen.";
+            }
         }
 
         public int GetMaterialNumber()

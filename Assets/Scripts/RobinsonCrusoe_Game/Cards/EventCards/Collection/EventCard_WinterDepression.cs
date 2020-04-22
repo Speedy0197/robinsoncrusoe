@@ -65,7 +65,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public string GetCardDescription()
         {
-            return "Deine/Eure Moral sinkt um 1.";
+            if (eventNumber == 0)
+            {
+                return "Deine/Eure Moral sinkt um 1.";
+            }
+            else
+            {
+                return "Jeder Spieler verliert 1 Entschlossenheit.";
+            }
         }
 
         public bool CanCompleteQuest()

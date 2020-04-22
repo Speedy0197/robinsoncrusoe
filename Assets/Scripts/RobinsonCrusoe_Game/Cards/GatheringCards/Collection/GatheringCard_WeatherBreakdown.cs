@@ -35,7 +35,14 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 
         public string GetCardDescription()
         {
-            return "Diese Karte wird in den Eventstapel gemischt.";
+            if (eventNumber == 0)
+            {
+                return "Diese Karte wird in den Eventstapel gemischt.";
+            }
+            else
+            {
+                return "Ein Sturmtoken wird auf das Wetterfeld gelegt.\r\n Eine neue Karte wird gezogen.";
+            }
         }
 
         public int GetMaterialNumber()
