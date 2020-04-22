@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class Action_Explore : MonoBehaviour
 {
+    public GameObject actionMarker;
     public ActionContainer container = null;
 
     private GameObject popup;
@@ -61,6 +62,7 @@ public class Action_Explore : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -71,6 +73,7 @@ public class Action_Explore : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -78,5 +81,17 @@ public class Action_Explore : MonoBehaviour
     {
         var spawn = FindObjectOfType<GetUIBase>().GetUI();
         instantiatedPopup = Instantiate(popup, spawn.transform);
+    }
+
+    private void UpdateMarker()
+    {
+        if (container.HasStoredAction)
+        {
+            actionMarker.SetActive(true);
+        }
+        else
+        {
+            actionMarker.SetActive(false);
+        }
     }
 }

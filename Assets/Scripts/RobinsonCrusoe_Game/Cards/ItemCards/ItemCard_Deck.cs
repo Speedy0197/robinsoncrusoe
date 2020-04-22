@@ -12,6 +12,8 @@ public class ItemCard_Deck : MonoBehaviour
     public Material[] CardBack;
     public GameObject[] itemCardObjects;
 
+    public Texture2D[] cardTextures;
+
     private List<IItemCard> itemDeck;
 
     // Start is called before the first frame update
@@ -44,6 +46,11 @@ public class ItemCard_Deck : MonoBehaviour
             var component = card.GetComponent<ItemCard>();
             component.ChangeCardClass(CardFaces[id], CardBack[id], cardClass);
         }
+    }
+
+    public Texture2D GetTexture(int id)
+    {
+        return cardTextures[id];
     }
 
     public static List<IItemCard> GenerateNewDeck()

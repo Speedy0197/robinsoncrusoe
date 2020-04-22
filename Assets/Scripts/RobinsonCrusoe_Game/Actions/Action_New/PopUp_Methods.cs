@@ -16,6 +16,7 @@ public class PopUp_Methods : MonoBehaviour
     public ActionContainer container;
     public Button saveButton;
     public Button cancelButton;
+    public GameObject cardImage;
 
     public bool useRessources = false;
 
@@ -65,7 +66,9 @@ public class PopUp_Methods : MonoBehaviour
             {
                 container.SetValue(component.Character, Convert.ToInt32(component.GetCurrentSliderValue()));
                 component.Character.CurrentNumberOfActions += component.GetDifference();
-                container.HasStoredAction = true;
+
+                if(GetTotalValue() > 0) container.HasStoredAction = true;
+                else container.HasStoredAction = false;
             }
         }
 
@@ -153,5 +156,11 @@ public class PopUp_Methods : MonoBehaviour
     public void Cancel()
     {
 
+    }
+
+    public void SetCardImage(Texture2D image)
+    {
+        cardImage.SetActive(true);
+        cardImage.GetComponent<RawImage>().texture = image;
     }
 }

@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class Action_PreventDanger : MonoBehaviour
 {
+    public GameObject actionMarker;
     public ActionContainer container = null;
 
     private GameObject popup;
@@ -68,6 +69,7 @@ public class Action_PreventDanger : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -78,6 +80,7 @@ public class Action_PreventDanger : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -85,5 +88,21 @@ public class Action_PreventDanger : MonoBehaviour
     {
         var spawn = FindObjectOfType<GetUIBase>().GetUI();
         instantiatedPopup = Instantiate(popup, spawn.transform);
+
+        var component = GetComponent<ThreatCardHolder>();
+        var tex = component.ThreatCard.CardTexture;
+        instantiatedPopup.GetComponent<PopUp_Methods>().SetCardImage(tex);
+    }
+
+    private void UpdateMarker()
+    {
+        if (container.HasStoredAction)
+        {
+            actionMarker.SetActive(true);
+        }
+        else
+        {
+            actionMarker.SetActive(false);
+        }
     }
 }

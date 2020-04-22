@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards;
 using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
 using System.Collections;
@@ -7,6 +8,7 @@ using UnityEngine;
 
 public class Action_Build : MonoBehaviour
 {
+    public GameObject actionMarker;
     public ActionContainer container = null;
 
     private GameObject popup;
@@ -61,6 +63,7 @@ public class Action_Build : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -71,6 +74,7 @@ public class Action_Build : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -78,5 +82,21 @@ public class Action_Build : MonoBehaviour
     {
         var spawn = FindObjectOfType<GetUIBase>().GetUI();
         instantiatedPopup = Instantiate(popup, spawn.transform);
+
+        var obj = container.ReferingObject as ItemCard;
+        var tex = FindObjectOfType<ItemCard_Deck>().GetTexture(obj.cardClass.GetMaterialNumber());
+        instantiatedPopup.GetComponent<PopUp_Methods>().SetCardImage(tex);
+    }
+
+    private void UpdateMarker()
+    {
+        if (container.HasStoredAction)
+        {
+            actionMarker.SetActive(true);
+        }
+        else
+        {
+            actionMarker.SetActive(false);
+        }
     }
 }

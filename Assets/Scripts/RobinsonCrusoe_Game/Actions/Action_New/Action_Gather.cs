@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class Action_Gather : MonoBehaviour
 {
+    public GameObject actionMarker;
     public Dictionary<RessourceType,ActionContainer> container = null;
 
     private GameObject popupCollect;
@@ -78,6 +79,15 @@ public class Action_Gather : MonoBehaviour
         AddListeners(functions);
     }
 
+    public bool HasStoredAction()
+    {
+        foreach(var action in container)
+        {
+            if (action.Value.HasStoredAction) return true;
+        }
+        return false;
+    }
+
     private void AddListeners(PopUp_Methods functions)
     {
         functions.saveButton.onClick.AddListener(OnSave);
@@ -96,6 +106,7 @@ public class Action_Gather : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -107,6 +118,7 @@ public class Action_Gather : MonoBehaviour
 
         RemoveListeners(functions);
 
+        UpdateMarker();
         Destroy(instantiatedPopup);
     }
 
@@ -120,5 +132,17 @@ public class Action_Gather : MonoBehaviour
     {
         var obj = GetComponent<Actionphase_CanClick>();
         return obj.IsClickable;
+    }
+
+    private void UpdateMarker()
+    {
+        if (HasStoredAction())
+        {
+            actionMarker.SetActive(true);
+        }
+        else
+        {
+            actionMarker.SetActive(false);
+        }
     }
 }
