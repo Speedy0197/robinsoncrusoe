@@ -30,7 +30,6 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 
         private void ExecuteActiveThreat()
         {
-            WeatherContainer.GlobalPlaceToken(WeatherToken.Storm);
             //Has none
         }
 

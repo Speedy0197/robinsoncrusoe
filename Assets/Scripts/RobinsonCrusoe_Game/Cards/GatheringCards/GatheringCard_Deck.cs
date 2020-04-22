@@ -77,11 +77,11 @@ public class GatheringCard_Deck : MonoBehaviour
 
         //TODO: Change the following to include mutliple cards
         newDeck.Add(new GatheringCard_WeatherBreakdown());
-        //newDeck.Add(new GatheringCard_EndOfSource());
-        //newDeck.Add(new GatheringCard_EndOfSource());
-        //newDeck.Add(new GatheringCard_Mushrooms());
-        //newDeck.Add(new GatheringCard_Nestlings());
-        //newDeck.Add(new GatheringCard_NiceSurprise());
+        newDeck.Add(new GatheringCard_EndOfSource());
+        newDeck.Add(new GatheringCard_EndOfSource());
+        newDeck.Add(new GatheringCard_Mushrooms());
+        newDeck.Add(new GatheringCard_Nestlings());
+        newDeck.Add(new GatheringCard_NiceSurprise());
 
         return newDeck;
     }

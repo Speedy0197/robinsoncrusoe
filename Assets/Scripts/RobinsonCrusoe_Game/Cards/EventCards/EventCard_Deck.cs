@@ -54,18 +54,18 @@ public class EventCard_Deck : MonoBehaviour
         List<ICard> newDeck = new List<ICard>();
 
         //TODO: Change the following to include mutliple cards
-        newDeck.Add(new EventCard_BodyOnTheBeach());
-        newDeck.Add(new EventCard_BrokenTree());
-        newDeck.Add(new EventCard_DevastatingHurricane());
-        newDeck.Add(new EventCard_HighWater());
-        newDeck.Add(new EventCard_Insects());
-        newDeck.Add(new EventCard_Jaguar());
-        newDeck.Add(new EventCard_LackOfHope());
+        //newDeck.Add(new EventCard_BodyOnTheBeach());
+        //newDeck.Add(new EventCard_BrokenTree());
+        //newDeck.Add(new EventCard_DevastatingHurricane());
+        //newDeck.Add(new EventCard_HighWater());
+        //newDeck.Add(new EventCard_Insects());
+        //newDeck.Add(new EventCard_Jaguar());
+        //newDeck.Add(new EventCard_LackOfHope());
         newDeck.Add(new EventCard_MemoryOfTheCruise());
-        newDeck.Add(new EventCard_Poisoning());
-        newDeck.Add(new EventCard_RavishingWindstorm());
-        newDeck.Add(new EventCard_Vertigo());
-        newDeck.Add(new EventCard_WinterDepression());
+        //newDeck.Add(new EventCard_Poisoning());
+        //newDeck.Add(new EventCard_RavishingWindstorm());
+        //newDeck.Add(new EventCard_Vertigo());
+        //newDeck.Add(new EventCard_WinterDepression());
 
         return newDeck;
     }
