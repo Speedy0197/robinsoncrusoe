@@ -18,7 +18,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             if (amount < 0) amount = 0;
             while (amount > 0)
             {
-                character.CurrentHealth -= 1;
+                if(character.CurrentHealth > 0) character.CurrentHealth -= 1;
                 if (character.CurrentHealth <= 0)
                 {
                     character.CurrentDetermination = 0;

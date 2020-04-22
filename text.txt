@@ -1,9 +1,10 @@
-First Release:
+Release:
 * 6 Cards of each category
-* 4 Characters (without abilities)
+* 4 Characters, one ability each
 * 2 Side-Characters
 * Functioning Board
 * Free Camera (maybe too free)
+* Tutorial / Trailer
 * Probably still buggy, leave a note if you find anything
 
 https://drive.google.com/drive/folders/13JiOeyUyvIZNzf7heeooQ6yhQ_vkCfPd?usp=sharing

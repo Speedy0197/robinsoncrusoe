@@ -8,25 +8,25 @@ public class WeatherToken_ChangeMaterial : MonoBehaviour
     public Material Rain;
     public Material Snow;
 
-    private MeshRenderer renderer;
     private void Start()
     {
-        renderer = GetComponent<MeshRenderer>();
+        
     }
 
     public void ChangeMaterialTo(WeatherToken token)
     {
-        if(token == WeatherToken.Rain)
+        var myRenderer = GetComponent<MeshRenderer>();
+        if (token == WeatherToken.Rain)
         {
-            renderer.material = Rain;
+            myRenderer.material = Rain;
             return;
         }
         if(token == WeatherToken.Snow)
         {
-            renderer.material = Snow;
+            myRenderer.material = Snow;
             return;
         }
-        renderer.material = Storm;
+        myRenderer.material = Storm;
     }
 }
 
