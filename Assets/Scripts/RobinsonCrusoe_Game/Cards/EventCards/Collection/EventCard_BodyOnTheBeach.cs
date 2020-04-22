@@ -83,5 +83,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return new RessourceCosts(0, 0, 0);
         }
+
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }

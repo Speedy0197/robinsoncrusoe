@@ -59,5 +59,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return "Food Crate";
         }
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }

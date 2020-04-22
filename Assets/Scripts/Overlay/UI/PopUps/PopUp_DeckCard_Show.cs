@@ -16,6 +16,7 @@ public class PopUp_DeckCard_Show : MonoBehaviour
     public RawImage cardFaceContainer;
     public Text descriptionText;
     public Button confirmButton;
+    public GameObject discardButton;
 
     private ICard myCard;
     private Texture2D myCardTexture;
@@ -59,8 +60,24 @@ public class PopUp_DeckCard_Show : MonoBehaviour
         myCardTexture = GetCardTexture();
         cardFaceContainer.texture = myCardTexture;
 
+        if (myCard.HasDiscardOption())
+        {
+            discardButton.SetActive(true);
+            discardButton.GetComponent<Button>().onClick.AddListener(OnDiscardClick);
+        }
+
         cardNameText.text = myCard.ToString();
         descriptionText.text = myCard.GetCardDescription();
+    }
+
+    private void OnDiscardClick()
+    {
+        Destroy(popUp);
+
+        if (hastToCallNextProcess)
+        {
+            FindObjectOfType<ActionProcesser>().ProcessNextAction();
+        }
     }
 
     private Texture2D GetCardTexture()

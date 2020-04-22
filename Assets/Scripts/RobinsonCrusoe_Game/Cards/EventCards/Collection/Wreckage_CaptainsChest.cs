@@ -58,5 +58,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return "Captain'sChest";
         }
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }

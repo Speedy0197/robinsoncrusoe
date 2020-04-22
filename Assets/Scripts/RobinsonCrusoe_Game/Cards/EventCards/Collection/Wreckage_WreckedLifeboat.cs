@@ -58,5 +58,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return "Wrecked Lifeboat";
         }
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }

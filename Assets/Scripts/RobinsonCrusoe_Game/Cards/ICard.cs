@@ -11,6 +11,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards
         int GetMaterialNumber();
         void ExecuteEvent();
         string GetCardDescription();
+        bool HasDiscardOption();
     }
 
     public class RessourceCosts

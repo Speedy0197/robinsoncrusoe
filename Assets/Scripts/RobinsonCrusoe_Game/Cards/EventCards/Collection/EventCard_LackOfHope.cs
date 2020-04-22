@@ -78,5 +78,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return "Lack of Hope";
         }
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }

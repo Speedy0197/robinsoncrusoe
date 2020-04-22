@@ -77,5 +77,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return "Vertigo";
         }
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }

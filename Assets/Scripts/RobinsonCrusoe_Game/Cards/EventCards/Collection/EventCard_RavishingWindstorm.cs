@@ -82,5 +82,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return "Ravishing Windstorm";
         }
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }

@@ -84,5 +84,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             return "Broken Tree";
         }
+        public bool HasDiscardOption()
+        {
+            return false;
+        }
     }
 }
