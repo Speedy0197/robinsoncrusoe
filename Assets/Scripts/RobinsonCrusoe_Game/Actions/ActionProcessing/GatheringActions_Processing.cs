@@ -74,4 +74,9 @@ public class GatheringActions_Processing : MonoBehaviour
     {
         island.myCard.GatherRessources(myAction.CollectRessource);
     }
+
+    public void EndOfSource()
+    {
+        island.myCard.EndOfSource(myAction.CollectRessource);
+    }
 }

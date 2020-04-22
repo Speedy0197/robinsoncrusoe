@@ -15,6 +15,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.IslandCards
         int GetNumberOfDiscoveryTokens();
         TerrainType GetTerrain();
         int GetNumberOfAnimals();
+        void EndOfSource(RessourceType collectRessource);
     }
 
     public enum RessourceType

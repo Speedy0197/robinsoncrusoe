@@ -28,7 +28,8 @@ public class PopUp_DeckCard_Show : MonoBehaviour
     private void TaskOnClick()
     {
         Destroy(popUp);
-        myCard.ExecuteEvent();
+
+        SpecialCardActions();
 
         var mainDeck = FindObjectOfType<EventCard_Deck>();
         mainDeck.PushAndShuffel(myCard);
@@ -36,6 +37,18 @@ public class PopUp_DeckCard_Show : MonoBehaviour
         if (hastToCallNextProcess)
         {
             FindObjectOfType<ActionProcesser>().ProcessNextAction();
+        }
+    }
+
+    private void SpecialCardActions()
+    {
+        if (myCard.ToString() == "End of Source")
+        {
+            FindObjectOfType<GatheringActions_Processing>().EndOfSource();
+        }
+        else
+        {
+            myCard.ExecuteEvent();
         }
     }
 
