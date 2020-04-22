@@ -29,9 +29,11 @@ public class StartGameSession : MonoBehaviour
 
             //Analytics
             var param = new Dictionary<string, object>();
+            int index = 0;
             foreach(var character in PartyHandler.PartySession)
             {
-                param.Add(character.CharacterName, character);
+                param.Add(character.CharacterName, index);
+                index++;
             }
             Analytics.CustomEvent("Party", param);
 
