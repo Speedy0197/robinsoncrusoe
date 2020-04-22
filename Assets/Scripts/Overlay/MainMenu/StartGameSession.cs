@@ -1,6 +1,7 @@
 ﻿using Assets.Scripts.Overlay.MainMenu;
 using Assets.Scripts.Player;
 using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.Level;
 using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
@@ -14,6 +15,7 @@ using UnityEngine.UI;
 public class StartGameSession : MonoBehaviour
 {
     public bool canStart = false;
+    public Dropdown difficulty;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,8 @@ public class StartGameSession : MonoBehaviour
         {
             PartyHandler.CreateParty(TempoarySettings.Party, TempoarySettings.NumberOfPlayers);
             new RoundSystem(new Castaways()); //TODO: add level selection
+
+            DifficultyHandler.Value = difficulty.GetComponent<Dropdown>().value;
 
             //Analytics
             var param = new Dictionary<string, object>();

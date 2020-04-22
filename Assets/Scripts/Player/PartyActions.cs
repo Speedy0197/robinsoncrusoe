@@ -11,6 +11,24 @@ namespace Assets.Scripts.Player
     public static class PartyActions
     { 
         public static Character ExecutingCharacter { get; set; }
+
+        public static void RaiseDeterminationOfPartyBy(int amount)
+        {
+            foreach (Character c in PartyHandler.PartySession)
+            {
+                CharacterActions.RaiseCharacterDeterminationBy(amount, c);
+            }
+        }
+
+        public static void HealAllPlayers(int amount)
+        {
+            foreach (Character c in PartyHandler.PartySession)
+            {
+                if (c is ISideCharacter) continue;
+                CharacterActions.HealCharacterBy(amount, c);
+            }
+        }
+
         public static Character GetActiveCharacter()
         {
             foreach(Character c in PartyHandler.PartySession)
@@ -34,7 +52,7 @@ namespace Assets.Scripts.Player
             foreach (Character c in PartyHandler.PartySession)
             {
                 if (c is ISideCharacter) continue;
-                CharacterActions.DamageCharacterBy(1, c);
+                CharacterActions.DamageCharacterBy(amount, c);
             }
         }
 
