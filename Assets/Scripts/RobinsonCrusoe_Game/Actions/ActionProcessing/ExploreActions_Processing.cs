@@ -11,12 +11,13 @@ public class ExploreActions_Processing : MonoBehaviour
 {
     public GameObject progressViewer;
 
-    private ExploreIsland island;
-    private Character executingCharacter;
+    public ExploreIsland island;
+
+    public ActionContainer myAction { get; private set; }
     public void ProcessExploreAction(ActionContainer action)
     {
+        myAction = action;
         island = action.ReferingObject as ExploreIsland;
-        executingCharacter = action.ExecutingCharacter;
 
         int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(action.CharacterTokensSpend);
         HandlePotentialDiceRoll(amountOfActionsSpend);
@@ -27,10 +28,9 @@ public class ExploreActions_Processing : MonoBehaviour
         if (amountOfActionsSpend == 0) return;
         if (amountOfActionsSpend == 1)
         {
-            //TODO: show dice roll, for now just log it in console and process it (ignoring character abilities)
-            CheckForSuccess();
-            CheckForPlayerDamage();
-            CheckForCardDraw();
+            var ui = FindObjectOfType<GetUIBase>().GetUI();
+            var instance = Instantiate(progressViewer, ui.transform);
+            instance.GetComponent<popProcess_Explore>().Process(this);
         }
         if (amountOfActionsSpend == 2)
         {
@@ -38,38 +38,36 @@ public class ExploreActions_Processing : MonoBehaviour
         }
     }
 
-    private void CheckForCardDraw()
+    public bool CheckForCardDraw()
     {
         var card = ExplorationDice_Simulation.RollCardDice();
         Debug.Log(card);
         var deck = FindObjectOfType<ExploringCard_Deck>();
         if (deck.hasQuestionMarkOnDeck || card == CardDice.Card)
         {
-            deck.DrawAndShow();
+            return true;
         }
+        return false;
     }
 
-    private void CheckForPlayerDamage()
+    public bool CheckForPlayerDamage()
     {
         var damage = ExplorationDice_Simulation.RollDamageDice();
         Debug.Log(damage);
         if(damage == DamageDice.Damage)
         {
-            CharacterActions.DamageCharacterBy(1, executingCharacter);
+            return true;
         }
+        return false;
     }
 
-    private void CheckForSuccess()
+    public bool CheckForSuccess()
     {
         var success = ExplorationDice_Simulation.RollSuccessDice();
-        Debug.Log(success);
         if(success == SuccessDice.Determination)
         {
-            CharacterActions.RaiseCharacterDeterminationBy(1, executingCharacter);
+            return false;
         }
-        else
-        {
-            island.Explore();
-        }
+        return true;
     }
 }

@@ -9,14 +9,13 @@ using UnityEngine;
 
 public class GatheringActions_Processing : MonoBehaviour
 {
-    private ExploreIsland island;
-    private Character executingCharacter;
-    private ActionContainer container;
+    public GameObject prefab;
+    public ExploreIsland island;
+    public ActionContainer myAction;
     public void ProcessCollectAction(ActionContainer action)
     {
-        container = action;
+        myAction = action;
         island = action.ReferingObject as ExploreIsland;
-        executingCharacter = action.ExecutingCharacter;
 
         int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(action.CharacterTokensSpend);
         HandlePotentialDiceRoll(amountOfActionsSpend);
@@ -27,10 +26,9 @@ public class GatheringActions_Processing : MonoBehaviour
         if (amountOfActionsSpend == 0) return;
         if (amountOfActionsSpend == 1)
         {
-            //TODO: show dice roll, for now just log it in console and process it (ignoring character abilities)
-            CheckForSuccess();
-            CheckForPlayerDamage();
-            CheckForCardDraw();
+            var ui = FindObjectOfType<GetUIBase>().GetUI();
+            var instance = Instantiate(prefab, ui.transform);
+            instance.GetComponent<popProcess_Gather>().Process(this);
         }
         if (amountOfActionsSpend == 2)
         {
@@ -38,43 +36,41 @@ public class GatheringActions_Processing : MonoBehaviour
         }
     }
 
-    private void CheckForCardDraw()
+    public bool CheckForCardDraw()
     {
         var card = GatheringDice_Simulation.RollCardDice();
         Debug.Log(card);
         var deck = FindObjectOfType<GatheringCard_Deck>();
         if (deck.hasQuestionMarkOnDeck || card == CardDice.Card)
         {
-            deck.DrawAndShow();
+            return true;
         }
+        return false;
     }
 
-    private void CheckForPlayerDamage()
+    public bool CheckForPlayerDamage()
     {
         var damage = GatheringDice_Simulation.RollDamageDice();
         Debug.Log(damage);
         if (damage == DamageDice.Damage)
         {
-            CharacterActions.DamageCharacterBy(1, executingCharacter);
+            return true;
         }
+        return false;
     }
 
-    private void CheckForSuccess()
+    public bool CheckForSuccess()
     {
         var success = GatheringDice_Simulation.RollSuccessDice();
-        Debug.Log(success);
         if (success == SuccessDice.Determination)
         {
-            CharacterActions.RaiseCharacterDeterminationBy(1, executingCharacter);
+            return false;
         }
-        else
-        {
-            GetRessources();
-        }
+        return true;
     }
 
-    private void GetRessources()
+    public void GetRessources()
     {
-        island.myCard.GatherRessources(container.CollectRessource);
+        island.myCard.GatherRessources(myAction.CollectRessource);
     }
 }

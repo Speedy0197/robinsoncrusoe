@@ -19,7 +19,7 @@ public class PopUp_DeckCard_Show : MonoBehaviour
 
     private ICard myCard;
     private Texture2D myCardTexture;
-
+    private bool hastToCallNextProcess;
     private void Start()
     {
         confirmButton.onClick.AddListener(TaskOnClick);
@@ -33,11 +33,15 @@ public class PopUp_DeckCard_Show : MonoBehaviour
         var mainDeck = FindObjectOfType<EventCard_Deck>();
         mainDeck.PushAndShuffel(myCard);
 
-        FindObjectOfType<ActionProcesser>().DecreasePopUpCounter();
+        if (hastToCallNextProcess)
+        {
+            FindObjectOfType<ActionProcesser>().ProcessNextAction();
+        }
     }
 
-    public void SetCard(ICard card)
+    public void SetCard(ICard card, bool processHelper)
     {
+        hastToCallNextProcess = processHelper;
         myCard = card;
         myCardTexture = GetCardTexture();
         cardFaceContainer.texture = myCardTexture;

@@ -8,51 +8,39 @@ using UnityEngine;
 
 public class ActionProcesser : MonoBehaviour
 {
+    public GameObject prefab;
     List<ActionContainer> currentActions;
     int currentIndex;
     public void ProcessAllActions()
     {
         FindObjectOfType<ContinueButton>().SetClickableTo(false);
-        popUpCounter = 0;
 
         currentActions = GetAllActions();
         currentIndex = 0;
+        ProcessOneAction();
     }
 
     private void ProcessOneAction()
     {
-        if (currentIndex >= currentActions.Count) ChangePhase();
+        if (currentIndex >= currentActions.Count)
+        {
+            ChangePhase();
+            return;
+        }
 
         var action = currentActions[currentIndex];
-        if (action.ActionType == ActionType.explore)
+
+        if (action.ActionType == ActionType.preventDanger)
         {
-            var processor = GetComponent<ExploreActions_Processing>();
-            processor.ProcessExploreAction(action);
+            var processor = GetComponent<PreventDangerAction_Processing>();
+            processor.ProcessPreventAction(action);
+            ProcessNextAction();
         }
+
         else if (action.ActionType == ActionType.build)
         {
             var processor = GetComponent<BuildingHelper_Processing>();
             processor.ProcessBuildAction(action);
-        }
-        else if (action.ActionType == ActionType.collect)
-        {
-            var processor = GetComponent<GatheringActions_Processing>();
-            processor.ProcessCollectAction(action);
-        }
-        else if (action.ActionType == ActionType.clean)
-        {
-            var processor = GetComponent<CleanAction_Processing>();
-            processor.ProcessCleanAction(action);
-        }
-        else if (action.ActionType == ActionType.rest)
-        {
-            var processor = GetComponent<RestAction_Processing>();
-            processor.ProcessRestAction(action);
-        }
-        else if (action.ActionType == ActionType.preventDanger)
-        {
-            var processor = GetComponent<PreventDangerAction_Processing>();
-            processor.ProcessPreventAction(action);
         }
         else if (action.ActionType == ActionType.upgradeTent)
         {
@@ -74,12 +62,45 @@ public class ActionProcesser : MonoBehaviour
             var processor = GetComponent<WeaponAction_Processing>();
             processor.ProcessBuildAction_Weapon(action);
         }
+
+        else if (action.ActionType == ActionType.collect)
+        {
+            var processor = GetComponent<GatheringActions_Processing>();
+            processor.ProcessCollectAction(action);
+        }
+        else if (action.ActionType == ActionType.explore)
+        {
+            var processor = GetComponent<ExploreActions_Processing>();
+            processor.ProcessExploreAction(action);
+        }
+
+        else if (action.ActionType == ActionType.clean)
+        {
+            var processor = GetComponent<CleanAction_Processing>();
+            processor.ProcessCleanAction(action);
+            ProcessNextAction();
+        }
+        else if (action.ActionType == ActionType.rest)
+        {
+            var processor = GetComponent<RestAction_Processing>();
+            processor.ProcessRestAction(action);
+            ProcessNextAction();
+        }
+    }
+
+    public void ProcessNextAction()
+    {
         currentIndex++;
+        ProcessOneAction();
     }
 
     private void ChangePhase()
     {
-        throw new NotImplementedException();
+        //Change to next phase
+        ResetCharacterActionTokens();
+
+        var phaseView = FindObjectOfType<PhaseView>();
+        phaseView.NextPhase();
     }
 
     private void ResetCharacterActionTokens()
@@ -175,33 +196,5 @@ public class ActionProcesser : MonoBehaviour
         }
 
         return importantActions;
-    }
-
-    private int popUpCounter = 0;
-    public void IncreasePopUpCounter()
-    {
-        Debug.Log("Inc");
-        popUpCounter++;
-    }
-    public void DecreasePopUpCounter()
-    {
-        Debug.Log("Dec");
-        popUpCounter--;
-    }
-
-    private bool phaseChangeAllowed = false;
-    private void Update()
-    {
-        if (phaseChangeAllowed && popUpCounter == 0)
-        {
-            Debug.Log("Change");
-            phaseChangeAllowed = false;
-
-            //Change to next phase
-            ResetCharacterActionTokens();
-
-            var phaseView = FindObjectOfType<PhaseView>();
-            phaseView.NextPhase();
-        }
     }
 }

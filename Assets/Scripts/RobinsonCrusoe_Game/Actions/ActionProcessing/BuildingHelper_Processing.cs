@@ -63,14 +63,10 @@ public class BuildingHelper_Processing : MonoBehaviour
     public bool CheckForSuccess()
     {
         var success = BuildingDice_Simulation.RollSuccessDice();
-        Debug.Log(success);
         if (success == SuccessDice.Determination)
         {
             return false;
         }
-        else
-        {
-            return true;
-        }
+        return true;
     }
 }

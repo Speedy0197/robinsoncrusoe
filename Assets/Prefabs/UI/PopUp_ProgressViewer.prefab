@@ -306,6 +306,12 @@ GameObject:
   - component: {fileID: 6130845257941318209}
   - component: {fileID: 6130845257941318208}
   - component: {fileID: 2631548730810354132}
+  - component: {fileID: 3450855978968655145}
+  - component: {fileID: 2879629501770628563}
+  - component: {fileID: 1381686746319153258}
+  - component: {fileID: 3583617976984911831}
+  - component: {fileID: 3252779858838643539}
+  - component: {fileID: 2102721544372857955}
   m_Layer: 5
   m_Name: PopUp_ProgressViewer
   m_TagString: Untagged
@@ -385,14 +391,267 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3b8143c60618a049b60de131827aba8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildingDices: []
-  collectDices: []
-  exploreDices: []
-  actionText: {fileID: 0}
-  successText: {fileID: 0}
-  damageText: {fileID: 0}
-  cardText: {fileID: 0}
-  button: {fileID: 0}
+  popup: {fileID: 6130845257941318222}
+  buildingDices:
+  - {fileID: 2800000, guid: e5dbf74e4d4811641957463752f4a52a, type: 3}
+  - {fileID: 2800000, guid: 23dabbf6c879b1d4287ec2ea60eec35a, type: 3}
+  - {fileID: 2800000, guid: 4586fbc8d3d8e8e41827a198386b1937, type: 3}
+  - {fileID: 2800000, guid: 8f3daac531a50fb4a954d9c2b86816ad, type: 3}
+  - {fileID: 2800000, guid: 7b552ffedff601b49bd0ac78c12ca066, type: 3}
+  collectDices:
+  - {fileID: 2800000, guid: 6501583d12bce1f4e9daadd4d7e92410, type: 3}
+  - {fileID: 2800000, guid: d3cd13146dc387d4eb879c34c0857b58, type: 3}
+  - {fileID: 2800000, guid: d3a06803e141185438892e2e6934f3db, type: 3}
+  - {fileID: 2800000, guid: a4be32d7ce6c4fb4b959115d896d4bff, type: 3}
+  - {fileID: 2800000, guid: b244810ea4dbac64e8115a718f3c7ab5, type: 3}
+  exploreDices:
+  - {fileID: 2800000, guid: 8a8cd5ec391e508498a1ddcd0cbd3cf3, type: 3}
+  - {fileID: 2800000, guid: 76345cebe88abe649af7ee95ad21c586, type: 3}
+  - {fileID: 2800000, guid: 49a47dc5622d09b468b3d4b33ac47873, type: 3}
+  - {fileID: 2800000, guid: 7a5ab31f3ebb3ad4c93d43cbd13357dd, type: 3}
+  - {fileID: 2800000, guid: f1a02a51dcf806e49a3a50d8ea8d3b91, type: 3}
+  actionText: {fileID: 3580314882413317144}
+  successText: {fileID: 7552509765643203259}
+  damageText: {fileID: 8397259772233321102}
+  cardText: {fileID: 922713707682971144}
+  dice_Success: {fileID: 7591103161048606768}
+  dice_Damage: {fileID: 7486521620325075983}
+  dice_Card: {fileID: 2832005978728785961}
+  button: {fileID: 6130845258605763203}
+--- !u!114 &3450855978968655145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130845257941318222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4989ec8ea8934694386895b1f7fb6b3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 6130845257941318222}
+  buildingDices:
+  - {fileID: 2800000, guid: e5dbf74e4d4811641957463752f4a52a, type: 3}
+  - {fileID: 2800000, guid: 23dabbf6c879b1d4287ec2ea60eec35a, type: 3}
+  - {fileID: 2800000, guid: 4586fbc8d3d8e8e41827a198386b1937, type: 3}
+  - {fileID: 2800000, guid: 8f3daac531a50fb4a954d9c2b86816ad, type: 3}
+  - {fileID: 2800000, guid: 7b552ffedff601b49bd0ac78c12ca066, type: 3}
+  collectDices:
+  - {fileID: 2800000, guid: 6501583d12bce1f4e9daadd4d7e92410, type: 3}
+  - {fileID: 2800000, guid: d3cd13146dc387d4eb879c34c0857b58, type: 3}
+  - {fileID: 2800000, guid: d3a06803e141185438892e2e6934f3db, type: 3}
+  - {fileID: 2800000, guid: a4be32d7ce6c4fb4b959115d896d4bff, type: 3}
+  - {fileID: 2800000, guid: b244810ea4dbac64e8115a718f3c7ab5, type: 3}
+  exploreDices:
+  - {fileID: 2800000, guid: 8a8cd5ec391e508498a1ddcd0cbd3cf3, type: 3}
+  - {fileID: 2800000, guid: 76345cebe88abe649af7ee95ad21c586, type: 3}
+  - {fileID: 2800000, guid: 49a47dc5622d09b468b3d4b33ac47873, type: 3}
+  - {fileID: 2800000, guid: 7a5ab31f3ebb3ad4c93d43cbd13357dd, type: 3}
+  - {fileID: 2800000, guid: f1a02a51dcf806e49a3a50d8ea8d3b91, type: 3}
+  actionText: {fileID: 3580314882413317144}
+  successText: {fileID: 7552509765643203259}
+  damageText: {fileID: 8397259772233321102}
+  cardText: {fileID: 922713707682971144}
+  dice_Success: {fileID: 7591103161048606768}
+  dice_Damage: {fileID: 7486521620325075983}
+  dice_Card: {fileID: 2832005978728785961}
+  button: {fileID: 6130845258605763203}
+--- !u!114 &2879629501770628563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130845257941318222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1a56b1fc057e44ab9b2031d1f18724, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 6130845257941318222}
+  buildingDices:
+  - {fileID: 2800000, guid: e5dbf74e4d4811641957463752f4a52a, type: 3}
+  - {fileID: 2800000, guid: 23dabbf6c879b1d4287ec2ea60eec35a, type: 3}
+  - {fileID: 2800000, guid: 4586fbc8d3d8e8e41827a198386b1937, type: 3}
+  - {fileID: 2800000, guid: 8f3daac531a50fb4a954d9c2b86816ad, type: 3}
+  - {fileID: 2800000, guid: 7b552ffedff601b49bd0ac78c12ca066, type: 3}
+  collectDices:
+  - {fileID: 2800000, guid: 6501583d12bce1f4e9daadd4d7e92410, type: 3}
+  - {fileID: 2800000, guid: d3cd13146dc387d4eb879c34c0857b58, type: 3}
+  - {fileID: 2800000, guid: d3a06803e141185438892e2e6934f3db, type: 3}
+  - {fileID: 2800000, guid: a4be32d7ce6c4fb4b959115d896d4bff, type: 3}
+  - {fileID: 2800000, guid: b244810ea4dbac64e8115a718f3c7ab5, type: 3}
+  exploreDices:
+  - {fileID: 2800000, guid: 8a8cd5ec391e508498a1ddcd0cbd3cf3, type: 3}
+  - {fileID: 2800000, guid: 76345cebe88abe649af7ee95ad21c586, type: 3}
+  - {fileID: 2800000, guid: 49a47dc5622d09b468b3d4b33ac47873, type: 3}
+  - {fileID: 2800000, guid: 7a5ab31f3ebb3ad4c93d43cbd13357dd, type: 3}
+  - {fileID: 2800000, guid: f1a02a51dcf806e49a3a50d8ea8d3b91, type: 3}
+  actionText: {fileID: 3580314882413317144}
+  successText: {fileID: 7552509765643203259}
+  damageText: {fileID: 8397259772233321102}
+  cardText: {fileID: 922713707682971144}
+  dice_Success: {fileID: 7591103161048606768}
+  dice_Damage: {fileID: 7486521620325075983}
+  dice_Card: {fileID: 2832005978728785961}
+  button: {fileID: 6130845258605763203}
+--- !u!114 &1381686746319153258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130845257941318222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 388945472ff899249ad6ff929963db1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 6130845257941318222}
+  buildingDices:
+  - {fileID: 2800000, guid: e5dbf74e4d4811641957463752f4a52a, type: 3}
+  - {fileID: 2800000, guid: 23dabbf6c879b1d4287ec2ea60eec35a, type: 3}
+  - {fileID: 2800000, guid: 4586fbc8d3d8e8e41827a198386b1937, type: 3}
+  - {fileID: 2800000, guid: 8f3daac531a50fb4a954d9c2b86816ad, type: 3}
+  - {fileID: 2800000, guid: 7b552ffedff601b49bd0ac78c12ca066, type: 3}
+  collectDices:
+  - {fileID: 2800000, guid: 6501583d12bce1f4e9daadd4d7e92410, type: 3}
+  - {fileID: 2800000, guid: d3cd13146dc387d4eb879c34c0857b58, type: 3}
+  - {fileID: 2800000, guid: d3a06803e141185438892e2e6934f3db, type: 3}
+  - {fileID: 2800000, guid: a4be32d7ce6c4fb4b959115d896d4bff, type: 3}
+  - {fileID: 2800000, guid: b244810ea4dbac64e8115a718f3c7ab5, type: 3}
+  exploreDices:
+  - {fileID: 2800000, guid: 8a8cd5ec391e508498a1ddcd0cbd3cf3, type: 3}
+  - {fileID: 2800000, guid: 76345cebe88abe649af7ee95ad21c586, type: 3}
+  - {fileID: 2800000, guid: 49a47dc5622d09b468b3d4b33ac47873, type: 3}
+  - {fileID: 2800000, guid: 7a5ab31f3ebb3ad4c93d43cbd13357dd, type: 3}
+  - {fileID: 2800000, guid: f1a02a51dcf806e49a3a50d8ea8d3b91, type: 3}
+  actionText: {fileID: 3580314882413317144}
+  successText: {fileID: 7552509765643203259}
+  damageText: {fileID: 8397259772233321102}
+  cardText: {fileID: 922713707682971144}
+  dice_Success: {fileID: 7591103161048606768}
+  dice_Damage: {fileID: 7486521620325075983}
+  dice_Card: {fileID: 0}
+  button: {fileID: 6130845258605763203}
+--- !u!114 &3583617976984911831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130845257941318222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59e0167db140c2a429ebb6e117fb2930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 6130845257941318222}
+  buildingDices:
+  - {fileID: 2800000, guid: e5dbf74e4d4811641957463752f4a52a, type: 3}
+  - {fileID: 2800000, guid: 23dabbf6c879b1d4287ec2ea60eec35a, type: 3}
+  - {fileID: 2800000, guid: 4586fbc8d3d8e8e41827a198386b1937, type: 3}
+  - {fileID: 2800000, guid: 8f3daac531a50fb4a954d9c2b86816ad, type: 3}
+  - {fileID: 2800000, guid: 7b552ffedff601b49bd0ac78c12ca066, type: 3}
+  collectDices:
+  - {fileID: 2800000, guid: 6501583d12bce1f4e9daadd4d7e92410, type: 3}
+  - {fileID: 2800000, guid: d3cd13146dc387d4eb879c34c0857b58, type: 3}
+  - {fileID: 2800000, guid: d3a06803e141185438892e2e6934f3db, type: 3}
+  - {fileID: 2800000, guid: a4be32d7ce6c4fb4b959115d896d4bff, type: 3}
+  - {fileID: 2800000, guid: b244810ea4dbac64e8115a718f3c7ab5, type: 3}
+  exploreDices:
+  - {fileID: 2800000, guid: 8a8cd5ec391e508498a1ddcd0cbd3cf3, type: 3}
+  - {fileID: 2800000, guid: 76345cebe88abe649af7ee95ad21c586, type: 3}
+  - {fileID: 2800000, guid: 49a47dc5622d09b468b3d4b33ac47873, type: 3}
+  - {fileID: 2800000, guid: 7a5ab31f3ebb3ad4c93d43cbd13357dd, type: 3}
+  - {fileID: 2800000, guid: f1a02a51dcf806e49a3a50d8ea8d3b91, type: 3}
+  actionText: {fileID: 3580314882413317144}
+  successText: {fileID: 7552509765643203259}
+  damageText: {fileID: 8397259772233321102}
+  cardText: {fileID: 922713707682971144}
+  dice_Success: {fileID: 7591103161048606768}
+  dice_Damage: {fileID: 7486521620325075983}
+  dice_Card: {fileID: 2832005978728785961}
+  button: {fileID: 6130845258605763203}
+--- !u!114 &3252779858838643539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130845257941318222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb5b2fbbe9e4e842b347f411edb6765, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 6130845257941318222}
+  buildingDices:
+  - {fileID: 2800000, guid: e5dbf74e4d4811641957463752f4a52a, type: 3}
+  - {fileID: 2800000, guid: 23dabbf6c879b1d4287ec2ea60eec35a, type: 3}
+  - {fileID: 2800000, guid: 4586fbc8d3d8e8e41827a198386b1937, type: 3}
+  - {fileID: 2800000, guid: 8f3daac531a50fb4a954d9c2b86816ad, type: 3}
+  - {fileID: 2800000, guid: 7b552ffedff601b49bd0ac78c12ca066, type: 3}
+  collectDices:
+  - {fileID: 2800000, guid: 6501583d12bce1f4e9daadd4d7e92410, type: 3}
+  - {fileID: 2800000, guid: d3cd13146dc387d4eb879c34c0857b58, type: 3}
+  - {fileID: 2800000, guid: d3a06803e141185438892e2e6934f3db, type: 3}
+  - {fileID: 2800000, guid: a4be32d7ce6c4fb4b959115d896d4bff, type: 3}
+  - {fileID: 2800000, guid: b244810ea4dbac64e8115a718f3c7ab5, type: 3}
+  exploreDices:
+  - {fileID: 2800000, guid: 8a8cd5ec391e508498a1ddcd0cbd3cf3, type: 3}
+  - {fileID: 2800000, guid: 76345cebe88abe649af7ee95ad21c586, type: 3}
+  - {fileID: 2800000, guid: 49a47dc5622d09b468b3d4b33ac47873, type: 3}
+  - {fileID: 2800000, guid: 7a5ab31f3ebb3ad4c93d43cbd13357dd, type: 3}
+  - {fileID: 2800000, guid: f1a02a51dcf806e49a3a50d8ea8d3b91, type: 3}
+  actionText: {fileID: 3580314882413317144}
+  successText: {fileID: 7552509765643203259}
+  damageText: {fileID: 8397259772233321102}
+  cardText: {fileID: 922713707682971144}
+  dice_Success: {fileID: 7591103161048606768}
+  dice_Damage: {fileID: 7486521620325075983}
+  dice_Card: {fileID: 2832005978728785961}
+  button: {fileID: 6130845258605763203}
+--- !u!114 &2102721544372857955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6130845257941318222}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62816ead8d17b3447b053daf56d73ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popup: {fileID: 6130845257941318222}
+  buildingDices:
+  - {fileID: 2800000, guid: e5dbf74e4d4811641957463752f4a52a, type: 3}
+  - {fileID: 2800000, guid: 23dabbf6c879b1d4287ec2ea60eec35a, type: 3}
+  - {fileID: 2800000, guid: 4586fbc8d3d8e8e41827a198386b1937, type: 3}
+  - {fileID: 2800000, guid: 8f3daac531a50fb4a954d9c2b86816ad, type: 3}
+  - {fileID: 2800000, guid: 7b552ffedff601b49bd0ac78c12ca066, type: 3}
+  collectDices:
+  - {fileID: 2800000, guid: 6501583d12bce1f4e9daadd4d7e92410, type: 3}
+  - {fileID: 2800000, guid: d3cd13146dc387d4eb879c34c0857b58, type: 3}
+  - {fileID: 2800000, guid: d3a06803e141185438892e2e6934f3db, type: 3}
+  - {fileID: 2800000, guid: a4be32d7ce6c4fb4b959115d896d4bff, type: 3}
+  - {fileID: 2800000, guid: b244810ea4dbac64e8115a718f3c7ab5, type: 3}
+  exploreDices:
+  - {fileID: 2800000, guid: 8a8cd5ec391e508498a1ddcd0cbd3cf3, type: 3}
+  - {fileID: 2800000, guid: 76345cebe88abe649af7ee95ad21c586, type: 3}
+  - {fileID: 2800000, guid: 49a47dc5622d09b468b3d4b33ac47873, type: 3}
+  - {fileID: 2800000, guid: 7a5ab31f3ebb3ad4c93d43cbd13357dd, type: 3}
+  - {fileID: 2800000, guid: f1a02a51dcf806e49a3a50d8ea8d3b91, type: 3}
+  actionText: {fileID: 3580314882413317144}
+  successText: {fileID: 7552509765643203259}
+  damageText: {fileID: 8397259772233321102}
+  cardText: {fileID: 922713707682971144}
+  dice_Success: {fileID: 7591103161048606768}
+  dice_Damage: {fileID: 7486521620325075983}
+  dice_Card: {fileID: 2832005978728785961}
+  button: {fileID: 6130845258605763203}
 --- !u!1 &6130845258605763201
 GameObject:
   m_ObjectHideFlags: 0

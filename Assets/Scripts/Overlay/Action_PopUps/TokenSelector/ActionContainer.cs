@@ -12,7 +12,7 @@ namespace Assets.Scripts.Overlay.Action_PopUps.TokenSelector
     public class ActionContainer
     {
         public Dictionary<Character, int> CharacterTokensSpend { get; private set; }
-        public Character ExecutingCharacter { get; set; } = Player.PartyActions.GetActiveCharacter();
+        public Character ExecutingCharacter { get; set; }
         public MonoBehaviour ReferingObject { get; set; }
         public ActionType ActionType { get; set; }
         public RessourceType CollectRessource { get; set; }
@@ -21,6 +21,8 @@ namespace Assets.Scripts.Overlay.Action_PopUps.TokenSelector
 
         public ActionContainer(int actionCosts)
         {
+            ExecutingCharacter = Player.PartyActions.GetActiveCharacter();
+
             CharacterTokensSpend = new Dictionary<Character, int>();
             foreach(var c in Player.PartyHandler.PartySession)
             {

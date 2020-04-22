@@ -33,23 +33,21 @@ public class BuildingCard_Deck : MonoBehaviour
         //}
     }
 
-    public void DrawAndShow()
+    public void DrawAndShow(bool processHelper)
     {
         CardsAvailable();
         RemoveQuestionMarkFromDeck();
 
         ICard card = Draw();
-        OpenPopUp(card);
+        OpenPopUp(card, processHelper);
     }
 
-    private void OpenPopUp(ICard card)
+    private void OpenPopUp(ICard card, bool processHelper)
     {
-        FindObjectOfType<ActionProcesser>().IncreasePopUpCounter();
-
         var ui = FindObjectOfType<GetUIBase>().GetUI();
         var instance = Instantiate(popUp_Prefab, ui.transform);
         var show = instance.GetComponent<PopUp_DeckCard_Show>();
-        show.SetCard(card);
+        show.SetCard(card, processHelper);
     }
 
 

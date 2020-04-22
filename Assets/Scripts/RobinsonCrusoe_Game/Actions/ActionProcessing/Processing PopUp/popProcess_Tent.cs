@@ -1,11 +1,10 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class popProcess_Build : MonoBehaviour
+public class popProcess_Tent : MonoBehaviour
 {
     public GameObject popup;
     public Texture2D[] buildingDices;
@@ -26,13 +25,13 @@ public class popProcess_Build : MonoBehaviour
     private bool Damage = false;
     private bool Card = false;
 
-    private BuildingHelper_Processing myProcessor;
+    private TentAction_Processing myProcessor;
     private void TaskOnClick()
     {
         Destroy(popup);
         if (Success)
         {
-            myProcessor.item.Research();
+            myProcessor.Build();
         }
         else
         {
@@ -54,12 +53,12 @@ public class popProcess_Build : MonoBehaviour
         }
     }
 
-    public void Process(BuildingHelper_Processing processor)
+    public void Process(TentAction_Processing processor)
     {
         myProcessor = processor;
         button.onClick.AddListener(TaskOnClick);
 
-        actionText.text = "Derzeitige Aktion: Bauen von " + myProcessor.item.cardClass.ToString();
+        actionText.text = "Derzeitige Aktion: Bauen von Unterschlupf";
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {

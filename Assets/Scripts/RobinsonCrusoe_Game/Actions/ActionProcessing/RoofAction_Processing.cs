@@ -10,10 +10,11 @@ using UnityEngine;
 
 public class RoofAction_Processing : MonoBehaviour
 {
-    ActionContainer container;
+    public GameObject prefab;
+    public ActionContainer myAction;
     public void ProcessBuildAction_Roof(ActionContainer action)
     {
-        container = action;
+        myAction = action;
 
         int amountOfActionsSpend = ProcessingHelper.CalculateAmountOfActions(action.CharacterTokensSpend);
         HandlePotentialDiceRoll(amountOfActionsSpend);
@@ -24,10 +25,9 @@ public class RoofAction_Processing : MonoBehaviour
         if (amountOfActionsSpend == 0) return;
         if (amountOfActionsSpend == 1)
         {
-            //TODO: show dice roll, for now just log it in console and process it (ignoring character abilities)
-            CheckForSuccess();
-            CheckForPlayerDamage();
-            CheckForCardDraw();
+            var ui = FindObjectOfType<GetUIBase>().GetUI();
+            var instance = Instantiate(prefab, ui.transform);
+            instance.GetComponent<popProcess_Roof>().Process(this);
         }
         if (amountOfActionsSpend == 2)
         {
@@ -35,42 +35,40 @@ public class RoofAction_Processing : MonoBehaviour
         }
     }
 
-    private void CheckForCardDraw()
+    public bool CheckForCardDraw()
     {
         var card = BuildingDice_Simulation.RollCardDice();
         Debug.Log(card);
         var deck = FindObjectOfType<ExploringCard_Deck>();
         if (deck.hasQuestionMarkOnDeck || card == CardDice.Card)
         {
-            deck.DrawAndShow();
+            return true;
         }
+        return false;
     }
 
-    private void CheckForPlayerDamage()
+    public bool CheckForPlayerDamage()
     {
         var damage = BuildingDice_Simulation.RollDamageDice();
         Debug.Log(damage);
         if (damage == DamageDice.Damage)
         {
-            CharacterActions.DamageCharacterBy(1, container.ExecutingCharacter);
+            return true;
         }
+        return false;
     }
 
-    private void CheckForSuccess()
+    public bool CheckForSuccess()
     {
         var success = BuildingDice_Simulation.RollSuccessDice();
-        Debug.Log(success);
         if (success == SuccessDice.Determination)
         {
-            CharacterActions.RaiseCharacterDeterminationBy(1, container.ExecutingCharacter);
+            return false;
         }
-        else
-        {
-            Build();
-        }
+        return true;
     }
 
-    private void Build()
+    public void Build()
     {
         Roof.UpgradeRoofBy(1);
     }
