@@ -9,7 +9,13 @@ public class PopUp_EndGameScreen : MonoBehaviour
 {
     public Text popupName;
     public Text infoText;
+    public Button button;
     public bool isVictory;
+
+    private void Start()
+    {
+        button.onClick.AddListener(TaskOnClick);
+    }
 
     public void SetText(string text)
     {

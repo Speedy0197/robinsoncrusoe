@@ -283,6 +283,7 @@ GameObject:
   - component: {fileID: 6423201928715265541}
   - component: {fileID: 6423201928715265547}
   - component: {fileID: 6423201928715265546}
+  - component: {fileID: 3790697044546136501}
   m_Layer: 5
   m_Name: PopUp_EndGameScreen
   m_TagString: Untagged
@@ -346,6 +347,22 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!114 &3790697044546136501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6423201928715265540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a676a9bf187543a4d8342b147609bc72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popupName: {fileID: 6423201927351272397}
+  infoText: {fileID: 6932095715860612067}
+  button: {fileID: 6423201928582399689}
+  isVictory: 0
 --- !u!1 &6423201928761131578
 GameObject:
   m_ObjectHideFlags: 0
