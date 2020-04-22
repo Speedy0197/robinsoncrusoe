@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Overlay.MainMenu;
 using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using Assets.Scripts.RobinsonCrusoe_Game.Level;
 using Assets.Scripts.RobinsonCrusoe_Game.RoundSystem;
 using System;
@@ -27,12 +28,12 @@ public class StartGameSession : MonoBehaviour
             new RoundSystem(new Castaways()); //TODO: add level selection
 
             //Analytics
-            string chars = string.Empty;
+            var param = new Dictionary<string, object>();
             foreach(var character in PartyHandler.PartySession)
             {
-                chars += character.ToString() + " - ";
+                param.Add(character.CharacterName, character);
             }
-            Analytics.CustomEvent(chars);
+            Analytics.CustomEvent("Party", param);
 
             SceneManager.LoadScene("GameScene");
         }
