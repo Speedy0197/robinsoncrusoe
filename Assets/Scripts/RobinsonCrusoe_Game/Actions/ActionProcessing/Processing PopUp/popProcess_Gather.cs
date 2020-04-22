@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -70,6 +71,7 @@ public class popProcess_Gather : MonoBehaviour
     public void Process(GatheringActions_Processing processor)
     {
         myProcessor = processor;
+        PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
         actionText.text = "Derzeitige Aktion: Sammeln von " + myProcessor.myAction.CollectRessource.ToString() + " auf " + myProcessor.island.myCard.ToString();

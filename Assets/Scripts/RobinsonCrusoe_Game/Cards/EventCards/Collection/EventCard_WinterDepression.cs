@@ -39,8 +39,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public void ExecuteSuccessEvent()
         {
-            var character = PartyActions.GetActiveCharacter();
-            CharacterActions.LowerCharacterDeterminationBy(1, character);
+            var active = Player.PartyActions.ExecutingCharacter;
+            CharacterActions.LowerCharacterDeterminationBy(1, active);
         }
 
         public int GetMaterialNumber()

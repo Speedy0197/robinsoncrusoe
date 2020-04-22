@@ -10,6 +10,7 @@ namespace Assets.Scripts.Player
 {
     public static class PartyActions
     { 
+        public static Character ExecutingCharacter { get; set; }
         public static Character GetActiveCharacter()
         {
             foreach(Character c in PartyHandler.PartySession)

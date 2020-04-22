@@ -46,7 +46,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public void ExecuteSuccessEvent()
         {
-            var active = Player.PartyActions.GetActiveCharacter();
+            var active = Player.PartyActions.ExecutingCharacter;
             Characters.CharacterActions.RaiseCharacterDeterminationBy(2, active);
         }
 

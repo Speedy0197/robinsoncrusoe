@@ -43,6 +43,7 @@ public class Action_Gather : MonoBehaviour
 
                 container.Add(ressource, action);
             }
+            UpdateMarker();
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -75,6 +76,7 @@ public class popProcess_Build : MonoBehaviour
     {
         myProcessor = processor;
         button.onClick.AddListener(TaskOnClick);
+        PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
 
         actionText.text = "Derzeitige Aktion: Bauen von " + myProcessor.item.cardClass.ToString();
         Success = myProcessor.CheckForSuccess();

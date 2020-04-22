@@ -31,6 +31,8 @@ public class Action_BuildRoof : MonoBehaviour
             container = new ActionContainer(2);
             container.ActionType = ActionType.upgradeRoof;
             container.ReferingObject = null;
+
+            UpdateMarker();
         }
     }
 
