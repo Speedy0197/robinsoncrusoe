@@ -17,7 +17,6 @@ public class HealthView : MonoBehaviour
     public Texture2D full;
     public Texture2D empty;
 
-    public Button AbilityButton;
     public Text AbilityCosts;
     public Text AbilityDescription;
 
@@ -33,10 +32,9 @@ public class HealthView : MonoBehaviour
         lastHealth = 0;
         lastDetermination = 0;
         lastActive = false;
-        AbilityButton.onClick.AddListener(UseAbility);
     }
 
-    private void UseAbility()
+    public void UseAbility()
     {
         if (GetComponent<Actionphase_CanClick>().IsClickable)
         {

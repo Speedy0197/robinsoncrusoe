@@ -440,6 +440,7 @@ GameObject:
   - component: {fileID: 892659194}
   - component: {fileID: 892659196}
   - component: {fileID: 892659195}
+  - component: {fileID: 892659197}
   m_Layer: 5
   m_Name: BackToMenu
   m_TagString: Untagged
@@ -500,6 +501,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 892659193}
   m_CullTransparentMesh: 0
+--- !u!114 &892659197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 892659193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92dfaa417e16f814fa953f4da70df329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1069690230
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +665,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Zur\xFCck zum Men\xFC"
+  m_Text: "Schlie\xDFen"
 --- !u!222 &1332845290
 CanvasRenderer:
   m_ObjectHideFlags: 0
