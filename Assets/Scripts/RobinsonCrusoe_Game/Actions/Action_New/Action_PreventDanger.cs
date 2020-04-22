@@ -48,22 +48,24 @@ public class Action_PreventDanger : MonoBehaviour
 
         var functions = instantiatedPopup.GetComponent<PopUp_Methods>();
         functions.SetActionContainer(container);
+        functions.SetMinValue(container.ActionCosts);
 
         AddListeners(functions);
     }
 
     private void AddListeners(PopUp_Methods functions)
     {
-        functions.saveButton.onClick.AddListener(OnSave);
-        functions.cancelButton.onClick.AddListener(OnCancel);
-    }
-    private void RemoveListeners(PopUp_Methods functions)
-    {
-        functions.saveButton.onClick.RemoveListener(OnSave);
-        functions.cancelButton.onClick.RemoveListener(OnCancel);
+        functions.saveButton.GetComponent<PopupSave>().SaveButtonClicked += OnSave;
+        functions.cancelButton.GetComponent<PopupCancel>().CancelButtonClicked += OnCancel;
     }
 
-    private void OnCancel()
+    private void RemoveListeners(PopUp_Methods functions)
+    {
+        functions.saveButton.GetComponent<PopupSave>().SaveButtonClicked -= OnSave;
+        functions.cancelButton.GetComponent<PopupCancel>().CancelButtonClicked -= OnCancel;
+    }
+
+    private void OnCancel(object sender, EventArgs e)
     {
         var functions = instantiatedPopup.GetComponent<PopUp_Methods>();
         functions.Cancel();
@@ -74,7 +76,7 @@ public class Action_PreventDanger : MonoBehaviour
         Destroy(instantiatedPopup);
     }
 
-    private void OnSave()
+    private void OnSave(object sender, EventArgs e)
     {
         var functions = instantiatedPopup.GetComponent<PopUp_Methods>();
         container = functions.SaveChanges();

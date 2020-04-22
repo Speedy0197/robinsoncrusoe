@@ -181,4 +181,9 @@ public class PopUp_Methods : MonoBehaviour
         cardImage.SetActive(true);
         cardImage.GetComponent<RawImage>().texture = image;
     }
+
+    public void SetMinValue(int min)
+    {
+        saveButton.GetComponent<PopupSave>().SetMinValue(min);
+    }
 }

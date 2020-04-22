@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PopupSave : MonoBehaviour
 {
-    public static event EventHandler SaveButtonClicked;
+    public event EventHandler SaveButtonClicked;
 
     public Button button;
 
@@ -18,6 +18,22 @@ public class PopupSave : MonoBehaviour
 
     private void TaskOnClick()
     {
+        if (hasMinValue)
+        {
+            var total = FindObjectOfType<PopUp_Methods>().GetComponent<PopUp_Methods>().GetTotalValue();
+            if (total != minValue && total != 0)
+            {
+                return;
+            }
+        }
         SaveButtonClicked?.Invoke(this, new EventArgs());
+    }
+
+    private bool hasMinValue = false;
+    private int minValue = 0;
+    public void SetMinValue(int min)
+    {
+        minValue = min;
+        hasMinValue = true;
     }
 }

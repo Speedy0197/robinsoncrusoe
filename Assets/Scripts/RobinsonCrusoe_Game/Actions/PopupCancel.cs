@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PopupCancel : MonoBehaviour
 {
-    public static event EventHandler CancelButtonClicked;
+    public event EventHandler CancelButtonClicked;
 
     public Button button;
 
