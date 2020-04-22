@@ -101,7 +101,7 @@ namespace Assets.Scripts.Player
                 }
                 else
                 {
-                    CharacterActions.DamageCharacterBy(1, c);
+                    CharacterActions.DamageCharacterBy(2, c);
                 }
             }
         }
