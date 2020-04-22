@@ -33,7 +33,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
             }
             return false;
         }
-
+        public void Research()
+        {
+            //Nothing, implemented elsewhere
+        }
         public override string ToString()
         {
             return "Furnance";

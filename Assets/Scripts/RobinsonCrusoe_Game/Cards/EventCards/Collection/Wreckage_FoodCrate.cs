@@ -22,8 +22,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         public void ExecuteSuccessEvent()
         {
             //TODO: Card has an option for only one action point
-            UnperishableFood.IncreaseBy(1);
-            PerishableFood.IncreaseBy(1);
+            FoodStorage.IncreaseFoodBy(1);
+            FoodStorage.IncreasePermantFoodBy(1);
         }
 
         public int GetActionCosts()

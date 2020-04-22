@@ -58,26 +58,27 @@ public class ItemCard_Deck : MonoBehaviour
         List<IItemCard> newDeck = new List<IItemCard>();
 
         newDeck.Add(new ItemCard_Wall());
-        newDeck.Add(new ItemCard_Shortcut());
-        newDeck.Add(new ItemCard_Basket());
+        //newDeck.Add(new ItemCard_Shortcut());
+        //newDeck.Add(new ItemCard_Basket());
         newDeck.Add(new ItemCard_Bed());
-        newDeck.Add(new ItemCard_Belt());
+        //newDeck.Add(new ItemCard_Belt());
         newDeck.Add(new ItemCard_Bow());
         newDeck.Add(new ItemCard_Cellar());
-        newDeck.Add(new ItemCard_Corral());
-        newDeck.Add(new ItemCard_Diary());
-        newDeck.Add(new ItemCard_Fireplace());
+        //newDeck.Add(new ItemCard_Corral());
+        //newDeck.Add(new ItemCard_Diary());
+        //newDeck.Add(new ItemCard_Fireplace());
         newDeck.Add(new ItemCard_Furnance());
-        newDeck.Add(new ItemCard_Drums());
-        newDeck.Add(new ItemCard_Lantern());
+        //newDeck.Add(new ItemCard_Drums());
+        //newDeck.Add(new ItemCard_Lantern());
         newDeck.Add(new ItemCard_Moat());
         newDeck.Add(new ItemCard_Wall());
-        newDeck.Add(new ItemCard_Pit());
-        newDeck.Add(new ItemCard_Raft());
-        newDeck.Add(new ItemCard_Sack());
-        newDeck.Add(new ItemCard_Shield());
-        newDeck.Add(new ItemCard_Snare());
-        newDeck.Add(new ItemCard_Spear());
+        //newDeck.Add(new ItemCard_Pit());
+        //newDeck.Add(new ItemCard_Raft());
+        //newDeck.Add(new ItemCard_Sack());
+        //newDeck.Add(new ItemCard_Shield());
+        //newDeck.Add(new ItemCard_Snare());
+        newDeck.Add(new ItemCard_Sling());
+        //newDeck.Add(new ItemCard_Spear());
 
 
         return newDeck;

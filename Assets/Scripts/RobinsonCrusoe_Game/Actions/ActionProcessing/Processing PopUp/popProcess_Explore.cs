@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,17 +36,34 @@ public class popProcess_Explore : MonoBehaviour
         }
         else
         {
-            CharacterActions.RaiseCharacterDeterminationBy(1, myProcessor.myAction.ExecutingCharacter);
+            var c = myProcessor.myAction.GetExecutingCharacter();
+            if (c is ISideCharacter)
+            {
+                //Nothing;
+            }
+            else
+            {
+                CharacterActions.RaiseCharacterDeterminationBy(1, c);
+            }
         }
 
         if (Damage)
         {
-            CharacterActions.DamageCharacterBy(1, myProcessor.myAction.ExecutingCharacter);
+            CharacterActions.DamageCharacterBy(1, myProcessor.myAction.GetExecutingCharacter());
         }
 
         if (Card)
         {
-            FindObjectOfType<ExploringCard_Deck>().DrawAndShow(true);
+            var c = myProcessor.myAction.GetExecutingCharacter();
+            if (c is ISideCharacter)
+            {
+                CharacterActions.DamageCharacterBy(1, c);
+                FindObjectOfType<ActionProcesser>().ProcessNextAction();
+            }
+            else
+            {
+                FindObjectOfType<ExploringCard_Deck>().DrawAndShow(true);
+            }
         }
         else
         {
@@ -56,6 +74,7 @@ public class popProcess_Explore : MonoBehaviour
     public void Process(ExploreActions_Processing processor)
     {
         myProcessor = processor;
+        PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
         actionText.text = "Derzeitige Aktion: Entdecken";
@@ -79,7 +98,7 @@ public class popProcess_Explore : MonoBehaviour
         }
         else
         {
-            damageText.text = myProcessor.myAction.ExecutingCharacter.CharacterName + " erhält 1 Schaden";
+            damageText.text = myProcessor.myAction.GetExecutingCharacter().CharacterName + " erhält 1 Schaden";
             dice_Damage.texture = exploreDices[3];
         }
 
@@ -91,7 +110,15 @@ public class popProcess_Explore : MonoBehaviour
         }
         else
         {
-            cardText.text = "Es muss eine Karte gezogen werden";
+            var c = myProcessor.myAction.GetExecutingCharacter();
+            if (c is ISideCharacter)
+            {
+                cardText.text = c.CharacterName + " erhält 1 Schaden";
+            }
+            else
+            {
+                cardText.text = "Es muss eine Karte gezogen werden";
+            }
             dice_Card.texture = exploreDices[4];
         }
     }

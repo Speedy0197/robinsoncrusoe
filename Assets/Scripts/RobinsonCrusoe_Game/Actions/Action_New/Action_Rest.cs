@@ -31,6 +31,8 @@ public class Action_Rest : MonoBehaviour
             container = new ActionContainer(1);
             container.ActionType = ActionType.rest;
             container.ReferingObject = null;
+
+            UpdateMarker();
         }
     }
 

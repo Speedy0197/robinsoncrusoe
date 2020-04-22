@@ -45,7 +45,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         {
             WeaponPower.RaiseWeaponPowerBy(1);
 
-            var active = Player.PartyActions.GetActiveCharacter();
+            var active = Player.PartyActions.ExecutingCharacter;
             Characters.CharacterActions.RaiseCharacterDeterminationBy(1, active);
         }
 

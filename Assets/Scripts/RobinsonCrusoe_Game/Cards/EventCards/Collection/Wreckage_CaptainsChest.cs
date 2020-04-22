@@ -22,12 +22,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         public void ExecuteSuccessEvent()
         {
             //TODO: Card has an option for two actions
-            Wood.IncreaseWoodBy(1);
+            Wood.IncreaseWoodBy(2);
         }
 
         public int GetActionCosts()
         {
-            return 1;
+            return 2;
         }
 
         public string GetCardDescription()

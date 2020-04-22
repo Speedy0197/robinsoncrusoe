@@ -31,6 +31,8 @@ public class Action_Explore : MonoBehaviour
             container = new ActionContainer(2);
             container.ActionType = ActionType.explore;
             container.ReferingObject = GetComponent<ExploreIsland>();
+
+            UpdateMarker();
         }
     }
 

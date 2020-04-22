@@ -32,6 +32,8 @@ public class Action_Build : MonoBehaviour
             container = new ActionContainer(2);
             container.ActionType = ActionType.build;
             container.ReferingObject = GetComponent<ItemCard>();
+
+            UpdateMarker();
         }
     }
 

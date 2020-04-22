@@ -38,7 +38,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             {
                 //Stone Soup
                 CharacterActions.LowerCharacterDeterminationBy(GetAbilityCosts(), this);
-                PerishableFood.IncreaseBy(1);
+                FoodStorage.IncreaseFoodBy(1);
             }
         }
 

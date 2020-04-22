@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeatherContainer : MonoBehaviour
 {
     public GameObject[] tokens;
+    public List<WeatherToken> TokenList = new List<WeatherToken>(); 
     private int currentIndex = 0;
 
     public void PlaceToken(WeatherToken token)
@@ -14,6 +15,7 @@ public class WeatherContainer : MonoBehaviour
         var tokenObj = tokens[currentIndex].GetComponent<WeatherToken_ChangeMaterial>();
         tokenObj.ChangeMaterialTo(token);
 
+        TokenList.Add(token);
         currentIndex++;
     }
     public void ResetTokens()
@@ -22,6 +24,8 @@ public class WeatherContainer : MonoBehaviour
         {
             token.SetActive(false);
         }
+
+        TokenList.Clear();
         currentIndex = 0;
     }
 

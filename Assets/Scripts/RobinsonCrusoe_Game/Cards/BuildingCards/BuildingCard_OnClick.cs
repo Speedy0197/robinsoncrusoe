@@ -26,7 +26,7 @@ public class BuildingCard_OnClick : MonoBehaviour
 
         if (Wood.currentAmountOfWood < costs.AmountOfWood) retVal = false;
         if (Fur.currentAmountOfFur < costs.AmountOfLeather) retVal = false;
-        if (PerishableFood.currentAmountOfPerishableFood < costs.AmountOfFood) retVal = false;
+        if (FoodStorage.GetTotal() < costs.AmountOfFood) retVal = false;
         return retVal;
     }
 }

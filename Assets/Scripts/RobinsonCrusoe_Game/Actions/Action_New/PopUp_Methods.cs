@@ -89,19 +89,37 @@ public class PopUp_Methods : MonoBehaviour
         }
     }
 
+    private int foodUsed = 0;
+    private int permanentFoodUsed = 0;
     private void HandleCosts(RessourceCosts costs, float tokens)
     {
         if (tokens > 0)
         {
             Wood.DecreaseWoodBy(costs.AmountOfWood);
             Fur.DecreaseBy(costs.AmountOfLeather);
-            PerishableFood.DecreaseBy(costs.AmountOfFood);
+            
+            if(FoodStorage.Food < costs.AmountOfFood)
+            {
+                int foodCost = costs.AmountOfFood - FoodStorage.Food;
+
+                foodUsed = FoodStorage.Food;
+                FoodStorage.DecreaseFoodBy(FoodStorage.Food);
+
+                permanentFoodUsed = foodCost;
+                FoodStorage.DecreasePermantFoodBy(foodCost);
+            }
+            else
+            {
+                foodUsed = costs.AmountOfFood;
+                FoodStorage.DecreaseFoodBy(foodUsed);
+            }
         }
         else if (tokens == 0)
         {
             Wood.IncreaseWoodBy(costs.AmountOfWood);
             Fur.IncreaseBy(costs.AmountOfLeather);
-            PerishableFood.IncreaseBy(costs.AmountOfFood);
+            FoodStorage.IncreaseFoodBy(foodUsed);
+            FoodStorage.IncreasePermantFoodBy(permanentFoodUsed);
         }
     }
 

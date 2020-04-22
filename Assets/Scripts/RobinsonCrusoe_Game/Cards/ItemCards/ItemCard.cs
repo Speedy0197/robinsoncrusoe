@@ -41,6 +41,7 @@ public class ItemCard : MonoBehaviour
             UpdateMaterial();
 
             InventionStorage.UnlockInvention(cardClass.GetInventionType());
+            cardClass.Research();
 
             //TODO: Apply card effects, do they even have effects?
         }

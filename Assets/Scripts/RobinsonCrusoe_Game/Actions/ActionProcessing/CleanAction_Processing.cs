@@ -9,7 +9,7 @@ public class CleanAction_Processing : MonoBehaviour
 {
     public void ProcessCleanAction(ActionContainer action)
     {
-        var character = action.ExecutingCharacter;
+        var character = action.GetExecutingCharacter();
         CharacterActions.RaiseCharacterDeterminationBy(2, character);
         Moral.RaiseMoral();
     }

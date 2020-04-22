@@ -32,8 +32,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
         private void ExecuteFutureThreat()
         {
             Wood.DiscardAll();
-            UnperishableFood.DiscardAll();
-            PerishableFood.DiscardAll();
+            FoodStorage.DiscardAll();
             Fur.DiscardAll();
 
             //TODO: skip production phase during this turn
@@ -46,7 +45,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards.Collection
 
         public void ExecuteSuccessEvent()
         {
-            var active = Player.PartyActions.GetActiveCharacter();
+            var active = Player.PartyActions.ExecutingCharacter;
             Characters.CharacterActions.RaiseCharacterDeterminationBy(2, active);
         }
 

@@ -31,7 +31,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ExploringCards.Collection
 
         private void ExecuteActiveThreat()
         {
-            PerishableFood.IncreaseBy(2);
+            FoodStorage.IncreaseFoodBy(2);
             Fur.IncreaseBy(1);
         }
 

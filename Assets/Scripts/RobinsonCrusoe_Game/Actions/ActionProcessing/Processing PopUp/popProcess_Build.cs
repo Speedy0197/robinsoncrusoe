@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.RobinsonCrusoe_Game.Characters;
+﻿using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Characters;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -36,17 +37,34 @@ public class popProcess_Build : MonoBehaviour
         }
         else
         {
-            CharacterActions.RaiseCharacterDeterminationBy(1, myProcessor.myAction.ExecutingCharacter);
+            var c = myProcessor.myAction.GetExecutingCharacter();
+            if (c is ISideCharacter)
+            {
+                //Nothing
+            }
+            else
+            {
+                CharacterActions.RaiseCharacterDeterminationBy(1, c);
+            }
         }
 
         if (Damage)
         {
-            CharacterActions.DamageCharacterBy(1, myProcessor.myAction.ExecutingCharacter);
+            CharacterActions.DamageCharacterBy(1, myProcessor.myAction.GetExecutingCharacter());
         }
 
         if (Card)
         {
-            FindObjectOfType<BuildingCard_Deck>().DrawAndShow(true);
+            var c = myProcessor.myAction.GetExecutingCharacter();
+            if(c is ISideCharacter)
+            {
+                CharacterActions.DamageCharacterBy(1, c);
+                FindObjectOfType<ActionProcesser>().ProcessNextAction();
+            }
+            else
+            {
+                FindObjectOfType<BuildingCard_Deck>().DrawAndShow(true);
+            }
         }
         else
         {
@@ -58,6 +76,7 @@ public class popProcess_Build : MonoBehaviour
     {
         myProcessor = processor;
         button.onClick.AddListener(TaskOnClick);
+        PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
 
         actionText.text = "Derzeitige Aktion: Bauen von " + myProcessor.item.cardClass.ToString();
         Success = myProcessor.CheckForSuccess();
@@ -80,7 +99,8 @@ public class popProcess_Build : MonoBehaviour
         }
         else
         {
-            damageText.text = myProcessor.myAction.ExecutingCharacter.CharacterName + " erhält 1 Schaden";
+            var c = myProcessor.myAction.GetExecutingCharacter();
+            damageText.text = c.CharacterName + " erhält 1 Schaden";
             dice_Damage.texture = buildingDices[3];
         }
 
@@ -92,7 +112,15 @@ public class popProcess_Build : MonoBehaviour
         }
         else
         {
-            cardText.text = "Es muss eine Karte gezogen werden";
+            var c = myProcessor.myAction.GetExecutingCharacter();
+            if (c is ISideCharacter)
+            {
+                cardText.text = c.CharacterName + " erhält 1 Schaden";
+            }
+            else
+            {
+                cardText.text = "Es muss eine Karte gezogen werden";
+            }
             dice_Card.texture = buildingDices[4];
         }
     }

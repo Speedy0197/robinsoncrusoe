@@ -31,6 +31,8 @@ public class Action_BuildTent : MonoBehaviour
             container = new ActionContainer(2);
             container.ActionType = ActionType.upgradeTent;
             container.ReferingObject = null;
+
+            UpdateMarker();
         }
     }
 

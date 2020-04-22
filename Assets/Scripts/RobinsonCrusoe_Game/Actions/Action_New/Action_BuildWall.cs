@@ -31,6 +31,8 @@ public class Action_BuildWall : MonoBehaviour
             container = new ActionContainer(2);
             container.ActionType = ActionType.upgradeWall;
             container.ReferingObject = null;
+
+            UpdateMarker();
         }
     }
 

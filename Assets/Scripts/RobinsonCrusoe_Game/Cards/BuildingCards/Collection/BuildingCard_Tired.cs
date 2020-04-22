@@ -30,7 +30,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         private void ExecuteActiveThreat()
         {
-            var active = Player.PartyActions.GetActiveCharacter();
+            var active = Player.PartyActions.ExecutingCharacter;
             Characters.CharacterActions.HealCharacterBy(2, active);
         }
 

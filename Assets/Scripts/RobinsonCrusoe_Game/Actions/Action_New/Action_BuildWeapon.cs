@@ -31,6 +31,8 @@ public class Action_BuildWeapon : MonoBehaviour
             container = new ActionContainer(2);
             container.ActionType = ActionType.upgradeWeapons;
             container.ReferingObject = null;
+
+            UpdateMarker();
         }
     }
 

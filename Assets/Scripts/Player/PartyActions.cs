@@ -10,6 +10,7 @@ namespace Assets.Scripts.Player
 {
     public static class PartyActions
     { 
+        public static Character ExecutingCharacter { get; set; }
         public static Character GetActiveCharacter()
         {
             foreach(Character c in PartyHandler.PartySession)
@@ -91,17 +92,13 @@ namespace Assets.Scripts.Player
             {
                 if (c is ISideCharacter) continue;
 
-                if(PerishableFood.currentAmountOfPerishableFood > 0)
+                if(FoodStorage.GetTotal() >= 1)
                 {
-                    PerishableFood.DecreaseBy(1);
-                }
-                else if(UnperishableFood.currentAmountOfUnperishableFood > 0)
-                {
-                    UnperishableFood.DecreaseBy(1);
+                    FoodStorage.Consume(1);
                 }
                 else
                 {
-                    CharacterActions.DamageCharacterBy(1, c);
+                    CharacterActions.DamageCharacterBy(2, c);
                 }
             }
         }

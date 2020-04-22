@@ -16,9 +16,14 @@ public class PopUp_Card_Hide : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Hide();
+    }
+
+    public void Hide()
+    {
         Analytics.CustomEvent("Minimized PopUp");
         currentPopUp.SetActive(false);
-      
+
         reactivator.SetSaved(currentPopUp);
     }
 }

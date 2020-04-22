@@ -27,7 +27,8 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
                 }
                 else
                 {
-                    EndGame.Defeat();
+                    EndGame_Object.TriggerDefeat("OH NEIN!\r\n" + character.CharacterName + " hat seinen letzten Atemzug getan!\r\n" +
+                        "Ohne seine Unterstützung wird der Rest der Gruppe auch nicht mehr lange überleben!");
                 }
             }
             if (!(character is ISideCharacter) 
@@ -68,7 +69,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
 
             if (character is ISideCharacter)
             {
-                DamageCharacterBy(amount, character);
+                //DamageCharacterBy(amount, character);
             }
             else
             {

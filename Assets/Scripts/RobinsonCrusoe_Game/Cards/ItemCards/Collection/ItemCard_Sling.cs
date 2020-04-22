@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Inventions_and_Terrain;
 
 namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
@@ -30,7 +31,10 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.ItemCards.Collection
         {
             return true;
         }
-
+        public void Research()
+        {
+            WeaponPower.RaiseWeaponPowerBy(2);
+        }
         public override string ToString()
         {
             return "Sling";
