@@ -1,6 +1,9 @@
 ﻿using Assets.Scripts.Overlay.Action_PopUps.TokenSelector;
 using Assets.Scripts.Player;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards;
+using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
 using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,25 +81,54 @@ public class PopUp_Methods : MonoBehaviour
         if (useRessources)
         {
             var tokens = GetTotalValue();
-            int costs = 0;
-            if(container.ActionType == ActionType.upgradeWeapons)
-            {
-                costs = 1;
-            }
-            else
-            {
-                costs = BuildingCosts.GetBuildCostsWood();
-            }
-            
-            if (tokens > 0)
-            {
-                Wood.DecreaseWoodBy(costs);
-            }
-            else if(tokens == 0)
-            {
-                Wood.IncreaseWoodBy(costs);
-            }
+            var costs = GetCosts();
+            HandleCosts(costs, tokens);
         }
+    }
+
+    private void HandleCosts(RessourceCosts costs, float tokens)
+    {
+        if (tokens > 0)
+        {
+            Wood.DecreaseWoodBy(costs.AmountOfWood);
+            Fur.DecreaseBy(costs.AmountOfLeather);
+            PerishableFood.DecreaseBy(costs.AmountOfFood);
+        }
+        else if (tokens == 0)
+        {
+            Wood.IncreaseWoodBy(costs.AmountOfWood);
+            Fur.IncreaseBy(costs.AmountOfLeather);
+            PerishableFood.IncreaseBy(costs.AmountOfFood);
+        }
+    }
+
+    private RessourceCosts GetCosts()
+    {
+        if (container.ActionType == ActionType.upgradeWeapons)
+        {
+            return new RessourceCosts(1, 0, 0);
+        }
+        else if (container.ActionType == ActionType.upgradeRoof ||
+            container.ActionType == ActionType.upgradeTent ||
+            container.ActionType == ActionType.upgradeWall)
+        {
+            return BuildingCosts.GetBuildingCosts();
+        }
+
+        if(container.ActionType == ActionType.build)
+        {
+            var obj = container.ReferingObject as ItemCard;
+            return obj.cardClass.GetRessourceCosts();
+        }
+
+        if(container.ActionType == ActionType.preventDanger)
+        {
+            var obj = container.ReferingObject as ThreatCardHolder;
+            var card = obj.ThreatCard.CardClass as IEventCard;
+            return card.GetRessourceCosts();
+        }
+
+        return new RessourceCosts(0, 0, 0);
     }
 
     private void AreAllTokensSpend()
