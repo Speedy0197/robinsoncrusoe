@@ -23,4 +23,14 @@ public class GetUIBase : MonoBehaviour
             IsBlocked = true;
         }
     }
+
+    public void DeactivateAllChildren()
+    {
+        var children = GetComponentsInChildren<Transform>();
+        foreach(var child in children)
+        {
+            if (child == null) continue;
+            child.gameObject.SetActive(false);
+        }
+    }
 }

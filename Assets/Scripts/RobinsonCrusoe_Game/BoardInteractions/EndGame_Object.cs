@@ -5,11 +5,13 @@ using UnityEngine;
 public class EndGame_Object : MonoBehaviour
 {
     public GameObject prefab;
-
+    private bool instantiated = false;
     public void OnVictory(string text)
     {
+        if (instantiated) return;
         var ui = FindObjectOfType<GetUIBase>().GetUI();
         var instance = Instantiate(prefab, ui.transform);
+        instantiated = true;
 
         var component = instance.GetComponent<PopUp_EndGameScreen>();
         component.isVictory = true;
@@ -17,8 +19,10 @@ public class EndGame_Object : MonoBehaviour
     }
     public void OnDefeat(string text)
     {
+        if (instantiated) return;
         var ui = FindObjectOfType<GetUIBase>().GetUI();
         var instance = Instantiate(prefab, ui.transform);
+        instantiated = true;
 
         var component = instance.GetComponent<PopUp_EndGameScreen>();
         component.isVictory = false;

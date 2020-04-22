@@ -36,4 +36,9 @@ public class PopUp_EndGameScreen : MonoBehaviour
             EndGame.Defeat();
         }
     }
+
+    private void Update()
+    {
+        transform.SetAsLastSibling();
+    }
 }
