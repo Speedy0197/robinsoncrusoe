@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,12 +9,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
 {
     public static class BuildingCosts
     {   
-        public static int GetBuildCostsWood()
+        public static RessourceCosts GetBuildingCosts()
         {
-            if (Player.PartyHandler.PartySize == 2) return 2;
-            if (Player.PartyHandler.PartySize == 3) return 3;
-            if (Player.PartyHandler.PartySize == 4) return 4;
-            return 1;
+            if (Player.PartyHandler.PartySize == 3) return new RessourceCosts(3, 0, 0);
+            if (Player.PartyHandler.PartySize == 4) return new RessourceCosts(4, 0, 0);
+            return new RessourceCosts(2, 0, 0);
         }
     }
 }

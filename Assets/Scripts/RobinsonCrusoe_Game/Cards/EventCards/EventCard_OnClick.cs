@@ -1,4 +1,6 @@
 ﻿using Assets.Scripts.RobinsonCrusoe_Game.Cards.EventCards;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes;
+using Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -21,5 +23,16 @@ public class EventCard_OnClick : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
+    }
+
+    private bool CheckBuildCosts(IEventCard card)
+    {
+        var costs = card.GetRessourceCosts();
+
+        bool retVal = true;
+        if (Wood.currentAmountOfWood < costs.AmountOfWood) retVal = false;
+        if (Fur.currentAmountOfFur < costs.AmountOfLeather) retVal = false;
+        if (PerishableFood.currentAmountOfPerishableFood < costs.AmountOfFood) retVal = false;
+        return retVal;
     }
 }

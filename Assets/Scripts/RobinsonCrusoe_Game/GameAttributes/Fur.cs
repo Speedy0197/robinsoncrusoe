@@ -10,7 +10,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
     {
         public static event EventHandler AmountOFFurChanged;
 
-        private static int currentAmountOfFur;
+        public static int currentAmountOfFur { get; private set; }
 
         public static void SetStartValue(int value)
         {
