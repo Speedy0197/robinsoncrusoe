@@ -48,6 +48,8 @@ public class PopUp_Night_Show : MonoBehaviour
             Roof.HalfValue();
         }
 
+        FoodStorage.DiscardFood();
+
         Destroy(popUp);
         var phaseView = FindObjectOfType<PhaseView>();
         phaseView.NextPhase();

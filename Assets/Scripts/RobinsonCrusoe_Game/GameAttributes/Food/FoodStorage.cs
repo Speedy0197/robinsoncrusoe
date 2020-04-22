@@ -94,5 +94,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes.Food
         {
             return Food + PermanentFood;
         }
+
+        public static void DiscardFood()
+        {
+            Food = 0;
+            AmountOfFoodChanged?.Invoke(Food, new EventArgs());
+        }
     }
 }

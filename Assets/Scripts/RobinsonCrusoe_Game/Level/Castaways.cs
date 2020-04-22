@@ -11,6 +11,9 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Level
 {
     public class Castaways : Level
     {
+        public const int weatherRound = 4;
+        public const int stormRound = 7;
+
         public override bool CheckForVictory(int currentRound)
         {
             if(currentRound >= 10 &&
@@ -27,17 +30,22 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Level
             return 12;
         }
 
+        public override int GetStormRound()
+        {
+            return stormRound;
+        }
+
         public override DiceSet GetWeatherDices(int currentRound)
         {
             DiceSet dice = new DiceSet();
-            if(currentRound >= 4 && currentRound < 7)
+            if(currentRound >= weatherRound && currentRound < stormRound)
             {
                 dice.weatherDice_Normal = true;
                 dice.weatherDice_Advanced = false;
                 dice.environmentalDice = false;
                 return dice;
             }
-            else if(currentRound >= 7)
+            else if(currentRound >= stormRound)
             {
                 dice.weatherDice_Normal = true;
                 dice.weatherDice_Advanced = true;
@@ -48,6 +56,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Level
             dice.weatherDice_Advanced = false;
             dice.environmentalDice = false;
             return dice;
+        }
+
+        public override int GetWeatherRound()
+        {
+            return weatherRound;
         }
     }
 }

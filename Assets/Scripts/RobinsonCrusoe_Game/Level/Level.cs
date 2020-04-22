@@ -13,5 +13,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Level
         public abstract DiceSet GetWeatherDices(int currentRound);
 
         public abstract bool CheckForVictory(int currentRound);
+        public abstract int GetWeatherRound();
+        public abstract int GetStormRound();
     }
 }

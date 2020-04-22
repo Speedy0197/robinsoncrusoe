@@ -19,6 +19,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Characters
             character.CurrentHealth -= amount;
             if (character.CurrentHealth <= 0)
             {
+                character.CurrentDetermination = 0;
                 //Character Death
                 if(character is ISideCharacter)
                 {

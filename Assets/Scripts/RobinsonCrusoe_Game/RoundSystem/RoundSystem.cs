@@ -18,7 +18,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
 
         public int currentRound { get; private set; }
         public bool started { get; private set; }
-        private Level.Level myLevel;
+        public Level.Level myLevel { get; private set; }
 
         public RoundSystem(Level.Level level)
         {
@@ -57,6 +57,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
                 EndGame_Object.TriggerDefeat("Deiner Gruppe ist leider die Zeit ausgegangen. Aus diesem Grund wird diese Insel von nun an eure neue Heimat.");
             }
 
+            CharacterView_UpdateOnRoundChange.SetToCurrentActive_Global();
             InvokeRoundChange();
         }
 

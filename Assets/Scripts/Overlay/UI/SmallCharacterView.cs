@@ -11,7 +11,8 @@ public class SmallCharacterView : MonoBehaviour, IPointerClickHandler
     public Text healthPoints;
     public RawImage characterPortrait;
 
-    private Character myCharacter;
+    public Character myCharacter;
+    public bool isActive = false;
     private int lastHealth;
 
     private void Start()
@@ -33,11 +34,16 @@ public class SmallCharacterView : MonoBehaviour, IPointerClickHandler
     {
         myCharacter = character;
         characterName.text = myCharacter.CharacterName;
+        isActive = true;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!FindObjectOfType<ClickChecker>().clickAllowed) return;
+        SetAsActive();
+    }
+
+    public void SetAsActive()
+    {
         if (myCharacter is ISideCharacter) return; //Cannot click on side character, they have no abilities
         var view = FindObjectOfType<HealthView>();
         view.SetMainCharacter(myCharacter);
