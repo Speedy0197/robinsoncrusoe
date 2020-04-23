@@ -64,6 +64,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         private void InvokeRoundChange()
         {
             string roundString = currentRound + "/" + myLevel.GetNumberOfRounds();
+            PopUp_Mission_StackOfWood.OnRoundChange();
             RoundChanged?.Invoke(roundString, new EventArgs());
         }
     }

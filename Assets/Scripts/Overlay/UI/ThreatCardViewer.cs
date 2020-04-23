@@ -51,7 +51,6 @@ public class ThreatCardViewer : MonoBehaviour
         newStack.Enqueue(array[1]);
         threatStack = newStack;
 
-        Debug.Log("Removing");
         foreach(var item in threatStack)
         {
             Debug.Log(item);
@@ -64,6 +63,7 @@ public class ThreatCardViewer : MonoBehaviour
     {
         if(threatStack.Count == 3)
         {
+            Debug.Log(3);
             var threatArray = threatStack.ToArray();
             Card_LowThreat.GetComponent<RawImage>().texture = threatArray[2].CardTexture;
             Card_LowThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[2];
@@ -79,6 +79,7 @@ public class ThreatCardViewer : MonoBehaviour
             }
             else
             {
+                var doomedCard = threatStack.Dequeue();
                 var phaseView = FindObjectOfType<PhaseView>();
                 phaseView.NextPhase();
             }

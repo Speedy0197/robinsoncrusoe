@@ -14,11 +14,13 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Level
         public const int weatherRound = 4;
         public const int stormRound = 7;
 
+        private bool isStackCompleted = false;
+
         public override bool CheckForVictory(int currentRound)
         {
             if(currentRound >= 10 &&
               InventionStorage.IsAvailable(Invention.Fire) &&
-              Wood.currentAmountOfWood >= 15)
+              isStackCompleted)
             {
                 return true;
             }
@@ -61,6 +63,11 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Level
         public override int GetWeatherRound()
         {
             return weatherRound;
+        }
+
+        public void StackOfWood_Completed()
+        {
+            isStackCompleted = true;
         }
     }
 }

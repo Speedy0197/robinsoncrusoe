@@ -4154,7 +4154,7 @@ Transform:
   m_Children:
   - {fileID: 278680099}
   m_Father: {fileID: 900573304}
-  m_RootOrder: 39
+  m_RootOrder: 38
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!64 &653783147
 MeshCollider:
@@ -6150,7 +6150,7 @@ Transform:
   m_Children:
   - {fileID: 709038679}
   m_Father: {fileID: 900573304}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!114 &848968403
 MonoBehaviour:
@@ -6476,8 +6476,8 @@ Transform:
   - {fileID: 943403391}
   - {fileID: 757989993}
   - {fileID: 488513975}
-  - {fileID: 848968402}
   - {fileID: 653783146}
+  - {fileID: 848968402}
   - {fileID: 158455953}
   - {fileID: 288321653}
   - {fileID: 842556750}

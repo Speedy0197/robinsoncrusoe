@@ -27,8 +27,9 @@ public class PopUp_Mission_Show : MonoBehaviour
         round.text = RoundSystem.instance.currentRound.ToString();
         if (RoundSystem.instance.currentRound >= 10) roundGoal.SetActive(true);
 
-        wood.text = Wood.currentAmountOfWood.ToString();
-        if (Wood.currentAmountOfWood >= 15) woodGoal.SetActive(true);
+        int value = PopUp_Mission_StackOfWood.GetTotalValue();
+        wood.text = value.ToString();
+        if (value >= 15) woodGoal.SetActive(true);
 
         if (InventionStorage.IsAvailable(Invention.Fire))
         {
