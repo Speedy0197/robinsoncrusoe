@@ -63,7 +63,6 @@ public class popProcess_Gather : MonoBehaviour
             else
             {
                 FindObjectOfType<GatheringCard_Deck>().DrawAndShow(true);
-                FindObjectOfType<ActionProcesser>().ProcessNextAction();
             }
         }
         else

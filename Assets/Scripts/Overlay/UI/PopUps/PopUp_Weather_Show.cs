@@ -90,8 +90,12 @@ public class PopUp_Weather_Show : MonoBehaviour
     }
 
     private EnvironmentalDice result_Environment;
+
+    private int amountRoofLeft;
     private void RollDices(DiceSet weatherDice)
     {
+        amountRoofLeft = Roof.RoofState;
+
         if (weatherDice.weatherDice_Normal)
         {
             diceObject_1.SetActive(true);
@@ -207,13 +211,16 @@ public class PopUp_Weather_Show : MonoBehaviour
 
     private void GetRidOfRain(int amount)
     {
-        if (amount > Roof.RoofState)
+        if (amount == amountRoofLeft) amountRoofLeft = 0;
+        else if (amount > amountRoofLeft)
         {
-            int difference = amount - Roof.RoofState;
-            if (difference <= 0) return; 
+            int difference = amount - amountRoofLeft;
+            if (difference <= 0) return;
             amountFoodGone += difference;
             amountWoodGone += difference;
+            amountRoofLeft = 0;
         }
+        else if (amount < amountRoofLeft) amountRoofLeft -= amount;
     }
     private void ShowDamage()
     {
