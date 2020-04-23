@@ -77,7 +77,7 @@ public class popProcess_Roof : MonoBehaviour
         PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
-        actionText.text = "Derzeitige Aktion: Bauen einer Dachverbesserung";
+        actionText.text = "Derzeitige Aktion: " + myProcessor.myAction.GetExecutingCharacter().CharacterName + " baut eine Dachverbesserung";
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {

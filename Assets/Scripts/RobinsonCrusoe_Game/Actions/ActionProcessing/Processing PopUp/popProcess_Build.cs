@@ -78,7 +78,7 @@ public class popProcess_Build : MonoBehaviour
         button.onClick.AddListener(TaskOnClick);
         PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
 
-        actionText.text = "Derzeitige Aktion: Bauen von " + myProcessor.item.cardClass.ToString();
+        actionText.text = "Derzeitige Aktion: " + myProcessor.myAction.GetExecutingCharacter().CharacterName + " baut " + myProcessor.item.cardClass.ToString();
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {

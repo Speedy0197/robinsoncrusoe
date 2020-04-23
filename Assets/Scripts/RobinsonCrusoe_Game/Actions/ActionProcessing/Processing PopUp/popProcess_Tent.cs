@@ -77,7 +77,7 @@ public class popProcess_Tent : MonoBehaviour
         PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
-        actionText.text = "Derzeitige Aktion: Bauen von Unterschlupf";
+        actionText.text = "Derzeitige Aktion: " + myProcessor.myAction.GetExecutingCharacter().CharacterName + " baut einen Unterschlupf";
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {

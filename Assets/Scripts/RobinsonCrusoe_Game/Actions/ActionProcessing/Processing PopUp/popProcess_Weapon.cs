@@ -77,7 +77,7 @@ public class popProcess_Weapon : MonoBehaviour
         PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
-        actionText.text = "Derzeitige Aktion: Bauen einer Waffenverbesserung";
+        actionText.text = "Derzeitige Aktion: " + myProcessor.myAction.GetExecutingCharacter().CharacterName + " baut eine Waffenverbesserung";
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {

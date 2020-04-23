@@ -18,6 +18,7 @@ public class PopUp_Morale_Show : MonoBehaviour
     public GameObject popUp;
 
     private bool wantsHeal = false;
+    private bool wantsDetermination = false;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,7 @@ public class PopUp_Morale_Show : MonoBehaviour
     private void ChooseMorale()
     {
         wantsHeal = false;
+        wantsDetermination = true;
         var btnColor = chooseMorale.GetComponent<Image>();
         btnColor.color = new Color(0, 255, 0);
 
@@ -56,6 +58,7 @@ public class PopUp_Morale_Show : MonoBehaviour
     private void ChooseHearts()
     {
         wantsHeal = true;
+        wantsDetermination = false;
         var btnColor = chooseHeart.GetComponent<Image>();
         btnColor.color = new Color(0, 255, 0);
 
@@ -65,6 +68,8 @@ public class PopUp_Morale_Show : MonoBehaviour
 
     private void TaskOnClick()
     {
+        if (Moral.GetCurrentMoralState() == MoralState.Best && !wantsHeal && !wantsDetermination) return;
+
         var character = PartyActions.GetActiveCharacter();
         if (wantsHeal)
         {

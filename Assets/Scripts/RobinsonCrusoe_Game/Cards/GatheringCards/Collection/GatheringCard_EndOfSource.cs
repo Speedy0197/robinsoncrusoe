@@ -34,7 +34,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 
         public string GetCardDescription()
         {
-            return "TODO";
+            return "Die Quelle der gesammelten Ressource ist aufgebraucht.";
         }
 
         public int GetMaterialNumber()

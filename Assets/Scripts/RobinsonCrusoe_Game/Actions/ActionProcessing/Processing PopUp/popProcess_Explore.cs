@@ -77,7 +77,7 @@ public class popProcess_Explore : MonoBehaviour
         PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
-        actionText.text = "Derzeitige Aktion: Entdecken";
+        actionText.text = "Derzeitige Aktion: " + myProcessor.myAction.GetExecutingCharacter().CharacterName + " entdeckt die Insel";
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {

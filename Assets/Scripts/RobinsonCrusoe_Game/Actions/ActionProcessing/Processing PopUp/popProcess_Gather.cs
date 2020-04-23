@@ -77,7 +77,7 @@ public class popProcess_Gather : MonoBehaviour
         PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
-        actionText.text = "Derzeitige Aktion: Sammeln von " + myProcessor.myAction.CollectRessource.ToString() + " auf " + myProcessor.island.myCard.ToString();
+        actionText.text = "Derzeitige Aktion: " + myProcessor.myAction.GetExecutingCharacter().CharacterName + " sammelt " + myProcessor.myAction.CollectRessource.ToString() + " auf " + myProcessor.island.myCard.ToString();
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {

@@ -77,7 +77,7 @@ public class popProcess_Wall : MonoBehaviour
         PartyActions.ExecutingCharacter = myProcessor.myAction.GetExecutingCharacter();
         button.onClick.AddListener(TaskOnClick);
 
-        actionText.text = "Derzeitige Aktion: Bauen einer Pallisadenverbesserung";
+        actionText.text = "Derzeitige Aktion: " + myProcessor.myAction.GetExecutingCharacter().CharacterName + " baut eine Pallisadenverbesserung";
         Success = myProcessor.CheckForSuccess();
         if (Success)
         {
