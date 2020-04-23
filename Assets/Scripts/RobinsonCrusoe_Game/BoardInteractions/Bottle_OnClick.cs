@@ -10,8 +10,9 @@ public class Bottle_OnClick : MonoBehaviour
     private int Charges = 2;
 
     private void OnMouseDown()
-    {
-        if (GetComponent<Actionphase_CanClick>().IsClickable)
+    { 
+        var component = GetComponent<Actionphase_CanClick>();
+        if (component != null && component.IsClickable)
         {
             if (Charges == 0) return;
 

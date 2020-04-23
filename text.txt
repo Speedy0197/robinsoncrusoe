@@ -5,9 +5,8 @@ Release:
 * Functioning Board
 * Free Camera (maybe too free)
 * Tutorial / Trailer
-* Probably still buggy, leave a note if you find anything
 
 The actual board game is still our role model, but we had to adjust a few rules to make it playable for friday.
-Feel free to test it out
+Feel free to test it out -> If you find any bugs let us know!
 
-https://drive.google.com/drive/folders/13JiOeyUyvIZNzf7heeooQ6yhQ_vkCfPd?usp=sharing
+https://files.florian-zug.de/index.php/s/pe9eb78ifAjYbaC

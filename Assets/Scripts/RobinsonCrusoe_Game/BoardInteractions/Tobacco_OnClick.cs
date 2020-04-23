@@ -11,8 +11,9 @@ public class Tobacco_OnClick : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (GetComponent<Actionphase_CanClick>().IsClickable)
-        {
+        var component = GetComponent<Actionphase_CanClick>();
+        if (component != null && component.IsClickable)
+        { 
             if (Charges == 0) return;
 
             PartyActions.RaiseDeterminationOfPartyBy(2);
