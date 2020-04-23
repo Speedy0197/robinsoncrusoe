@@ -69,11 +69,19 @@ public class ThreatCardViewer : MonoBehaviour
             Card_LowThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[2];
             Card_LowThreat.GetComponent<ThreatCardHolder>().ThreatLevel = ThreatLevel.Low;
 
-            Card_HighThreat.GetComponent<RawImage>().texture = threatArray[1].CardTexture;
-            Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[1];
-            Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatLevel = ThreatLevel.High;
+            if (threatArray[1].CardClass != null)
+            {
+                Card_HighThreat.GetComponent<RawImage>().texture = threatArray[1].CardTexture;
+                Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatCard = threatArray[1];
+                Card_HighThreat.GetComponent<ThreatCardHolder>().ThreatLevel = ThreatLevel.High;
 
-            HandleDoomedCard();
+                HandleDoomedCard();
+            }
+            else
+            {
+                var phaseView = FindObjectOfType<PhaseView>();
+                phaseView.NextPhase();
+            }
         }
         else if(threatStack.Count == 2)
         {
