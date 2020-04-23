@@ -18,5 +18,6 @@ public class StartCard_Initializer : MonoBehaviour
         startingCards[6].GetComponent<ItemCard>().cardClass = new ItemCard_Map();
         startingCards[7].GetComponent<ItemCard>().cardClass = new ItemCard_Pot();
         startingCards[8].GetComponent<ItemCard>().cardClass = new ItemCard_Rope();
+        startingCards[9].GetComponent<ItemCard>().cardClass = new ItemCard_Furnance();
     }
 }

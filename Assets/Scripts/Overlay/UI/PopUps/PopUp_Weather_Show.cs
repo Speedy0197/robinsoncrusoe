@@ -35,6 +35,7 @@ public class PopUp_Weather_Show : MonoBehaviour
 
     private int amountFoodGone = 0;
     private int amountWoodGone = 0;
+    private bool furnaceEffectUsed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,8 +58,6 @@ public class PopUp_Weather_Show : MonoBehaviour
                 GetRidOfRain(1);
             }
         }
-
-        if (InventionStorage.IsAvailable(Invention.Furnance)) GetRidOfSnow(-1);
 
         weatherDice = RoundSystem.instance.GetWeatherDices();
         RollDices(weatherDice);
@@ -205,6 +204,12 @@ public class PopUp_Weather_Show : MonoBehaviour
 
     private void GetRidOfSnow(int amount)
     {
+        if (InventionStorage.IsAvailable(Invention.Furnance) &&
+            !furnaceEffectUsed)
+        {
+            amount--;
+            furnaceEffectUsed = true;
+        }
         amountWoodGone += amount;
         GetRidOfRain(amount);
     }

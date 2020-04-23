@@ -67,7 +67,6 @@ public class ItemCard_Deck : MonoBehaviour
         //newDeck.Add(new ItemCard_Corral());
         //newDeck.Add(new ItemCard_Diary());
         //newDeck.Add(new ItemCard_Fireplace());
-        newDeck.Add(new ItemCard_Furnance());
         //newDeck.Add(new ItemCard_Drums());
         //newDeck.Add(new ItemCard_Lantern());
         newDeck.Add(new ItemCard_Moat());
