@@ -30,12 +30,26 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.GameAttributes
             }
         }
 
-        internal static void HalfValue()
+        internal static void HalfValue_Floor()
         {
-            int current = RoofState;
-            int halfed = Convert.ToInt32(current / 2);
+            double current = RoofState;
+            double halfed = current / 2;
 
-            RoofState = halfed;
+            double floored_half = Math.Floor(halfed);
+            int int_half = Convert.ToInt32(floored_half);
+
+            RoofState = int_half;
+            RoofChanged?.Invoke(RoofState, new EventArgs());
+        }
+        internal static void HalfValue_Ceiling()
+        {
+            double current = RoofState;
+            double halfed = current / 2;
+
+            double ceiling_half = Math.Ceiling(halfed);
+            int int_half = Convert.ToInt32(ceiling_half);
+
+            RoofState = int_half;
             RoofChanged?.Invoke(RoofState, new EventArgs());
         }
 

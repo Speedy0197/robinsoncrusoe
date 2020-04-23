@@ -25,7 +25,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.BuildingCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            Wall.HalfValue();
+            Wall.HalfValue_Floor();
         }
 
         private void ExecuteActiveThreat()

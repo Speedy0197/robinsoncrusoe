@@ -25,7 +25,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.Cards.GatheringCards.Collection
 
         private void ExecuteFutureThreat()
         {
-            Roof.HalfValue();
+            Roof.HalfValue_Floor();
         }
 
         private void ExecuteActiveThreat()

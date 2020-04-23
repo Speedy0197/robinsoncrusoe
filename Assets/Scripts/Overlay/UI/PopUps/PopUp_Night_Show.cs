@@ -44,8 +44,8 @@ public class PopUp_Night_Show : MonoBehaviour
 
         if (CampMoved)
         {
-            Wall.HalfValue();
-            Roof.HalfValue();
+            Wall.HalfValue_Ceiling();
+            Roof.HalfValue_Ceiling();
         }
 
         FoodStorage.DiscardFood();
