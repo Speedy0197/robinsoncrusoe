@@ -12017,8 +12017,8 @@ GameObject:
   - component: {fileID: 1970125034}
   - component: {fileID: 1970125033}
   - component: {fileID: 1970125032}
-  - component: {fileID: 1970125036}
   - component: {fileID: 1970125035}
+  - component: {fileID: 1970125036}
   m_Layer: 0
   m_Name: HelperItem_Buiscuits
   m_TagString: Untagged

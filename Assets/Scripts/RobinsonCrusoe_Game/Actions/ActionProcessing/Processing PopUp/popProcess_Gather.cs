@@ -32,18 +32,18 @@ public class popProcess_Gather : MonoBehaviour
         Destroy(popup);
         if (Success)
         {
-            myProcessor.island.Explore();
+            myProcessor.GetRessources();
         }
         else
         {
             var c = myProcessor.myAction.GetExecutingCharacter();
-            if(c is ISideCharacter)
+            if (c is ISideCharacter)
             {
                 //Nothing
             }
             else
             {
-                CharacterActions.RaiseCharacterDeterminationBy(1, c);
+                CharacterActions.RaiseCharacterDeterminationBy(2, c);
             }
         }
 
@@ -55,12 +55,16 @@ public class popProcess_Gather : MonoBehaviour
         if (Card)
         {
             var c = myProcessor.myAction.GetExecutingCharacter();
-            if(c is ISideCharacter)
+            if (c is ISideCharacter)
             {
                 CharacterActions.DamageCharacterBy(1, c);
                 FindObjectOfType<ActionProcesser>().ProcessNextAction();
             }
-            FindObjectOfType<GatheringCard_Deck>().DrawAndShow(true);
+            else
+            {
+                FindObjectOfType<GatheringCard_Deck>().DrawAndShow(true);
+                FindObjectOfType<ActionProcesser>().ProcessNextAction();
+            }
         }
         else
         {
