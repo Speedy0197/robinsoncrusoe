@@ -35,7 +35,7 @@ public class PopUp_Night_Show : MonoBehaviour
             PartyActions.DamageAllPlayers(1);
         }
 
-        if (InventionStorage.IsAvailable(Invention.Furnance))
+        if (InventionStorage.IsAvailable(Invention.Cellar))
         {
             var food = FoodStorage.Food;
             FoodStorage.DecreaseFoodBy(food);
