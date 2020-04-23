@@ -31,7 +31,7 @@ public class PopUp_Mission_StackOfWood : MonoBehaviour
 
     private void TaskOnClick()
     {
-        if(Wood.currentAmountOfWood > 1 && 
+        if(Wood.currentAmountOfWood >= 1 && 
             !finishedStack &&
             StackNumber < 6)
         {
@@ -55,6 +55,12 @@ public class PopUp_Mission_StackOfWood : MonoBehaviour
                     var castaways = (Castaways)level;
                     castaways.StackOfWood_Completed();
                 }
+            }
+
+            var pop = FindObjectOfType<PopUp_Mission_Show>();
+            if(pop != null)
+            {
+                pop.UpdateText();
             }
         }
     }

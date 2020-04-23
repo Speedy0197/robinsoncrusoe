@@ -24,11 +24,19 @@ public class PopUp_Mission_Show : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        UpdateText();
+
+        closeBtn.onClick.AddListener(TaskOnClick);
+    }
+
+    public void UpdateText()
+    {
         round.text = RoundSystem.instance.currentRound.ToString();
         if (RoundSystem.instance.currentRound >= 10) roundGoal.SetActive(true);
 
         int value = PopUp_Mission_StackOfWood.GetTotalValue();
         wood.text = value.ToString();
+        Debug.Log(value);
         if (value >= 15) woodGoal.SetActive(true);
 
         if (InventionStorage.IsAvailable(Invention.Fire))
@@ -36,8 +44,6 @@ public class PopUp_Mission_Show : MonoBehaviour
             fire.text = "1";
             fireGoal.SetActive(true);
         }
-
-        closeBtn.onClick.AddListener(TaskOnClick);
     }
 
     private void TaskOnClick()
