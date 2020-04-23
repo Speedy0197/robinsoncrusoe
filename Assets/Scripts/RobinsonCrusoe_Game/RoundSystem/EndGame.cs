@@ -25,6 +25,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             param.Add("FromRoof", Score.FromRoof);
             param.Add("FromWall", Score.FromWall);
             param.Add("FromWeapon", Score.FromWeapon);
+            param.Add("FromDifficulty", Score.FromDifficulty);
             param.Add("FromVictory", Score.FromVictory);
             param.Add("Total", Score.Total);
 
@@ -44,6 +45,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             param.Add("FromRoof", Score.FromRoof);
             param.Add("FromWall", Score.FromWall);
             param.Add("FromWeapon", Score.FromWeapon);
+            param.Add("FromDifficulty", Score.FromDifficulty);
             param.Add("FromVictory", Score.FromVictory);
             param.Add("Total", Score.Total);
 
@@ -61,6 +63,7 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
         public static int FromRoof { get; private set; }
         public static int FromWall { get; private set; }
         public static int FromWeapon { get; private set; }
+        public static int FromDifficulty { get; private set; }
         public static int FromVictory { get; private set; } = 0;
         public static int Total { get; private set; }
 
@@ -81,6 +84,12 @@ namespace Assets.Scripts.RobinsonCrusoe_Game.RoundSystem
             FromWeapon = WeaponPower.currentWeaponPower * 2;
 
             if (victorious) FromVictory = 8;
+
+            if (DifficultyHandler.Value == 0) FromDifficulty = 2;
+            if (DifficultyHandler.Value == 1) FromDifficulty = 4;
+            if (DifficultyHandler.Value == 2) FromDifficulty = 7;
+            if (DifficultyHandler.Value == 3) FromDifficulty = 11;
+            if (DifficultyHandler.Value == 4) FromDifficulty = 16;
 
             Total = FromWood + FromFood + FromPermanentFood + FromHealth + FromRoof + FromWall + FromWeapon + FromVictory;
         }
